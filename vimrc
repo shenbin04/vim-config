@@ -54,6 +54,11 @@ nnoremap <C-l> <C-w>l
 
 nnoremap <Leader>q :q<CR>
 
+" Undo
+set undolevels=1000
+set undodir=~/.vim/undo
+set undofile
+
 " Fugitive
 nnoremap <silent> <Leader>gs :Gstatus<CR>
 nnoremap <silent> <Leader>gc :Gcommit<CR>
