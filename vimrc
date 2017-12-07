@@ -6,8 +6,8 @@ autocmd bufwritepost vimrc source $MYVIMRC
 
 " General
 syntax on
-set relativenumber
 set number
+set relativenumber
 set hidden
 
 " Formatting
