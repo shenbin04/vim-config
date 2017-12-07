@@ -79,3 +79,17 @@ nnoremap <C-y> :YRShow<cr>
 let g:yankring_max_history = 200
 let g:yankring_history_dir = '$HOME/.vim'
 let g:yankring_manual_clipboard_check = 0
+
+" Ctrlp
+noremap <Leader>, :CtrlPMixed<CR>
+let g:ctrlp_map = '<Leader>.'
+let g:ctrlp_regexp = 1
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(o|so|dll)$',
+  \ }
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_use_caching = 0
+" let g:ctrlp_lazy_update = 1
+let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*\|\.git.*\|.*\/var\/folders\/.*'
+let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files']
