@@ -164,3 +164,18 @@ set laststatus=2
 
 " Nerdcommenter
 let g:NERDSpaceDelims = 1
+
+" NERDTree
+nnoremap <C-g> :NERDTreeToggle<cr>
+nnoremap <C-f> :NERDTreeFind<CR>zz
+hi NERDTreeDir ctermfg=81 cterm=none
+hi NERDTreeDirSlash ctermfg=81 cterm=none
+hi NERDTreeCWD ctermfg=118 cterm=none
+let NERDTreeQuitOnOpen = 1
+let NERDTreeShowFiles = 1
+let NERDTreeShowBookmarks = 1
+let NERDTreeHighlightCursorline = 1
+let g:NERDTreeMapJumpNextSibling = ''
+let g:NERDTreeMapJumpPrevSibling = ''
+let NERDTreeIgnore = [ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$', '\.o$', '__pycache__',
+                     \ '\.so$', '\.egg$', '^\.git$', '\.cmi', '\.cmo', 'tags' ]
