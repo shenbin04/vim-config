@@ -88,6 +88,33 @@ set undolevels=1000
 set undodir=~/.vim/undo
 set undofile
 
+" Javascript
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_flow = 1
+let g:jsx_ext_required = 0
+hi link jsClassProperty jsClassFuncName
+hi link jsObjectKey Identifier
+hi link jsImport jsClassKeyword
+hi link jsFrom jsClassKeyword
+hi link jsExport jsClassKeyword
+hi link jsExtendsKeyword jsClassKeyword
+hi link jsObjectKeyComputed jsGlobalObjects
+hi link jsFlowObject Identifier
+hi link jsFlowGroup Identifier
+hi link jsFlowTypeStatement jsGlobalObjects
+hi link jsFlowTypeValue jsGlobalObjects
+hi link jsFlowTypeof jsClassKeyword
+hi link jsFlowImportType jsGlobalObjects
+hi jsThis ctermfg=81
+hi jsFuncCall ctermfg=81
+hi jsFuncName ctermfg=118
+hi jsClassDefinition ctermfg=81
+hi jsTemplateBraces ctermfg=81
+
+" Json
+let g:vim_json_syntax_conceal = 0
+au BufNewFile,BufRead *.eslintrc set filetype=json
+
 " Fugitive
 nnoremap <silent> <Leader>gs :Gstatus<CR>
 nnoremap <silent> <Leader>gc :Gcommit<CR>
