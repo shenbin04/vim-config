@@ -1,6 +1,9 @@
 " Pathogen
 execute pathogen#infect()
 
+" Auto reload vimrc
+autocmd bufwritepost vimrc source $MYVIMRC
+
 " General
 syntax on
 set relativenumber
