@@ -9,6 +9,19 @@ syntax on
 set number
 set relativenumber
 set hidden
+set cursorline
+set backspace=eol,start,indent
+set updatecount=100
+set directory=~/.vim/swap
+set diffopt=filler,iwhite
+set history=1000
+set scrolloff=3
+set visualbell t_vb=
+set shortmess+=A
+set foldlevelstart=99
+set pastetoggle=<F1>
+set ttimeoutlen=0
+set updatetime=1000
 
 " Formatting
 filetype plugin indent on
