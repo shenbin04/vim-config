@@ -23,3 +23,7 @@ set formatoptions-=t formatoptions+=croql
 
 " Color
 colorscheme molokai
+
+" Whitespace
+set list
+set listchars=tab:▸\ ,trail:•,extends:»,precedes:«
