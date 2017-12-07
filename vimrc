@@ -27,3 +27,10 @@ colorscheme molokai
 " Whitespace
 set list
 set listchars=tab:▸\ ,trail:•,extends:»,precedes:«
+
+" Search
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+set showmatch
