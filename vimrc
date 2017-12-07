@@ -127,3 +127,10 @@ let g:ctrlp_use_caching = 0
 " let g:ctrlp_lazy_update = 1
 let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*\|\.git.*\|.*\/var\/folders\/.*'
 let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files']
+
+" airline
+let g:airline_theme='powerlineish'
+let g:airline_section_x=''
+let g:airline_section_y=''
+let g:airline_section_z = airline#section#create(['windowswap', '%3p%% ', 'linenr', ':%3v'])
+set laststatus=2
