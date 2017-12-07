@@ -49,6 +49,10 @@ hi clear cssBraceError
 hi clear jsonTrailingCommaError
 hi clear jsParensError
 
+" Command completion
+set wildmenu
+set wildmode=list:longest,full
+
 " Whitespace
 set list
 set listchars=tab:▸\ ,trail:•,extends:»,precedes:«
