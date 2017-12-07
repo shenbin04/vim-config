@@ -67,9 +67,15 @@ autocmd User fugitive
   \ endif
 
 " Gitgutter
-let g:gitgutter_max_signs = 10000
+let g:gitgutter_max_signs = 1000
 hi GitGutterAdd ctermfg=28 ctermbg=234 cterm=none
 hi GitGutterAddLine ctermfg=28 ctermbg=234 cterm=none
 hi GitGutterChange ctermfg=3 ctermbg=234 cterm=none
 hi GitGutterDelete ctermfg=1 ctermbg=234 cterm=none
 hi GitGutterChangeDelete ctermfg=3 ctermbg=234 cterm=none
+
+" YankRing
+nnoremap <C-y> :YRShow<cr>
+let g:yankring_max_history = 200
+let g:yankring_history_dir = '$HOME/.vim'
+let g:yankring_manual_clipboard_check = 0
