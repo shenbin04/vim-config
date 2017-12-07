@@ -39,6 +39,19 @@ set showmatch
 let mapleader = ","
 let localmapleader = ","
 
+nnoremap _ :split<cr>
+nnoremap \| :vsplit<cr>
+
+nnoremap <Up>    2<C-w>-
+nnoremap <Down>  2<C-w>+
+nnoremap <Left>  2<C-w><
+nnoremap <Right> 2<C-w>>
+
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
 nnoremap <Leader>q :q<CR>
 
 " Fugitive
