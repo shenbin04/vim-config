@@ -1,3 +1,6 @@
+" Pathogen
+execute pathogen#infect()
+
 " General
 syntax on
 set relativenumber
