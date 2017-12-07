@@ -34,3 +34,9 @@ set smartcase
 set hlsearch
 set incsearch
 set showmatch
+
+" Mapping
+let mapleader = ","
+let localmapleader = ","
+
+nnoremap <Leader>q :q<CR>
