@@ -65,3 +65,11 @@ autocmd User fugitive
   \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
   \   nnoremap <buffer> .. :edit %:h<CR> |
   \ endif
+
+" Gitgutter
+let g:gitgutter_max_signs = 10000
+hi GitGutterAdd ctermfg=28 ctermbg=234 cterm=none
+hi GitGutterAddLine ctermfg=28 ctermbg=234 cterm=none
+hi GitGutterChange ctermfg=3 ctermbg=234 cterm=none
+hi GitGutterDelete ctermfg=1 ctermbg=234 cterm=none
+hi GitGutterChangeDelete ctermfg=3 ctermbg=234 cterm=none
