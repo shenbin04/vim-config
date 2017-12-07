@@ -1,0 +1,2 @@
+" General
+syntax on
