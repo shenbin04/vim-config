@@ -2,7 +2,7 @@
 execute pathogen#infect()
 
 " Auto reload vimrc
-autocmd bufwritepost vimrc source $MYVIMRC
+autocmd BufWritePost .vimrc,vimrc source $MYVIMRC
 
 " General
 syntax on
