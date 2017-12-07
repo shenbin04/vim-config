@@ -1,7 +1,7 @@
 install:
 	@echo Installing...
-	@ln -fs ~/.vim/vimrc ~/.vimrc
-	@git submodule update --init
+	ln -fs ~/.vim/vimrc ~/.vimrc
+	git submodule update --init
 	@echo Done
 
 update:
