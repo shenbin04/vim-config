@@ -288,3 +288,14 @@ let g:miniBufExplVSplit = 30
 
 " Tagbar
 nnoremap <Leader>t :TagbarOpen fjc<CR>
+
+" Expand region
+map K <Plug>(expand_region_expand)
+map L <Plug>(expand_region_shrink)
+let g:expand_region_text_objects_javascript = {
+      \ 'il': 0,
+      \ 'ib': 1,
+      \ 'iB': 1,
+      \ 'aI': 1,
+      \ 'ae': 0,
+      \ }

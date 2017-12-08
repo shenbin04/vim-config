@@ -112,3 +112,6 @@
 [submodule "bundle/indent-object"]
 	path = bundle/indent-object
 	url = https://github.com/michaeljsmith/vim-indent-object.git
+[submodule "bundle/expand-region"]
+	path = bundle/expand-region
+	url = https://github.com/terryma/vim-expand-region.git
