@@ -104,6 +104,160 @@ nnoremap <C-l> <C-w>l
 
 nnoremap <Leader>q :q<CR>
 
+noremap <Leader>x :noh<CR>
+
+nnoremap <Leader>s :%s/
+nnoremap <Leader>S :%S/
+vnoremap <Leader>s :S/
+
+nnoremap <Leader>a :GrepperAg 
+nnoremap <Leader>w yiw:GrepperAg <C-R>0
+
+nnoremap <Leader>1 :BufSurfBack<CR>
+nnoremap <Leader>2 :BufSurfForward<CR>
+nnoremap <Leader>3 :b#<CR>
+
+nnoremap <Leader>dg :diffget<CR>
+vnoremap <Leader>dg :diffget<CR>
+nnoremap <Leader>dp :diffput<CR>
+vnoremap <Leader>dp :diffput<CR>
+
+vnoremap . :normal! .<CR>
+vnoremap @ :normal! @
+
+noremap <Home> :tprev<CR>
+noremap <End>  :tnext<CR>
+noremap <PageDown> :lnext<CR>
+noremap <PageUp>   :lprev<CR>
+
+vnoremap ss :sort<CR>
+vnoremap su :sort -u<CR>
+
+nnoremap <F2> :setlocal spell!<CR>
+
+nnoremap <C-B> :redraw!<CR>
+
+noremap k gk
+noremap j gj
+nnoremap G Gzz
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap } }zz
+nnoremap { {zz
+nnoremap <C-D> <C-D>zz
+nnoremap <C-U> <C-U>zz
+inoremap jk <ESC>
+
+nnoremap di, f,dT,
+nnoremap ci, f,cT,
+nnoremap da, f,ld2F,i,<ESC>l
+nnoremap ca, f,ld2F,i,<ESC>a
+
+nnoremap tap 0f(i = <ESC>f)a =><ESC>
+nnoremap taf 0/function<CR>dw/)<CR>a =><ESC>
+nnoremap tae 0/function<CR>dwiconst <ESC>wwi = <ESC>/)<CR>a =><ESC>/{<CR>%a;<ESC>
+
+onoremap if :call JSFunctionAction('')<CR>
+onoremap af :call JSFunctionAction('k')<CR>
+onoremap ik :call JSPropertyAction()<CR>
+onoremap ic :call JSFunctionCallAction('')<CR>
+onoremap ac :call JSFunctionCallAction('k')<CR>
+onoremap i< :call JSXTag()<CR>
+nnoremap vic :call JSXTag()<CR>
+
+nnoremap gj :call OpenJSFile()<CR>
+nnoremap gt :call OpenTestFile()<CR>
+nnoremap gc :call OpenScssFile()<CR>
+nnoremap gs :call OpenSnapshotFile()<CR>
+
+nnoremap <Leader>fb :call FormatImportBreak()<CR>
+nnoremap <Leader>fj :call FormatImportJoin()<CR>
+
+" Function
+function! JSFunctionAction(command)
+  execute "normal! " . "?\\v^\\s*[a-zA-Z]+( \\= )\\?\\(.*\\) (\\=\\> )\\?\\{\\?\\(\\?$\<CR>f{V%o" . a:command
+endfunction
+
+function! JSPropertyAction()
+  execute "normal! " . "/}\<CR>?\\v\\S+: \\{\<CR>f{V%o"
+endfunction
+
+function! JSFunctionCallAction(command)
+  execute "normal! " . "?\\v^\\s+\\S+\\(\<CR>f(V%o" . a:command
+endfunction
+
+function! JSXTag()
+  execute "normal! ?\\v^\\s+\\<\\S+\<CR>f<V/\\/>\<CR>koj"
+endfunction
+
+function! TryOpenFile(file, message)
+  if filereadable(a:file)
+    exe "edit" . a:file
+    return 1
+  else
+    echo a:message
+    return 0
+  endif
+endfunction
+
+function! GetPrefix()
+  let dir = split(expand('%:p:h'), '/')
+  let base = join(dir[0:dir[-1] == '__snapshots__' ? -2 : -1], '/')
+  return '/' . base . '/' . split(expand('%:t:r'), '\.')[0]
+endfunction
+
+function! OpenJSFile()
+  let prefix = GetPrefix()
+  for extension in ['.js', '.jsx']
+    let file = prefix . extension
+    if TryOpenFile(file, "Can't find javascript file " . file)
+      return
+    endif
+  endfor
+endfunction
+
+function! OpenTestFile()
+  let prefix = GetPrefix()
+  for extension in ['.js', '.jsx']
+    let file = prefix . '.test' . extension
+    if TryOpenFile(file, "Can't find test file " . file)
+      return
+    endif
+  endfor
+endfunction
+
+function! OpenSnapshotFile()
+  for extension in ['.js', '.jsx']
+    let file = expand('%:p:h') . '/__snapshots__/' . split(expand('%:t:r'), '\.')[0] . ".test" . extension . ".snap"
+    if TryOpenFile(file, "Can't find snapshot file " . file)
+      return
+    endif
+  endfor
+endfunction
+
+function! OpenScssFile()
+  let file = GetPrefix() . '.scss'
+  call TryOpenFile(file, "Can't find scss file " . file)
+endfunction
+
+function! CloseLastWindow()
+  if &buftype == 'quickfix' || &buftype == 'nofile'
+    if winbufnr(2) == -1
+      quit!
+    endif
+  endif
+endfunction
+
+function! FormatImportBreak()
+  exe 'normal! ^'
+  call RangeJsBeautify()
+  exe 'normal! f{%kA,'
+endfunction
+
+function! FormatImportJoin()
+  exe 'normal! va{Jhxx%lx'
+endfunction
+
 " Autocommand
 augroup vimrc
   autocmd!
@@ -321,19 +475,6 @@ let g:expand_region_text_objects_javascript = {
 
 " JsBeautifier
 let g:config_Beautifier = { 'js': { 'indent_size': 2 }, 'jsx': {}}
-nnoremap <Leader>fb :call FormatImportBreak()<CR>
-nnoremap <Leader>fj :call FormatImportJoin()<CR>
-autocmd FileType javascript set formatprg=prettier\ --trailing-comma\ all\ --no-bracket-spacing\ --stdin
-
-function! FormatImportBreak()
-  exe 'normal! ^'
-  call RangeJsBeautify()
-  exe 'normal! f{%kA,'
-endfunction
-
-function! FormatImportJoin()
-  exe 'normal! va{Jhxx%lx'
-endfunction
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger = '<Leader>e'
