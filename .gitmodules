@@ -40,3 +40,6 @@
 [submodule "bundle/rainbow"]
 	path = bundle/rainbow
 	url = https://github.com/luochen1990/rainbow.git
+[submodule "bundle/visual-star-search"]
+	path = bundle/visual-star-search
+	url = https://github.com/bronson/vim-visual-star-search.git
