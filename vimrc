@@ -131,6 +131,13 @@ au BufNewFile,BufRead *.snap set filetype=snap
 hi snapKeywords ctermfg=135
 hi snapName ctermfg=144
 
+" Abbreviation
+iabbrev bd binding.pry;
+iabbrev db import ipdb; ipdb.set_trace()
+iabbrev mbr baptiste, evan, ong
+iabbrev mbs phou, etai, jbotros, chung, pzalewski, yang, amarto
+iabbrev gs gabe.schindler
+
 " Undo
 set undolevels=1000
 set undodir=~/.vim/undo
