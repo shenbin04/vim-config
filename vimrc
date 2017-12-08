@@ -176,19 +176,19 @@ nnoremap <Leader>fj :call FormatImportJoin()<CR>
 
 " Function
 function! JSFunctionAction(command)
-  execute 'normal! ' . '?\\v^\\s*[a-zA-Z]+( \\= )\\?\\(.*\\) (\\=\\> )\\?\\{\\?\\(\\?$\<CR>f{V%o' . a:command
+  execute "normal! " . "?\\v^\\s*[a-zA-Z]+( \\= )\\?\\(.*\\) (\\=\\> )\\?\\{\\?\\(\\?$\<CR>f{V%o" . a:command
 endfunction
 
 function! JSPropertyAction()
-  execute 'normal! ' . '/}\<CR>?\\v\\S+: \\{\<CR>f{V%o'
+  execute "normal! " . "/}\<CR>?\\v\\S+: \\{\<CR>f{V%o"
 endfunction
 
 function! JSFunctionCallAction(command)
-  execute 'normal! ' . '?\\v^\\s+\\S+\\(\<CR>f(V%o' . a:command
+  execute "normal! " . "?\\v^\\s+\\S+\\(\<CR>f(V%o" . a:command
 endfunction
 
 function! JSXTag()
-  execute 'normal! ?\\v^\\s+\\<\\S+\<CR>f<V/\\/>\<CR>koj'
+  execute "normal! ?\\v^\\s+\\<\\S+\<CR>f<V/\\/>\<CR>koj"
 endfunction
 
 function! TryOpenFile(file, message)
