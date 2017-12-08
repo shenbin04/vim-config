@@ -79,3 +79,6 @@
 [submodule "bundle/nginx"]
 	path = bundle/nginx
 	url = https://github.com/vim-scripts/nginx.vim
+[submodule "bundle/quickfixsigns"]
+	path = bundle/quickfixsigns
+	url = https://github.com/vim-scripts/quickfixsigns.git
