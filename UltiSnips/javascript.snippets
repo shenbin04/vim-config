@@ -1,0 +1,43 @@
+snippet ap "Add property: `key: value,`"
+${1}: ${0:${VISUAL}},
+endsnippet
+
+snippet apo "Add property: `key: {},`"
+${1}: {
+  ${0:${VISUAL}}
+},
+endsnippet
+
+snippet af "Add function: `fun() {}`"
+${1}(${2}) {
+  ${0:${VISUAL}}
+}
+endsnippet
+
+snippet aff "Add arrow function: `() => {}`"
+(${1}) => {
+  ${0:${VISUAL}}
+}
+endsnippet
+
+snippet exp "Add export: `export const module = {};`"
+export const ${1} = {
+  ${0:${VISUAL}}
+};
+endsnippet
+
+snippet cdes "Add destructure: `const {a} = obj;`"
+const {${1}} = ${0:${VISUAL}};
+endsnippet
+
+snippet it "it (jest)" b
+it('${1:description}', () => {
+  $0
+});
+endsnippet
+
+snippet des "describe (jest)" b
+describe('${1:description}', () => {
+  $0
+});
+endsnippet
