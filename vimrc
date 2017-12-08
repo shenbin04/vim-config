@@ -237,3 +237,8 @@ endfunction
 autocmd FileType javascript let b:ale_javascript_eslint_options = ESLintArgs()
 autocmd FileType python let b:ale_python_pylint_options = PYLintArgs() |
             \ let b:ale_python_flake8_options = '--ignore=E101,E501,W291,W292,W293'
+
+" EasyMotion
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_smartcase = 1
+nmap H <Plug>(easymotion-overwin-f2)
