@@ -127,3 +127,6 @@
 [submodule "bundle/python-mode"]
 	path = bundle/python-mode
 	url = https://github.com/python-mode/python-mode.git
+[submodule "bundle/python"]
+	path = bundle/python
+	url = https://github.com/hdima/python-syntax.git
