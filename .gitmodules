@@ -124,3 +124,6 @@
 [submodule "bundle/SimpylFold"]
 	path = bundle/SimpylFold
 	url = https://github.com/tmhedberg/SimpylFold.git
+[submodule "bundle/python-mode"]
+	path = bundle/python-mode
+	url = https://github.com/python-mode/python-mode.git

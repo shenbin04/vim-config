@@ -161,6 +161,13 @@ hi jsFuncName ctermfg=118
 hi jsClassDefinition ctermfg=81
 hi jsTemplateBraces ctermfg=81
 
+" Python
+let python_highlight_all = 1
+let g:pymode_options_max_line_length = 120
+let g:pymode_rope = 0
+let g:pymode_rope_lookup_project = 0
+let g:pymode_rope_complete_on_dot = 0
+
 " Json
 let g:vim_json_syntax_conceal = 0
 au BufNewFile,BufRead *.eslintrc set filetype=json
