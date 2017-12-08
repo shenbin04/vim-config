@@ -21,17 +21,6 @@ set ttimeoutlen=0
 set updatetime=1000
 set shellpipe=&>
 
-" Formatting
-filetype plugin indent on
-set autoindent smartindent
-set smarttab
-set expandtab
-set tabstop=2
-set shiftwidth=2
-set textwidth=120
-set colorcolumn=+1
-set formatoptions-=t formatoptions+=croql
-
 " Color
 colorscheme molokai
 
@@ -59,6 +48,17 @@ hi clear Error80
 hi clear cssBraceError
 hi clear jsonTrailingCommaError
 hi clear jsParensError
+
+" Formatting
+filetype plugin indent on
+set autoindent smartindent
+set smarttab
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set textwidth=120
+set colorcolumn=+1
+set formatoptions-=t formatoptions+=croql
 
 " Command completion
 set wildmenu
