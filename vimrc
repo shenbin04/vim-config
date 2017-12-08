@@ -107,7 +107,8 @@ nnoremap <Leader>q :q<CR>
 augroup vimrc
   autocmd!
 
-  " Auto reload vimrc
+  autocmd BufEnter * call CloseLastWindow()
+
   autocmd BufWritePost .vimrc,vimrc source $MYVIMRC
 
   " When opening a file, always jump to the last cursor position
@@ -117,8 +118,6 @@ augroup vimrc
       \ endif |
 
   autocmd CursorHold * silent! checktime
-
-  autocmd TabEnter * :redraw
 
   autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
   autocmd InsertLeave * if pumvisible() == 0|pclose|endif
