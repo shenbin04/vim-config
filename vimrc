@@ -101,6 +101,12 @@ set undolevels=1000
 set undodir=~/.vim/undo
 set undofile
 
+" Html
+let html_number_lines = 1
+let html_ignore_folding = 1
+let html_use_css = 1
+let xml_use_xhtml = 1
+
 " Javascript
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_flow = 1
