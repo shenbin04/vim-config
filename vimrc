@@ -43,6 +43,7 @@ hi SpellBad ctermbg=1 ctermfg=15 cterm=underline
 hi LineNr ctermbg=234 ctermfg=59
 hi CursorLineNr ctermbg=234 ctermfg=11
 hi Comment cterm=italic
+hi Search ctermbg=11 ctermfg=0 term=reverse
 hi link jsonCommentError Comment
 hi clear Error80
 hi clear cssBraceError
