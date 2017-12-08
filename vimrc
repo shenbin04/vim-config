@@ -299,3 +299,19 @@ let g:expand_region_text_objects_javascript = {
       \ 'aI': 1,
       \ 'ae': 0,
       \ }
+
+" JsBeautifier
+let g:config_Beautifier = { 'js': { 'indent_size': 2 }, 'jsx': {}}
+nnoremap <Leader>fb :call FormatImportBreak()<CR>
+nnoremap <Leader>fj :call FormatImportJoin()<CR>
+autocmd FileType javascript set formatprg=prettier\ --trailing-comma\ all\ --no-bracket-spacing\ --stdin
+
+function! FormatImportBreak()
+  exe 'normal! ^'
+  call RangeJsBeautify()
+  exe 'normal! f{%kA,'
+endfunction
+
+function! FormatImportJoin()
+  exe 'normal! va{Jhxx%lx'
+endfunction

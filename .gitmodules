@@ -118,3 +118,6 @@
 [submodule "bundle/grepper"]
 	path = bundle/grepper
 	url = https://github.com/mhinz/vim-grepper.git
+[submodule "bundle/jsbeautify"]
+	path = bundle/jsbeautify
+	url = https://github.com/maksimr/vim-jsbeautify.git
