@@ -322,3 +322,7 @@ endfunction
 function! FormatImportJoin()
   exe 'normal! va{Jhxx%lx'
 endfunction
+
+" UltiSnips
+let g:UltiSnipsExpandTrigger = '<Leader>e'
+let g:UltiSnipsJumpForwardTrigger = '<Leader><Tab>'
