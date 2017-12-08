@@ -78,6 +78,9 @@ set showmatch
 set foldmethod=indent
 nnoremap <space> za
 
+" Viminfo: remember certain things when we exit
+set viminfo='100,/100,h,\"500,:500,n~/.vim/viminfo
+
 " Mapping
 let mapleader = ","
 let localmapleader = ","
