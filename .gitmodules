@@ -91,3 +91,6 @@
 [submodule "bundle/repeat"]
 	path = bundle/repeat
 	url = https://github.com/tpope/vim-repeat.git
+[submodule "bundle/thrift"]
+	path = bundle/thrift
+	url = https://github.com/solarnz/thrift.vim.git
