@@ -173,6 +173,8 @@ nnoremap gs :call OpenSnapshotFile()<CR>
 
 nnoremap <Leader>fb :call FormatImportBreak()<CR>
 nnoremap <Leader>fj :call FormatImportJoin()<CR>
+nnoremap <leader>fm V:EsformatterVisual<CR>
+vnoremap <leader>fm :EsformatterVisual<CR>
 
 " Function
 function! JSFunctionAction(command)

@@ -148,3 +148,6 @@
 [submodule "bundle/YouCompleteMe"]
 	path = bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule "bundle/esformatter"]
+	path = bundle/esformatter
+	url = https://github.com/millermedeiros/vim-esformatter.git
