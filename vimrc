@@ -270,3 +270,7 @@ autocmd FileType python let b:ale_python_pylint_options = PYLintArgs() |
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
 nmap H <Plug>(easymotion-overwin-f2)
+
+" Gundo
+nnoremap <S-u> :GundoToggle<CR>
+let g:gundo_close_on_revert = 1
