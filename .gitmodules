@@ -61,3 +61,6 @@
 [submodule "bundle/easymotion"]
 	path = bundle/easymotion
 	url = https://github.com/easymotion/vim-easymotion.git
+[submodule "bundle/bufsurf"]
+	path = bundle/bufsurf
+	url = https://github.com/ton/vim-bufsurf.git
