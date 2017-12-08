@@ -195,3 +195,9 @@ let NERDTreeIgnore = [ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$', '\.o$', '__
 " Rainbow
 let g:rainbow_active = 1
 let g:rainbow_conf = { 'ctermfgs': ['red', 'yellow', 'green', 'cyan', 'magenta', 'red', 'yellow', 'green', 'cyan', 'magenta'] }
+
+" losetag
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.php,*.js,*.jsx"
+let g:closetag_xhtml_filenames = "*.html,*.xhtml,*.phtml,*.php,*.js,*.jsx"
+let g:closetag_emptyTags_caseSensitive = 1
+let g:closetag_close_shortcut = '<Leader>c'
