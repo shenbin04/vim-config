@@ -82,3 +82,6 @@
 [submodule "bundle/quickfixsigns"]
 	path = bundle/quickfixsigns
 	url = https://github.com/vim-scripts/quickfixsigns.git
+[submodule "bundle/unimpaired"]
+	path = bundle/unimpaired
+	url = https://github.com/tpope/vim-unimpaired.git
