@@ -1,9 +1,6 @@
 " Pathogen
 execute pathogen#infect()
 
-" Auto reload vimrc
-autocmd BufWritePost .vimrc,vimrc source $MYVIMRC
-
 " General
 syntax on
 set number
@@ -99,6 +96,30 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
 nnoremap <Leader>q :q<CR>
+
+" Autocommand
+augroup vimrc
+  autocmd!
+
+  " Auto reload vimrc
+  autocmd BufWritePost .vimrc,vimrc source $MYVIMRC
+
+  " When opening a file, always jump to the last cursor position
+  autocmd BufReadPost *
+      \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+      \     exe "normal! g'\"zz" |
+      \ endif |
+
+  autocmd CursorHold * silent! checktime
+
+  autocmd TabEnter * :redraw
+
+  autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+  autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+  autocmd QuickFixCmdPost * botright copen
+  autocmd FileType qf wincmd J
+augroup END
 
 " Undo
 set undolevels=1000
