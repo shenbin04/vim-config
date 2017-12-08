@@ -163,8 +163,6 @@ onoremap af :call JSFunctionAction('k')<CR>
 onoremap ik :call JSPropertyAction()<CR>
 onoremap ic :call JSFunctionCallAction('')<CR>
 onoremap ac :call JSFunctionCallAction('k')<CR>
-onoremap i< :call JSXTag()<CR>
-nnoremap vic :call JSXTag()<CR>
 
 nnoremap gj :call OpenJSFile()<CR>
 nnoremap gt :call OpenTestFile()<CR>
@@ -187,10 +185,6 @@ endfunction
 
 function! JSFunctionCallAction(command)
   execute "normal! " . "?\\v^\\s+\\S+\\(\<CR>f(V%o" . a:command
-endfunction
-
-function! JSXTag()
-  execute "normal! ?\\v^\\s+\\<\\S+\<CR>f<V/\\/>\<CR>koj"
 endfunction
 
 function! TryOpenFile(file, message)
