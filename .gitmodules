@@ -115,3 +115,6 @@
 [submodule "bundle/expand-region"]
 	path = bundle/expand-region
 	url = https://github.com/terryma/vim-expand-region.git
+[submodule "bundle/grepper"]
+	path = bundle/grepper
+	url = https://github.com/mhinz/vim-grepper.git
