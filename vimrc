@@ -19,6 +19,7 @@ set foldlevelstart=99
 set pastetoggle=<F1>
 set ttimeoutlen=0
 set updatetime=1000
+set shellpipe=&>
 
 " Formatting
 filetype plugin indent on
