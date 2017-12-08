@@ -279,6 +279,8 @@ augroup vimrc
 
   autocmd QuickFixCmdPost * botright copen
   autocmd FileType qf wincmd J
+
+  autocmd FileType javascript set formatprg=prettier\ --trailing-comma\ all\ --no-bracket-spacing\ --stdin
 augroup END
 
 " Snapshot
