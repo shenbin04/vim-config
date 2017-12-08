@@ -81,6 +81,9 @@ nnoremap <space> za
 " Viminfo: remember certain things when we exit
 set viminfo='100,/100,h,\"500,:500,n~/.vim/viminfo
 
+" Ctags: recurse up to home to find tags
+set tags+=tags;$HOME
+
 " Mapping
 let mapleader = ","
 let localmapleader = ","
@@ -282,3 +285,6 @@ let g:miniBufExplBRSplit = 1
 let g:miniBufExplBuffersNeeded = 1000
 let g:miniBufExplCloseOnSelect = 1
 let g:miniBufExplVSplit = 30
+
+" Tagbar
+nnoremap <Leader>t :TagbarOpen fjc<CR>
