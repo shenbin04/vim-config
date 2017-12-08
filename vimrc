@@ -86,8 +86,8 @@ set viminfo='100,/100,h,\"500,:500,n~/.vim/viminfo
 set tags+=tags;$HOME
 
 " Mapping
-let mapleader = ","
-let localmapleader = ","
+let g:mapleader = ','
+let g:localmapleader = ','
 
 nnoremap _ :split<cr>
 nnoremap \| :vsplit<cr>
@@ -175,24 +175,24 @@ nnoremap <Leader>fj :call FormatImportJoin()<CR>
 
 " Function
 function! JSFunctionAction(command)
-  execute "normal! " . "?\\v^\\s*[a-zA-Z]+( \\= )\\?\\(.*\\) (\\=\\> )\\?\\{\\?\\(\\?$\<CR>f{V%o" . a:command
+  execute 'normal! ' . '?\\v^\\s*[a-zA-Z]+( \\= )\\?\\(.*\\) (\\=\\> )\\?\\{\\?\\(\\?$\<CR>f{V%o' . a:command
 endfunction
 
 function! JSPropertyAction()
-  execute "normal! " . "/}\<CR>?\\v\\S+: \\{\<CR>f{V%o"
+  execute 'normal! ' . '/}\<CR>?\\v\\S+: \\{\<CR>f{V%o'
 endfunction
 
 function! JSFunctionCallAction(command)
-  execute "normal! " . "?\\v^\\s+\\S+\\(\<CR>f(V%o" . a:command
+  execute 'normal! ' . '?\\v^\\s+\\S+\\(\<CR>f(V%o' . a:command
 endfunction
 
 function! JSXTag()
-  execute "normal! ?\\v^\\s+\\<\\S+\<CR>f<V/\\/>\<CR>koj"
+  execute 'normal! ?\\v^\\s+\\<\\S+\<CR>f<V/\\/>\<CR>koj'
 endfunction
 
 function! TryOpenFile(file, message)
   if filereadable(a:file)
-    exe "edit" . a:file
+    exe 'edit' . a:file
     return 1
   else
     echo a:message
@@ -210,7 +210,7 @@ function! OpenJSFile()
   let prefix = GetPrefix()
   for extension in ['.js', '.jsx']
     let file = prefix . extension
-    if TryOpenFile(file, "Can't find javascript file " . file)
+    if TryOpenFile(file, 'Cannot find javascript file ' . file)
       return
     endif
   endfor
@@ -220,7 +220,7 @@ function! OpenTestFile()
   let prefix = GetPrefix()
   for extension in ['.js', '.jsx']
     let file = prefix . '.test' . extension
-    if TryOpenFile(file, "Can't find test file " . file)
+    if TryOpenFile(file, 'Cannot find test file ' . file)
       return
     endif
   endfor
@@ -228,8 +228,8 @@ endfunction
 
 function! OpenSnapshotFile()
   for extension in ['.js', '.jsx']
-    let file = expand('%:p:h') . '/__snapshots__/' . split(expand('%:t:r'), '\.')[0] . ".test" . extension . ".snap"
-    if TryOpenFile(file, "Can't find snapshot file " . file)
+    let file = expand('%:p:h') . '/__snapshots__/' . split(expand('%:t:r'), '\.')[0] . '.test' . extension . '.snap'
+    if TryOpenFile(file, 'Cannot find snapshot file ' . file)
       return
     endif
   endfor
@@ -237,7 +237,7 @@ endfunction
 
 function! OpenScssFile()
   let file = GetPrefix() . '.scss'
-  call TryOpenFile(file, "Can't find scss file " . file)
+  call TryOpenFile(file, 'Cannot find scss file ' . file)
 endfunction
 
 function! CloseLastWindow()
@@ -409,8 +409,8 @@ let g:rainbow_active = 1
 let g:rainbow_conf = { 'ctermfgs': ['red', 'yellow', 'green', 'cyan', 'magenta', 'red', 'yellow', 'green', 'cyan', 'magenta'] }
 
 " closetag
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.php,*.js,*.jsx"
-let g:closetag_xhtml_filenames = "*.html,*.xhtml,*.phtml,*.php,*.js,*.jsx"
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.php,*.js,*.jsx'
+let g:closetag_xhtml_filenames = '*.html,*.xhtml,*.phtml,*.php,*.js,*.jsx'
 let g:closetag_emptyTags_caseSensitive = 1
 let g:closetag_close_shortcut = '<Leader>c'
 
