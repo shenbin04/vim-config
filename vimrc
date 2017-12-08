@@ -207,3 +207,33 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.php,*.js,*.jsx"
 let g:closetag_xhtml_filenames = "*.html,*.xhtml,*.phtml,*.php,*.js,*.jsx"
 let g:closetag_emptyTags_caseSensitive = 1
 let g:closetag_close_shortcut = '<Leader>c'
+
+" Ale
+let g:ale_open_list = 1
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+let g:ale_list_window_size = 1
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '>>'
+hi ALEErrorSign ctermfg=015 ctermbg=001 cterm=none
+hi ALEWarningSign ctermfg=015 ctermbg=166 cterm=none
+hi link ALEError clear
+hi link ALEWarning clear
+
+nnoremap <Leader>n :ALENextWrap<CR>
+
+function! PYLintArgs()
+  let config = findfile('.arc/.pylintrc', '.;')
+  return config != '' ? '--rcfile ' . shellescape(fnamemodify(config, ':p')) : ''
+endfunction
+
+function! ESLintArgs()
+  let rules = finddir('.arc/linters/eslint_rules', '.;')
+  return rules != '' ? '--rulesdir ' . shellescape(fnamemodify(rules, ':p:h')) : ''
+endfunction
+
+autocmd FileType javascript let b:ale_javascript_eslint_options = ESLintArgs()
+autocmd FileType python let b:ale_python_pylint_options = PYLintArgs() |
+            \ let b:ale_python_flake8_options = '--ignore=E101,E501,W291,W292,W293'
