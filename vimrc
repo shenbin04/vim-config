@@ -77,6 +77,10 @@ set hlsearch
 set incsearch
 set showmatch
 
+" Fold
+set foldmethod=indent
+nnoremap <space> za
+
 " Mapping
 let mapleader = ","
 let localmapleader = ","
