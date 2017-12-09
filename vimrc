@@ -393,6 +393,8 @@ nnoremap <C-f> :NERDTreeFind<CR>zz
 hi NERDTreeDir ctermfg=81 cterm=none
 hi NERDTreeDirSlash ctermfg=81 cterm=none
 hi NERDTreeCWD ctermfg=118 cterm=none
+hi NERDTreeOpenable ctermfg=59 cterm=none
+hi NERDTreeClosable ctermfg=7 cterm=none
 let NERDTreeQuitOnOpen = 1
 let NERDTreeShowFiles = 1
 let NERDTreeShowBookmarks = 1
