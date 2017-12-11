@@ -174,6 +174,11 @@ nnoremap <Leader>fj :call FormatImportJoin()<CR>
 nnoremap <leader>fm V:EsformatterVisual<CR>=at.....
 vnoremap <leader>fm :EsformatterVisual<CR>=at.....
 
+nnoremap <Leader>rc :call VimuxCloseRunner()<CR>
+nnoremap <Leader>ro :call VimuxOpenRunner()<CR>
+nnoremap <Leader>ra :call VimuxPromptCommand()<CR>
+nnoremap <Leader>rm :call VimuxZoomRunner()<CR>
+
 " Function
 function! JSFunctionAction(command)
   execute "normal! " . "?\\v^\\s*[a-zA-Z]+( \\= )\\?\\(.*\\) (\\=\\> )\\?\\{\\?\\(\\?$\<CR>f{V%o" . a:command
@@ -502,11 +507,7 @@ let g:VimuxHeight = 50
 autocmd FileType javascript
       \ nnoremap <Leader>rl :call RunJestFocused()<CR> |
       \ nnoremap <Leader>rr :call RunJestOnBuffer()<CR> |
-      \ nnoremap <Leader>rw :call RunJestOnBufferWatch()<CR> |
-      \ nnoremap <Leader>rc :call VimuxCloseRunner()<CR> |
-      \ nnoremap <Leader>ro :call VimuxOpenRunner()<CR> |
-      \ nnoremap <Leader>ra :call VimuxPromptCommand()<CR> |
-      \ nnoremap <Leader>rm :call VimuxZoomRunner()<CR>
+      \ nnoremap <Leader>rw :call RunJestOnBufferWatch()<CR>
 
 function! RunJestOnBuffer()
   call RunJest(expand('%'))
