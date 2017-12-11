@@ -148,3 +148,6 @@
 [submodule "bundle/esformatter"]
 	path = bundle/esformatter
 	url = https://github.com/millermedeiros/vim-esformatter.git
+[submodule "bundle/vimux"]
+	path = bundle/vimux
+	url = https://github.com/benmills/vimux.git

@@ -495,3 +495,12 @@ nnoremap <Leader>ff :YcmCompleter GoToDefinition<CR>
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_show_diagnostics_ui = 0
 let g:ycm_global_ycm_extra_conf = '$HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+
+" Vimux
+let g:VimuxOrientation = 'h'
+let g:VimuxHeight = 50
+nnoremap <Leader>rr :call VimuxRunCommand('npm test ' . expand('%'))<CR>
+nnoremap <Leader>rc :call VimuxCloseRunner())<CR>
+nnoremap <Leader>ro :call VimuxOpenRunner())<CR>
+nnoremap <Leader>ra :call VimuxPromptCommand())<CR>
+nnoremap <Leader>rm :call VimuxZoomRunner())<CR>
