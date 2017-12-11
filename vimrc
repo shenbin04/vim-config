@@ -499,8 +499,43 @@ let g:ycm_global_ycm_extra_conf = '$HOME/.vim/bundle/YouCompleteMe/third_party/y
 " Vimux
 let g:VimuxOrientation = 'h'
 let g:VimuxHeight = 50
-nnoremap <Leader>rr :call VimuxRunCommand('npm test ' . expand('%'))<CR>
-nnoremap <Leader>rc :call VimuxCloseRunner())<CR>
-nnoremap <Leader>ro :call VimuxOpenRunner())<CR>
-nnoremap <Leader>ra :call VimuxPromptCommand())<CR>
-nnoremap <Leader>rm :call VimuxZoomRunner())<CR>
+autocmd FileType javascript
+      \ nnoremap <Leader>rl :call RunJestFocused()<CR> |
+      \ nnoremap <Leader>rr :call RunJestOnBuffer()<CR> |
+      \ nnoremap <Leader>rw :call RunJestOnBufferWatch()<CR> |
+      \ nnoremap <Leader>rc :call VimuxCloseRunner()<CR> |
+      \ nnoremap <Leader>ro :call VimuxOpenRunner()<CR> |
+      \ nnoremap <Leader>ra :call VimuxPromptCommand()<CR> |
+      \ nnoremap <Leader>rm :call VimuxZoomRunner()<CR>
+
+function! RunJestOnBuffer()
+  call RunJest(expand('%'))
+endfunction
+
+function! RunJestOnBufferWatch()
+  call RunJest(expand('%') . ' -- --watch')
+endfunction
+
+function! RunJestFocused()
+  let test_name = JestSearchForTest('\<test(\|\<it(\|\<test.only(')
+
+  if test_name == ''
+    echoerr "Couldn't find test name to run focused test."
+    return
+  endif
+
+  call RunJest(expand('%') . ' -- -t ' . test_name)
+endfunction
+
+function! JestSearchForTest(fragment)
+  let line_num = search(a:fragment, 'bs')
+  if line_num > 0
+    return split(split(getline(line_num), '(')[1], ',')[0]
+  else
+    return ''
+  endif
+endfunction
+
+function! RunJest(test)
+  call VimuxRunCommand('npm test ' . a:test)
+endfunction
