@@ -510,12 +510,17 @@ let g:ycm_global_ycm_extra_conf = '$HOME/.vim/bundle/YouCompleteMe/third_party/y
 let g:VimuxOrientation = 'h'
 let g:VimuxHeight = 50
 autocmd FileType javascript
-      \ nnoremap <Leader>rl :call RunJestFocused()<CR> |
-      \ nnoremap <Leader>rr :call RunJestOnBuffer()<CR> |
+      \ nnoremap <Leader>rl :call RunJestFocused()<CR>|
+      \ nnoremap <Leader>rr :call RunJestOnBuffer()<CR>|
+      \ nnoremap <Leader>ru :call RunJestOnBufferUpdate()<CR>|
       \ nnoremap <Leader>rw :call RunJestOnBufferWatch()<CR>
 
 function! RunJestOnBuffer()
   call RunJest(expand('%'))
+endfunction
+
+function! RunJestOnBufferUpdate()
+  call RunJest(expand('%') . ' -- -u')
 endfunction
 
 function! RunJestOnBufferWatch()
@@ -523,6 +528,7 @@ function! RunJestOnBufferWatch()
 endfunction
 
 function! RunJestFocused()
+  execute 'normal! j'
   let test_name = JestSearchForTest('\<test(\|\<it(\|\<test.only(')
 
   if test_name == ''
