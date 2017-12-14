@@ -437,6 +437,7 @@ hi ALEWarningSign ctermfg=015 ctermbg=166 cterm=none
 hi link ALEError clear
 hi link ALEWarning clear
 
+nnoremap <Leader>p :ALEPreviousWrap<CR>
 nnoremap <Leader>n :ALENextWrap<CR>
 
 function! PYLintArgs()
@@ -551,3 +552,6 @@ endfunction
 function! RunJest(test)
   call VimuxRunCommand('npm test ' . a:test)
 endfunction
+
+" Notes
+nnoremap <Leader>e :MostRecentNote<CR>
