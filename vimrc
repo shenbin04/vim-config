@@ -387,7 +387,7 @@ let g:ctrlp_custom_ignore = {
   \ }
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_use_caching = 0
-" let g:ctrlp_lazy_update = 1
+let g:ctrlp_lazy_update = 50
 let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*\|\.git.*\|.*\/var\/folders\/.*'
 let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files']
 
