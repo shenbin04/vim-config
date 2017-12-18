@@ -283,6 +283,7 @@ augroup vimrc
   autocmd FileType qf wincmd J
 
   autocmd FileType javascript set formatprg=prettier\ --trailing-comma\ all\ --no-bracket-spacing\ --stdin
+  autocmd BufRead,BufNewFile *.scss set filetype=scss.css
 augroup END
 
 " Snapshot
@@ -307,6 +308,10 @@ let html_number_lines = 1
 let html_ignore_folding = 1
 let html_use_css = 1
 let xml_use_xhtml = 1
+
+" Css
+hi scssSelectorName ctermfg=81
+hi scssVariable ctermfg=118
 
 " Javascript
 let g:javascript_plugin_jsdoc = 1

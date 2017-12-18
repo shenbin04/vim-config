@@ -154,3 +154,9 @@
 [submodule "bundle/notes"]
 	path = bundle/notes
 	url = https://github.com/xolox/vim-notes.git
+[submodule "bundle/css3"]
+	path = bundle/css3
+	url = https://github.com/hail2u/vim-css3-syntax.git
+[submodule "bundle/scss"]
+	path = bundle/scss
+	url = https://github.com/cakebaker/scss-syntax.vim.git
