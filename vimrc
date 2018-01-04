@@ -550,7 +550,7 @@ endfunction
 function! JestSearchForTest(fragment)
   let line_num = search(a:fragment, 'bs')
   if line_num > 0
-    return split(split(getline(line_num), '(')[1], ',')[0]
+    return matchlist(getline(line_num), '\(''\|"\).*\(''\|"\)')[0]
   else
     return ''
   endif
