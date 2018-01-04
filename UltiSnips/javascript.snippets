@@ -30,14 +30,38 @@ snippet cdes "Add destructure: `const {a} = obj;`"
 const {${1}} = ${0:${VISUAL}};
 endsnippet
 
-snippet it "it (jest)" b
+snippet it "it (jest)"
 it('${1:description}', () => {
   $0
 });
 endsnippet
 
-snippet des "describe (jest)" b
+snippet des "describe (jest)"
 describe('${1:description}', () => {
+  $0
+});
+endsnippet
+
+snippet bef "beforeEach (jest)"
+beforeEach(() => {
+  $0
+});
+endsnippet
+
+snippet aft "afterEach (jest)"
+afterEach(() => {
+  $0
+});
+endsnippet
+
+snippet befa "beforeAll (jest)"
+beforeAll(() => {
+  $0
+});
+endsnippet
+
+snippet afta "afterAll (jest)"
+afterAll(() => {
   $0
 });
 endsnippet
