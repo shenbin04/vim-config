@@ -194,10 +194,12 @@ endfunction
 
 function! TryOpenFile(file, message)
   if filereadable(a:file)
-    exe 'edit' . a:file
+    if expand('%:p') != a:file
+      exe 'edit' . a:file
+    endif
     return 1
   else
-    echo a:message
+    " echo a:message
     return 0
   endif
 endfunction
