@@ -182,6 +182,8 @@ nnoremap <Leader>rm :call VimuxZoomRunner()<CR>
 nnoremap <Leader>cs :let @*=expand("%")<CR>
 nnoremap <Leader>cl :let @*=expand("%:p")<CR>
 
+nnoremap <leader>c "*y
+
 " Function
 function! JSFunctionAction(command)
   execute "normal! " . "?\\v^\\s*[a-zA-Z]+( \\= )\\?\\(.*\\) (\\=\\> )\\?\\{\\?\\(\\?$\<CR>f{V%o" . a:command
