@@ -371,6 +371,11 @@ hi ALEWarningSign ctermfg=015 ctermbg=166 cterm=none
 hi link ALEError clear
 hi link ALEWarning clear
 
+let b:ale_javascript_eslint_options = js#ESLintArgs()
+
+let b:ale_python_pylint_options = python#PYLintArgs()
+let b:ale_python_flake8_options = '--ignore=E101,E501,W291,W292,W293'
+
 nnoremap <Leader>p :ALEPreviousWrap<CR>
 nnoremap <Leader>n :ALENextWrap<CR>
 
