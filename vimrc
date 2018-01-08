@@ -374,14 +374,6 @@ hi link ALEWarning clear
 nnoremap <Leader>p :ALEPreviousWrap<CR>
 nnoremap <Leader>n :ALENextWrap<CR>
 
-function! PYLintArgs()
-  let config = findfile('.arc/.pylintrc', '.;')
-  return config != '' ? '--rcfile ' . shellescape(fnamemodify(config, ':p')) : ''
-endfunction
-
-autocmd FileType python let b:ale_python_pylint_options = PYLintArgs() |
-            \ let b:ale_python_flake8_options = '--ignore=E101,E501,W291,W292,W293'
-
 " EasyMotion
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
