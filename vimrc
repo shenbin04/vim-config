@@ -262,6 +262,11 @@ let xml_use_xhtml = 1
 hi scssSelectorName ctermfg=81
 hi scssVariable ctermfg=118
 
+" Javascript
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_flow = 1
+let g:jsx_ext_required = 0
+
 " Python
 let python_highlight_all = 1
 let g:pymode_options_max_line_length = 120
@@ -366,15 +371,17 @@ let g:ale_lint_on_filetype_changed = 0
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '>>'
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'python': ['pylint'],
+\}
+let g:ale_javascript_eslint_options = js#ESLintArgs()
+let g:ale_python_pylint_options = python#PYLintArgs()
+
 hi ALEErrorSign ctermfg=015 ctermbg=001 cterm=none
 hi ALEWarningSign ctermfg=015 ctermbg=166 cterm=none
 hi link ALEError clear
 hi link ALEWarning clear
-
-let b:ale_javascript_eslint_options = js#ESLintArgs()
-
-let b:ale_python_pylint_options = python#PYLintArgs()
-let b:ale_python_flake8_options = '--ignore=E101,E501,W291,W292,W293'
 
 nnoremap <Leader>p :ALEPreviousWrap<CR>
 nnoremap <Leader>n :ALENextWrap<CR>

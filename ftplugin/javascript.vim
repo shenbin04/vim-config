@@ -1,10 +1,4 @@
-" Javascript
-
 setlocal formatprg=prettier\ --trailing-comma\ all\ --no-bracket-spacing\ --stdin
-
-let g:javascript_plugin_jsdoc = 1
-let g:javascript_plugin_flow = 1
-let g:jsx_ext_required = 0
 
 hi link jsClassProperty jsClassFuncName
 hi link jsObjectKey Identifier
