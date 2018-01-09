@@ -81,3 +81,6 @@ function! RunJest(test)
   call VimuxRunCommand('npm test ' . a:test)
 endfunction
 
+function! js#RequireToImport()
+  call VimuxRunCommand('npm run update-require-to-import ' . util#ExpandRelative('%'))
+endfunction

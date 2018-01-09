@@ -28,3 +28,5 @@ nnoremap <buffer> <Leader>rl :call js#RunJestFocused()<CR>|
 nnoremap <buffer> <Leader>rr :call js#RunJestOnBuffer()<CR>|
 nnoremap <buffer> <Leader>ru :call js#RunJestOnBufferUpdate()<CR>|
 nnoremap <buffer> <Leader>rw :call js#RunJestOnBufferWatch()<CR>
+
+nnoremap <buffer> <Leader>ri :call js#RequireToImport()<CR>
