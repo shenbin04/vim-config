@@ -171,6 +171,7 @@ vnoremap <leader>fm :EsformatterVisual<CR>k=a<.....
 
 nnoremap <Leader>rc :call VimuxCloseRunner()<CR>
 nnoremap <Leader>ro :call VimuxOpenRunner()<CR>
+nnoremap <Leader>rb :call VimuxInterruptRunner()<CR>
 nnoremap <Leader>ra :call VimuxPromptCommand()<CR>
 nnoremap <Leader>rm :call VimuxZoomRunner()<CR>
 
