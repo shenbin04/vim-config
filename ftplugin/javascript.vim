@@ -25,7 +25,7 @@ nnoremap <buffer> gc :call js#OpenScssFile()<CR>
 nnoremap <buffer> gs :call js#OpenSnapshotFile()<CR>
 
 nnoremap <buffer> <Leader>rl :TestNearest<CR>
-nnoremap <buffer> <Leader>rf :TestFile<CR>
+nnoremap <buffer> <Leader>rr :TestFile<CR>
 nnoremap <buffer> <Leader>ru :TestFile -u<CR>
 nnoremap <buffer> <Leader>rw :TestFile --watch<CR>
 

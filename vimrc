@@ -450,3 +450,4 @@ nnoremap <Leader>e :MostRecentNote<CR>
 
 " Vim Test
 let g:test#strategy = 'vimux'
+let g:test#preserve_screen = 0
