@@ -15,7 +15,7 @@ ${1}(${2}) {
 endsnippet
 
 snippet aff "Add arrow function: `() => {}`"
-(${1}) => {
+${1:()} => {
   ${0:${VISUAL}}
 }
 endsnippet
@@ -64,4 +64,8 @@ snippet afta "afterAll (jest)"
 afterAll(() => {
   $0
 });
+endsnippet
+
+snippet cld "console.log(*.debug()) (jest)"
+console.log($0.debug());
 endsnippet
