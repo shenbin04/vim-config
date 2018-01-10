@@ -447,3 +447,6 @@ let g:VimuxHeight = 50
 
 " Notes
 nnoremap <Leader>e :MostRecentNote<CR>
+
+" Vim Test
+let g:test#strategy = 'vimux'

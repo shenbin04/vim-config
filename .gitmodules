@@ -157,3 +157,6 @@
 [submodule "bundle/scss"]
 	path = bundle/scss
 	url = https://github.com/cakebaker/scss-syntax.vim.git
+[submodule "bundle/test"]
+	path = bundle/test
+	url = https://github.com/janko-m/vim-test.git

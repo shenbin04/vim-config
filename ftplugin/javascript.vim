@@ -24,10 +24,10 @@ nnoremap <buffer> gt :call js#OpenTestFile()<CR>
 nnoremap <buffer> gc :call js#OpenScssFile()<CR>
 nnoremap <buffer> gs :call js#OpenSnapshotFile()<CR>
 
-nnoremap <buffer> <Leader>rl :call js#RunJestFocused()<CR>
-nnoremap <buffer> <Leader>rr :call js#RunJestOnBuffer()<CR>
-nnoremap <buffer> <Leader>ru :call js#RunJestOnBufferUpdate()<CR>
-nnoremap <buffer> <Leader>rw :call js#RunJestOnBufferWatch()<CR>
+nnoremap <buffer> <Leader>rl :TestNearest<CR>
+nnoremap <buffer> <Leader>rf :TestFile<CR>
+nnoremap <buffer> <Leader>ru :TestFile -u<CR>
+nnoremap <buffer> <Leader>rw :TestFile --watch<CR>
 
 nnoremap <buffer> <Leader>rni :call js#RequireToImport()<CR>
 nnoremap <buffer> <Leader>rno :call js#OrganizeImports()<CR>

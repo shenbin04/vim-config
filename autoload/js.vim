@@ -44,43 +44,6 @@ function! js#ESLintArgs()
   return rules != '' ? '--rulesdir ' . shellescape(fnamemodify(rules, ':p:h')) : ''
 endfunction
 
-function! js#RunJestOnBuffer()
-  call RunJest(util#ExpandRelative('%'))
-endfunction
-
-function! js#RunJestOnBufferUpdate()
-  call RunJest(util#ExpandRelative('%') . ' -- -u')
-endfunction
-
-function! js#RunJestOnBufferWatch()
-  call RunJest(util#ExpandRelative('%') . ' -- --watch')
-endfunction
-
-function! js#RunJestFocused()
-  execute 'normal! j'
-  let test_name = JestSearchForTest('\<test(\|\<it(\|\<test.only(')
-
-  if test_name == ''
-    echoerr "Couldn't find test name to run focused test."
-    return
-  endif
-
-  call RunJest(util#ExpandRelative('%') . ' -- -t ' . test_name)
-endfunction
-
-function! JestSearchForTest(fragment)
-  let line_num = search(a:fragment, 'bs')
-  if line_num > 0
-    return matchlist(getline(line_num), '\(''\|"\).*\(''\|"\)')[0]
-  else
-    return ''
-  endif
-endfunction
-
-function! RunJest(test)
-  call VimuxRunCommand('npm test ' . a:test)
-endfunction
-
 function! js#RequireToImport()
   call VimuxRunCommand('npm run update-require-to-import ' . util#ExpandRelative('%'))
 endfunction
