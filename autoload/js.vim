@@ -84,3 +84,7 @@ endfunction
 function! js#RequireToImport()
   call VimuxRunCommand('npm run update-require-to-import ' . util#ExpandRelative('%'))
 endfunction
+
+function! js#OrganizeImports()
+  call VimuxRunCommand('npm run organize-imports ' . util#ExpandRelative('%'))
+endfunction
