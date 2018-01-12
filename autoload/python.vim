@@ -41,3 +41,10 @@ endfunction
 function! python#GenProtobuf()
   call VimuxRunCommand('./pants gen-protobuf-py protobuf/src::')
 endfunction
+
+function! python#InstallExtDeps(target)
+  let command = 'TARGET_EXT_DEPS=`./pants dependencies --dependencies-external-only ' . a:target . ' | sort | uniq`
+  \ && xargs pip install --no-cache-dir <<< "$TARGET_EXT_DEPS"'
+  call VimuxRunCommand(command)
+endfunction
+
