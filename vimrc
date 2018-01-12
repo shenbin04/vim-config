@@ -420,7 +420,6 @@ nnoremap <Leader>e :MostRecentNote<CR>
 " Vim Test
 let g:test#strategy = 'vimux'
 let g:test#preserve_screen = 0
-let g:test#python#pytest#options = '--no-print-logs --disable-warnings'
 
 nnoremap <Leader>rl :TestNearest<CR>
 nnoremap <Leader>rr :TestFile<CR>
