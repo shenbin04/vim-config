@@ -376,10 +376,11 @@ let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '>>'
 let g:ale_linters = {
 \   'javascript': ['eslint'],
-\   'python': ['pylint'],
+\   'python': ['pylint', 'flake8'],
 \}
 let g:ale_javascript_eslint_options = js#ESLintArgs()
 let g:ale_python_pylint_options = python#PYLintArgs()
+let g:ale_python_flake8_options = '--ignore=E101,E501,W291,W292,W293'
 
 hi ALEErrorSign ctermfg=015 ctermbg=001 cterm=none
 hi ALEWarningSign ctermfg=015 ctermbg=166 cterm=none
@@ -452,6 +453,7 @@ nnoremap <Leader>e :MostRecentNote<CR>
 " Vim Test
 let g:test#strategy = 'vimux'
 let g:test#preserve_screen = 0
+let g:test#python#pytest#options = '--no-print-logs --disable-warnings'
 
 nnoremap <Leader>rl :TestNearest<CR>
 nnoremap <Leader>rr :TestFile<CR>
