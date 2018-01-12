@@ -1,4 +1,5 @@
 " Pathogen
+let g:pathogen_disabled = ['python-mode']
 execute pathogen#infect()
 
 " General
@@ -451,3 +452,6 @@ nnoremap <Leader>e :MostRecentNote<CR>
 " Vim Test
 let g:test#strategy = 'vimux'
 let g:test#preserve_screen = 0
+
+nnoremap <Leader>rl :TestNearest<CR>
+nnoremap <Leader>rr :TestFile<CR>
