@@ -163,3 +163,6 @@
 [submodule "bundle/python"]
 	path = bundle/python
 	url = https://github.com/vim-python/python-syntax.git
+[submodule "bundle/textobj-python"]
+	path = bundle/textobj-python
+	url = https://github.com/bps/vim-textobj-python.git
