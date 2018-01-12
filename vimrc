@@ -159,17 +159,6 @@ nnoremap tap 0f(i = <ESC>f)a =><ESC>
 nnoremap taf 0/function<CR>dw/)<CR>a =><ESC>
 nnoremap tae 0/function<CR>dwiconst <ESC>wwi = <ESC>/)<CR>a =><ESC>/{<CR>%a;<ESC>
 
-onoremap if :call JSFunctionAction('')<CR>
-onoremap af :call JSFunctionAction('k')<CR>
-onoremap ik :call JSPropertyAction()<CR>
-onoremap ic :call JSFunctionCallAction('')<CR>
-onoremap ac :call JSFunctionCallAction('k')<CR>
-
-nnoremap <Leader>fb :call FormatImportBreak()<CR>
-nnoremap <Leader>fj :call FormatImportJoin()<CR>
-nnoremap <leader>fm V:EsformatterVisual<CR>k=a<.....
-vnoremap <leader>fm :EsformatterVisual<CR>k=a<.....
-
 nnoremap <Leader>rc :call VimuxCloseRunner()<CR>
 nnoremap <Leader>ro :call VimuxOpenRunner()<CR>
 nnoremap <Leader>rb :call VimuxInterruptRunner()<CR>
@@ -183,34 +172,12 @@ nnoremap <Leader>cl :let @*=expand('%:p')<CR>
 nnoremap <leader>c "*y
 
 " Function
-function! JSFunctionAction(command)
-  execute "normal! " . "?\\v^\\s*[a-zA-Z]+( \\= )\\?\\(.*\\) (\\=\\> )\\?\\{\\?\\(\\?$\<CR>f{V%o" . a:command
-endfunction
-
-function! JSPropertyAction()
-  execute "normal! " . "/}\<CR>?\\v\\S+: \\{\<CR>f{V%o"
-endfunction
-
-function! JSFunctionCallAction(command)
-  execute "normal! " . "?\\v^\\s+\\S+\\(\<CR>f(V%o" . a:command
-endfunction
-
 function! CloseLastWindow()
   if &buftype == 'quickfix' || &buftype == 'nofile'
     if winbufnr(2) == -1
       quit!
     endif
   endif
-endfunction
-
-function! FormatImportBreak()
-  exe 'normal! ^'
-  call RangeJsBeautify()
-  exe 'normal! f{%kA,'
-endfunction
-
-function! FormatImportJoin()
-  exe 'normal! va{Jhxx%lx'
 endfunction
 
 " Autocommand

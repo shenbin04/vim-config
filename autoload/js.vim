@@ -51,3 +51,25 @@ endfunction
 function! js#OrganizeImports()
   call VimuxRunCommand('npm run organize-imports ' . util#ExpandRelative('%'))
 endfunction
+
+function! js#JSFunctionAction(command)
+  execute "normal! " . "?\\v^\\s*[a-zA-Z]+( \\= )\\?\\(.*\\) (\\=\\> )\\?\\{\\?\\(\\?$\<CR>f{V%o" . a:command
+endfunction
+
+function! js#JSPropertyAction()
+  execute "normal! " . "/}\<CR>?\\v\\S+: \\{\<CR>f{V%o"
+endfunction
+
+function! js#JSFunctionCallAction(command)
+  execute "normal! " . "?\\v^\\s+\\S+\\(\<CR>f(V%o" . a:command
+endfunction
+
+function! js#FormatImportBreak()
+  exe 'normal! ^'
+  call RangeJsBeautify()
+  exe 'normal! f{%kA,'
+endfunction
+
+function! js#FormatImportJoin()
+  exe 'normal! va{Jhxx%lx'
+endfunction

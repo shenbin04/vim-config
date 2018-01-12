@@ -29,3 +29,14 @@ nnoremap <buffer> <Leader>rw :TestFile --watch<CR>
 
 nnoremap <buffer> <Leader>rni :call js#RequireToImport()<CR>
 nnoremap <buffer> <Leader>rno :call js#OrganizeImports()<CR>
+
+onoremap <buffer> if :call js#JSFunctionAction('')<CR>
+onoremap <buffer> af :call js#JSFunctionAction('k')<CR>
+onoremap <buffer> ik :call js#JSPropertyAction()<CR>
+onoremap <buffer> ic :call js#JSFunctionCallAction('')<CR>
+onoremap <buffer> ac :call js#JSFunctionCallAction('k')<CR>
+
+nnoremap <buffer> <Leader>fb :call js#FormatImportBreak()<CR>
+nnoremap <buffer> <Leader>fj :call js#FormatImportJoin()<CR>
+nnoremap <buffer> <leader>fm V:EsformatterVisual<CR>k=a<.....
+vnoremap <buffer> <leader>fm :EsformatterVisual<CR>k=a<.....
