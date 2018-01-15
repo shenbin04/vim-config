@@ -21,6 +21,7 @@ set pastetoggle=<F1>
 set ttimeoutlen=0
 set updatetime=1000
 set shellpipe=&>
+set encoding=utf-8
 
 " Color
 colorscheme molokai
