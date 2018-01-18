@@ -1,7 +1,6 @@
 function! GetPrefix()
   let dir = split(util#ExpandRelative('%:p:h'), '/')
   let base = join(dir[0:dir[-1] == '__snapshots__' ? -2 : -1], '/')
-  echom base
   return base . '/' . split(expand('%:t:r'), '\.')[0]
 endfunction
 
@@ -13,6 +12,14 @@ function! js#OpenJSFile()
       return
     endif
   endfor
+endfunction
+
+function! js#GetJSFileFromTestFile()
+  return GetPrefix() . '.' . expand('%:e')
+endfunction
+
+function! js#RunTestWatch()
+  execute ':TestFile --watch --coverage --collectCoverageFrom ' . js#GetJSFileFromTestFile()
 endfunction
 
 function! js#OpenTestFile()
@@ -65,11 +72,11 @@ function! js#JSFunctionCallAction(command)
 endfunction
 
 function! js#FormatImportBreak()
-  exe 'normal! ^'
+  execute 'normal! ^'
   call RangeJsBeautify()
-  exe 'normal! f{%kA,'
+  execute 'normal! f{%kA,'
 endfunction
 
 function! js#FormatImportJoin()
-  exe 'normal! va{Jhxx%lx'
+  execute 'normal! va{Jhxx%lx'
 endfunction
