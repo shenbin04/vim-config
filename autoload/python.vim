@@ -20,12 +20,12 @@ function! python#OpenBuildFile()
 endfunction
 
 function! python#BuildDeps()
-  let pattern = fnamemodify(findfile('BUILD', '.;'), ':p:h') . ':'
+  let pattern = fnamemodify(findfile('BUILD', '.;'), ':~:.:h') . ':'
   call VimuxRunCommand('./pants build-deps --virtualenv=oscar ' . pattern)
 endfunction
 
 function! python#TargetGen()
-  let pattern = fnamemodify(findfile('BUILD', '.;'), ':p:h') . '/*.py'
+  let pattern = fnamemodify(findfile('BUILD', '.;'), ':~:.:h') . '/*.py'
   call VimuxRunCommand('./pants target-gen -- ' . pattern)
 endfunction
 
