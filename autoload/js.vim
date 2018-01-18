@@ -4,6 +4,10 @@ function! GetPrefix()
   return base . '/' . split(expand('%:t:r'), '\.')[0]
 endfunction
 
+function! GetCoverage()
+  return ' --coverage --collectCoverageFrom ' . js#GetJSFileFromTestFile()
+endfunction
+
 function! js#OpenJSFile()
   let prefix = GetPrefix()
   for extension in ['.js', '.jsx']
@@ -18,8 +22,12 @@ function! js#GetJSFileFromTestFile()
   return GetPrefix() . '.' . expand('%:e')
 endfunction
 
+function! js#RunTestFile()
+  execute ':TestFile' . GetCoverage()
+endfunction
+
 function! js#RunTestWatch()
-  execute ':TestFile --watch --coverage --collectCoverageFrom ' . js#GetJSFileFromTestFile()
+  execute ':TestFile' . GetCoverage() . ' --watch'
 endfunction
 
 function! js#OpenTestFile()

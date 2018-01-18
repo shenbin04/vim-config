@@ -25,6 +25,7 @@ nnoremap <buffer> gc :call js#OpenScssFile()<CR>
 nnoremap <buffer> gs :call js#OpenSnapshotFile()<CR>
 
 nnoremap <buffer> <Leader>ru :TestFile -u<CR>
+nnoremap <buffer> <Leader>rr :call js#RunTestFile()<CR>
 nnoremap <buffer> <Leader>rw :call js#RunTestWatch()<CR>
 
 nnoremap <buffer> <Leader>rni :call js#RequireToImport()<CR>
