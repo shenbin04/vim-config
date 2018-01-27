@@ -192,7 +192,9 @@ augroup vimrc
 
   autocmd BufWritePost .vimrc,vimrc source $MYVIMRC
 
-  autocmd TermOpen * startinsert
+  if has('nvim')
+    autocmd TermOpen * startinsert
+  endif
 
   " When opening a file, always jump to the last cursor position
   autocmd BufReadPost *

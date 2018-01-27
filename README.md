@@ -3,7 +3,7 @@
 
 To install:
 ```sh
-git clone https://bitbucket.org/shenbin04/vim-config ~/.vim
+git clone https://shenbin04@bitbucket.org/shenbin04/vim-config.git ~/.vim
 cd ~/.vim && make install
 ```
 
