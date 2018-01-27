@@ -83,7 +83,10 @@ set foldmethod=indent
 nnoremap <space> za
 
 " Viminfo: remember certain things when we exit
-set viminfo='100,/100,h,\"500,:500,n~/.vim/viminfo
+set viminfo='100,/100,h,\"500,:500
+if !has('nvim')
+  set viminfo+=n~/.vim/viminfo
+endif
 
 " Ctags: recurse up to home to find tags
 set tags+=tags;$HOME
