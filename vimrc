@@ -192,6 +192,8 @@ augroup vimrc
 
   autocmd BufWritePost .vimrc,vimrc source $MYVIMRC
 
+  autocmd TermOpen * startinsert
+
   " When opening a file, always jump to the last cursor position
   autocmd BufReadPost *
       \ if line("'\"") > 0 && line ("'\"") <= line("$") |
