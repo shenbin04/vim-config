@@ -343,7 +343,7 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '>>'
 let g:ale_linters = {
-\   'javascript': ['eslint'],
+\   'javascript': ['eslint', 'flow'],
 \   'python': ['pylint', 'flake8'],
 \}
 let g:ale_javascript_eslint_options = js#ESLintArgs()
