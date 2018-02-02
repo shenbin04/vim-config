@@ -1,6 +1,7 @@
 function! python#PYLintArgs()
   let config = findfile('.arc/.pylintrc', '.;')
-  return config != '' ? '-E --rcfile ' . shellescape(fnamemodify(config, ':p')) : '-E'
+  let config_path = config != '' ? ' --rcfile ' . shellescape(fnamemodify(config, ':p')) : '-E'
+  return '-E -d E1101' . config_path
 endfunction
 
 function! python#OpenPythonFile()
