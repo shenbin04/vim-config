@@ -4,6 +4,13 @@ function! GetPrefix()
   return base . '/' . split(expand('%:t:r'), '\.')[0]
 endfunction
 
+function! FindJest(...)
+  let prefix = a:0 > 0 ? a:1 : ''
+  let root = fnamemodify(finddir('node_modules', '.;'), ':~:.:h')
+  let jest = root . '/node_modules/.bin/jest'
+  let g:test#javascript#jest#executable = prefix . jest . ' -c ' . root . '/package.json'
+endfunction
+
 function! GetCoverage()
   return ' --coverage --collectCoverageFrom ' . js#GetJSFileFromTestFile()
 endfunction
@@ -23,18 +30,29 @@ function! js#GetJSFileFromTestFile()
 endfunction
 
 function! js#RunTestFile()
+  call FindJest()
   execute ':TestFile' . GetCoverage()
 endfunction
 
+function! js#RunTestUpdate()
+  call FindJest()
+  execute ':TestFile' . GetCoverage() . ' -u'
+endfunction
+
 function! js#RunTestWatch()
+  call FindJest()
   execute ':TestFile' . GetCoverage() . ' --watch'
 endfunction
 
-function! js#RunTestDebug()
-  let jest = test#javascript#jest#executable()
-  let g:test#javascript#jest#executable = 'node debug ' . jest
+function! js#RunTestLine()
+  call FindJest()
   execute ':TestNearest'
-  let g:test#javascript#jest#executable = jest
+endfunction
+
+function! js#RunTestDebug()
+  call FindJest('node debug ')
+  execute ':TestNearest'
+endfunction
 endfunction
 
 function! js#OpenTestFile()
