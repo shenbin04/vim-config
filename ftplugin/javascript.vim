@@ -30,6 +30,8 @@ nnoremap <buffer> <Leader>rl :call js#RunTestLine()<CR>
 nnoremap <buffer> <Leader>rd :call js#RunTestDebug()<CR>
 nnoremap <buffer> <Leader>ru :call js#RunTestUpdate()<CR>
 
+nnoremap <buffer> <Leader>rf :call js#RunFlow()<CR>
+
 nnoremap <buffer> <Leader>rni :call js#RequireToImport()<CR>
 nnoremap <buffer> <Leader>rno :call js#OrganizeImports()<CR>
 

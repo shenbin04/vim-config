@@ -53,6 +53,10 @@ function! js#RunTestDebug()
   call FindJest('node debug ')
   execute ':TestNearest'
 endfunction
+
+function! js#RunFlow()
+  let root = fnamemodify(findfile('.flowconfig', '.;'), ':~:.:h')
+  call VimuxRunCommand('npm run flow ' . root)
 endfunction
 
 function! js#OpenTestFile()
