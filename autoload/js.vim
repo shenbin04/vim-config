@@ -30,6 +30,13 @@ function! js#RunTestWatch()
   execute ':TestFile' . GetCoverage() . ' --watch'
 endfunction
 
+function! js#RunTestDebug()
+  let jest = test#javascript#jest#executable()
+  let g:test#javascript#jest#executable = 'node debug ' . jest
+  execute ':TestNearest'
+  let g:test#javascript#jest#executable = jest
+endfunction
+
 function! js#OpenTestFile()
   let prefix = GetPrefix()
   for extension in ['.js', '.jsx']
