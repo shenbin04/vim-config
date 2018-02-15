@@ -54,6 +54,11 @@ function! js#RunTestDebug()
   execute ':TestNearest'
 endfunction
 
+function! js#RunTest(param)
+  let root = fnamemodify(finddir('node_modules', '.;'), ':~:.:h')
+  call VimuxRunCommand('npm test --prefix ' . root . ' -- ' . a:param)
+endfunction
+
 function! js#RunFlow()
   let root = fnamemodify(findfile('.flowconfig', '.;'), ':~:.:h')
   call VimuxRunCommand('npm run flow ' . root)
