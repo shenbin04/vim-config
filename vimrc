@@ -117,7 +117,7 @@ nnoremap <Leader>S :%S/
 vnoremap <Leader>s :S/
 
 nnoremap <Leader>a :GrepperAg 
-nnoremap <Leader>w yiw:GrepperAg <C-R>0
+nnoremap <Leader>w yiw:GrepperAg "\b<C-R>0\b" 
 
 nnoremap <Leader>1 :BufSurfBack<CR>
 nnoremap <Leader>2 :BufSurfForward<CR>
