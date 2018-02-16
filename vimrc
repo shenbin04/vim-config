@@ -211,6 +211,7 @@ augroup vimrc
   autocmd FileType qf wincmd J
 
   autocmd BufRead,BufNewFile *.scss set filetype=scss.css
+  autocmd BufRead,BufNewFile *.aurora set filetype=python
 augroup END
 
 " Snapshot
