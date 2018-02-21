@@ -12,7 +12,7 @@ function! FindJest(...)
 endfunction
 
 function! GetCoverage()
-  return ' --coverage --collectCoverageFrom ' . js#GetJSFileFromTestFile()
+  return ' --collectCoverageFrom ' . js#GetJSFileFromTestFile() . ' --coverage '
 endfunction
 
 function! js#OpenJSFile()
