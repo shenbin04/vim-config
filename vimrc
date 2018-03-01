@@ -8,6 +8,7 @@ set number
 set relativenumber
 set hidden
 set cursorline
+set cursorcolumn
 set backspace=eol,start,indent
 set updatecount=100
 set directory=~/.vim/swap
