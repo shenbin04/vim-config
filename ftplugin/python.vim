@@ -9,5 +9,6 @@ nnoremap <buffer> <Leader>rpg :call python#GenAll()<CR>
 nnoremap <buffer> <Leader>rpim :call python#InstallExtDeps('python/manhattan:')<CR>
 nnoremap <buffer> <Leader>rpir :call python#InstallExtDeps('internal-site/internal_site:')<CR>
 nnoremap <buffer> <Leader>rpib :call python#InstallExtDeps('python/batmobile:')<CR>
+nnoremap <buffer> <Leader>rpif :call python#InstallExtDeps('python/dev_tools/foreman:')<CR>
 
 nnoremap <buffer> <Leader>rd :TestNearest -s<CR>
