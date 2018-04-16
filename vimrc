@@ -225,8 +225,7 @@ hi snapName ctermfg=144
 " Abbreviation
 iabbrev bd binding.pry;
 iabbrev db import ipdb; ipdb.set_trace()
-iabbrev mbr baptiste, evan, ong
-iabbrev mbs phou, etai, jbotros, chung, pzalewski, yang, amarto
+iabbrev bw baptiste, wstrasser
 iabbrev gs gabe.schindler
 
 " Undo
