@@ -32,8 +32,16 @@ export const ${1} = {
 };
 endsnippet
 
-snippet cdes "Add destructure: `const {a} = obj;`"
+snippet co "Add destructure: `const {a} = obj;`"
 const {${1}} = ${0:${VISUAL}};
+endsnippet
+
+snippet ty "Add type: `type a = {};`"
+type ${1} = {${0:${VISUAL}}};
+endsnippet
+
+snippet fa "Add fat arrow: `() => ;`"
+() => ${0:${VISUAL}}
 endsnippet
 
 snippet it "it (jest)"
