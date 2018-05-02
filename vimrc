@@ -374,7 +374,7 @@ let g:EasyMotion_smartcase = 1
 nmap H <Plug>(easymotion-overwin-f2)
 
 " Gundo
-nnoremap <S-u> :GundoToggle<CR>
+nnoremap <Leader>u :GundoToggle<CR>
 let g:gundo_close_on_revert = 1
 
 " MiniBuf
