@@ -171,7 +171,7 @@ nnoremap <Leader>rb :call VimuxInterruptRunner()<CR>
 nnoremap <Leader>ra :call VimuxPromptCommand()<CR>
 nnoremap <Leader>rm :call VimuxZoomRunner()<CR>
 
-nnoremap <Leader>cs :let @*=expand('%')<CR>
+nnoremap <Leader>cs :let @*=expand('%:t')<CR>
 nnoremap <Leader>cr :let @*=util#ExpandRelative('%:p')<CR>
 nnoremap <Leader>cl :let @*=expand('%:p')<CR>
 nnoremap <Leader>cc :set cursorline! cursorcolumn!<CR>
