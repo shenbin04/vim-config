@@ -22,7 +22,7 @@ endfunction
 
 function! python#BuildDeps()
   let pattern = fnamemodify(findfile('BUILD', '.;'), ':~:.:h') . ':'
-  call VimuxRunCommand('./pants build-deps --virtualenv=oscar ' . pattern)
+  call VimuxRunCommand('./pants build-deps --build-deps-prune=True --virtualenv=oscar ' . pattern)
 endfunction
 
 function! python#TargetGen()
