@@ -223,8 +223,6 @@ hi snapKeywords ctermfg=135
 hi snapName ctermfg=144
 
 " Abbreviation
-iabbrev bd binding.pry;
-iabbrev db import ipdb; ipdb.set_trace()
 iabbrev bw baptiste, wstrasser
 iabbrev gs gabe.schindler
 
