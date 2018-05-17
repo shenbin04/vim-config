@@ -21,7 +21,7 @@ function! python#OpenBuildFile()
 endfunction
 
 function! python#BuildDeps()
-  let pattern = fnamemodify(findfile('BUILD', '.;'), ':~:.:h') . ':'
+  let pattern = fnamemodify(findfile('BUILD', '.;'), ':~:.:h') . ':' . split(expand('%:r'), '/')[-1]
   call VimuxRunCommand('./pants build-deps --build-deps-prune=True --virtualenv=oscar ' . pattern)
 endfunction
 
