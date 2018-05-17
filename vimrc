@@ -145,8 +145,9 @@ nnoremap <F2> :setlocal spell!<CR>
 
 nnoremap <C-B> :redraw!<CR>
 
-noremap k gk
-noremap j gj
+nnoremap <expr> k (v:count > 1 ? "m'" . v:count : '') . 'gk'
+nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'gj'
+
 nnoremap G Gzz
 nnoremap n nzz
 nnoremap N Nzz
