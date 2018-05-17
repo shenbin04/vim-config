@@ -1,47 +1,68 @@
-snippet ap "Add property: `key: value,`"
-${1}: ${0:${VISUAL}},
+snippet ap "Add property: `key: value,`" bA
+$1: $0,
 endsnippet
 
-snippet ao "Add property: `key: {},`"
-${1}: {
-  ${0:${VISUAL}}
+snippet ao "Add property: `key: {},`" bA
+$1: {
+  $0
 },
 endsnippet
 
 snippet af "Add function: `fun() {}`"
-${1}(${2}) {
-  ${0:${VISUAL}}
+$1($2) {
+  $0
+}
+endsnippet
+
+snippet as "Add component in string interpolation" i
+${$1}$0
+endsnippet
+
+snippet ir "Import react"
+import {React} from 'react';
+
+endsnippet
+
+snippet irt "Import react type"
+import type {$1} from 'react';
+$0
+endsnippet
+
+snippet cls "React class"
+class $1 extends React.Component {
+  render() {
+  }
 }
 endsnippet
 
 snippet aff "Add arrow function: `() => {}`"
 ${1:()} => {
-  ${0:${VISUAL}}
+  $0
 }
 endsnippet
 
 snippet afe "Add arrow function express: `a = () => {}`"
-${1} = ${2:()} => {
-  ${0:${VISUAL}}
+$1 = ${2:()} => {
+  $0
 }
 endsnippet
 
 snippet exp "Add export: `export const module = {};`"
-export const ${1} = {
-  ${0:${VISUAL}}
+export const $1 = {
+  $0
 };
 endsnippet
 
-snippet co "Add destructure: `const {a} = obj;`"
-const {${1}} = ${0:${VISUAL}};
+snippet co "Add destructure: `const {a} = obj;`" b
+const {$1} = $0;
 endsnippet
 
 snippet ty "Add type: `type a = {};`"
-type ${1} = {${0:${VISUAL}}};
+type $1 = {$0};
 endsnippet
 
 snippet fa "Add fat arrow: `() => ;`"
-() => ${0:${VISUAL}}
+() => $0
 endsnippet
 
 snippet it "it (jest)"
