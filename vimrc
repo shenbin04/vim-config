@@ -433,3 +433,9 @@ let g:test#preserve_screen = 0
 
 nnoremap <Leader>rl :TestNearest<CR>
 nnoremap <Leader>rr :TestFile<CR>
+
+" Highlightedyank
+if !exists('##TextYankPost')
+  map y <Plug>(highlightedyank)
+endif
+let g:highlightedyank_highlight_duration = 500

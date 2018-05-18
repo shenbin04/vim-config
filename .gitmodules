@@ -166,3 +166,6 @@
 [submodule "bundle/textobj-python"]
 	path = bundle/textobj-python
 	url = https://github.com/bps/vim-textobj-python.git
+[submodule "bundle/highlightedyank"]
+	path = bundle/highlightedyank
+	url = https://github.com/machakann/vim-highlightedyank.git
