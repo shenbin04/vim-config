@@ -23,6 +23,7 @@ set ttimeoutlen=0
 set updatetime=1000
 set shellpipe=&>
 set encoding=utf-8
+set rtp+=/usr/local/opt/fzf
 
 " Color
 colorscheme molokai
@@ -439,3 +440,7 @@ if !exists('##TextYankPost')
   map y <Plug>(highlightedyank)
 endif
 let g:highlightedyank_highlight_duration = 500
+
+" fzf
+noremap <Leader>fa :Files<CR>
+noremap <Leader>fg :GFiles<CR>

@@ -169,3 +169,6 @@
 [submodule "bundle/highlightedyank"]
 	path = bundle/highlightedyank
 	url = https://github.com/machakann/vim-highlightedyank.git
+[submodule "bundle/fzf"]
+	path = bundle/fzf
+	url = https://github.com/junegunn/fzf.vim.git
