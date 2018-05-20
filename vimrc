@@ -97,8 +97,8 @@ set tags+=tags;$HOME
 let g:mapleader = ','
 let g:localmapleader = ','
 
-nnoremap _ :split<cr>
-nnoremap \| :vsplit<cr>
+nnoremap _ :split<CR>
+nnoremap \| :vsplit<CR>
 
 nnoremap <Up>    2<C-w>-
 nnoremap <Down>  2<C-w>+
@@ -110,14 +110,17 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
+nnoremap <Leader>b :cclose<CR>
 
-noremap <Leader>x :noh<CR>
+nnoremap <Leader>x :noh<CR>
 
 nnoremap <Leader>s :%s/
 nnoremap <Leader>S :%S/
 vnoremap <Leader>s :S/
-nnoremap <Leader>w :w<CR>
+nnoremap & :&&<CR>
+xnoremap & :&&<CR>
 
 nnoremap <Leader>aa :GrepperAg 
 nnoremap <Leader>aw yiw:GrepperAg "\b<C-R>0\b" 
@@ -176,7 +179,7 @@ nnoremap <Leader>rm :call VimuxZoomRunner()<CR>
 nnoremap <Leader>cs :let @*=expand('%:t')<CR>
 nnoremap <Leader>cr :let @*=util#ExpandRelative('%:p')<CR>
 nnoremap <Leader>cl :let @*=expand('%:p')<CR>
-nnoremap <Leader>cc :set cursorline! cursorcolumn!<CR>
+nnoremap <Leader>ci :set cursorline! cursorcolumn!<CR>
 
 nnoremap <leader>c "*y
 
@@ -208,9 +211,6 @@ augroup vimrc
       \ endif |
 
   autocmd CursorHold * silent! checktime
-
-  autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-  autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
   autocmd QuickFixCmdPost * botright copen
   autocmd FileType qf wincmd J
@@ -280,7 +280,7 @@ hi GitGutterDelete ctermfg=1 ctermbg=234 cterm=none
 hi GitGutterChangeDelete ctermfg=3 ctermbg=234 cterm=none
 
 " YankRing
-nnoremap <C-y> :YRShow<cr>
+nnoremap <C-y> :YRShow<CR>
 let g:yankring_max_history = 500
 let g:yankring_history_dir = '$HOME/.vim'
 let g:yankring_manual_clipboard_check = 0
@@ -317,7 +317,7 @@ nmap <Leader>c<Space> <Plug>NERDCommenterToggle
 vmap <Leader>c<Space> <Plug>NERDCommenterToggle
 
 " NERDTree
-nnoremap <C-g> :NERDTreeToggle<cr>
+nnoremap <C-g> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>zz
 hi NERDTreeDir ctermfg=81 cterm=none
 hi NERDTreeDirSlash ctermfg=81 cterm=none
@@ -378,7 +378,7 @@ nnoremap <Leader>u :GundoToggle<CR>
 let g:gundo_close_on_revert = 1
 
 " MiniBuf
-noremap M :MBEToggle<cr>:MBEFocus<cr>
+noremap M :MBEToggle<CR>:MBEFocus<CR>
 let g:MiniBufExplAutoOpen = 1
 let g:miniBufExplBRSplit = 1
 let g:miniBufExplBuffersNeeded = 1000
