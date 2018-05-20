@@ -312,11 +312,9 @@ let g:airline_section_y=''
 let g:airline_section_z = airline#section#create(['windowswap', '%3p%% ', 'linenr', ':%3v'])
 set laststatus=2
 
-" Nerdcommenter
-let g:NERDCreateDefaultMappings = 0
-let g:NERDSpaceDelims = 1
-nmap <Leader>c<Space> <Plug>NERDCommenterToggle
-vmap <Leader>c<Space> <Plug>NERDCommenterToggle
+" Comentary
+nmap <Leader>c<Space> <Plug>CommentaryLine
+nmap <Leader>cc <Plug>Commentary
 
 " NERDTree
 nnoremap <C-g> :NERDTreeToggle<CR>
