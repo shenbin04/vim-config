@@ -298,7 +298,9 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(o|so|dll)$',
   \ }
 let g:ctrlp_switch_buffer = 0
-let g:ctrlp_use_caching = 0
+let g:ctrlp_use_caching = 1
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
 let g:ctrlp_lazy_update = 50
 let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*\|\.git.*\|.*\/var\/folders\/.*'
 let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files']
