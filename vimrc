@@ -151,6 +151,8 @@ nnoremap <C-B> :redraw!<CR>
 
 nnoremap <expr> k (v:count > 1 ? "m'" . v:count : '') . 'gk'
 nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'gj'
+nnoremap <expr> gk (v:count > 1 ? "m'" . v:count : '') . 'k'
+nnoremap <expr> gj (v:count > 1 ? "m'" . v:count : '') . 'j'
 
 nnoremap G Gzz
 nnoremap n nzz
