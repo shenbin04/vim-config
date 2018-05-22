@@ -109,6 +109,10 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
+nnoremap <Leader>J <C-w>J
+nnoremap <Leader>K <C-w>K
+nnoremap <Leader>H <C-w>H
+nnoremap <Leader>L <C-w>L
 
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
