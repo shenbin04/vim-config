@@ -324,6 +324,7 @@ set laststatus=2
 " Comentary
 nmap <Leader>c<Space> <Plug>CommentaryLine
 nmap <Leader>cc <Plug>Commentary
+vmap <Leader>c<Space> <Plug>Commentary
 
 " NERDTree
 nnoremap <C-g> :NERDTreeToggle<CR>
