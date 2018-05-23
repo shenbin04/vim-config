@@ -298,6 +298,8 @@ endfunction
 noremap <Leader>, :CtrlPMixed<CR>
 let g:ctrlp_map = '<Leader>.'
 let g:ctrlp_regexp = 1
+let g:ctrlp_match_window = 'max:25'
+let g:ctrlp_reuse_window = 'netrw\|help\|quickfix'
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
   \ 'file': '\v\.(o|so|dll)$',
