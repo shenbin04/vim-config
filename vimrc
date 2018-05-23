@@ -1,5 +1,4 @@
 " Pathogen
-let g:pathogen_disabled = ['python-mode']
 execute pathogen#infect()
 
 " General
