@@ -288,7 +288,7 @@ hi GitGutterChangeDelete ctermfg=3 ctermbg=234 cterm=none
 nnoremap <C-y> :YRShow<CR>
 let g:yankring_max_history = 500
 let g:yankring_history_dir = '$HOME/.vim'
-let g:yankring_manual_clipboard_check = 0
+let g:yankring_window_height = 20
 
 function! YRRunAfterMaps()
   nnoremap <silent> Y :<C-U>YRYankCount 'y$'<CR>
