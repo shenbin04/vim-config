@@ -378,6 +378,8 @@ nnoremap <Leader>n :ALENextWrap<CR>
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
 nmap H <Plug>(easymotion-overwin-f2)
+nmap F <Plug>(easymotion-fl)
+nmap T <Plug>(easymotion-tl)
 
 " Gundo
 nnoremap <Leader>u :GundoToggle<CR>
