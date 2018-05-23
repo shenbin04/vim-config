@@ -184,9 +184,9 @@ nnoremap <Leader>rm :call VimuxZoomRunner()<CR>
 nnoremap <Leader>cs :let @*=expand('%:t')<CR>
 nnoremap <Leader>cr :let @*=util#ExpandRelative('%:p')<CR>
 nnoremap <Leader>cl :let @*=expand('%:p')<CR>
-nnoremap <Leader>ci :set cursorline! cursorcolumn!<CR>
+nnoremap <Leader>cu :set cursorline! cursorcolumn!<CR>
 
-nnoremap <leader>c "*y
+nnoremap <leader>cc "*y
 
 " Function
 function! CloseLastWindow()
@@ -322,9 +322,8 @@ let g:airline_section_z = airline#section#create(['windowswap', '%3p%% ', 'linen
 set laststatus=2
 
 " Comentary
-nmap <Leader>c<Space> <Plug>CommentaryLine
-nmap <Leader>cc <Plug>Commentary
-vmap <Leader>c<Space> <Plug>Commentary
+nmap <Leader>c <Plug>Commentary
+vmap <Leader>c <Plug>Commentary
 
 " NERDTree
 nnoremap <C-g> :NERDTreeToggle<CR>
