@@ -287,7 +287,7 @@ hi GitGutterChangeDelete ctermfg=3 ctermbg=234 cterm=none
 
 " YankRing
 nnoremap <C-y> :YRShow<CR>
-let g:yankring_max_history = 500
+let g:yankring_max_history = 200
 let g:yankring_history_dir = '$HOME/.vim'
 let g:yankring_window_height = 20
 
