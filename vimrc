@@ -439,6 +439,7 @@ let g:VimuxOrientation = 'h'
 let g:VimuxHeight = 50
 
 " Notes
+let g:notes_directories = ['$HOME/.vim/notes']
 nnoremap <Leader>e :MostRecentNote<CR>
 
 " Vim Test
