@@ -1,6 +1,8 @@
 install:
 	@echo Installing...
 	ln -fs ~/.vim/vimrc ~/.vimrc
+	mkdir -p ~/.config/nvim
+	ln -fs ~/.vim/init.vim ~/.config/nvim/init.vim
 	git submodule update --init --recursive
 	@echo Done
 
