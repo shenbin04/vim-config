@@ -165,6 +165,7 @@ nnoremap { {zz
 nnoremap <C-D> <C-D>zz
 nnoremap <C-U> <C-U>zz
 inoremap jk <ESC>
+nnoremap gV `[v`]
 
 nnoremap di, f,dT,
 nnoremap ci, f,cT,
