@@ -296,8 +296,8 @@ function! YRRunAfterMaps()
 endfunction
 
 " Ctrlp
-noremap <Leader>, :CtrlPMixed<CR>
-noremap <Leader>. :CtrlPMRUFiles<CR>
+noremap <Leader>, :CtrlPMRUFiles<CR>
+noremap <Leader>. :CtrlPMixed<CR>
 let g:ctrlp_map = ''
 let g:ctrlp_regexp = 1
 let g:ctrlp_bufpath_mod = ':~:.:h'
