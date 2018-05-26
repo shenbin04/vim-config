@@ -84,6 +84,7 @@ inoremap jk <ESC>
 nnoremap <C-B> :redraw!<CR>
 nnoremap <F2> :setlocal spell!<CR>
 nnoremap <Leader>cu :set cursorline! cursorcolumn!<CR>
+nnoremap <Leader>ec :e $HOME/.vim/vimrc<CR>
 nnoremap <space> za
 
 " Convert

@@ -211,6 +211,7 @@ endif
 let g:highlightedyank_highlight_duration = 500
 
 " fzf
+set rtp+=/usr/local/opt/fzf
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],

@@ -22,7 +22,8 @@ set ttimeoutlen=0
 set updatetime=1000
 set shellpipe=&>
 set encoding=utf-8
-set rtp+=/usr/local/opt/fzf
+set foldmethod=indent
+set tags+=tags;$HOME
 
 " Formatting
 filetype plugin indent on
@@ -50,17 +51,11 @@ set hlsearch
 set incsearch
 set showmatch
 
-" Fold
-set foldmethod=indent
-
-" Viminfo: remember certain things when we exit
+" Viminfo
 set viminfo='100,/100,h,\"500,:500
 if !has('nvim')
   set viminfo+=n~/.vim/viminfo
 endif
-
-" Ctags: recurse up to home to find tags
-set tags+=tags;$HOME
 
 " Abbreviation
 iabbrev bw baptiste, wstrasser
