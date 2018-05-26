@@ -62,51 +62,6 @@ endif
 " Ctags: recurse up to home to find tags
 set tags+=tags;$HOME
 
-" Color
-runtime! common/color.vim
-
-" Mapping
-runtime! common/mapping.vim
-
-" Plugin
-runtime! common/plugin.vim
-
-" Function
-function! CloseLastWindow()
-  if &buftype == 'quickfix' || &buftype == 'nofile'
-    if winbufnr(2) == -1
-      quit!
-    endif
-  endif
-endfunction
-
-" Autocommand
-augroup vimrc
-  autocmd!
-
-  autocmd BufEnter * call CloseLastWindow()
-
-  autocmd BufWritePost .vimrc,vimrc source $MYVIMRC
-
-  if has('nvim')
-    autocmd TermOpen * startinsert
-  endif
-
-  " When opening a file, always jump to the last cursor position
-  autocmd BufReadPost *
-      \ if line("'\"") > 0 && line ("'\"") <= line("$") |
-      \     exe "normal! g'\"zz" |
-      \ endif |
-
-  autocmd CursorHold * silent! checktime
-
-  autocmd QuickFixCmdPost * botright copen
-  autocmd FileType qf wincmd J
-
-  autocmd BufRead,BufNewFile *.scss set filetype=scss.css
-  autocmd BufRead,BufNewFile *.aurora set filetype=python
-augroup END
-
 " Abbreviation
 iabbrev bw baptiste, wstrasser
 iabbrev gs gabe.schindler
@@ -115,3 +70,15 @@ iabbrev gs gabe.schindler
 set undolevels=1000
 set undodir=~/.vim/undo
 set undofile
+
+" Color
+runtime! common/color.vim
+
+" Mapping
+runtime! common/mapping.vim
+
+" Autocmd
+runtime! common/autocmd.vim
+
+" Plugin
+runtime! common/plugin.vim

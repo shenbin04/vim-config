@@ -5,11 +5,18 @@ function! util#TryOpenFile(file, message)
     endif
     return 1
   else
-    " echo a:message
     return 0
   endif
 endfunction
 
 function! util#ExpandRelative(pattern)
   return fnamemodify(expand(a:pattern), ':~:.')
+endfunction
+
+function! util#CloseLastWindow()
+  if &buftype == 'quickfix' || &buftype == 'nofile'
+    if winbufnr(2) == -1
+      quit!
+    endif
+  endif
 endfunction
