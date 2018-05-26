@@ -44,3 +44,7 @@ nnoremap <buffer> <Leader>fb :call js#FormatImportBreak()<CR>
 nnoremap <buffer> <Leader>fj :call js#FormatImportJoin()<CR>
 nnoremap <buffer> <leader>fm V:EsformatterVisual<CR>k=a<.....
 vnoremap <buffer> <leader>fm :EsformatterVisual<CR>k=a<.....
+
+nnoremap <buffer> tap 0f(i = <ESC>f)a =><ESC>
+nnoremap <buffer> taf 0/function<CR>dw/)<CR>a =><ESC>:noh<CR>
+nnoremap <buffer> tae 0/function<CR>dwiconst <ESC>wwi = <ESC>/)<CR>a =><ESC>/{<CR>%a;<ESC>

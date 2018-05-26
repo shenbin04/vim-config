@@ -52,7 +52,6 @@ set showmatch
 
 " Fold
 set foldmethod=indent
-nnoremap <space> za
 
 " Viminfo: remember certain things when we exit
 set viminfo='100,/100,h,\"500,:500
@@ -67,101 +66,7 @@ set tags+=tags;$HOME
 runtime! common/color.vim
 
 " Mapping
-let g:mapleader = ','
-let g:localmapleader = ','
-
-nnoremap _ :split<CR>
-nnoremap \| :vsplit<CR>
-
-nnoremap <Up>    2<C-w>-
-nnoremap <Down>  2<C-w>+
-nnoremap <Left>  2<C-w><
-nnoremap <Right> 2<C-w>>
-
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-nnoremap <Leader>J <C-w>J
-nnoremap <Leader>K <C-w>K
-nnoremap <Leader>H <C-w>H
-nnoremap <Leader>L <C-w>L
-
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>q :q<CR>
-nnoremap <Leader>b :cclose<CR>
-
-nnoremap <Leader>x :noh<CR>
-
-nnoremap <Leader>s :%s/
-nnoremap <Leader>S :%S/
-vnoremap <Leader>s :S/
-nnoremap & :&&<CR>
-xnoremap & :&&<CR>
-
-nnoremap <Leader>aa :GrepperAg 
-nnoremap <Leader>aw yiw:GrepperAg "\b<C-R>0\b" 
-
-nnoremap <Leader>1 :BufSurfBack<CR>
-nnoremap <Leader>2 :BufSurfForward<CR>
-nnoremap <Leader>3 :b#<CR>
-
-nnoremap <Leader>dg :diffget<CR>
-vnoremap <Leader>dg :diffget<CR>
-nnoremap <Leader>dp :diffput<CR>
-vnoremap <Leader>dp :diffput<CR>
-
-vnoremap . :normal! .<CR>
-vnoremap @ :normal! @
-
-noremap <Home> :tprev<CR>
-noremap <End>  :tnext<CR>
-noremap <PageDown> :lnext<CR>
-noremap <PageUp>   :lprev<CR>
-
-vnoremap ss :sort<CR>
-vnoremap su :sort -u<CR>
-
-nnoremap <F2> :setlocal spell!<CR>
-
-nnoremap <C-B> :redraw!<CR>
-
-nnoremap <expr> k (v:count > 1 ? "m'" . v:count : '') . 'gk'
-nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'gj'
-nnoremap <expr> gk (v:count > 1 ? "m'" . v:count : '') . 'k'
-nnoremap <expr> gj (v:count > 1 ? "m'" . v:count : '') . 'j'
-
-nnoremap G Gzz
-nnoremap n nzz
-nnoremap N Nzz
-nnoremap } }zz
-nnoremap { {zz
-nnoremap <C-D> <C-D>zz
-nnoremap <C-U> <C-U>zz
-inoremap jk <ESC>
-nnoremap gV `[v`]
-
-nnoremap di, f,dT,
-nnoremap ci, f,cT,
-nnoremap da, f,ld2F,i,<ESC>l
-nnoremap ca, f,ld2F,i,<ESC>a
-
-nnoremap tap 0f(i = <ESC>f)a =><ESC>
-nnoremap taf 0/function<CR>dw/)<CR>a =><ESC>
-nnoremap tae 0/function<CR>dwiconst <ESC>wwi = <ESC>/)<CR>a =><ESC>/{<CR>%a;<ESC>
-
-nnoremap <Leader>rc :call VimuxCloseRunner()<CR>
-nnoremap <Leader>ro :call VimuxOpenRunner()<CR>
-nnoremap <Leader>rb :call VimuxInterruptRunner()<CR>
-nnoremap <Leader>ra :call VimuxPromptCommand()<CR>
-nnoremap <Leader>rm :call VimuxZoomRunner()<CR>
-
-nnoremap <Leader>cs :let @*=expand('%:t')<CR>
-nnoremap <Leader>cr :let @*=util#ExpandRelative('%:p')<CR>
-nnoremap <Leader>cl :let @*=expand('%:p')<CR>
-nnoremap <Leader>cu :set cursorline! cursorcolumn!<CR>
-
-nnoremap <leader>cc "*y
+runtime! common/mapping.vim
 
 " Function
 function! CloseLastWindow()
