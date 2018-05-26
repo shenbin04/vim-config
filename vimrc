@@ -225,11 +225,6 @@ augroup vimrc
   autocmd BufRead,BufNewFile *.aurora set filetype=python
 augroup END
 
-" Snapshot
-au BufNewFile,BufRead *.snap set filetype=snap
-hi snapKeywords ctermfg=135
-hi snapName ctermfg=144
-
 " Abbreviation
 iabbrev bw baptiste, wstrasser
 iabbrev gs gabe.schindler
