@@ -14,7 +14,7 @@ function! util#ExpandRelative(pattern)
 endfunction
 
 function! util#CloseLastWindow()
-  if &buftype == 'quickfix' || &buftype == 'nofile'
+  if &buftype == 'quickfix'
     if winbufnr(2) == -1
       quit!
     endif

@@ -1,10 +1,6 @@
-autocmd BufEnter * call util#CloseLastWindow()
-
 autocmd BufWritePost .vimrc,vimrc,$HOME/.vim/common/** source $MYVIMRC
 
-if has('nvim')
-  autocmd TermOpen * startinsert
-endif
+autocmd BufEnter * call util#CloseLastWindow()
 
 " When opening a file, always jump to the last cursor position
 autocmd BufReadPost *
@@ -16,3 +12,10 @@ autocmd CursorHold * silent! checktime
 
 autocmd QuickFixCmdPost * botright copen
 autocmd FileType qf wincmd J
+
+autocmd BufWinLeave ?* mkview
+autocmd BufWinEnter ?* silent! loadview
+
+if has('nvim')
+  autocmd TermOpen * startinsert
+endif
