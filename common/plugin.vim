@@ -195,7 +195,9 @@ let g:VimuxHeight = 50
 
 " Notes
 let g:notes_directories = ['$HOME/.vim/notes']
-nnoremap <Leader>e :MostRecentNote<CR>
+nnoremap <Leader>er :RecentNote<CR>
+nnoremap <Leader>en :MostRecentNote<CR>
+hi notesName ctermfg=81 cterm=underline
 
 " Vim Test
 let g:test#strategy = 'vimux'
