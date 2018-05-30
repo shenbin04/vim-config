@@ -80,6 +80,8 @@ function! presenting#PresentingFolds()
   let line = getline(v:lnum)
   if match(line, '.* <$') >= 0
     return 'a1'
+  elseif match(line, '\ *{{{\w\+') >= 0
+    return 'a1'
   elseif match(line, '^\s*$') >=0
     return 's1'
   else

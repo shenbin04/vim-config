@@ -11,3 +11,4 @@ syntax match notesAtxHeading2 /\v^\s*## +.*/ contains=notesAtxMarker,foldingMark
 hi default link notesAtxHeading2 Title
 
 hi link notesTitle Type
+hi link notesSnippetTEXT Directory

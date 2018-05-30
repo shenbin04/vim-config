@@ -1,6 +1,7 @@
 setlocal tabstop=2
 setlocal shiftwidth=2
 setlocal comments=:•,:◦,:▸,:▹,:▪,:▫,:>
+setlocal expandtab
 
 let g:presenting_top_margin = 5
 
