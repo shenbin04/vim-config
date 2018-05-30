@@ -17,16 +17,30 @@ endif
 function! PresentingFolds()
   let line = getline(v:lnum)
   if match(line, '.* <$') >= 0
-    return '>1'
-  elseif match(line, '^\s*$') >= 0
-    return '0'
+    return 'a1'
+  elseif match(line, '^\s*$') >=0
+    return 's1'
   else
     return '='
   endif
 endfunction
 
 function! PresentingFoldText()
-  return substitute(getline(v:foldstart), '\v(.*) \<$', '\1', '')
+  return ''
+endfunction
+
+function! UnfoldOrNext()
+  let last = line('$')
+  let current = line('.') + 1
+  while current <= last
+    if foldclosed(current) > -1
+      execute 'normal! ' . current . 'gg'
+      normal! zo
+      return
+    endif
+    let current += 1
+  endwhile
+  call s:NextPage(1)
 endfunction
 
 function! s:Start()
@@ -66,6 +80,7 @@ function! s:Start()
   nnoremap <buffer> <silent> p :PresentingPrev<CR>
   nnoremap <buffer> <silent> N :PresentingPrev<CR>
   nnoremap <buffer> <silent> q :PresentingExit<CR>
+  nnoremap <buffer> <silent> <CR> :call UnfoldOrNext()<CR>
 
   autocmd BufWinLeave <buffer> call s:Exit()
 endfunction
@@ -76,15 +91,19 @@ function! s:ShowPage(page_number)
   endif
 
   let s:page_number = a:page_number
+  let s:offset = (winwidth('%') - &textwidth) / 2
 
   setlocal noreadonly
   setlocal modifiable
   silent %delete _
-  call append(0, map(copy(s:pages[s:page_number]), 'repeat(" ", 10) . v:val'))
+  call append(0, map(copy(s:pages[s:page_number]), 'repeat(" ", ' . s:offset . ') . v:val'))
   call append(0, map(range(1, g:presenting_top_margin), '""'))
-  normal! gg
   call append(line('$'), map(range(1, winheight('%')), '""'))
   " call append(line('$'), map(range(1, winheight('%') - (line('w$') - line('w0') + 1)), '""'))
+
+  call xolox#notes#refresh_syntax()
+  execute 'normal! ' . (g:presenting_top_margin + 1) . 'gg'
+  normal! 0
 
   setlocal buftype=nofile
   setlocal cmdheight=1
@@ -99,6 +118,8 @@ function! s:ShowPage(page_number)
   setlocal linebreak
   setlocal breakindent
   setlocal nolist
+  setlocal conceallevel=3
+  setlocal foldcolumn=0
   setlocal foldexpr=PresentingFolds()
   setlocal foldtext=PresentingFoldText()
   setlocal fillchars=fold:\ ,vert:\|

@@ -1,7 +1,13 @@
-syntax match notesAtxHeading /^\s*#\+.*/ contains=notesAtxMarker,@notesInline
-highlight def link notesAtxHeading Title
-syntax match notesAtxMarker /^\s*#\+/ contained
-highlight def link notesAtxMarker Comment
+syntax match notesAtxHeading1 /^\s*# \+.*/ contains=notesAtxMarker,@notesInline
+hi def link notesAtxHeading1 Keyword
 
-syntax match notesAtxHeading2 /^\s*##\+.*/ contains=notesAtxMarker,@notesInline
-hi default link notesAtxHeading2 notesAtxHeading
+syntax match notesAtxMarker /^\s*#\+/ contained
+hi def link notesAtxMarker Comment
+
+syntax match notesAtxHeading2 /^\s*## \+.*\ze <$/ contains=notesAtxMarker,@notesInline
+hi default link notesAtxHeading2 Title
+
+syntax match FoldingMark "\v.*\zs \<$" conceal
+hi default link FoldingMark Comment
+
+hi link notesTitle Type
