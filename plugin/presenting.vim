@@ -14,7 +14,7 @@ if !exists('g:presenting_top_margin')
   let g:presenting_top_margin = 0
 endif
 
-command! StartPresenting call presenting#Start()
-command! PresentingStart call presenting#Start()
+command! StartPresenting call presenting#Start(getline('.'))
+command! PresentingStart call presenting#Start(getline('.'))
 
 " vim:ts=2:sw=2:expandtab

@@ -109,7 +109,7 @@ function! presenting#UnfoldOrNext()
   call presenting#NextPage(1)
 endfunction
 
-function! presenting#Start()
+function! presenting#Start(line)
   if g:presenting_active == 1
     echo 'Presenting is running. Please quit first.'
     return
@@ -128,10 +128,19 @@ function! presenting#Start()
     return
   endif
 
+  let page_number = 0
+  while page_number <= s:max_page_number
+    if index(s:pages[page_number], a:line) >= 0
+      let s:page_number = page_number
+      break
+    endif
+    let page_number += 1
+  endwhile
+
   let g:presenting_active = 1
 
   silent n _PRESENTING_SLIDE_
-  call presenting#ShowPage(0)
+  call presenting#ShowPage(s:page_number)
   let &filetype=s:filetype
   call presenting#UpdateStatusLine()
 
