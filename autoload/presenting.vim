@@ -38,6 +38,8 @@ function! presenting#ShowPage(page_number)
   setlocal linebreak
   setlocal breakindent
   setlocal nolist
+  setlocal colorcolumn=
+  setlocal concealcursor=nc
   setlocal conceallevel=3
   setlocal foldcolumn=0
   setlocal foldexpr=presenting#PresentingFolds()
