@@ -86,7 +86,6 @@ nnoremap <F2> :setlocal spell!<CR>
 nnoremap <Leader>cu :set cursorline! cursorcolumn!<CR>
 nnoremap <Leader>ec :e $HOME/.vim/vimrc<CR>
 nnoremap <Space> za
-nmap <CR> ]<Space>
 
 " Convert
 nnoremap di, f,dT,
