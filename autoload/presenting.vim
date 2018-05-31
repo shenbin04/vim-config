@@ -41,6 +41,7 @@ function! presenting#ShowPage(page_number)
   setlocal colorcolumn=
   setlocal concealcursor=nc
   setlocal conceallevel=3
+  setlocal foldenable
   setlocal foldcolumn=0
   setlocal foldexpr=presenting#PresentingFolds()
   setlocal foldtext=presenting#PresentingFoldText()
