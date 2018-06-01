@@ -3,6 +3,7 @@ execute pathogen#infect()
 
 " General
 syntax on
+set nocompatible
 set number
 set relativenumber
 set hidden
