@@ -29,7 +29,7 @@ function! presenting#ShowPage(page_number)
   setlocal buftype=nofile
   setlocal cmdheight=1
   setlocal nocursorcolumn
-  setlocal nocursorline
+  setlocal cursorline
   setlocal nomodifiable
   setlocal nonumber
   setlocal norelativenumber
@@ -43,6 +43,7 @@ function! presenting#ShowPage(page_number)
   setlocal concealcursor=nc
   setlocal conceallevel=3
   setlocal foldenable
+  setlocal foldminlines=0
   setlocal foldcolumn=0
   setlocal foldexpr=presenting#PresentingFolds()
   setlocal foldtext=presenting#PresentingFoldText()
@@ -82,12 +83,13 @@ endfunction
 
 function! presenting#PresentingFolds()
   let line = getline(v:lnum)
+  let next = getline(v:lnum + 1)
   if match(line, '.* <$') >= 0
-    return 'a1'
+    return '>1'
   elseif match(line, '\ *{{{\w\+') >= 0
     return 'a1'
-  elseif match(line, '^\s*$') >=0
-    return 's1'
+  elseif match(line, '^\s*$') >=0 && (match(next, '^\s*$') >=0 || match(next, '.* <$') >=0)
+    return '<1'
   else
     return '='
   endif
@@ -103,7 +105,7 @@ function! presenting#UnfoldOrNext()
   while current <= last
     if foldclosed(current) > -1
       execute 'normal! ' . current . 'gg'
-      normal! zo
+      normal! zo0
       return
     endif
     let current += 1
