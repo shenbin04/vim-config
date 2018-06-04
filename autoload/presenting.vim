@@ -11,10 +11,11 @@ function! presenting#ShowPage(page_number)
     return
   endif
 
-  let offset = (winwidth('%') - &textwidth) / 2
-
+  setlocal textwidth=88
   setlocal noreadonly
   setlocal modifiable
+
+  let offset = (winwidth('%') - &textwidth) / 2
   silent %delete _
   call append(0, map(copy(s:pages[a:page_number]), 'repeat(" ", ' . offset . ') . v:val'))
   call append(0, map(range(1, g:presenting_top_margin), '""'))
