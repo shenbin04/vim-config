@@ -13,11 +13,15 @@ hi default link notesAtxHeading2 Title
 syntax match notesAtxHeading3 /\v^\s*### +.*/ contains=notesAtxMarker,foldingMark,@notesInline
 hi default link notesAtxHeading3 String
 
-syntax region notesHighlight matchgroup=notesHighlightMarker start=/\*\S\@=/ end=/\S\@<=\*/ contains=@Spell concealends containedin=notesUnixPath
+syntax region notesHighlight matchgroup=notesHighlightMarker start=/$\S\@=/ end=/\S\@<=\$/ contains=@Spell concealends containedin=notesUnixPath
 highlight link notesHighlightMarker notesHiddenMarker
+
+syntax region notesHighlightSecondary matchgroup=notesHighlightSecondaryMarker start=/%\S\@=/ end=/\S\@<=%/ contains=@Spell concealends containedin=notesUnixPath
+highlight link notesHighlightSecondaryMarker notesHiddenMarker
 
 hi link notesTitle Type
 hi link notesSnippetASCII Directory
 hi link notesUnixPath clear
 
 hi notesHighlight ctermfg=81
+hi notesHighlightSecondary ctermfg=118
