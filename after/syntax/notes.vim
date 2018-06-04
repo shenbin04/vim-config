@@ -13,7 +13,11 @@ hi default link notesAtxHeading2 Title
 syntax match notesAtxHeading3 /\v^\s*### +.*/ contains=notesAtxMarker,foldingMark,@notesInline
 hi default link notesAtxHeading3 String
 
-hi link notesTitle Type
-hi link notesSnippetTEXT Directory
+syntax region notesHighlight matchgroup=notesHighlightMarker start=/\*\S\@=/ end=/\S\@<=\*/ contains=@Spell concealends containedin=notesUnixPath
+highlight link notesHighlightMarker notesHiddenMarker
 
-hi notesBold ctermfg=81
+hi link notesTitle Type
+hi link notesSnippetASCII Directory
+hi link notesUnixPath clear
+
+hi notesHighlight ctermfg=81
