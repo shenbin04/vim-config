@@ -25,7 +25,7 @@ set shellpipe=&>
 set encoding=utf-8
 set foldmethod=indent
 set tags+=tags;$HOME
-set viewoptions=folds
+set viewoptions=folds,cursor
 
 " Formatting
 filetype plugin indent on
