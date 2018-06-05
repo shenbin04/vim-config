@@ -12,3 +12,4 @@ nnoremap <buffer> <Leader>rpib :call python#InstallExtDeps('python/batmobile:')<
 nnoremap <buffer> <Leader>rpif :call python#InstallExtDeps('python/dev_tools/foreman:')<CR>
 
 nnoremap <buffer> <Leader>rd :TestNearest -s<CR>
+nnoremap <buffer> <Leader>rr :call python#RunTestFile()<CR>

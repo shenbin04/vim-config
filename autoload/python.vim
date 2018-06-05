@@ -49,3 +49,10 @@ function! python#InstallExtDeps(target)
   call VimuxRunCommand(command)
 endfunction
 
+function! python#RunTestFile()
+  let test_file = util#ExpandRelative('%:p')
+  let dir = util#ExpandRelative('%:p:h')
+  let python_file = dir . '/' . join(split(expand('%:t'), '_')[0:-2], '_') . '.py'
+  let cmd = 'coverage run --branch --include ' . python_file . ' -m pytest ' . test_file . ' && coverage report -m'
+  call VimuxRunCommand(cmd)
+endfunction
