@@ -1,4 +1,5 @@
-autocmd BufWritePost .vimrc,vimrc,$HOME/.vim/common/** source $MYVIMRC
+autocmd BufWritePost .vimrc,vimrc source $MYVIMRC
+autocmd BufWritePost *.vim source %
 
 autocmd BufEnter * call util#CloseLastWindow()
 
