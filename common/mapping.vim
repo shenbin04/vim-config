@@ -88,6 +88,8 @@ nnoremap <Leader>cu :set cursorline! cursorcolumn!<CR>
 nnoremap <Leader>ec :e $HOME/.vim/vimrc<CR>
 nnoremap <Space> za
 
-" Convert
-nnoremap di, f,dT,
-nnoremap ci, f,cT, 
+" Between
+onoremap <silent> i, :normal! t,vT,<CR>
+vnoremap <silent> i, :normal! t,vT,<CR>
+onoremap <silent> i$ :normal! t$vT$<CR>
+vnoremap <silent> i$ :normal! t$vT$<CR>
