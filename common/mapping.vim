@@ -93,3 +93,5 @@ onoremap <silent> i, :normal! t,vT,<CR>
 vnoremap <silent> i, :normal! t,vT,<CR>
 onoremap <silent> i$ :normal! t$vT$<CR>
 vnoremap <silent> i$ :normal! t$vT$<CR>
+onoremap <silent> i% :normal! t%vT%<CR>
+vnoremap <silent> i% :normal! t%vT%<CR>
