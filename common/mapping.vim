@@ -4,6 +4,7 @@ let g:localmapleader = ','
 " Buffer
 nnoremap _ :split<CR>
 nnoremap \| :vsplit<CR>
+nnoremap <Leader>ch :helpclose<CR>
 nnoremap <Leader>cq :cclose<CR>
 nnoremap <Leader>cp :pclose<CR>
 nnoremap <Leader>q :q<CR>
