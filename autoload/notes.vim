@@ -34,6 +34,7 @@ function! notes#FormatRange() range
   endfor
   execute top . ',' . bot . 'delete _'
   call append(top - 1, results)
+  call cursor(top, 0)
 endfunction
 
 function! s:ProcessLines(lines)
