@@ -58,6 +58,9 @@ function! presenting#UpdateStatusLine()
 endfunction
 
 function! presenting#NextPage(count)
+  if s:page_number == s:max_page_number
+    return
+  endif
   let s:page_number += a:count
   if s:page_number > s:max_page_number
     let s:page_number = s:max_page_number
@@ -66,6 +69,9 @@ function! presenting#NextPage(count)
 endfunction
 
 function! presenting#PrevPage(count)
+  if s:page_number == 0
+    return
+  endif
   let s:page_number -= a:count
   if s:page_number < 0
     let s:page_number = 0
@@ -78,6 +84,7 @@ function! presenting#Exit()
     let g:presenting_active = 0
     bdelete! _PRESENTING_SLIDE_
     setlocal fillchars&
+    let &colorcolumn=s:colorcolumn
   endif
 endfunction
 
@@ -120,6 +127,7 @@ function! presenting#Start(line)
   endif
 
   let s:filetype = &filetype
+  let s:colorcolumn = &colorcolumn
   if !exists('b:presenting_slide_separator') && !exists('g:presenting_slide_separator')
     echom 'Please set b:presenting_slide_separator for "' . &filetype . '" filetype to enable Presenting'
     return

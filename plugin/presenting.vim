@@ -1,5 +1,5 @@
 au FileType markdown let g:presenting_slide_separator = '\v(^|\n)\ze#+'
-au FileType notes    let g:presenting_slide_separator = '\v(^|\n)\ze# '
+au FileType notes    let g:presenting_slide_separator = '\v(^|\n)\ze# \S+'
 
 if !exists('g:presenting_active')
   let g:presenting_active = 0
