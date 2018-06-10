@@ -19,9 +19,13 @@ highlight link notesHighlightMarker notesHiddenMarker
 syntax region notesHighlightSecondary matchgroup=notesHighlightSecondaryMarker start=/%\ze\S/ end=/\S\zs%/ contains=@Spell concealends containedin=notesUnixPath
 highlight link notesHighlightSecondaryMarker notesHiddenMarker
 
+syntax region notesHighlightAdditional matchgroup=notesHighlightAdditionalMarker start=/\^\ze\S/ end=/\S\zs\^/ contains=@Spell concealends containedin=notesUnixPath
+highlight link notesHighlightAdditionalMarker notesHiddenMarker
+
 hi link notesTitle Type
 hi link notesSnippetASCII Directory
 hi link notesUnixPath clear
 
 hi notesHighlight ctermfg=81
 hi notesHighlightSecondary ctermfg=118
+hi notesHighlightAdditional ctermfg=166

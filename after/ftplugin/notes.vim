@@ -6,6 +6,7 @@ setlocal textwidth=88
 setlocal iskeyword+=:,;,,,.,',`,^,"
 
 let g:presenting_top_margin = 5
+let g:notes_concealing_delimeters = ['$', '%', '^']
 
 nnoremap <buffer> <Leader>nb :call search('\v^\s*\zs• .+')<CR>
 nnoremap <buffer> <Leader>pb :call search('\v^\s*\zs• .+', 'b')<CR>

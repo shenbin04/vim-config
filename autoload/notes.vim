@@ -19,7 +19,7 @@ function! notes#FormatRange() range
       let max = maxes[i]
       let diff = sec.wc - max.wc - max.wd
       let substr = sec.str
-      if match(sec.str, '\v^-+ +') >= 0
+      if match(sec.str, '\v^-+ .') >= 0
         let substr = repeat('-', max.w)
       elseif diff < 0
         let substr = sec.str[0:diff - 1]
@@ -50,7 +50,7 @@ function! s:ProcessLines(lines)
         let maxes += [{'w': w, 'wc': wc, 'wd': len(str) - w - wc}]
       else
         let max_current = maxes[i - 1]
-        if w > max_current.w
+        if w > max_current.w && str !~ '\v^-+$'
           let max_current.w = w
           let max_current.wc = wc
           let max_current.wd = len(str) - w - wc
@@ -73,6 +73,9 @@ endfunction
 
 function! s:CalculateConcealing(string)
   let chars = split(a:string, '\zs')
-  let delimeters = ['$', '%']
-  return eval(join(map(delimeters, {k, v -> count(chars, v)}), '+'))
+  if !exists('g:notes_concealing_delimeters')
+    return 0
+  endif
+
+  return eval(join(map(copy(g:notes_concealing_delimeters), {k, v -> count(chars, v) / 2 * 2}), '+'))
 endfunction
