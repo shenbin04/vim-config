@@ -10,8 +10,8 @@ let g:notes_concealing_delimeters = ['$', '%', '^']
 
 nnoremap <buffer> <Leader>nb :call search('\v^\s*\zs• .+')<CR>
 nnoremap <buffer> <Leader>pb :call search('\v^\s*\zs• .+', 'b')<CR>
-nnoremap <buffer> <Leader>nt :call search('\v^\s*\zs# .+')<CR>
-nnoremap <buffer> <Leader>pt :call search('\v^\s*\zs# .+', 'b')<CR>
+nnoremap <buffer> <Leader>ns :call search('\v^\s*\zs# .+')<CR>
+nnoremap <buffer> <Leader>ps :call search('\v^\s*\zs# .+', 'b')<CR>
 nnoremap <buffer> <CR> :StartPresenting<CR>
 nnoremap <buffer> gh :h <C-r><C-w><CR>
 
