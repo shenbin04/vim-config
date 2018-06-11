@@ -19,14 +19,14 @@ function! notes#FormatRange() range
       let max = maxes[i]
       let diff = sec.wc - max.wc - max.wd
       let substr = sec.str
-      if match(sec.str, '\v^-+ .') >= 0
+      if match(sec.str, '\v^-+ *$') >= 0
         let substr = repeat('-', max.w)
       elseif diff < 0
         let substr = sec.str[0:diff - 1]
       elseif diff > 0
         let substr = sec.str . repeat(' ', diff)
       endif
-      let result = substitute(result, '\V' . sec.str, substr, '')
+      let result = substitute(result, '\V\( \[^|]\*|\)\{' . (i + 1) . '} \zs' . sec.str, substr, '')
       let i += 1
     endfor
     let results[n] = result
@@ -50,7 +50,7 @@ function! s:ProcessLines(lines)
         let maxes += [{'w': w, 'wc': wc, 'wd': len(str) - w - wc}]
       else
         let max_current = maxes[i - 1]
-        if w > max_current.w && str !~ '\v^-+$'
+        if w > max_current.w && str !~ '\v^-+ *$'
           let max_current.w = w
           let max_current.wc = wc
           let max_current.wd = len(str) - w - wc
