@@ -28,4 +28,4 @@ hi link notesUnixPath clear
 
 hi notesHighlight ctermfg=81
 hi notesHighlightSecondary ctermfg=118
-hi notesHighlightAdditional ctermfg=166
+hi notesHighlightAdditional ctermfg=208
