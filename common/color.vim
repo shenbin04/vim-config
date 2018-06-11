@@ -1,6 +1,7 @@
 colorscheme molokai
 
 hi Normal ctermfg=250 ctermbg=233
+hi Title ctermfg=208
 
 hi rubySymbol ctermfg=135 cterm=none
 hi rubyPseudoVariable ctermfg=135 cterm=none
