@@ -3,7 +3,7 @@ setlocal shiftwidth=2
 setlocal comments=:•,:◦,:▸,:▹,:▪,:▫,:>
 setlocal expandtab
 setlocal textwidth=88
-setlocal iskeyword+=:,;,,,.,',`,^,"
+setlocal iskeyword+=:,;,,,.,',` iskeyword-=$,^
 
 let g:presenting_top_margin = 5
 let g:notes_concealing_delimeters = ['$', '%', '^']
