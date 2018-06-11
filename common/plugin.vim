@@ -145,14 +145,6 @@ nmap T <Plug>(easymotion-tl)
 nnoremap <Leader>u :GundoToggle<CR>
 let g:gundo_close_on_revert = 1
 
-" MiniBuf
-noremap M :MBEToggle<CR>:MBEFocus<CR>
-let g:MiniBufExplAutoOpen = 1
-let g:miniBufExplBRSplit = 1
-let g:miniBufExplBuffersNeeded = 1000
-let g:miniBufExplCloseOnSelect = 1
-let g:miniBufExplVSplit = 30
-
 " Tagbar
 nnoremap <Leader>t :TagbarOpen fjc<CR>
 
