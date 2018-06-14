@@ -13,13 +13,19 @@ hi default link notesAtxHeading2 Title
 syntax match notesAtxHeading3 /\v^\s*### +.*/ contains=notesAtxMarker,foldingMark,@notesInline
 hi default link notesAtxHeading3 String
 
-syntax region notesHighlight matchgroup=notesHighlightMarker start=/$\ze\S/ end=/\S\zs\$/ contains=@Spell concealends containedin=notesUnixPath, notesHighlightSecondary, notesHighlightAdditional
+syntax region notesHighlight matchgroup=notesHighlightMarker start=/\v\$\ze\S.*\$.*$/ end=/\S\zs\$/ concealends
+      \ contains=@Spell, notesHighlightSecondary, notesHighlightAdditional
+      \ containedin=notesUnixPath
 highlight link notesHighlightMarker notesHiddenMarker
 
-syntax region notesHighlightSecondary matchgroup=notesHighlightSecondaryMarker start=/%\ze\S/ end=/\S\zs%/ contains=@Spell concealends containedin=notesUnixPath, notesHighlight, notesHighlightAdditional
+syntax region notesHighlightSecondary matchgroup=notesHighlightSecondaryMarker start=/\v\%\ze[^$ ][^$]*\%[^$]*\$?.*$/ end=/\zs%/ concealends
+      \ contains=@Spell, notesHighlight, notesHighlightAdditional
+      \ containedin=notesUnixPath
 highlight link notesHighlightSecondaryMarker notesHiddenMarker
 
-syntax region notesHighlightAdditional matchgroup=notesHighlightAdditionalMarker start=/\^\ze\S/ end=/\S\zs\^/ contains=@Spell concealends containedin=notesUnixPath, notesHighlight, notesHighlightSecondary
+syntax region notesHighlightAdditional matchgroup=notesHighlightAdditionalMarker start=/\v\^\ze[^$ ][^$]*\^[^$]*\$?.*$/ end=/\zs\^/ concealends
+      \ contains=@Spell, notesHighlight, notesHighlightSecondary
+      \ containedin=notesUnixPath
 highlight link notesHighlightAdditionalMarker notesHiddenMarker
 
 hi link notesTitle Type
