@@ -3,3 +3,5 @@ let &packpath = &runtimepath
 source ~/.vimrc
 
 set inccommand=nosplit
+
+autocmd TermOpen * startinsert

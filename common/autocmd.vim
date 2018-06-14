@@ -16,7 +16,3 @@ autocmd FileType qf wincmd J
 
 autocmd BufWinLeave ?* mkview
 autocmd BufWinEnter ?* silent! loadview
-
-if has('nvim')
-  autocmd TermOpen * startinsert
-endif
