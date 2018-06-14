@@ -40,3 +40,9 @@ function! util#SelectBetweenPattern(pattern)
   endif
   execute "normal! " . current . "GV" . end . "G"
 endfunction
+
+function! util#MaybeInsertMode()
+  if &buftype == 'terminal'
+    startinsert
+  endif
+endfunction
