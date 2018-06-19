@@ -85,6 +85,7 @@ function! presenting#Exit()
     bdelete! _PRESENTING_SLIDE_
     setlocal fillchars&
     let &colorcolumn=s:colorcolumn
+    AirlineToggle
   endif
 endfunction
 
@@ -151,6 +152,7 @@ function! presenting#Start(line)
 
   let g:presenting_active = 1
 
+  AirlineToggle
   silent n _PRESENTING_SLIDE_
   call presenting#ShowPage(s:page_number)
   let &filetype=s:filetype
