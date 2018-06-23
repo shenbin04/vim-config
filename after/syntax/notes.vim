@@ -13,7 +13,7 @@ hi default link notesAtxHeading2 Title
 syntax match notesAtxHeading3 /\v^\s*### +.*/ contains=notesAtxMarker,foldingMark,@notesInline
 hi default link notesAtxHeading3 String
 
-syntax region notesHighlight matchgroup=notesHighlightMarker start=/\v\$\ze\S.*$/ end=/\v\$?\zs\$/ skip=/\\\$/ concealends
+syntax region notesHighlight matchgroup=notesHighlightMarker start=/\v\$\ze\S.*$/ end=/\v\$?\zs\$/ concealends
       \ contains=@Spell, notesHighlightSecondary, notesHighlightAdditional
       \ containedin=notesUnixPath
 highlight link notesHighlightMarker notesHiddenMarker
