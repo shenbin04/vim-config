@@ -79,3 +79,21 @@ function! s:CalculateConcealing(string)
 
   return eval(join(map(copy(g:notes_concealing_delimeters), {k, v -> count(chars, v) / 2 * 2}), '+'))
 endfunction
+
+function! notes#GenerateTOC()
+  echo 'Genrating TOC'
+  normal! gg
+  let top = search('\v^# Contents', 'n')
+  if top > 0
+    let lines = uniq(filter(map(getline(top + 1, '$'), 'matchstr(v:val, "\\v^# \\zs\\w+")'), 'v:val != ""'))
+    let lines = map(lines, 'repeat(" ", &shiftwidth) . "• " . v:val')
+    execute 'normal! ' . top . 'gg'
+    call cursor(top + 1, 0)
+    let next_section = search('\v^# .+', 'n')
+    execute (top + 1) . ',' . (next_section - 1) . 'delete _'
+    call insert(lines, '')
+    call add(lines, '')
+    call append(top, lines)
+    call cursor(top, 0)
+  endif
+endfunction
