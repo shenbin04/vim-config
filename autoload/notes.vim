@@ -26,7 +26,7 @@ function! notes#FormatRange() range
       elseif diff > 0
         let substr = sec.str . repeat(' ', diff)
       endif
-      let result = substitute(result, '\V\( \[^|]\*|\)\{' . (i + 1) . '} \zs' . sec.str, substr, '')
+      let result = substitute(result, '\V\( \[^|]\*|\)\{' . (i + 1) . '} \zs' . escape(sec.str, '\'), escape(substr, '\&'), '')
       let i += 1
     endfor
     let results[n] = result
