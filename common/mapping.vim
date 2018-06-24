@@ -14,6 +14,10 @@ nnoremap <Leader>1 :BufSurfBack<CR>
 nnoremap <Leader>2 :BufSurfForward<CR>
 nnoremap <Leader>3 :b#<CR>
 
+" Tab
+nnoremap [t :tabprevious<CR>
+nnoremap ]t :tabnext<CR>
+
 " Window
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k

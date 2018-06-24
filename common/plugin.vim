@@ -225,3 +225,8 @@ let g:fzf_colors =
 noremap <Leader>fa :Files<CR>
 noremap <Leader>fg :GFiles<CR>
 noremap <Leader>fh :History<CR>
+
+" Unimpaired
+let g:nremap = {"[t": "", "]t": ""}
+let g:xremap = {"[t": "", "]t": ""}
+let g:oremap = {"[t": "", "]t": ""}
