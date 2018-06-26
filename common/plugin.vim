@@ -231,6 +231,9 @@ let g:nremap = {"[t": "", "]t": ""}
 let g:xremap = {"[t": "", "]t": ""}
 let g:oremap = {"[t": "", "]t": ""}
 
+" HLT
+nmap <Leader>_ <Plug>HiLinkTrace
+
 " QFEnter
 let g:qfenter_keymap = {}
 let g:qfenter_keymap.vopen = ['<C-v>']
