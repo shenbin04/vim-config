@@ -34,6 +34,9 @@ autocmd User fugitive
 
 " Gitgutter
 let g:gitgutter_max_signs = 1000
+nmap <Leader>ga <Plug>GitGutterStageHunk
+nmap <Leader>gr <Plug>GitGutterUndoHunk
+nmap <Leader>gp <Plug>GitGutterPreviewHunk
 hi GitGutterAdd ctermfg=28 ctermbg=234 cterm=none
 hi GitGutterAddLine ctermfg=28 ctermbg=234 cterm=none
 hi GitGutterChange ctermfg=3 ctermbg=234 cterm=none

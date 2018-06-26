@@ -1,5 +1,4 @@
 let g:mapleader = ','
-let g:localmapleader = ','
 
 " Buffer
 nnoremap _ :split<CR>
@@ -23,10 +22,10 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
-nnoremap <Leader>J <C-w>J
-nnoremap <Leader>K <C-w>K
-nnoremap <Leader>H <C-w>H
-nnoremap <Leader>L <C-w>L
+nnoremap <Leader>j <C-w>J
+nnoremap <Leader>k <C-w>K
+nnoremap <Leader>h <C-w>H
+nnoremap <Leader>l <C-w>L
 nnoremap <Up>    2<C-w>-
 nnoremap <Down>  2<C-w>+
 nnoremap <Left>  2<C-w><
