@@ -41,6 +41,11 @@ function! util#SelectBetweenPattern(pattern)
   execute "normal! " . current . "GV" . end . "G"
 endfunction
 
+function! util#SetReg(reg, message)
+  execute 'let @' . a:reg . '="' . a:message . '"'
+  echo 'Copied: ' . a:message
+endfunction
+
 function! util#MaybeInsertMode()
   if &buftype == 'terminal'
     startinsert

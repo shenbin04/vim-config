@@ -79,9 +79,9 @@ nnoremap <Leader>rm :call VimuxZoomRunner()<CR>
 
 " Clipboard
 nnoremap <leader>cc "+y
-nnoremap <Leader>cs :let @+=expand('%:t')<CR>
-nnoremap <Leader>cr :let @+=util#ExpandRelative('%:p')<CR>
-nnoremap <Leader>cl :let @+=expand('%:p')<CR>
+nnoremap <Leader>cs :call util#SetReg('+', expand('%:t'))<CR>
+nnoremap <Leader>cr :call util#SetReg('+', util#ExpandRelative('%:p'))<CR>
+nnoremap <Leader>cl :call util#SetReg('+', expand('%:p'))<CR>
 
 " Misc
 nnoremap gV `[v`]
