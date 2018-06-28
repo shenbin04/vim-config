@@ -52,10 +52,6 @@ nnoremap & :&&<CR>
 xnoremap & :&&<CR>
 nnoremap <Leader>x :noh<CR>
 
-" Ag
-nnoremap <Leader>aa :GrepperAg 
-nnoremap <Leader>aw "wyiw:GrepperAg "\b<C-R>w\b" 
-
 " Diff
 nnoremap <Leader>dg :diffget<CR>
 vnoremap <Leader>dg :diffget<CR>
@@ -69,13 +65,6 @@ vnoremap @ :normal! @
 " Sort
 vnoremap ss :sort<CR>
 vnoremap su :sort -u<CR>
-
-" Vimux
-nnoremap <Leader>rc :call VimuxCloseRunner()<CR>
-nnoremap <Leader>ro :call VimuxOpenRunner()<CR>
-nnoremap <Leader>rb :call VimuxInterruptRunner()<CR>
-nnoremap <Leader>ra :call VimuxPromptCommand()<CR>
-nnoremap <Leader>rm :call VimuxZoomRunner()<CR>
 
 " Clipboard
 nnoremap <leader>cc "+y

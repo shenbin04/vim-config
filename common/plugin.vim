@@ -189,6 +189,12 @@ let g:ycm_global_ycm_extra_conf = '$HOME/.vim/bundle/YouCompleteMe/third_party/y
 " Vimux
 let g:VimuxOrientation = 'h'
 let g:VimuxHeight = 50
+nnoremap <Leader>rc :call VimuxCloseRunner()<CR>
+nnoremap <Leader>ro :call VimuxOpenRunner()<CR>
+nnoremap <Leader>rb :call VimuxInterruptRunner()<CR>
+nnoremap <Leader>ra :call VimuxPromptCommand()<CR>
+nnoremap <Leader>rm :call VimuxZoomRunner()<CR>
+
 
 " Notes
 let g:notes_directories = ['$HOME/.vim/notes']
@@ -233,6 +239,10 @@ noremap <Leader>fh :History<CR>
 let g:nremap = {"[t": "", "]t": ""}
 let g:xremap = {"[t": "", "]t": ""}
 let g:oremap = {"[t": "", "]t": ""}
+
+" Ag
+nnoremap <Leader>aa :GrepperAg 
+nnoremap <Leader>aw "wyiw:GrepperAg "\b<C-r>w\b" 
 
 " HLT
 nmap <Leader>_ <Plug>HiLinkTrace
