@@ -41,8 +41,8 @@ nnoremap n nzz
 nnoremap N Nzz
 nnoremap } }zz
 nnoremap { {zz
-nnoremap <C-D> <C-D>zz
-nnoremap <C-U> <C-U>zz
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
 
 " Search
 nnoremap <Leader>s :%s/
@@ -86,7 +86,7 @@ nnoremap <Leader>cl :call util#SetReg('+', expand('%:p'))<CR>
 " Misc
 nnoremap gV `[v`]
 inoremap jk <ESC>
-nnoremap <C-B> :redraw!<CR>
+nnoremap <C-b> :redraw!<CR>
 nnoremap <F2> :setlocal spell!<CR>
 nnoremap <Leader>cu :set cursorline! cursorcolumn!<CR>
 nnoremap <Leader>ec :e $HOME/.vim/vimrc<CR>
