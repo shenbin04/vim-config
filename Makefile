@@ -4,7 +4,7 @@ install:
 	mkdir -p ~/.config/nvim
 	ln -fs ~/.vim/init.vim ~/.config/nvim/init.vim
 	ln -fs ~/.vim/.tern-project ~/.tern-project
-	vim -S snapshot.vim
+	vim -S snapshot.vim +qa
 	@echo Done
 
 .PHONY: install
