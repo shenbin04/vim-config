@@ -3,6 +3,8 @@
 " :source this file in vim to restore the snapshot
 " or execute: vim -S snapshot.vim
 
+PlugClean!
+
 silent! let g:plugs['L9'].commit = 'c822b05'
 silent! let g:plugs['QFEnter'].commit = '400352f'
 silent! let g:plugs['SimpylFold'].commit = 'aa0371d'
