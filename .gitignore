@@ -4,5 +4,6 @@
 /swap
 /notes
 /view
+/bundle
 viminfo
 vimrc.local
