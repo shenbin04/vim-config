@@ -18,4 +18,4 @@ nnoremap <buffer> gh :h <C-r><C-w><CR>
 onoremap <buffer> as :call util#SelectBetweenPattern('\v^\s*# .+')<CR>
 vnoremap <buffer> as :call util#SelectBetweenPattern('\v^\s*# .+')<CR>
 
-vnoremap <buffer> ft :call notes#FormatTable()<CR>
+vnoremap <buffer> <silent> ft :call notes#FormatTable()<CR>

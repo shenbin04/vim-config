@@ -32,7 +32,7 @@ function! notes#FormatRange() range
     let results[n] = result
     let n += 1
   endfor
-  execute top . ',' . bot . 'delete _'
+  silent! execute top . ',' . bot . 'delete _'
   call append(top - 1, results)
   call cursor(top, 0)
 endfunction
@@ -81,7 +81,6 @@ function! s:CalculateConcealing(string)
 endfunction
 
 function! notes#GenerateTOC()
-  echo 'Genrating TOC'
   normal! gg
   let top = search('\v^# Contents', 'n')
   if top > 0
@@ -90,7 +89,7 @@ function! notes#GenerateTOC()
     execute 'normal! ' . top . 'gg'
     call cursor(top + 1, 0)
     let next_section = search('\v^# .+', 'n')
-    execute (top + 1) . ',' . (next_section - 1) . 'delete _'
+    silent! execute (top + 1) . ',' . (next_section - 1) . 'delete _'
     call insert(lines, '')
     call add(lines, '')
     call append(top, lines)
