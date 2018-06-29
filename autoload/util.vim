@@ -57,3 +57,17 @@ function! util#MaybeInsertMode()
     startinsert
   endif
 endfunction
+
+function! util#OpenStash() range
+  if !exists('g:stash_url')
+    echo 'Please set g:stash_url first'
+    return
+  endif
+  let top = a:firstline
+  let bot = a:lastline
+  let cmd = '!open ' . g:stash_url . util#ExpandRelative('%:p') . '\#' . top
+  if bot > top
+    let cmd = cmd . '-' . bot
+  endif
+  silent execute cmd
+endfunction
