@@ -21,6 +21,12 @@ function! util#CloseLastWindow()
   endif
 endfunction
 
+function! util#SaveView()
+  if &buftype != 'terminal'
+    mkview
+  endif
+endfunction
+
 function! util#SelectBetweenPattern(pattern)
   let line = getline('.')
   if line !~ a:pattern

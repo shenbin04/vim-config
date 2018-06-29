@@ -14,5 +14,5 @@ autocmd CursorHold * silent! checktime
 autocmd QuickFixCmdPost * botright copen
 autocmd FileType qf wincmd J
 
-autocmd BufWinLeave ?* mkview
+autocmd BufWinLeave ?* call util#SaveView()
 autocmd BufWinEnter ?* silent! loadview
