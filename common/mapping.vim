@@ -72,8 +72,11 @@ nnoremap <Leader>cs :call util#SetReg('+', expand('%:t'))<CR>
 nnoremap <Leader>cr :call util#SetReg('+', util#ExpandRelative('%:p'))<CR>
 nnoremap <Leader>cl :call util#SetReg('+', expand('%:p'))<CR>
 
-" Open Brwoser
+" Open Stash
 noremap <silent> <Leader>os :call util#OpenStash()<CR>
+
+" Open Help
+nnoremap gh :h <C-r><C-w><CR>
 
 " Misc
 nnoremap gV `[v`]
