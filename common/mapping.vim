@@ -86,6 +86,8 @@ nnoremap <F2> :setlocal spell!<CR>
 nnoremap <Leader>cu :set cursorline! cursorcolumn!<CR>
 nnoremap <Leader>ec :e $HOME/.vim/vimrc<CR>
 nnoremap <Space> za
+inoremap <C-d> <Esc>ddi
+inoremap <C-u> <Esc>lgUiwgi
 
 " Between
 onoremap <silent> i, :normal! t,vT,<CR>
