@@ -21,6 +21,14 @@ function! util#CloseLastWindow()
   endif
 endfunction
 
+function! util#zoom()
+  if winnr('$') == 1 && len(gettabinfo()) > 1
+    q
+  elseif winnr('$') > 1
+    tab split
+  endif
+endfunction
+
 function! util#SaveView()
   if &buftype != 'terminal'
     mkview
