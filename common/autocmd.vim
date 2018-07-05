@@ -1,18 +1,22 @@
-autocmd BufWritePost .vimrc,vimrc source $MYVIMRC
-autocmd BufWritePost *.vim source %
+augroup autocmd
+  autocmd!
 
-autocmd BufEnter * call util#CloseLastWindow()
+  autocmd BufWritePost .vimrc,vimrc source $MYVIMRC
+  autocmd BufWritePost *.vim source %
 
-" When opening a file, always jump to the last cursor position
-autocmd BufReadPost *
-      \ if line("'\"") > 0 && line ("'\"") <= line("$") |
-      \     exe "normal! g'\"zz" |
-      \ endif |
+  autocmd BufEnter * call util#CloseLastWindow()
 
-autocmd CursorHold * silent! checktime
+  " When opening a file, always jump to the last cursor position
+  autocmd BufReadPost *
+        \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+        \     exe "normal! g'\"zz" |
+        \ endif |
 
-autocmd QuickFixCmdPost * botright copen
-autocmd FileType qf wincmd J
+  autocmd CursorHold * silent! checktime
 
-autocmd BufWinLeave ?* call util#SaveView()
-autocmd BufWinEnter ?* silent! loadview
+  autocmd QuickFixCmdPost * botright copen
+  autocmd FileType qf wincmd J
+
+  autocmd BufWinLeave ?* call util#SaveView()
+  autocmd BufWinEnter ?* silent! loadview
+augroup END
