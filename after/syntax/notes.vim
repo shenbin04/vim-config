@@ -28,6 +28,11 @@ syntax region notesHighlightAdditional matchgroup=notesHighlightAdditionalMarker
       \ containedin=notesUnixPath
 highlight link notesHighlightAdditionalMarker notesHiddenMarker
 
+syntax region notesURL matchgroup=notesDelimiter start="(" end=")" contained oneline
+syntax region notesLink matchgroup=notesDelimiter start="\\\@<!!\?\[\ze[^]\n]*\n\?[^]\n]*\][[(]" end="\]" contains=@Spell nextgroup=notesURL skipwhite concealends
+
+hi link notesLink Type
+
 hi link notesTitle Type
 hi link notesSnippetASCII Directory
 hi link notesUnixPath clear
