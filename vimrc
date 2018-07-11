@@ -58,6 +58,7 @@ Plug 'w0rp/ale'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 Plug 'yssl/QFEnter'
+Plug 'stevearc/vim-flow-plus'
 call plug#end()
 
 " General

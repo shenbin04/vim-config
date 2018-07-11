@@ -30,6 +30,7 @@ hi link scssProperty cssProp
 hi MatchParen ctermbg=240 ctermfg=15 cterm=none
 hi ColorColumn ctermbg=234 cterm=none
 hi SpellBad ctermbg=1 ctermfg=15 cterm=underline
+hi SpellCap ctermbg=166 ctermfg=15 cterm=underline
 hi Comment cterm=italic
 hi link jsonCommentError Comment
 hi clear Error80
