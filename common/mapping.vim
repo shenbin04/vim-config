@@ -89,6 +89,8 @@ nnoremap <Leader>ec :e $HOME/.vim/vimrc<CR>
 nnoremap <Space> za
 inoremap <C-d> <Esc>ddi
 inoremap <C-u> <Esc>lgUiwgi
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
 
 " Between
 onoremap <silent> i, :normal! t,vT,<CR>
