@@ -236,7 +236,10 @@ let g:oremap = {"[t": "", "]t": ""}
 
 " Ag
 nnoremap <Leader>aa :GrepperAg 
-nnoremap <Leader>aw "wyiw:GrepperAg "\b<C-r>w\b" 
+nnoremap <Leader>agw :GrepperAg '<cword>' 
+nnoremap <Leader>agW :GrepperAg '<cWORD>' 
+nnoremap <Leader>aw :GrepperAg '\b<cword>\b' 
+nnoremap <Leader>aW :GrepperAg '\b<cWORD>\b' 
 
 " HLT
 nmap <Leader>_ <Plug>HiLinkTrace
