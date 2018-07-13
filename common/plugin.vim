@@ -241,6 +241,9 @@ nnoremap <Leader>agW :GrepperAg '<cWORD>'
 nnoremap <Leader>aw :GrepperAg '\b<cword>\b' 
 nnoremap <Leader>aW :GrepperAg '\b<cWORD>\b' 
 
+nnoremap <silent> <leader>a :set operatorfunc=util#GrepOperator<cr>g@
+vnoremap <silent> <leader>a :<c-u>call util#GrepOperator(visualmode())<cr>
+
 " HLT
 nmap <Leader>_ <Plug>HiLinkTrace
 
