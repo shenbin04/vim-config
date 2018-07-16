@@ -101,8 +101,8 @@ function! js#OrganizeImports()
   call VimuxRunCommand('npm run organize-imports ' . util#ExpandRelative('%'))
 endfunction
 
-function! js#JSFunctionAction(command)
-  execute "normal! " . "?\\v^\\s*[a-zA-Z]+( \\= )\\?\\(.*\\) (\\=\\> )\\?\\{\\?\\(\\?$\<CR>f{V%o" . a:command
+function! js#FindFunction(command)
+  execute 'normal! j?\v^\s*\w+(\(.*\)(: \w+)\? \{|(: \w+)\? \= (\(.*\)(: \w+)\? \=\> )\?(\{|.+;))$' . "\<CR>f{V%" . a:command
 endfunction
 
 function! js#JSPropertyAction()
