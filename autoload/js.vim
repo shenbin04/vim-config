@@ -105,7 +105,7 @@ function! js#FindFunction(command)
   execute 'normal! j?\v^\s*\w+(\(.*\)(: \w+)\? \{|(: \w+)\? \= (\(.*\)(: \w+)\? \=\> )\?(\{|.+;))$' . "\<CR>f{V%" . a:command
 endfunction
 
-function! js#JSPropertyAction()
+function! js#FindProperty()
   execute "normal! " . "/}\<CR>?\\v\\S+: \\{\<CR>f{V%o"
 endfunction
 

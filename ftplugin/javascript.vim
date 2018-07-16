@@ -38,7 +38,8 @@ onoremap <buffer> if :call js#FindFunction('')<CR>
 vnoremap <buffer> if :call js#FindFunction('')<CR>
 onoremap <buffer> af :call js#FindFunction('j')<CR>
 vnoremap <buffer> af :call js#FindFunction('j')<CR>
-onoremap <buffer> ik :call js#JSPropertyAction()<CR>
+onoremap <buffer> ik :call js#FindProperty()<CR>
+vnoremap <buffer> ik :call js#FindProperty()<CR>
 onoremap <buffer> ic :call js#JSFunctionCallAction('')<CR>
 onoremap <buffer> ac :call js#JSFunctionCallAction('k')<CR>
 
