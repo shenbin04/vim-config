@@ -36,12 +36,16 @@ nnoremap <buffer> <Leader>rno :call js#OrganizeImports()<CR>
 
 onoremap <buffer> if :call js#FindFunction('')<CR>
 vnoremap <buffer> if :call js#FindFunction('')<CR>
+nnoremap <buffer> <Leader>nf :call js#FindFunctionNext()<CR>
+nnoremap <buffer> <Leader>pf :call js#FindFunctionPrevious()<CR>
 onoremap <buffer> af :call js#FindFunction('j')<CR>
 vnoremap <buffer> af :call js#FindFunction('j')<CR>
 onoremap <buffer> ik :call js#FindProperty()<CR>
 vnoremap <buffer> ik :call js#FindProperty()<CR>
-onoremap <buffer> ic :call js#JSFunctionCallAction('')<CR>
-onoremap <buffer> ac :call js#JSFunctionCallAction('k')<CR>
+onoremap <buffer> iit :call js#FindTestCase('')<CR>
+vnoremap <buffer> iit :call js#FindTestCase('')<CR>
+onoremap <buffer> ait :call js#FindTestCase('j')<CR>
+vnoremap <buffer> ait :call js#FindTestCase('j')<CR>
 
 nnoremap <buffer> <Leader>fb :call js#FormatImportBreak()<CR>
 nnoremap <buffer> <Leader>fj :call js#FormatImportJoin()<CR>

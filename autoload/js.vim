@@ -101,16 +101,26 @@ function! js#OrganizeImports()
   call VimuxRunCommand('npm run organize-imports ' . util#ExpandRelative('%'))
 endfunction
 
+let s:js_function_regex = '\v^\s*\w+(\(.*\)(: \w+)? \{|(: \w+)? \= (\(.*\)(: \w+)? \=\> )?(\{|.+;))$'
+
 function! js#FindFunction(command)
-  execute 'normal! j?\v^\s*\w+(\(.*\)(: \w+)\? \{|(: \w+)\? \= (\(.*\)(: \w+)\? \=\> )\?(\{|.+;))$' . "\<CR>f{V%" . a:command
+  execute 'normal! j?' . escape(s:js_function_regex, '?') . "\<CR>$V%" . a:command
+endfunction
+
+function! js#FindFunctionNext()
+  call search(s:js_function_regex)
+endfunction
+
+function! js#FindFunctionPrevious()
+  call search(s:js_function_regex, 'b')
 endfunction
 
 function! js#FindProperty()
-  execute "normal! " . "/}\<CR>?\\v\\S+: \\{\<CR>f{V%o"
+  execute "normal! /}\<CR>?\\v\\w+: \\{\<CR>$V%"
 endfunction
 
-function! js#JSFunctionCallAction(command)
-  execute "normal! " . "?\\v^\\s+\\S+\\(\<CR>f(V%o" . a:command
+function! js#FindTestCase(command)
+  execute "normal! j?\\v^\\s+it\\('.+'\<CR>$V%" . a:command
 endfunction
 
 function! js#FormatImportBreak()
