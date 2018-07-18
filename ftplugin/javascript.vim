@@ -1,3 +1,5 @@
+setlocal textwidth=120
+setlocal colorcolumn=+1
 setlocal formatprg=prettier\ --trailing-comma\ all\ --no-bracket-spacing\ --stdin
 
 hi link jsClassProperty jsClassFuncName

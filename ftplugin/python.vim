@@ -1,3 +1,6 @@
+setlocal textwidth=120
+setlocal colorcolumn=+1
+
 nnoremap <buffer> gj :call python#OpenPythonFile()<CR>
 nnoremap <buffer> gt :call python#OpenTestFile()<CR>
 nnoremap <buffer> gb :call python#OpenBuildFile()<CR>
