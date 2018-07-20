@@ -111,6 +111,33 @@ function! js#FindFunctionNext()
   call search(s:js_function_regex)
 endfunction
 
+function! js#ClassFunctionToClassProperty()
+  let line = getline('.')
+  let pattern = '\v^(\s+\w+)(\(.*\)) \{$'
+  if match(line, pattern) >= 0
+    let result = substitute(line, pattern, {m -> m[1] . ' = ' .  m[2] . ' => {'}, '')
+    call setline(line('.'), result)
+  else
+    echo 'Not a class function.'
+  endif
+endfunction
+
+function! js#ToArrowFunction()
+  let line = getline('.')
+  let pattern_function = '\v^function (\w+)(\(.*\)) \{$'
+  let pattern_function_anonymous = '\v^(.+)function(\(.*\)) \{$'
+  if match(line, pattern_function_anonymous) >= 0
+    let result = substitute(line, pattern_function_anonymous, {m -> m[1] . m[2] . ' => {'}, '')
+    call setline(line('.'), result)
+  elseif match(line, pattern_function) >=0
+    let result = substitute(line, pattern_function, {m -> 'const ' . m[1] . ' = ' . m[2] . ' => {'}, '')
+    call setline(line('.'), result)
+    normal! $%a;
+  else
+    echo 'Not a function.'
+  endif
+endfunction
+
 function! js#FindFunctionPrevious()
   call search(s:js_function_regex, 'b')
 endfunction
