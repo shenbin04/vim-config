@@ -3,13 +3,6 @@ colorscheme molokai
 hi Normal ctermfg=250 ctermbg=233
 hi Title ctermfg=208
 
-hi rubySymbol ctermfg=135 cterm=none
-hi rubyPseudoVariable ctermfg=135 cterm=none
-hi rubyException ctermfg=118 cterm=none
-hi rubyConditional ctermfg=135 cterm=none
-hi rubyControl ctermfg=161 cterm=none
-hi rubyKeybword ctermfg=161 cterm=none
-
 hi diffRemoved ctermfg=1 cterm=none
 hi diffAdded ctermfg=2 cterm=none
 hi DiffDelete ctermfg=161 ctermbg=234 cterm=italic
