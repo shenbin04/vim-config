@@ -12,7 +12,12 @@ function! FindJest(...)
 endfunction
 
 function! GetCoverage()
-  return ' --collectCoverageFrom ' . js#GetJSFileFromTestFile() . ' --coverage '
+  let test_file = js#GetJSFileFromTestFile()
+  let root = fnamemodify(finddir('node_modules', '.;'), ':~:.:h')
+  if root !=# '.'
+    let test_file = test_file[matchend(test_file, root) + 1:]
+  endif
+  return ' --collectCoverageFrom ' . test_file . ' --coverage '
 endfunction
 
 function! js#OpenJSFile()
