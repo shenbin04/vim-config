@@ -20,11 +20,9 @@ function! presenting#ShowPage(page_number)
   call append(0, map(copy(s:pages[a:page_number]), 'repeat(" ", ' . offset . ') . v:val'))
   call append(0, map(range(1, g:presenting_top_margin), '""'))
   call append(line('$'), map(range(1, winheight('%')), '""'))
-  " call append(line('$'), map(range(1, winheight('%') - (line('w$') - line('w0') + 1)), '""'))
 
   call xolox#notes#refresh_syntax()
-  execute 'normal! ' . (g:presenting_top_margin + 1) . 'gg'
-  normal! 0
+  execute 'normal! ' . (g:presenting_top_margin + 1) . 'gg0'
 
   setlocal buftype=nofile
   setlocal cmdheight=1
