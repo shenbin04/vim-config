@@ -1,3 +1,9 @@
+let s:js_function_regex = '\v^\s*\w+(\(.*\)(: \w+)? \{|(: \w+)? \= (\(.*\)(: \w+)? \=\> )?(\{|.+;))$'
+let s:js_named_imports_regex = '\vimport \{\zs.+\ze\}.+'
+let s:js_jsx_tag_regex = '\v(\s+)(.*)(\<\S+) (.{-1,})( ?/{,1}\>)(.*)'
+
+let s:indent = repeat(' ', &shiftwidth)
+
 function! GetPrefix()
   let dir = split(util#ExpandRelative('%:p:h'), '/')
   let base = join(dir[0:dir[-1] == '__snapshots__' ? -2 : -1], '/')
@@ -106,8 +112,6 @@ function! js#OrganizeImports()
   call VimuxRunCommand('npm run organize-imports ' . util#ExpandRelative('%'))
 endfunction
 
-let s:js_function_regex = '\v^\s*\w+(\(.*\)(: \w+)? \{|(: \w+)? \= (\(.*\)(: \w+)? \=\> )?(\{|.+;))$'
-
 function! js#FindFunction(command)
   execute 'normal! j?' . escape(s:js_function_regex, '?') . "\<CR>$V%" . a:command
 endfunction
@@ -156,11 +160,78 @@ function! js#FindTestCase(command)
 endfunction
 
 function! js#FormatImportBreak()
-  execute 'normal! ^'
-  call RangeJsBeautify()
-  execute 'normal! f{%kA,'
+  let lnum = line('.')
+  let line = getline('.')
+  let [str, start, end] = matchstrpos(line, s:js_named_imports_regex)
+  if !empty(str)
+    let imports = sort(map(split(str, ','), {k, v -> repeat(' ', &shiftwidth) . xolox#misc#str#trim(v) . ','}))
+    call setline(lnum, line[:start - 1])
+    call append(lnum, line[end:])
+    call append(lnum, imports)
+  endif
+endfunction
+
+function! js#FormatImportSort()
+  let lnum = line('.')
+  let line = getline('.')
+  let [str, start, end] = matchstrpos(line, s:js_named_imports_regex)
+  if !empty(str)
+    let imports = join(sort(map(split(str, ','), {k, v -> xolox#misc#str#trim(v)})), ', ')
+    call setline(lnum, line[:start - 1] . imports . line[end:])
+  else
+    normal vi{ss
+  endif
 endfunction
 
 function! js#FormatImportJoin()
-  execute 'normal! va{Jhxx%lx'
+  if empty(matchstr(getline('.'), s:js_named_imports_regex))
+    normal! va{Jhxx%lx
+  endif
+endfunction
+
+function! js#FormatJsxBreak()
+  let lnum = line('.')
+  let line = getline('.')
+  if line =~# s:js_jsx_tag_regex
+    let [_, indent, variable, jsx_tag, prop, end_tag, trailing; rest] = matchlist(line, s:js_jsx_tag_regex)
+    if empty(variable)
+      call setline(lnum, indent . jsx_tag)
+      let props = map(sort(split(prop, '[}"]\zs ')), {k, v -> indent . s:indent . v})
+      call add(props, indent . xolox#misc#str#trim(end_tag))
+      call append(lnum, props)
+    else
+      call setline(lnum, indent . variable . '(')
+      let props = map(sort(split(prop, '[}"]\zs ')), {k, v -> indent . repeat(s:indent, 2) . v})
+      call insert(props, indent . s:indent . jsx_tag)
+      call add(props, indent . s:indent . xolox#misc#str#trim(end_tag))
+      call add(props, indent . ')' . trailing)
+      call append(lnum, props)
+    endif
+  endif
+endfunction
+
+function! js#FormatJsxSort()
+  let lnum = line('.')
+  let line = getline('.')
+  if line =~# s:js_jsx_tag_regex
+    let [_, indent, variable, jsx_tag, prop, end_tag, trailing; rest] = matchlist(line, s:js_jsx_tag_regex)
+    let props = join(sort(split(prop, '[}"]\zs ')), ' ')
+    call setline(lnum, indent . variable . jsx_tag . ' ' . props . end_tag . trailing)
+  else
+    normal viiss
+  endif
+endfunction
+
+function! js#FormatJsxJoin()
+  let lnum = line('.')
+  let line = getline(lnum)
+  let prev = getline(lnum - 1)
+  let next = getline(lnum + 1)
+  if line =~# s:js_jsx_tag_regex && prev =~# '\v.+ = \($' && next =~# '\v^\s*\)'
+    let line = getline(lnum - 1)[:-2] . xolox#misc#str#trim(getline(lnum)) . xolox#misc#str#trim(getline(lnum + 1))[1:]
+    normal! djk
+    call setline(lnum - 1, line)
+  else
+    normal! $va<J
+  endif
 endfunction

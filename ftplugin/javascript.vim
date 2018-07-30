@@ -49,10 +49,12 @@ vnoremap <buffer> iit :call js#FindTestCase('')<CR>
 onoremap <buffer> ait :call js#FindTestCase('j')<CR>
 vnoremap <buffer> ait :call js#FindTestCase('j')<CR>
 
-nnoremap <buffer> <Leader>fb :call js#FormatImportBreak()<CR>
-nnoremap <buffer> <Leader>fj :call js#FormatImportJoin()<CR>
-nnoremap <buffer> <leader>fm V:EsformatterVisual<CR>k=a<.....
-vnoremap <buffer> <leader>fm :EsformatterVisual<CR>k=a<.....
+nnoremap <buffer> <silent> <Leader>fib :call js#FormatImportBreak()<CR>
+nnoremap <buffer> <silent> <Leader>fij :call js#FormatImportJoin()<CR>
+nnoremap <buffer> <silent> <Leader>fis :call js#FormatImportSort()<CR>
+nnoremap <buffer> <silent> <Leader>fjb :call js#FormatJsxBreak()<CR>
+nnoremap <buffer> <silent> <Leader>fjj :call js#FormatJsxJoin()<CR>
+nnoremap <buffer> <silent> <Leader>fjs :call js#FormatJsxSort()<CR>
 
-nnoremap <buffer> <silent> tap :call js#ClassFunctionToClassProperty()<CR>
-nnoremap <buffer> <silent> taf :call js#ToArrowFunction()<CR>
+nnoremap <buffer> <silent> <Leader>tap :call js#ClassFunctionToClassProperty()<CR>
+nnoremap <buffer> <silent> <Leader>taf :call js#ToArrowFunction()<CR>
