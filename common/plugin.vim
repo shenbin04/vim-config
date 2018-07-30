@@ -237,10 +237,10 @@ let g:oremap = {"[t": "", "]t": ""}
 
 " Ag
 nnoremap <Leader>aa :GrepperAg 
-nnoremap <Leader>agw :GrepperAg '<cword>' 
-nnoremap <Leader>agW :GrepperAg '<cWORD>' 
-nnoremap <Leader>aw :GrepperAg '\b<cword>\b' 
-nnoremap <Leader>aW :GrepperAg '\b<cWORD>\b' 
+nnoremap <Leader>agw "wyiw:GrepperAg '<C-r>w' 
+nnoremap <Leader>agW "wyiW:GrepperAg '<C-r>w' 
+nnoremap <Leader>aw "wyiw:GrepperAg '\b<C-r>w\b' 
+nnoremap <Leader>aW "wyiW:GrepperAg '\b<C-r>w\b' 
 
 nnoremap <silent> <leader>a :set operatorfunc=util#GrepOperator<cr>g@
 vnoremap <silent> <leader>a :<c-u>call util#GrepOperator(visualmode())<cr>
