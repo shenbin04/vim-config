@@ -25,6 +25,7 @@ hi ColorColumn ctermbg=234 cterm=none
 hi SpellBad ctermbg=1 ctermfg=15 cterm=underline
 hi SpellCap ctermbg=166 ctermfg=15 cterm=underline
 hi Comment cterm=italic
+hi ErrorMsg ctermbg=1 ctermfg=15
 hi link jsonCommentError Comment
 hi clear Error80
 hi clear cssBraceError
