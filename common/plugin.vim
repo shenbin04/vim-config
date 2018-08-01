@@ -226,9 +226,9 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
-noremap <Leader>fa :Files<CR>
-noremap <Leader>fg :GFiles<CR>
-noremap <Leader>fh :History<CR>
+noremap <Leader>za :Files<CR>
+noremap <Leader>zg :GFiles<CR>
+noremap <Leader>zh :History<CR>
 
 " Unimpaired
 let g:nremap = {"[t": "", "]t": ""}
