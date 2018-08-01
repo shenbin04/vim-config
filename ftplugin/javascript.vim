@@ -55,6 +55,8 @@ nnoremap <buffer> <silent> <Leader>fis :call js#FormatImportSort()<CR>
 nnoremap <buffer> <silent> <Leader>fjb :call js#FormatJsxBreak()<CR>
 nnoremap <buffer> <silent> <Leader>fjj :call js#FormatJsxJoin()<CR>
 nnoremap <buffer> <silent> <Leader>fjs :call js#FormatJsxSort()<CR>
+nnoremap <buffer> <silent> <Leader>fab :call js#FormatArrayBreak()<CR>
+nnoremap <buffer> <silent> <Leader>faj :call js#FormatArrayJoin()<CR>
 
 nnoremap <buffer> <silent> <Leader>tap :call js#ClassFunctionToClassProperty()<CR>
 nnoremap <buffer> <silent> <Leader>taf :call js#ToArrowFunction()<CR>

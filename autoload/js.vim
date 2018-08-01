@@ -1,6 +1,7 @@
 let s:js_function_regex = '\v^\s*\w+(\(.*\)(: \w+)? \{|(: \w+)? \= (\(.*\)(: \w+)? \=\> )?(\{|.+;))$'
 let s:js_named_imports_regex = '\vimport \{\zs.+\ze\}.+'
-let s:js_jsx_tag_regex = '\v(\s+)(.*)(\<\S+) (.{-1,})( ?/{,1}\>)(.*)'
+let s:js_jsx_tag_regex = '\v^(\s*)(.*)(\<\S+) (.{-1,})( ?/{,1}\>)(.*)'
+let s:js_array_regex = '\v^(\s*)(.*\[)(.+)(\].*)'
 
 let s:indent = repeat(' ', &shiftwidth)
 
@@ -184,7 +185,7 @@ function! js#FormatImportSort()
 endfunction
 
 function! js#FormatImportJoin()
-  if empty(matchstr(getline('.'), s:js_named_imports_regex))
+  if getline('.') !~# s:js_named_imports_regex
     normal! va{Jhxx%lx
   endif
 endfunction
@@ -233,5 +234,24 @@ function! js#FormatJsxJoin()
     call setline(lnum - 1, line)
   else
     normal! $va<J
+    if getline('.') =~# '\v \>$'
+      normal! x
+    endif
   endif
+endfunction
+
+function! js#FormatArrayBreak()
+  let lnum = line('.')
+  let line = getline('.')
+  if line =~# s:js_array_regex
+    let [_, indent, variable, array, trailing; rest] = matchlist(line, s:js_array_regex)
+    call setline(lnum, indent . variable)
+    let res = map(split(array, ', '), {k, v -> indent . s:indent . v . ','})
+    call add(res, indent . trailing)
+    call append(lnum, res)
+  endif
+endfunction
+
+function! js#FormatArrayJoin()
+  normal! $va]Jhxx%lx
 endfunction
