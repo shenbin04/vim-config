@@ -3,8 +3,6 @@
 " :source this file in vim to restore the snapshot
 " or execute: vim -S snapshot.vim
 
-PlugClean!
-
 silent! let g:plugs['L9'].commit = 'c822b05'
 silent! let g:plugs['QFEnter'].commit = '400352f'
 silent! let g:plugs['SimpylFold'].commit = 'aa0371d'
@@ -36,6 +34,7 @@ silent! let g:plugs['vim-commentary'].commit = '7f2127b'
 silent! let g:plugs['vim-css3-syntax'].commit = '31e5506'
 silent! let g:plugs['vim-easymotion'].commit = '1a0244c'
 silent! let g:plugs['vim-endwise'].commit = '21db2f8'
+silent! let g:plugs['vim-esformatter'].commit = '64cb795'
 silent! let g:plugs['vim-expand-region'].commit = '9665135'
 silent! let g:plugs['vim-flow-plus'].commit = '8cfb795'
 silent! let g:plugs['vim-fugitive'].commit = 'b5f7c37'
@@ -63,5 +62,5 @@ silent! let g:plugs['vim-unimpaired'].commit = 'f185e75'
 silent! let g:plugs['vim-visual-star-search'].commit = 'fa55818'
 silent! let g:plugs['vimux'].commit = '37f4119'
 
-PlugUpdate!
-
+PlugClean!
+PlugUpdate
