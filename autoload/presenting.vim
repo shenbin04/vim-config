@@ -26,6 +26,7 @@ function! presenting#ShowPage(page_number)
 
   setlocal buftype=nofile
   setlocal cmdheight=1
+  setlocal scrolloff=1
   setlocal nocursorcolumn
   setlocal cursorline
   setlocal nomodifiable
