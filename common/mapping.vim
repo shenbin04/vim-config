@@ -73,25 +73,6 @@ nnoremap <Leader>cs :call util#SetReg('+', expand('%:t'))<CR>
 nnoremap <Leader>cr :call util#SetReg('+', util#ExpandRelative('%:p'))<CR>
 nnoremap <Leader>cl :call util#SetReg('+', expand('%:p'))<CR>
 
-" Open Stash
-noremap <silent> <Leader>os :call util#OpenStash()<CR>
-
-" Open Help
-nnoremap gh :h <C-r><C-w><CR>
-
-" Misc
-nnoremap gV `[v`]
-inoremap jk <ESC>
-nnoremap <C-b> :redraw!<CR>
-nnoremap <F2> :setlocal spell!<CR>
-nnoremap <Leader>cu :set cursorline! cursorcolumn!<CR>
-nnoremap <Leader>ec :e $HOME/.vim/vimrc<CR>
-nnoremap <Space> za
-inoremap <C-d> <Esc>ddi
-inoremap <C-u> <Esc>lgUiwgi
-cnoremap <C-p> <Up>
-cnoremap <C-n> <Down>
-
 " Between
 onoremap <silent> i, :normal! t,vT,<CR>
 vnoremap <silent> i, :normal! t,vT,<CR>
@@ -101,3 +82,24 @@ onoremap <silent> i% :normal! t%vT%<CR>
 vnoremap <silent> i% :normal! t%vT%<CR>
 onoremap <silent> i^ :normal! t^vT^<CR>
 vnoremap <silent> i^ :normal! t^vT^<CR>
+
+" Open Stash
+noremap <silent> <Leader>os :call util#OpenStash()<CR>
+
+" Command-line
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+
+" Help
+nnoremap gh :h <C-r><C-w><CR>
+
+" Misc
+nnoremap <Space> za
+nnoremap gV `[v`]
+nnoremap <C-b> :redraw!<CR>
+nnoremap <F2> :setlocal spell!<CR>
+nnoremap <Leader>cu :set cursorline! cursorcolumn!<CR>
+nnoremap <Leader>ec :e $HOME/.vim/vimrc<CR>
+inoremap jk <ESC>
+inoremap <C-d> <Esc>ddi
+inoremap <C-u> <Esc>lgUiwgi

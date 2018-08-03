@@ -129,16 +129,16 @@ set undodir=~/.vim/undo
 set undolevels=1000
 
 " Color
-runtime! common/color.vim
+runtime common/color.vim
 
 " Mapping
-runtime! common/mapping.vim
+runtime common/mapping.vim
 
 " Autocmd
-runtime! common/autocmd.vim
+runtime common/autocmd.vim
 
 " Plugin
-runtime! common/plugin.vim
+runtime common/plugin.vim
 
 " Local
-runtime! ./vimrc.local
+runtime ./vimrc.local

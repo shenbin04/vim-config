@@ -98,9 +98,6 @@ let g:NERDTreeMapJumpNextSibling = ''
 let g:NERDTreeMapJumpPrevSibling = ''
 let NERDTreeIgnore = [ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$', '\.o$', '__pycache__',
                      \ '\.so$', '\.egg$', '^\.git$', '\.cmi', '\.cmo', 'tags' ]
-" Rainbow
-let g:rainbow_active = 1
-let g:rainbow_conf = { 'ctermfgs': ['red', 'yellow', 'green', 'cyan', 'magenta', 'red', 'yellow', 'green', 'cyan', 'magenta'] }
 
 " closetag
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.php,*.js,*.jsx'
@@ -159,9 +156,6 @@ let g:expand_region_text_objects_javascript = {
       \ 'ae': 0,
       \ }
 
-" JsBeautifier
-let g:config_Beautifier = { 'js': { 'indent_size': 2 }, 'jsx': {}}
-
 " UltiSnips
 let g:UltiSnipsExpandTrigger = '<Leader>e'
 let g:UltiSnipsJumpForwardTrigger = '<Leader><Tab>'
@@ -190,7 +184,6 @@ nnoremap <Leader>ro :call VimuxOpenRunner()<CR>
 nnoremap <Leader>rb :call VimuxInterruptRunner()<CR>
 nnoremap <Leader>ra :call VimuxPromptCommand()<CR>
 nnoremap <Leader>rm :call VimuxZoomRunner()<CR>
-
 
 " Notes
 let g:notes_directories = ['$HOME/.vim/notes']
