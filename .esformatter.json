@@ -1,0 +1,15 @@
+{
+  "plugins": [
+    "esformatter-jsx",
+    "esformatter-jsx-indent"
+  ],
+  "lineBreak": {
+    "before": {
+      "ArrayExpressionClosing": 1
+    },
+    "after": {
+      "ArrayExpressionOpening": 1,
+      "ArrayExpressionComma": 1
+    }
+  }
+}
