@@ -6,5 +6,6 @@
 /view
 /bundle
 /spell
+/macro
 viminfo
 vimrc.local

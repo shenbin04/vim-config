@@ -253,5 +253,11 @@ let g:esformatter_config=$HOME.'/.vim/.esformatter.json'
 " Flow
 nnoremap <F3> :FlowCoverageToggle<CR>
 
+" Marvim
+let g:marvim_store = $HOME.'/.vim/macro'
+let g:marvim_find_key = '<Leader>mf'
+let g:marvim_store_key = '<Leader>ms'
+noremap <Leader>me :execute 'e ' . g:marvim_store<CR>
+
 " Live Markdown
 nnoremap <Leader>md :LivedownToggle<CR>
