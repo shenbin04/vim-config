@@ -122,9 +122,10 @@ set hlsearch
 set incsearch
 
 " Viminfo
-set viminfo='100,/100,h,\"500,:500
-if !has('nvim')
-  set viminfo+=n~/.vim/viminfo
+if has('nvim')
+  set shada='100,/100,h,\"500,:500,n~/.vim/main.shada
+else
+  set viminfo='100,/100,h,\"500,:500,n~/.vim/viminfo
 endif
 
 " Undo
