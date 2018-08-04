@@ -6,6 +6,7 @@ endfunction
 
 " Plug
 call plug#begin('~/.vim/bundle')
+
 Plug 'SirVer/ultisnips'
 Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 Plug 'airblade/vim-gitgutter'
@@ -65,6 +66,7 @@ Plug 'w0rp/ale'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 Plug 'yssl/QFEnter'
+
 call plug#end()
 
 " General

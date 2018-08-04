@@ -1,8 +1,8 @@
 " Html
-let html_number_lines = 1
-let html_ignore_folding = 1
-let html_use_css = 1
-let xml_use_xhtml = 1
+let g:html_number_lines = 1
+let g:html_ignore_folding = 1
+let g:html_use_css = 1
+let g:xml_use_xhtml = 1
 
 " Javascript
 let g:javascript_plugin_jsdoc = 1
@@ -10,7 +10,7 @@ let g:javascript_plugin_flow = 1
 let g:jsx_ext_required = 0
 
 " Python
-let python_highlight_all = 1
+let g:python_highlight_all = 1
 
 " Json
 let g:vim_json_syntax_conceal = 0
@@ -90,14 +90,14 @@ hi NERDTreeDirSlash ctermfg=81 cterm=none
 hi NERDTreeCWD ctermfg=118 cterm=none
 hi NERDTreeOpenable ctermfg=59 cterm=none
 hi NERDTreeClosable ctermfg=7 cterm=none
-let NERDTreeQuitOnOpen = 1
-let NERDTreeShowFiles = 1
-let NERDTreeShowBookmarks = 1
-let NERDTreeHighlightCursorline = 1
+let g:NERDTreeQuitOnOpen = 1
+let g:NERDTreeShowFiles = 1
+let g:NERDTreeShowBookmarks = 1
+let g:NERDTreeHighlightCursorline = 1
 let g:NERDTreeMapJumpNextSibling = ''
 let g:NERDTreeMapJumpPrevSibling = ''
-let NERDTreeIgnore = [ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$', '\.o$', '__pycache__',
-                     \ '\.so$', '\.egg$', '^\.git$', '\.cmi', '\.cmo', 'tags' ]
+let g:NERDTreeIgnore = [ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$', '\.o$', '__pycache__',
+                       \ '\.so$', '\.egg$', '^\.git$', '\.cmi', '\.cmo', 'tags' ]
 
 " closetag
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.php,*.js,*.jsx'
