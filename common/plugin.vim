@@ -252,3 +252,6 @@ let g:esformatter_config=$HOME.'/.vim/.esformatter.json'
 
 " Flow
 nnoremap <F3> :FlowCoverageToggle<CR>
+
+" Live Markdown
+nnoremap <Leader>md :LivedownToggle<CR>
