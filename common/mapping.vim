@@ -6,7 +6,7 @@ nnoremap \| :vsplit<CR>
 nnoremap <Leader>ch :helpclose<CR>
 nnoremap <Leader>cq :cclose<CR>
 nnoremap <Leader>cp :pclose<CR>
-nnoremap <Leader>ca :cclose<CR>:pclose<CR>:helpclose<CR>
+nnoremap <silent> <Leader>ca :cclose<CR>:pclose<CR>:helpclose<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>1 :BufSurfBack<CR>
@@ -51,7 +51,7 @@ nnoremap <Leader>S :%S/
 vnoremap <Leader>s :S/
 nnoremap & :&&<CR>
 xnoremap & :&&<CR>
-nnoremap <Leader>x :noh<CR>
+nnoremap <silent> <Leader>x :noh<CR>
 
 " Diff
 nnoremap <Leader>dg :diffget<CR>
@@ -68,10 +68,10 @@ vnoremap ss :sort<CR>
 vnoremap su :sort -u<CR>
 
 " Clipboard
-nnoremap <leader>cc "+y
-nnoremap <Leader>cs :call util#SetReg('+', expand('%:t'))<CR>
-nnoremap <Leader>cr :call util#SetReg('+', util#ExpandRelative('%:p'))<CR>
-nnoremap <Leader>cl :call util#SetReg('+', expand('%:p'))<CR>
+nnoremap <silent> <leader>cc "+y
+nnoremap <silent> <Leader>cs :call util#SetReg('+', expand('%:t'))<CR>
+nnoremap <silent> <Leader>cr :call util#SetReg('+', util#ExpandRelative('%:p'))<CR>
+nnoremap <silent> <Leader>cl :call util#SetReg('+', expand('%:p'))<CR>
 
 " Between
 onoremap <silent> i, :normal! t,vT,<CR>
