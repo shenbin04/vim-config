@@ -38,7 +38,7 @@ Plug 'nviennot/molokai'
 Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdtree'
-Plug 'shenbin04/vim-esformatter'
+Plug 'shenbin04/vim-esformatter', { 'do': 'npm i -g esformatter' }
 Plug 'shime/vim-livedown', { 'do': 'npm i -g livedown' }
 Plug 'sjl/gundo.vim'
 Plug 'solarnz/thrift.vim'
