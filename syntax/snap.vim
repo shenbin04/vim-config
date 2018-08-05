@@ -5,11 +5,12 @@ endif
 runtime! syntax/jsx.vim
 
 syn keyword snapKeywords exports
-syn match snapHeader "\v^\/\/.+"
-syn match snapName "\v`([^`]+)`"
+hi def link snapKeywords Keyword
 
-hi default link snapKeywords Keyword
-hi default link snapHeader Comment
-hi default link snapName String
+syn match snapHeader "\v^\/\/ .+"
+hi def link snapHeader Comment
+
+syn match snapName "\v`([^`]+)`"
+hi def link snapName String
 
 let b:current_syntax = 'snap'
