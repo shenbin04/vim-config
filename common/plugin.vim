@@ -174,6 +174,11 @@ nnoremap <Leader>ff :YcmCompleter GoToDefinition<CR>
 let g:ycm_key_invoke_completion = '<Leader><Tab>'
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_show_diagnostics_ui = 0
+let g:ycm_filetype_blacklist = {
+      \ 'tagbar' : 1,
+      \ 'qf' : 1,
+      \ 'shada' : 1
+      \}
 let g:ycm_global_ycm_extra_conf = '$HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 
 " Vimux
