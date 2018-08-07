@@ -14,6 +14,8 @@ hi Search ctermbg=11 ctermfg=0
 hi LineNr ctermbg=234 ctermfg=59
 hi CursorLineNr ctermbg=234 ctermfg=11
 hi Folded ctermfg=59 ctermbg=233
+hi Pmenu ctermfg=81 ctermbg=233
+hi PmenuSel ctermfg=118 ctermbg=233
 
 hi scssSelectorName ctermfg=81
 hi link scssImport Keyword
