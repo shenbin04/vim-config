@@ -93,3 +93,9 @@ function! util#GrepOperator(type)
   silent execute 'GrepperAg ' . shellescape(@@)
   let @@ = saved_unnamed_register
 endfunction
+
+function! util#ClearHighlight()
+  if exists('g:plugs["jedi-vim"]')
+    call jedi#remove_usages()
+  endif
+endfunction

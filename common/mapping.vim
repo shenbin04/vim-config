@@ -52,7 +52,7 @@ nnoremap <Leader>S :%S/
 vnoremap <Leader>s :S/
 nnoremap & :&&<CR>
 xnoremap & :&&<CR>
-nnoremap <silent> <Leader>x :noh<CR>
+nnoremap <silent> <Leader>x :noh<CR>:call util#ClearHighlight()<CR>
 
 " Diff
 nnoremap <Leader>dg :diffget<CR>

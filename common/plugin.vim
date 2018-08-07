@@ -184,6 +184,19 @@ if exists('g:plugs["tern_for_vim"]')
   autocmd FileType javascript nnoremap <silent> <buffer> <Leader>fr :TernRename<CR>
 endif
 
+" Jedi
+if exists('g:plugs["jedi-vim"]')
+  let g:jedi#completions_enabled = 0
+  let g:jedi#goto_command = '<Leader>ff'
+  let g:jedi#usages_command = '<Leader>fu'
+  let g:jedi#rename_command = '<Leader>rr'
+  let g:jedi#documentation_command = ''
+  let g:jedi#goto_assignments_command = ''
+  let g:jedi#goto_definitions_command = ''
+
+  hi link jediUsage Search
+endif
+
 " YCM
 if exists('g:plugs["YouCompleteMe"]')
   nnoremap <Leader>ff :YcmCompleter GoToDefinition<CR>
