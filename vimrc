@@ -62,9 +62,13 @@ Plug 'xolox/vim-notes'
 Plug 'yssl/QFEnter'
 
 if v:version >= 800
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
+  if has('nvim')
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  else
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
+  endif
   Plug 'ternjs/tern_for_vim', { 'do': 'npm i' }
   Plug 'zchee/deoplete-jedi'
   Plug 'davidhalter/jedi-vim'
