@@ -1,14 +1,7 @@
-function! BuildYCM(info)
-  if a:info.status == 'installed' || a:info.force
-    !./install.py --clang-completer --tern-completer
-  endif
-endfunction
-
 " Plug
 call plug#begin('~/.vim/bundle')
 
 Plug 'SirVer/ultisnips'
-Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 Plug 'airblade/vim-gitgutter'
 Plug 'alvan/vim-closetag'
 Plug 'b4winckler/vim-objc'
@@ -67,6 +60,21 @@ Plug 'w0rp/ale'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 Plug 'yssl/QFEnter'
+
+if v:version >= 800
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+  Plug 'ternjs/tern_for_vim', { 'do': 'npm i' }
+  Plug 'zchee/deoplete-jedi'
+else
+  function! BuildYCM(info)
+    if a:info.status == 'installed' || a:info.force
+      !./install.py --clang-completer --tern-completer
+    endif
+  endfunction
+  Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+endif
 
 call plug#end()
 

@@ -19,4 +19,12 @@ augroup autocmd
 
   autocmd BufWinLeave ?* call util#SaveView()
   autocmd BufWinEnter ?* silent! loadview
+
+  autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 augroup END

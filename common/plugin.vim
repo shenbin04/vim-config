@@ -169,17 +169,34 @@ noremap \{ :Tabularize /{<CR>
 noremap \\| :Tabularize /\|<CR>
 noremap \& :Tabularize /\(&\\|\\\\\)<CR>
 
+" Deoplete
+if exists('g:plugs["deoplete.nvim"]')
+  let g:deoplete#enable_at_startup = 1
+  inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+endif
+
+" Tern
+if exists('g:plugs["tern_for_vim"]')
+  let g:tern_show_argument_hints = 'on_hold'
+  let g:tern_show_signature_in_pum = 1
+  autocmd FileType javascript setlocal omnifunc=tern#Complete
+  autocmd FileType javascript nnoremap <silent> <buffer> <Leader>ff :TernDef<CR>
+  autocmd FileType javascript nnoremap <silent> <buffer> <Leader>fr :TernRename<CR>
+endif
+
 " YCM
-nnoremap <Leader>ff :YcmCompleter GoToDefinition<CR>
-let g:ycm_key_invoke_completion = '<Leader><Tab>'
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_show_diagnostics_ui = 0
-let g:ycm_filetype_blacklist = {
-      \ 'tagbar' : 1,
-      \ 'qf' : 1,
-      \ 'shada' : 1
-      \}
-let g:ycm_global_ycm_extra_conf = '$HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+if exists('g:plugs["YouCompleteMe"]')
+  nnoremap <Leader>ff :YcmCompleter GoToDefinition<CR>
+  let g:ycm_key_invoke_completion = '<Leader><Tab>'
+  let g:ycm_confirm_extra_conf = 0
+  let g:ycm_show_diagnostics_ui = 0
+  let g:ycm_filetype_blacklist = {
+        \ 'tagbar' : 1,
+        \ 'qf' : 1,
+        \ 'shada' : 1
+        \}
+  let g:ycm_global_ycm_extra_conf = '$HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+endif
 
 " Vimux
 let g:VimuxOrientation = 'h'
