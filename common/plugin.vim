@@ -128,8 +128,8 @@ hi ALEWarningSign ctermfg=015 ctermbg=166 cterm=none
 hi link ALEError clear
 hi link ALEWarning clear
 
-nnoremap <Leader>pa :ALEPreviousWrap<CR>
-nnoremap <Leader>na :ALENextWrap<CR>
+nnoremap <Leader>p :ALEPreviousWrap<CR>
+nnoremap <Leader>n :ALENextWrap<CR>
 
 " EasyMotion
 let g:EasyMotion_do_mapping = 0
