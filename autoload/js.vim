@@ -1,4 +1,4 @@
-let s:js_function_regex = '\v^\s*\w+(\(.*\)(: \w+)? \{|(: \w+)? \= (\(.*\)(: \w+)? \=\> )?(\{|.+;))$'
+let s:js_function_regex = '\v^\s*\w+(\(.*\)(: \w+)? \{|(: \w+)? \= \(.*\)(: \w+)? \=\> (\{|.+;))$'
 let s:js_named_imports_regex = '\vimport \{\zs.+\ze\}.+'
 let s:js_jsx_tag_regex = '\v^(\s*)(.*)(\<\S+) (.{-1,})( ?/{,1}\>)(.*)'
 let s:js_array_regex = '\v^(\s*)(.*\[)(.+)(\].*)'
