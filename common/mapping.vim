@@ -69,7 +69,7 @@ vnoremap ss :sort<CR>
 vnoremap su :sort -u<CR>
 
 " Clipboard
-nnoremap <silent> <leader>cc "+y
+nnoremap <silent> <Leader>y "+y
 nnoremap <silent> <Leader>cs :call util#SetReg('+', expand('%:t'))<CR>
 nnoremap <silent> <Leader>cr :call util#SetReg('+', util#ExpandRelative('%:p'))<CR>
 nnoremap <silent> <Leader>cl :call util#SetReg('+', expand('%:p'))<CR>
