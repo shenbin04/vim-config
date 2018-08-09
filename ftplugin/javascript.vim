@@ -53,9 +53,9 @@ vnoremap <buffer> iit :call js#FindTestCase('')<CR>
 onoremap <buffer> ait :call js#FindTestCase('j')<CR>
 vnoremap <buffer> ait :call js#FindTestCase('j')<CR>
 
-nnoremap <buffer> <silent> <Leader>fib :call js#FormatImportBreak()<CR>
-nnoremap <buffer> <silent> <Leader>fij :call js#FormatImportJoin()<CR>
-nnoremap <buffer> <silent> <Leader>fis :call js#FormatImportSort()<CR>
+nnoremap <buffer> <silent> <Leader>fob :call js#FormatObjectBreak()<CR>
+nnoremap <buffer> <silent> <Leader>foj :call js#FormatObjectJoin()<CR>
+nnoremap <buffer> <silent> <Leader>fos :call js#FormatObjectSort()<CR>
 nnoremap <buffer> <silent> <Leader>fjb :call js#FormatJsxBreak()<CR>
 nnoremap <buffer> <silent> <Leader>fjj :call js#FormatJsxJoin()<CR>
 nnoremap <buffer> <silent> <Leader>fjs :call js#FormatJsxSort()<CR>

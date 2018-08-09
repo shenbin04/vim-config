@@ -1,5 +1,5 @@
 let s:js_function_regex = '\v^\s*\w+(\(.*\)(: \w+)? \{|(: \w+)? \= \(.*\)(: \w+)? \=\> (\{|.+;))$'
-let s:js_named_imports_regex = '\vimport \{\zs.+\ze\}.+'
+let s:js_object_regex = '\v\{\zs.+\ze\}.+'
 let s:js_jsx_tag_regex = '\v^(\s*)(.*)(\<\S+) (.{-1,})( ?/{,1}\>)(.*)'
 let s:js_array_regex = '\v^(\s*)(.*\[)(.+)(\].*)'
 
@@ -160,22 +160,23 @@ function! js#FindTestCase(command)
   execute "normal! j?\\v^\\s+it\\('.+'\<CR>$V%" . a:command
 endfunction
 
-function! js#FormatImportBreak()
+function! js#FormatObjectBreak()
   let lnum = line('.')
   let line = getline('.')
-  let [str, start, end] = matchstrpos(line, s:js_named_imports_regex)
+  let [str, start, end] = matchstrpos(line, s:js_object_regex)
   if !empty(str)
-    let imports = sort(map(split(str, ','), {k, v -> repeat(' ', &shiftwidth) . xolox#misc#str#trim(v) . ','}))
+    let indent = repeat(' ', indent(lnum))
+    let imports = sort(map(split(str, ','), {k, v -> indent . s:indent . xolox#misc#str#trim(v) . ','}))
     call setline(lnum, line[:start - 1])
-    call append(lnum, line[end:])
+    call append(lnum, indent . line[end:])
     call append(lnum, imports)
   endif
 endfunction
 
-function! js#FormatImportSort()
+function! js#FormatObjectSort()
   let lnum = line('.')
   let line = getline('.')
-  let [str, start, end] = matchstrpos(line, s:js_named_imports_regex)
+  let [str, start, end] = matchstrpos(line, s:js_object_regex)
   if !empty(str)
     let imports = join(sort(map(split(str, ','), {k, v -> xolox#misc#str#trim(v)})), ', ')
     call setline(lnum, line[:start - 1] . imports . line[end:])
@@ -184,9 +185,9 @@ function! js#FormatImportSort()
   endif
 endfunction
 
-function! js#FormatImportJoin()
-  if getline('.') !~# s:js_named_imports_regex
-    normal! va{Jhxx%lx
+function! js#FormatObjectJoin()
+  if getline('.') !~# s:js_object_regex
+    normal! $va{Jhxx%lx
   endif
 endfunction
 
