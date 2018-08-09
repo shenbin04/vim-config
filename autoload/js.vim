@@ -1,6 +1,7 @@
 let s:js_function_regex = '\v^\s*\w+(\(.*\)(: \w+)? \{|(: \w+)? \= \(.*\)(: \w+)? \=\> (\{|.+;))$'
 let s:js_object_regex = '\v\{\zs.+\ze\}.+'
-let s:js_jsx_tag_regex = '\v^(\s*)(.*)(\<\S+) (.{-1,})( ?/{,1}\>)(.*)'
+let s:js_jsx_tag_regex = '\v^(\s*)(.*)(\<(\S+)[^>]*\>)(.*)(\<\/\4\>)(;?)$'
+let s:js_jsx_open_tag_regex = '\v^(\s*)(.*)(\<\S+) (.{-1,})( ?/{,1}\>)(.*)'
 let s:js_array_regex = '\v^(\s*)(.*\[)(.+)(\].*)'
 
 let s:indent = repeat(' ', &shiftwidth)
@@ -194,8 +195,8 @@ endfunction
 function! js#FormatJsxBreak()
   let lnum = line('.')
   let line = getline('.')
-  if line =~# s:js_jsx_tag_regex
-    let [_, indent, variable, jsx_tag, prop, end_tag, trailing; rest] = matchlist(line, s:js_jsx_tag_regex)
+  if line =~# s:js_jsx_open_tag_regex
+    let [_, indent, variable, jsx_tag, prop, end_tag, trailing; rest] = matchlist(line, s:js_jsx_open_tag_regex)
     if empty(variable)
       call setline(lnum, indent . jsx_tag)
       let props = map(sort(split(prop, '[}"]\zs ')), {k, v -> indent . s:indent . v})
@@ -215,8 +216,8 @@ endfunction
 function! js#FormatJsxSort()
   let lnum = line('.')
   let line = getline('.')
-  if line =~# s:js_jsx_tag_regex
-    let [_, indent, variable, jsx_tag, prop, end_tag, trailing; rest] = matchlist(line, s:js_jsx_tag_regex)
+  if line =~# s:js_jsx_open_tag_regex
+    let [_, indent, variable, jsx_tag, prop, end_tag, trailing; rest] = matchlist(line, s:js_jsx_open_tag_regex)
     let props = join(sort(split(prop, '[}"]\zs ')), ' ')
     call setline(lnum, indent . variable . jsx_tag . ' ' . props . end_tag . trailing)
   else
@@ -225,6 +226,33 @@ function! js#FormatJsxSort()
 endfunction
 
 function! js#FormatJsxJoin()
+  normal! $va<J
+  if getline('.') =~# '\v \>$'
+    normal! x
+  endif
+endfunction
+
+function! js#FormatTagBreak()
+  let lnum = line('.')
+  let line = getline('.')
+  if line =~# s:js_jsx_tag_regex
+    let [_, indent, variable, open_tag, _, content, close_tag, trailing; rest] = matchlist(line, s:js_jsx_tag_regex)
+    if empty(variable)
+      call setline(lnum, indent . open_tag)
+      call append(lnum, [indent . s:indent . content, indent . close_tag . trailing])
+    else
+      call setline(lnum, indent . variable . '(')
+      let lines = []
+      call add(lines, indent . s:indent . open_tag)
+      call add(lines, indent . repeat(s:indent, 2) . content)
+      call add(lines, indent . s:indent . close_tag)
+      call add(lines, indent . ')' . trailing)
+      call append(lnum, lines)
+    endif
+  endif
+endfunction
+
+function! js#FormatTagJoin()
   let lnum = line('.')
   let line = getline(lnum)
   let prev = getline(lnum - 1)
@@ -234,10 +262,8 @@ function! js#FormatJsxJoin()
     normal! djk
     call setline(lnum - 1, line)
   else
-    normal! $va<J
-    if getline('.') =~# '\v \>$'
-      normal! x
-    endif
+    call search('\v^\s+\<[^?>]*\>$', 'b')
+    normal vatJxl%f>lx
   endif
 endfunction
 
