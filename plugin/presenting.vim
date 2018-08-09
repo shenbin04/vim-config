@@ -16,5 +16,3 @@ endif
 
 command! StartPresenting call presenting#Start(getline('.'))
 command! PresentingStart call presenting#Start(getline('.'))
-
-" vim:ts=2:sw=2:expandtab
