@@ -1,5 +1,5 @@
 let s:js_function_regex = '\v^\s*\w+(\(.*\)(: \w+)? \{|(: \w+)? \= \(.*\)(: \w+)? \=\> (\{|.+;))$'
-let s:js_object_regex = '\v\{\zs.+\ze\}.+'
+let s:js_object_regex = '\v\{\zs.+\ze\}.*'
 let s:js_jsx_tag_regex = '\v^(\s*)(.*)(\<(\S+)[^>]*\>)(.*)(\<\/\4\>)(;?)$'
 let s:js_jsx_open_tag_regex = '\v^(\s*)(.*)(\<\S+) (.{-1,})( ?/{,1}\>)(.*)'
 let s:js_array_regex = '\v^(\s*)(.*\[)(.+)(\].*)'
