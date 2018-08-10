@@ -109,6 +109,7 @@ set tags+=tags;$HOME
 set viewoptions=folds,cursor
 set virtualedit=onemore
 set showmatch
+set noautoread
 
 " Formatting
 set autoindent
