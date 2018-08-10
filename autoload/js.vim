@@ -263,7 +263,10 @@ function! js#FormatTagJoin()
     call setline(lnum - 1, line)
   else
     call search('\v^\s+\<[^?>]*\>$', 'b')
-    normal vatJxl%f>lx
+    let joinspaces = &joinspaces
+    let &joinspaces = 0
+    normal vatJxf/%f>lx
+    let &joinspaces = joinspaces
   endif
 endfunction
 
