@@ -13,5 +13,6 @@ tnoremap <C-l> <C-\><C-n><C-w>l:call util#MaybeInsertMode()<CR>
 
 autocmd TermOpen * startinsert
 autocmd BufWinEnter,WinEnter term://* startinsert
+autocmd FileType fzf tnoremap <buffer> <C-k> <Up>|tnoremap <buffer> <C-j> <Down>
 
 hi link TermCursorNC Cursor

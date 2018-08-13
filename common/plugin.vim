@@ -48,26 +48,6 @@ function! YRRunAfterMaps()
   nnoremap <silent> Y :<C-U>YRYankCount 'y$'<CR>
 endfunction
 
-" Ctrlp
-noremap <Leader>, :CtrlPMRUFiles<CR>
-noremap <Leader>. :CtrlPMixed<CR>
-let g:ctrlp_map = ''
-let g:ctrlp_regexp = 1
-let g:ctrlp_bufpath_mod = ':~:.:h'
-let g:ctrlp_match_window = 'max:25'
-let g:ctrlp_reuse_window = 'netrw\|help\|quickfix'
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(o|so|dll)$',
-  \ }
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_use_caching = 1
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
-let g:ctrlp_lazy_update = 50
-let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*\|\.git.*\|.*\/var\/folders\/.*'
-let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files']
-
 " Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#current_first = 1
@@ -240,23 +220,25 @@ endif
 let g:highlightedyank_highlight_duration = 500
 
 " fzf
+let g:fzf_history_dir = '~/.fzf-history'
 let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
+  \ {'fg':      ['fg', 'Normal'],
+  \  'bg':      ['bg', 'Normal'],
+  \  'hl':      ['fg', 'Type'],
+  \  'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \  'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \  'hl+':     ['fg', 'Title'],
+  \  'info':    ['fg', 'PreProc'],
+  \  'border':  ['fg', 'Ignore'],
+  \  'prompt':  ['fg', 'Conditional'],
+  \  'pointer': ['fg', 'Exception'],
+  \  'marker':  ['fg', 'Keyword'],
+  \  'spinner': ['fg', 'Label'],
+  \  'header':  ['fg', 'Comment'] }
+noremap <Leader>, :History<CR>
+noremap <Leader>. :Mixed<CR>
 noremap <Leader>za :Files<CR>
-noremap <Leader>zg :GFiles<CR>
-noremap <Leader>zh :History<CR>
+tnoremap <C-f> <C-\><C-n>:let @s=matchstr(getline('.'), '\v\> ?\zs.+\ze$')<CR>:close<CR>:sleep 100m<CR>:call fzf#vim#gitfiles('.', {'options': ['--query', @s]})<CR>
 
 " Unimpaired
 let g:nremap = {"[t": "", "]t": ""}
