@@ -252,8 +252,8 @@ nnoremap <Leader>agW "wyiW:GrepperAg '<C-r>w'
 nnoremap <Leader>aw "wyiw:GrepperAg '\b<C-r>w\b' 
 nnoremap <Leader>aW "wyiW:GrepperAg '\b<C-r>w\b' 
 
-nnoremap <silent> <leader>a :set operatorfunc=util#GrepOperator<cr>g@
-vnoremap <silent> <leader>a :<c-u>call util#GrepOperator(visualmode())<cr>
+nnoremap <silent> <leader>a :set operatorfunc=util#GrepOperator<CR>g@
+vnoremap <silent> <leader>a :<c-u>call util#GrepOperator(visualmode())<CR>
 
 " HLT
 nmap <Leader>_ <Plug>HiLinkTrace
