@@ -160,4 +160,4 @@ runtime common/autocmd.vim
 runtime common/plugin.vim
 
 " Local
-runtime ./vimrc.local
+runtime vimrc.local
