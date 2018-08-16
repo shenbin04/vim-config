@@ -221,6 +221,7 @@ let g:highlightedyank_highlight_duration = 500
 
 " fzf
 let g:fzf_history_dir = '~/.fzf-history'
+let g:fzf_layout = { 'down': '~50%' }
 let g:fzf_colors =
   \ {'fg':      ['fg', 'Normal'],
   \  'bg':      ['bg', 'Normal'],
@@ -238,6 +239,9 @@ let g:fzf_colors =
 noremap <Leader>, :History<CR>
 noremap <Leader>. :Mixed<CR>
 noremap <Leader>za :Files<CR>
+noremap <Leader>zb :BCommits<CR>
+noremap <Leader>zc :Commits<CR>
+noremap <Leader>zm :Maps<CR>
 tnoremap <C-f> <C-\><C-n>:let @s=matchstr(getline('.'), '\v\> ?\zs.+\ze$')<CR>:close<CR>:sleep 100m<CR>:call fzf#vim#gitfiles('.', {'options': ['--query', @s]})<CR>
 
 " Unimpaired
