@@ -7,7 +7,7 @@ nnoremap <Leader>ch :helpclose<CR>
 nnoremap <Leader>cq :cclose<CR>
 nnoremap <Leader>cl :lclose<CR>
 nnoremap <Leader>cp :pclose<CR>
-nnoremap <silent> <Leader>ca :cclose<CR>:pclose<CR>:helpclose<CR>:lclose<CR>
+nnoremap <silent> <Leader>co :cclose<CR>:pclose<CR>:helpclose<CR>:lclose<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>1 :BufSurfBack<CR>
