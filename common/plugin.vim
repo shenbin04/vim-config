@@ -22,6 +22,14 @@ nnoremap <silent> <Leader>gd :call util#GitDiff()<CR>
 nnoremap <silent> <Leader>gb :Gblame<CR>
 nnoremap <silent> <Leader>gr :Gread<CR>
 nnoremap <silent> <Leader>gl :Glog -- %<CR>
+
+nnoremap <silent> <Leader>rgb :Git branch<CR>
+nnoremap <silent> <Leader>rgd :Git diff<CR>
+nnoremap <silent> <Leader>rgss :Git stash -u<CR>
+nnoremap <silent> <Leader>rgsp :Git stash pop<CR>
+nnoremap <silent> <Leader>rgsa :Git stash apply<CR>
+nnoremap <Leader>rgco :Git checkout 
+
 autocmd User fugitive
   \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
   \   nnoremap <buffer> .. :edit %:h<CR> |
@@ -283,7 +291,5 @@ noremap <Leader>me :execute 'e ' . g:marvim_store<CR>
 nnoremap <Leader>md :LivedownToggle<CR>
 
 " Neoterm
-nnoremap <silent> <Leader>rgd :tabnew<CR>:T git diff<CR>
-nnoremap <silent> <Leader>rgb :tabnew<CR>:T git branch<CR>
 nnoremap <silent> <Leader>ral :tabnew<CR>:T arc lint<CR>
 nnoremap <silent> <Leader>rad :tabnew<CR>:T arc land<CR>
