@@ -30,8 +30,14 @@ function! util#zoom()
 endfunction
 
 function! util#SaveView()
-  if &buftype != 'terminal'
+  if expand('%') != '' && &buftype != 'terminal' && &buftype != 'nofile'
     mkview
+  endif
+endfunction
+
+function! util#LoadView()
+  if expand('%') != '' && &buftype != 'terminal' && &buftype != 'nofile'
+    silent! loadview
   endif
 endfunction
 
