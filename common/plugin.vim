@@ -284,5 +284,6 @@ nnoremap <Leader>md :LivedownToggle<CR>
 
 " Neoterm
 nnoremap <silent> <Leader>rgd :tabnew<CR>:T git diff<CR>
+nnoremap <silent> <Leader>rgb :tabnew<CR>:T git branch<CR>
 nnoremap <silent> <Leader>ral :tabnew<CR>:T arc lint<CR>
 nnoremap <silent> <Leader>rad :tabnew<CR>:T arc land<CR>
