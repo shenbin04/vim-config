@@ -5,10 +5,10 @@ hi Title ctermfg=208
 
 hi diffRemoved ctermfg=1 cterm=none
 hi diffAdded ctermfg=2 cterm=none
-hi DiffDelete ctermfg=1 ctermbg=234
-hi DiffAdd ctermfg=2 ctermbg=234
+hi DiffDelete ctermfg=88 ctermbg=9
+hi DiffAdd ctermfg=22 ctermbg=10
 hi DiffChange ctermfg=229 ctermbg=234
-hi DiffText ctermfg=2 ctermbg=234
+hi DiffText ctermfg=22 ctermbg=10
 
 hi Search ctermbg=11 ctermfg=0
 hi LineNr ctermbg=234 ctermfg=59
