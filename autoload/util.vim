@@ -107,6 +107,9 @@ function! util#ClearHighlight()
 endfunction
 
 function! util#GitDiff()
+  if expand('%') ==# ''
+    return
+  endif
   Gdiff
   call s:diff_window_syntax('diff')
 endfunction
