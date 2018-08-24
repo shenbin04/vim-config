@@ -74,7 +74,7 @@ endfunction
 
 function! js#RunFlow()
   let root = fnamemodify(findfile('.flowconfig', '.;'), ':~:.:h')
-  call VimuxRunCommand('npm run flow ' . root)
+  call VimuxRunCommand('npm run flow ' . root . ' -- --show-all-errors')
 endfunction
 
 function! js#OpenTestFile()
