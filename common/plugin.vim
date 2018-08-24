@@ -281,3 +281,8 @@ noremap <Leader>me :execute 'e ' . g:marvim_store<CR>
 
 " Live Markdown
 nnoremap <Leader>md :LivedownToggle<CR>
+
+" Neoterm
+nnoremap <silent> <Leader>rgd :tabnew<CR>:T git diff<CR>
+nnoremap <silent> <Leader>ral :tabnew<CR>:T arc lint<CR>
+nnoremap <silent> <Leader>rad :tabnew<CR>:T arc land<CR>

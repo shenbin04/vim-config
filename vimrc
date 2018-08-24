@@ -62,6 +62,7 @@ Plug 'yssl/QFEnter'
 
 if v:version >= 800
   if has('nvim')
+    Plug 'kassio/neoterm'
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   else
     Plug 'Shougo/deoplete.nvim'
