@@ -17,6 +17,8 @@ augroup autocmd
   autocmd QuickFixCmdPost * botright copen
   autocmd FileType qf wincmd J
 
+  autocmd BufWinLeave * call util#GitDiffEnd()
+
   autocmd BufWinLeave ?* call util#SaveView()
   autocmd BufWinEnter ?* silent! loadview
 

@@ -99,3 +99,30 @@ function! util#ClearHighlight()
     call jedi#remove_usages()
   endif
 endfunction
+
+function! util#GitDiff()
+  Gdiff
+  call s:diff_window_syntax('diff')
+endfunction
+
+function! util#GitDiffEnd()
+  if s:diff_window_count() == 2
+    call s:diff_window_syntax('on')
+  endif
+endfunction
+
+function! s:diff_window_syntax(syntax) abort
+  for nr in range(1, winnr('$'))
+    if getwinvar(nr, '&diff')
+      call setbufvar(winbufnr(nr), '&syntax', a:syntax)
+    endif
+  endfor
+endfunction
+
+function! s:diff_window_count() abort
+  let c = 0
+  for nr in range(1,winnr('$'))
+    let c += getwinvar(nr,'&diff')
+  endfor
+  return c
+endfunction
