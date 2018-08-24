@@ -53,7 +53,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-python/python-syntax'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/L9'
-Plug 'vim-scripts/YankRing.vim'
+Plug 'vim-scripts/YankRing.vim', { 'on': 'YRShow' }
 Plug 'vim-scripts/nginx.vim'
 Plug 'w0rp/ale'
 Plug 'xolox/vim-misc'
