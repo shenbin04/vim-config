@@ -1,6 +1,8 @@
 augroup autocmd
   autocmd!
 
+  autocmd VimEnter * :YRCheckClipboard
+
   autocmd BufWritePost .vimrc,vimrc source $MYVIMRC
   autocmd BufWritePost *.vim source %
 
