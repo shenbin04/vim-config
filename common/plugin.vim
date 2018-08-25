@@ -303,3 +303,7 @@ noremap <plug>(slash-after) zz
 
 " Peekaboo
 let g:peekaboo_window = 'vertical botright 50new'
+
+" Remembrall
+nnoremap <silent> <expr> <Leader>r Remembrall(',r')
+nnoremap <silent> <expr> <Leader>f Remembrall(',f')
