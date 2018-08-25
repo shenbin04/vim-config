@@ -21,7 +21,6 @@ nnoremap <silent> <Leader>gc :Gcommit<CR>
 nnoremap <silent> <Leader>gd :call util#GitDiff()<CR>
 nnoremap <silent> <Leader>gb :Gblame<CR>
 nnoremap <silent> <Leader>gr :Gread<CR>
-nnoremap <silent> <Leader>gl :Glog -- %<CR>
 
 nnoremap <silent> <Leader>rgb :Git branch<CR>
 nnoremap <silent> <Leader>rgd :Git diff<CR>
@@ -294,3 +293,7 @@ nnoremap <Leader>md :LivedownToggle<CR>
 " Neoterm
 nnoremap <silent> <Leader>ral :tabnew<CR>:T arc lint<CR>
 nnoremap <silent> <Leader>rad :tabnew<CR>:T arc land<CR>
+
+" GV
+nnoremap <silent> <Leader>gla :GV<CR>
+nnoremap <silent> <Leader>gll :GV!<CR>
