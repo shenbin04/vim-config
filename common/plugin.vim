@@ -304,6 +304,11 @@ noremap <plug>(slash-after) zz
 " Peekaboo
 let g:peekaboo_window = 'vertical botright 50new'
 
+" Autopair
+let g:AutoPairsFlyMode = 1
+let g:AutoPairsShortcutFastWrap = '<Leader>e'
+let g:AutoPairsShortcutBackInsert = '<Leader>b'
+
 " Remembrall
 nnoremap <silent> <expr> <Leader>r Remembrall(',r')
 nnoremap <silent> <expr> <Leader>f Remembrall(',f')
