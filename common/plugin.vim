@@ -297,3 +297,6 @@ nnoremap <silent> <Leader>rad :tabnew<CR>:T arc land<CR>
 " GV
 nnoremap <silent> <Leader>gla :GV<CR>
 nnoremap <silent> <Leader>gll :GV!<CR>
+
+" Slash
+noremap <plug>(slash-after) zz
