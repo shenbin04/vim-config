@@ -300,3 +300,6 @@ nnoremap <silent> <Leader>gll :GV!<CR>
 
 " Slash
 noremap <plug>(slash-after) zz
+
+" Peekaboo
+let g:peekaboo_window = 'vertical botright 50new'

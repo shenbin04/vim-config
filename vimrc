@@ -19,6 +19,7 @@ Plug 'janko-m/vim-test'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/gv.vim'
+Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-slash'
 Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-user'
