@@ -130,7 +130,7 @@ nnoremap <Leader>u :GundoToggle<CR>
 let g:gundo_close_on_revert = 1
 
 " Tagbar
-nnoremap <Leader>t :TagbarOpenAutoClose<CR>
+nnoremap <Leader>ot :TagbarOpenAutoClose<CR>
 
 " Expand Region
 map K <Plug>(expand_region_expand)
@@ -291,8 +291,10 @@ noremap <Leader>me :execute 'e ' . g:marvim_store<CR>
 nnoremap <Leader>md :LivedownToggle<CR>
 
 " Neoterm
-nnoremap <silent> <Leader>ral :tabnew<CR>:T arc lint<CR>
-nnoremap <silent> <Leader>rad :tabnew<CR>:T arc land<CR>
+let g:neoterm_default_mod = 'vertical botright'
+let g:neoterm_autoscroll = 1
+nnoremap <Leader>t :Topen \| T 
+nnoremap <silent> <C-t> :Ttoggle<CR>
 
 " GV
 nnoremap <silent> <Leader>gla :GV<CR>

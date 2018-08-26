@@ -66,5 +66,5 @@ nnoremap <buffer> <silent> <Leader>faj :call js#FormatArrayJoin()<CR>
 
 vnoremap <buffer> <silent> <Leader>fes :EsformatterVisual<CR>
 
-nnoremap <buffer> <silent> <Leader>tap :call js#ClassFunctionToClassProperty()<CR>
-nnoremap <buffer> <silent> <Leader>taf :call js#ToArrowFunction()<CR>
+nnoremap <buffer> <silent> <Leader>ftap :call js#ClassFunctionToClassProperty()<CR>
+nnoremap <buffer> <silent> <Leader>ftaf :call js#ToArrowFunction()<CR>
