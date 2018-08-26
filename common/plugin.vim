@@ -52,7 +52,7 @@ let g:yankring_history_dir = '$HOME/.vim'
 let g:yankring_window_height = 20
 
 function! YRRunAfterMaps()
-  nnoremap <silent> Y :<C-U>YRYankCount 'y$'<CR>
+  nnoremap <silent> Y :<C-u>YRYankCount 'y$'<CR>
 endfunction
 
 " Airline
@@ -159,7 +159,7 @@ noremap \& :Tabularize /\(&\\|\\\\\)<CR>
 " Deoplete
 if exists('g:plugs["deoplete.nvim"]')
   let g:deoplete#enable_at_startup = 1
-  inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+  inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
 endif
 
 " Tern
@@ -264,7 +264,7 @@ nnoremap <Leader>aw "wyiw:GrepperAg '\b<C-r>w\b'
 nnoremap <Leader>aW "wyiW:GrepperAg '\b<C-r>w\b' 
 
 nnoremap <silent> <leader>a :set operatorfunc=util#GrepOperator<CR>g@
-vnoremap <silent> <leader>a :<c-u>call util#GrepOperator(visualmode())<CR>
+vnoremap <silent> <leader>a :<C-u>call util#GrepOperator(visualmode())<CR>
 
 " HLT
 nmap <Leader>_ <Plug>HiLinkTrace
