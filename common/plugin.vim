@@ -218,6 +218,7 @@ let g:highlightedyank_highlight_duration = 500
 
 " FZF
 let g:fzf_history_dir = '~/.fzf-history'
+let g:fzf_ignore = ['.git/', 'runtime/doc/', 'term:']
 let g:fzf_layout = { 'down': '~50%' }
 let g:fzf_colors =
   \ {'fg':      ['fg', 'Normal'],
