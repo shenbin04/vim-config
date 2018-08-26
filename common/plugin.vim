@@ -86,7 +86,7 @@ let g:NERDTreeMapJumpPrevSibling = ''
 let g:NERDTreeIgnore = [ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$', '\.o$', '__pycache__',
                        \ '\.so$', '\.egg$', '^\.git$', '\.cmi', '\.cmo', 'tags' ]
 
-" closetag
+" Closetag
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.php,*.js,*.jsx'
 let g:closetag_xhtml_filenames = '*.html,*.xhtml,*.phtml,*.php,*.js,*.jsx'
 let g:closetag_emptyTags_caseSensitive = 1
@@ -132,7 +132,7 @@ let g:gundo_close_on_revert = 1
 " Tagbar
 nnoremap <Leader>t :TagbarOpenAutoClose<CR>
 
-" Expand region
+" Expand Region
 map K <Plug>(expand_region_expand)
 map L <Plug>(expand_region_shrink)
 let g:expand_region_text_objects_javascript = {
@@ -226,7 +226,7 @@ if !exists('##TextYankPost')
 endif
 let g:highlightedyank_highlight_duration = 500
 
-" fzf
+" FZF
 let g:fzf_history_dir = '~/.fzf-history'
 let g:fzf_layout = { 'down': '~50%' }
 let g:fzf_colors =
