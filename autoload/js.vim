@@ -69,12 +69,12 @@ endfunction
 
 function! js#RunTest(param)
   let root = fnamemodify(finddir('node_modules', '.;'), ':~:.:h')
-  call VimuxRunCommand('npm test --prefix ' . root . ' -- ' . a:param)
+  execute ':T npm test --prefix ' . root . ' -- ' . a:param
 endfunction
 
 function! js#RunFlow()
   let root = fnamemodify(findfile('.flowconfig', '.;'), ':~:.:h')
-  call VimuxRunCommand('npm run flow ' . root . ' -- --show-all-errors')
+  execute ':T npm run flow ' . root . ' -- --show-all-errors'
 endfunction
 
 function! js#OpenTestFile()
@@ -107,11 +107,11 @@ function! js#ESLintArgs()
 endfunction
 
 function! js#RequireToImport()
-  call VimuxRunCommand('npm run update-require-to-import ' . util#ExpandRelative('%'))
+  execute ':T npm run update-require-to-import ' . util#ExpandRelative('%')
 endfunction
 
 function! js#OrganizeImports()
-  call VimuxRunCommand('npm run organize-imports ' . util#ExpandRelative('%'))
+  execute ':T npm run organize-imports ' . util#ExpandRelative('%')
 endfunction
 
 function! js#FindFunction(command)

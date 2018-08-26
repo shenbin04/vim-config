@@ -198,15 +198,6 @@ if exists('g:plugs["YouCompleteMe"]')
   let g:ycm_global_ycm_extra_conf = '$HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 endif
 
-" Vimux
-let g:VimuxOrientation = 'h'
-let g:VimuxHeight = 50
-nnoremap <Leader>rc :call VimuxCloseRunner()<CR>
-nnoremap <Leader>ro :call VimuxOpenRunner()<CR>
-nnoremap <Leader>rb :call VimuxInterruptRunner()<CR>
-nnoremap <Leader>ra :call VimuxPromptCommand()<CR>
-nnoremap <Leader>rm :call VimuxZoomRunner()<CR>
-
 " Notes
 let g:notes_directories = ['$HOME/.vim/notes']
 nnoremap <Leader>er :RecentNote<CR>
@@ -214,9 +205,8 @@ nnoremap <Leader>en :MostRecentNote<CR>
 hi notesName ctermfg=81 cterm=underline
 
 " Vim Test
-let g:test#strategy = 'vimux'
+let g:test#strategy = 'neoterm'
 let g:test#preserve_screen = 0
-
 nnoremap <Leader>rl :TestNearest<CR>
 nnoremap <Leader>rr :TestFile<CR>
 
@@ -294,7 +284,8 @@ nnoremap <Leader>md :LivedownToggle<CR>
 let g:neoterm_default_mod = 'vertical botright'
 let g:neoterm_autoscroll = 1
 nnoremap <Leader>t :Topen \| T 
-nnoremap <silent> <C-t> :Ttoggle<CR>
+nnoremap <silent> <Leader>rb :Tkill<CR>
+nnoremap <silent> <Leader>ct :Ttoggle<CR>
 
 " GV
 nnoremap <silent> <Leader>gla :GV<CR>
