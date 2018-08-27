@@ -194,7 +194,7 @@ if exists('g:plugs["YouCompleteMe"]')
         \ 'tagbar' : 1,
         \ 'qf' : 1,
         \ 'shada' : 1
-        \}
+        \ }
   let g:ycm_global_ycm_extra_conf = '$HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 endif
 
@@ -218,22 +218,28 @@ let g:highlightedyank_highlight_duration = 500
 
 " FZF
 let g:fzf_history_dir = '~/.fzf-history'
-let g:fzf_ignore = ['.git/', 'runtime/doc/', 'term:']
-let g:fzf_layout = { 'down': '~50%' }
-let g:fzf_colors =
-  \ {'fg':      ['fg', 'Normal'],
-  \  'bg':      ['bg', 'Normal'],
-  \  'hl':      ['fg', 'Type'],
-  \  'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \  'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \  'hl+':     ['fg', 'Title'],
-  \  'info':    ['fg', 'PreProc'],
-  \  'border':  ['fg', 'Ignore'],
-  \  'prompt':  ['fg', 'Conditional'],
-  \  'pointer': ['fg', 'Exception'],
-  \  'marker':  ['fg', 'Keyword'],
-  \  'spinner': ['fg', 'Label'],
-  \  'header':  ['fg', 'Comment'] }
+let g:fzf_layout = {'down': '~50%'}
+let g:fzf_ignore = [
+      \ '.git/',
+      \ 'runtime/doc/',
+      \ 'term:',
+      \ '.vim/bundle/',
+      \ ]
+let g:fzf_colors = {
+      \ 'fg':      ['fg', 'Normal'],
+      \ 'bg':      ['bg', 'Normal'],
+      \ 'hl':      ['fg', 'Type'],
+      \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+      \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+      \ 'hl+':     ['fg', 'Title'],
+      \ 'info':    ['fg', 'PreProc'],
+      \ 'border':  ['fg', 'Ignore'],
+      \ 'prompt':  ['fg', 'Conditional'],
+      \ 'pointer': ['fg', 'Exception'],
+      \ 'marker':  ['fg', 'Keyword'],
+      \ 'spinner': ['fg', 'Label'],
+      \ 'header':  ['fg', 'Comment'],
+      \ }
 noremap <Leader>, :History<CR>
 noremap <Leader>. :Mixed<CR>
 noremap <Leader>za :Files<CR>
