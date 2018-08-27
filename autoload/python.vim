@@ -22,12 +22,12 @@ endfunction
 
 function! python#BuildDeps()
   let pattern = fnamemodify(findfile('BUILD', '.;'), ':~:.:h') . ':' . split(expand('%:r'), '/')[-1]
-  execute ':T ./pants build-deps --build-deps-prune=True --virtualenv=oscar ' . pattern
+  execute ':Topen | T ./pants build-deps --build-deps-prune=True --virtualenv=oscar ' . pattern
 endfunction
 
 function! python#TargetGen()
   let pattern = fnamemodify(findfile('BUILD', '.;'), ':~:.:h') . '/*.py'
-  execute ':T ./pants target-gen -- ' . pattern
+  execute ':Topen | T ./pants target-gen -- ' . pattern
 endfunction
 
 function! python#GenAll()
@@ -36,17 +36,17 @@ function! python#GenAll()
 endfunction
 
 function! python#GenThrift()
-  execute ':T ./pants gen-thrift-py thrift/src::'
+  execute ':Topen | T ./pants gen-thrift-py thrift/src::'
 endfunction
 
 function! python#GenProtobuf()
-  execute ':T ./pants gen-protobuf-py protobuf/src::'
+  execute ':Topen | T ./pants gen-protobuf-py protobuf/src::'
 endfunction
 
 function! python#InstallExtDeps(target)
   let command = 'TARGET_EXT_DEPS=`./pants dependencies --dependencies-external-only ' . a:target . ' | sort | uniq`
   \ && xargs pip install --no-cache-dir <<< "$TARGET_EXT_DEPS"'
-  execute ':T ' . command
+  execute ':Topen | T ' . command
 endfunction
 
 function! python#RunTestFile()
@@ -55,5 +55,5 @@ function! python#RunTestFile()
   let python_file = dir . '/' . join(split(expand('%:t'), '_')[0:-2], '_') . '.py'
   let coverage_file = 'COVERAGE_FILE=.coverage.python'
   let command = coverage_file . ' coverage run --branch --include ' . python_file . ' -m pytest ' . test_file . ' && ' . coverage_file . ' coverage report -m'
-  execute ':T ' . command
+  execute ':Topen | T ' . command
 endfunction

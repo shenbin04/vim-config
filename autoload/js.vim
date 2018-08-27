@@ -44,37 +44,42 @@ endfunction
 
 function! js#RunTestFile()
   call FindJest()
+  Topen
   execute ':TestFile' . GetCoverage()
 endfunction
 
 function! js#RunTestUpdate()
   call FindJest()
+  Topen
   execute ':TestFile' . GetCoverage() . ' -u'
 endfunction
 
 function! js#RunTestWatch()
   call FindJest()
+  Topen
   execute ':TestFile' . GetCoverage() . ' --watch'
 endfunction
 
 function! js#RunTestLine()
   call FindJest()
+  Topen
   execute ':TestNearest'
 endfunction
 
 function! js#RunTestDebug()
   call FindJest('node debug ')
+  Topen
   execute ':TestNearest'
 endfunction
 
 function! js#RunTest(param)
   let root = fnamemodify(finddir('node_modules', '.;'), ':~:.:h')
-  execute ':T npm test --prefix ' . root . ' -- ' . a:param
+  execute ':Topen | T npm test --prefix ' . root . ' -- ' . a:param
 endfunction
 
 function! js#RunFlow()
   let root = fnamemodify(findfile('.flowconfig', '.;'), ':~:.:h')
-  execute ':T npm run flow ' . root . ' -- --show-all-errors'
+  execute ':Topen | T npm run flow ' . root . ' -- --show-all-errors'
 endfunction
 
 function! js#OpenTestFile()
@@ -107,11 +112,11 @@ function! js#ESLintArgs()
 endfunction
 
 function! js#RequireToImport()
-  execute ':T npm run update-require-to-import ' . util#ExpandRelative('%')
+  execute ':Topen | T npm run update-require-to-import ' . util#ExpandRelative('%')
 endfunction
 
 function! js#OrganizeImports()
-  execute ':T npm run organize-imports ' . util#ExpandRelative('%')
+  execute ':Topen | T npm run organize-imports ' . util#ExpandRelative('%')
 endfunction
 
 function! js#FindFunction(command)

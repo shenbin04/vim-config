@@ -207,8 +207,8 @@ hi notesName ctermfg=81 cterm=underline
 " Vim Test
 let g:test#strategy = 'neoterm'
 let g:test#preserve_screen = 0
-nnoremap <Leader>rl :TestNearest<CR>
-nnoremap <Leader>rr :TestFile<CR>
+nnoremap <silent> <Leader>rl :Topen<CR>:TestNearest<CR>
+nnoremap <silent> <Leader>rr :Topen<CR>:TestFile<CR>
 
 " Highlightedyank
 if !exists('##TextYankPost')
@@ -287,12 +287,20 @@ noremap <Leader>me :execute 'e ' . g:marvim_store<CR>
 " Live Markdown
 nnoremap <Leader>md :LivedownToggle<CR>
 
+" Vimux
+let g:VimuxOrientation = 'h'
+let g:VimuxHeight = 50
+nnoremap <Leader>rt :call VimuxPromptCommand()<CR>
+nnoremap <silent> <Leader>rc :call VimuxCloseRunner()<CR>
+nnoremap <silent> <Leader>ro :call VimuxOpenRunner()<CR>
+
 " Neoterm
 let g:neoterm_default_mod = 'vertical botright'
 let g:neoterm_autoscroll = 1
 nnoremap <Leader>t :Topen \| T 
-nnoremap <silent> <Leader>rb :Tkill<CR>
 nnoremap <silent> <Leader>ct :Ttoggle<CR>
+
+nnoremap <silent> <Leader>rb :Tkill<CR>:call VimuxInterruptRunner()<CR>
 
 " GV
 nnoremap <silent> <Leader>gla :GV<CR>
