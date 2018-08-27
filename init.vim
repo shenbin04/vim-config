@@ -13,7 +13,7 @@ tnoremap <C-l> <C-\><C-n><C-w>l:call util#MaybeInsertMode()<CR>
 
 function! s:MaybeInsertModeForTerminal()
   let file = expand('%')
-  if file =~ 'git add --patch'
+  if file =~ 'git '
     startinsert
   endif
 endfunction
