@@ -22,11 +22,7 @@ nnoremap <silent> <Leader>gd :call util#GitDiff()<CR>
 nnoremap <silent> <Leader>gb :Gblame<CR>
 nnoremap <silent> <Leader>gr :Gread<CR>
 
-nnoremap <silent> <Leader>rgb :Git branch<CR>
 nnoremap <silent> <Leader>rgd :Git diff<CR>
-nnoremap <silent> <Leader>rgss :Git stash -u<CR>
-nnoremap <silent> <Leader>rgsp :Git stash pop<CR>
-nnoremap <silent> <Leader>rgsa :Git stash apply<CR>
 nnoremap <Leader>rgco :Git checkout 
 
 autocmd User fugitive
@@ -291,7 +287,6 @@ nnoremap <Leader>md :LivedownToggle<CR>
 let g:VimuxOrientation = 'h'
 let g:VimuxHeight = 50
 nnoremap <Leader>rt :call VimuxPromptCommand()<CR>
-nnoremap <silent> <Leader>rc :call VimuxCloseRunner()<CR>
 nnoremap <silent> <Leader>ro :call VimuxOpenRunner()<CR>
 
 " Neoterm
@@ -301,6 +296,12 @@ nnoremap <Leader>t :Topen \| T
 nnoremap <silent> <Leader>ct :Ttoggle<CR>
 
 nnoremap <silent> <Leader>rb :Tkill<CR>:call VimuxInterruptRunner()<CR>
+nnoremap <silent> <Leader>rc :Tclose!<CR>:call VimuxCloseRunner()<CR>
+
+nnoremap <silent> <Leader>rgb :Topen<CR>:T git branch<CR>
+nnoremap <silent> <Leader>rgss :Topen<CR>:T git stash -u<CR>
+nnoremap <silent> <Leader>rgsp :Topen<CR>:T git stash pop<CR>
+nnoremap <silent> <Leader>rgsa :Topen<CR>:T git stash apply<CR>
 
 " GV
 nnoremap <silent> <Leader>gla :GV<CR>
@@ -314,7 +315,6 @@ let g:peekaboo_window = 'vertical botright 50new'
 
 " Autopair
 let g:AutoPairsFlyMode = 1
-let g:AutoPairsShortcutFastWrap = '<Leader>e'
 let g:AutoPairsShortcutBackInsert = '<Leader>b'
 
 " Remembrall
