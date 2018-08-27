@@ -1,8 +1,8 @@
-snippet ap "Add property: `key: value,`" bA
+snippet ap "Add property: `key: value,`" b
 $1: $0,
 endsnippet
 
-snippet ao "Add property: `key: {},`" bA
+snippet ao "Add property: `key: {},`" b
 $1: {
   $0
 },
@@ -110,4 +110,8 @@ endsnippet
 
 snippet cld "console.log(*.debug()) (jest)"
 console.log($0.debug());
+endsnippet
+
+snippet exps "Expect to match snapshot"
+expect(${0:component}).toMatchSnapshot();
 endsnippet
