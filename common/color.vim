@@ -1,6 +1,7 @@
 colorscheme molokai
 
 hi Normal ctermfg=250 ctermbg=233
+hi Ignore ctermfg=244 ctermbg=none
 hi Title ctermfg=208
 
 hi diffRemoved ctermfg=1 cterm=none
