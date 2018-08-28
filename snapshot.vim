@@ -72,7 +72,6 @@ silent! let g:plugs['vim-textobj-python'].commit = '585c76d'
 silent! let g:plugs['vim-textobj-user'].commit = 'e231b65'
 silent! let g:plugs['vim-unimpaired'].commit = 'f185e75'
 silent! let g:plugs['vim-visual-star-search'].commit = 'fa55818'
-silent! let g:plugs['vimux'].commit = '37f4119'
 
 PlugClean!
 PlugUpdate
