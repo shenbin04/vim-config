@@ -287,7 +287,7 @@ nnoremap <Leader>md :LivedownToggle<CR>
 let g:neoterm_default_mod = 'vertical botright'
 let g:neoterm_autoscroll = 1
 nnoremap <Leader>t :Topen \| T 
-nnoremap <silent> <Leader>rt :Ttoggle<CR>
+nnoremap <silent> <Leader>` :Ttoggle<CR>
 nnoremap <silent> <Leader>rb :Tkill<CR>
 nnoremap <silent> <Leader>rc :Tclose!<CR>
 
