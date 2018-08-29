@@ -34,7 +34,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdtree'
 Plug 'shenbin04/fzf.vim'
 Plug 'shenbin04/vim-esformatter', { 'do': 'npm i -g esformatter' }
-Plug 'shime/vim-livedown', { 'do': 'npm i -g livedown' }
+Plug 'shime/vim-livedown', { 'do': 'npm i' }
 Plug 'sjl/gundo.vim'
 Plug 'solarnz/thrift.vim'
 Plug 'stevearc/vim-flow-plus'
