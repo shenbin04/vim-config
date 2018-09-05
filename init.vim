@@ -21,5 +21,6 @@ endfunction
 autocmd TermOpen * call s:MaybeInsertModeForTerminal()
 autocmd BufWinEnter,WinEnter term://* call s:MaybeInsertModeForTerminal()
 autocmd FileType fzf tnoremap <buffer> <C-k> <Up>|tnoremap <buffer> <C-j> <Down>
+autocmd FileType neoterm setlocal nocursorline nocursorcolumn
 
 hi link TermCursorNC Cursor
