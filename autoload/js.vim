@@ -79,7 +79,7 @@ endfunction
 
 function! js#RunFlow()
   let root = fnamemodify(findfile('.flowconfig', '.;'), ':~:.:h')
-  execute ':Topen | T npm run flow ' . root . ' -- --show-all-errors'
+  execute ':Topen | T flow ' . root . ' --show-all-errors'
 endfunction
 
 function! js#OpenTestFile()
