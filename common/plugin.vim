@@ -160,7 +160,7 @@ endif
 " Tern
 if exists('g:plugs["tern_for_vim"]')
   let g:tern_show_signature_in_pum = 1
-  let g:tern_request_timeout = 3
+  let g:tern_request_timeout = 10
   autocmd FileType javascript setlocal omnifunc=tern#Complete
   autocmd FileType javascript nnoremap <silent> <buffer> <Leader>ff :TernDef<CR>
   autocmd FileType javascript nnoremap <silent> <buffer> <Leader>fr :TernRename<CR>
