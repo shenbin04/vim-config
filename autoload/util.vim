@@ -98,6 +98,20 @@ function! util#OpenStash() range
   silent execute cmd
 endfunction
 
+function! util#OpenDiffusion() range
+  if !exists('g:diffusion_url')
+    echo 'Please set g:diffusion_url first'
+    return
+  endif
+  let top = a:firstline
+  let bot = a:lastline
+  let cmd = '!open ' . g:diffusion_url . util#ExpandRelative('%:p') . '\$' . top
+  if bot > top
+    let cmd = cmd . '-' . bot
+  endif
+  silent execute cmd
+endfunction
+
 function! util#GrepOperator(type)
   let saved_unnamed_register = @@
   if a:type ==# 'v'

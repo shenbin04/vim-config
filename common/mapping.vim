@@ -85,6 +85,7 @@ onoremap <silent> i^ :normal! t^vT^<CR>
 vnoremap <silent> i^ :normal! t^vT^<CR>
 
 " Open Stash
+noremap <silent> <Leader>od :call util#OpenDiffusion()<CR>
 noremap <silent> <Leader>os :call util#OpenStash()<CR>
 
 " Command-line
