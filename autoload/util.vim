@@ -25,6 +25,10 @@ function! util#ExpandRelative(pattern)
   return fnamemodify(expand(a:pattern), ':~:.')
 endfunction
 
+function! util#ExpandRelativeToGit(pattern)
+  return xolox#misc#path#relative(expand(a:pattern), fnamemodify(finddir('.git', '.;'), ':h'))
+endfunction
+
 function! util#CloseLastWindow()
   if &buftype == 'quickfix'
     if winbufnr(2) == -1
@@ -91,7 +95,7 @@ function! util#OpenStash() range
   endif
   let top = a:firstline
   let bot = a:lastline
-  let cmd = '!open ' . g:stash_url . util#ExpandRelative('%:p') . '\#' . top
+  let cmd = '!open ' . g:stash_url . util#ExpandRelativeToGit('%:p') . '\#' . top
   if bot > top
     let cmd = cmd . '-' . bot
   endif
@@ -105,7 +109,7 @@ function! util#OpenDiffusion() range
   endif
   let top = a:firstline
   let bot = a:lastline
-  let cmd = '!open ' . g:diffusion_url . util#ExpandRelative('%:p') . '\$' . top
+  let cmd = '!open ' . g:diffusion_url . util#ExpandRelativeToGit('%:p') . '\$' . top
   if bot > top
     let cmd = cmd . '-' . bot
   endif
