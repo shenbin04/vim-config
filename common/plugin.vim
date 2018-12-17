@@ -213,7 +213,7 @@ let g:highlightedyank_highlight_duration = 500
 
 " FZF
 let g:fzf_history_dir = '~/.fzf-history'
-let g:fzf_layout = {'down': '~50%'}
+let g:fzf_layout = {'down': '50%'}
 let g:fzf_ignore = ['\v(\.git/|runtime/doc/|term:|\.vim/bundle/)']
 let g:fzf_colors = {
       \ 'fg':      ['fg', 'Normal'],
