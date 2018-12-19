@@ -84,9 +84,12 @@ vnoremap <silent> i% :normal! t%vT%<CR>
 onoremap <silent> i^ :normal! t^vT^<CR>
 vnoremap <silent> i^ :normal! t^vT^<CR>
 
-" Open Stash
+" Open Source Code
 noremap <silent> <Leader>od :call util#OpenDiffusion()<CR>
 noremap <silent> <Leader>os :call util#OpenStash()<CR>
+
+" Open Html
+noremap <silent> <Leader>oh :call util#OpenHtml()<CR>
 
 " Command-line
 cnoremap <C-p> <Up>

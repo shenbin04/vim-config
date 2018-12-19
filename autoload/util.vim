@@ -88,6 +88,16 @@ function! util#MaybeInsertMode()
   endif
 endfunction
 
+function! util#OpenHtml() range
+  let g:html_use_css = 0
+  let g:html_number_lines = 0
+  execute a:firstline . ',' a:lastline . 'TOhtml'
+  unlet g:html_number_lines
+  execute 'sav ' . xolox#misc#path#tempdir() . '/' . expand('%:t')
+  silent !open %:p
+  bd!
+endfunction
+
 function! util#OpenStash() range
   if !exists('g:stash_url')
     echo 'Please set g:stash_url first'
