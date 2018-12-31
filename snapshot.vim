@@ -43,7 +43,7 @@ silent! let g:plugs['vim-easymotion'].commit = '1a0244c'
 silent! let g:plugs['vim-endwise'].commit = '21db2f8'
 silent! let g:plugs['vim-esformatter'].commit = '64cb795'
 silent! let g:plugs['vim-expand-region'].commit = '9665135'
-silent! let g:plugs['vim-flow-plus'].commit = '8cfb795'
+silent! let g:plugs['vim-flow-plus'].commit = 'd92d4ca'
 silent! let g:plugs['vim-fugitive'].commit = '347d309'
 silent! let g:plugs['vim-gitgutter'].commit = '1e60667'
 silent! let g:plugs['vim-grepper'].commit = '04d659c'
@@ -71,7 +71,6 @@ silent! let g:plugs['vim-textobj-line'].commit = '0a78169'
 silent! let g:plugs['vim-textobj-python'].commit = '585c76d'
 silent! let g:plugs['vim-textobj-user'].commit = 'e231b65'
 silent! let g:plugs['vim-unimpaired'].commit = 'f185e75'
-silent! let g:plugs['vim-visual-star-search'].commit = 'fa55818'
 
 PlugClean!
 PlugUpdate
