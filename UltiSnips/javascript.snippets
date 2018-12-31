@@ -72,6 +72,14 @@ snippet fa "Add fat arrow: `() => ;`"
 () => $0
 endsnippet
 
+snippet fp "Add flow for Props"
+type OwnProps = {|
+|};
+type Props = {|
+  ...OwnProps,
+|};
+endsnippet
+
 snippet it "it (jest)"
 it('${1:description}', () => {
   $0
