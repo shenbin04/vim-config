@@ -266,9 +266,9 @@ let g:qfenter_keymap.topen = ['<C-t>']
 let g:esformatter_config=$HOME.'/.vim/.esformatter.json'
 
 " Flow
-let g:flow#flowpath = getcwd() . '/node_modules/.bin/flow'
+let g:flow#flowpath = util#ExpandToGit(getcwd()) . '/node_modules/.bin/flow'
 nnoremap <F3> :FlowCoverageToggle<CR>
-nnoremap <Leader>v :FlowTypeAtPos<CR>
+nnoremap <silent> <Leader>v :FlowTypeAtPos<CR>
 
 " Marvim
 let g:marvim_store = $HOME.'/.vim/macro'

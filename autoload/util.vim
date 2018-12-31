@@ -25,8 +25,12 @@ function! util#ExpandRelative(pattern)
   return fnamemodify(expand(a:pattern), ':~:.')
 endfunction
 
+function! util#ExpandToGit(from)
+  return fnamemodify(finddir('.git', a:from . ';'), ':h')
+endfunction
+
 function! util#ExpandRelativeToGit(pattern)
-  return xolox#misc#path#relative(expand(a:pattern), fnamemodify(fnamemodify(finddir('.git', '.;'), ':h'), ':p'))
+  return xolox#misc#path#relative(expand(a:pattern), fnamemodify(util#ExpandToGit('.'), ':p'))
 endfunction
 
 function! util#CloseLastWindow()
