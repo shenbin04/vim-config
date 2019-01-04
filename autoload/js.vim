@@ -290,3 +290,9 @@ endfunction
 function! js#FormatArrayJoin()
   normal! $va]Jhxx%lx
 endfunction
+
+function! js#ShowFlowCoverage()
+  if exists('b:flow_coverage_status')
+    echo b:flow_coverage_status
+  endif
+endfunction
