@@ -22,7 +22,7 @@ function! util#TryOpenFile(file, message)
 endfunction
 
 function! util#ExpandRelative(pattern)
-  return fnamemodify(expand(a:pattern), ':~:.')
+  return fnamemodify(expand(a:pattern), ':.')
 endfunction
 
 function! util#ExpandToGit(from)
