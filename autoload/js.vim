@@ -67,7 +67,7 @@ function! js#RunTestLine()
 endfunction
 
 function! js#RunTestDebug()
-  call FindJest('node debug ')
+  call FindJest('node --inspect ')
   Topen
   execute ':TestNearest'
 endfunction
