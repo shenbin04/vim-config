@@ -34,6 +34,7 @@ nnoremap <buffer> <Leader>ru :call js#RunTestUpdate()<CR>
 
 nnoremap <buffer> <Leader>rf :call js#RunFlow()<CR>
 nnoremap <buffer> <Leader>rtt :call js#RunTest('')<CR>
+nnoremap <buffer> <Leader>rtu :call js#RunTest('-u')<CR>
 nnoremap <buffer> <Leader>rtw :call js#RunTest('--watch')<CR>
 
 nnoremap <buffer> <Leader>rni :call js#RequireToImport()<CR>
