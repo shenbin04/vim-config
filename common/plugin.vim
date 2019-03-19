@@ -17,7 +17,7 @@ let g:vim_json_syntax_conceal = 0
 
 " Fugitive
 nnoremap <Leader>gc :Git checkout 
-nnoremap <silent> <Leader>gs :Gstatus<CR>
+nnoremap <silent> <Leader>gs :10Gstatus<CR>
 nnoremap <silent> <Leader>gd :call util#GitDiff()<CR>
 nnoremap <silent> <Leader>gb :Gblame<CR>
 nnoremap <silent> <Leader>gr :Gread<CR>
