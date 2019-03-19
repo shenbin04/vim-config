@@ -126,7 +126,9 @@ nnoremap <Leader>u :GundoToggle<CR>
 let g:gundo_close_on_revert = 1
 
 " Tagbar
-nnoremap <Leader>ot :TagbarOpenAutoClose<CR>
+let g:tagbar_left = 1
+let g:tagbar_width = 30
+nnoremap <C-t> :TagbarOpenAutoClose<CR>
 
 " Expand Region
 map K <Plug>(expand_region_expand)
