@@ -16,3 +16,5 @@ nnoremap <buffer> <Leader>rpif :call python#InstallExtDeps('python/dev_tools/for
 
 nnoremap <buffer> <Leader>rd :Topen<CR>:TestNearest -s<CR>
 nnoremap <buffer> <Leader>rr :call python#RunTestFile()<CR>
+
+nnoremap <buffer> <Leader>rf :Black<CR>

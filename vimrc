@@ -4,6 +4,7 @@ call plug#begin('~/.vim/bundle')
 Plug 'SirVer/ultisnips'
 Plug 'airblade/vim-gitgutter'
 Plug 'alvan/vim-closetag'
+Plug 'ambv/black'
 Plug 'b4winckler/vim-objc'
 Plug 'bps/vim-textobj-python'
 Plug 'cakebaker/scss-syntax.vim'

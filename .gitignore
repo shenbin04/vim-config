@@ -8,5 +8,6 @@
 /bundle
 /spell
 /macro
+/black
 viminfo
 vimrc.local
