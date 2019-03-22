@@ -252,6 +252,8 @@ nnoremap <Leader>agw "wyiw:GrepperAg '<C-r>w'
 nnoremap <Leader>agW "wyiW:GrepperAg '<C-r>w' 
 nnoremap <Leader>aw "wyiw:GrepperAg '\b<C-r>w\b' 
 nnoremap <Leader>aW "wyiW:GrepperAg '\b<C-r>w\b' 
+nnoremap <Leader>ap "wyiw:GrepperAg '(message\|rpc\|enum) \b<C-r>w\b' protobuf/<CR>
+nnoremap <Leader>at "wyiw:GrepperAg '^(\s)*(struct\|enum\|\S+)? \b<C-r>w\b' thrift/<CR>
 
 nnoremap <silent> <leader>a :set operatorfunc=util#GrepOperator<CR>g@
 vnoremap <silent> <leader>a :<C-u>call util#GrepOperator(visualmode())<CR>
