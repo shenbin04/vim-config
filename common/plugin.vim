@@ -233,7 +233,7 @@ let g:fzf_colors = {
       \ 'spinner': ['fg', 'Label'],
       \ 'header':  ['fg', 'Comment'],
       \ }
-noremap <Leader>, :History<CR>
+noremap <Leader>, :call util#CloseFugitive()<CR>:History<CR>
 noremap <Leader>. :Mixed<CR>
 noremap <Leader>za :Files<CR>
 noremap <Leader>zb :BCommits<CR>

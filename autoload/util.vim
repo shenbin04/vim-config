@@ -164,6 +164,12 @@ function! util#GitDiffEnd()
   endif
 endfunction
 
+function! util#CloseFugitive()
+  if buflisted(bufname('.git/index'))
+    bd .git/index
+  endif
+endfunction
+
 function! s:diff_window_syntax(syntax) abort
   for nr in range(1, winnr('$'))
     if getwinvar(nr, '&diff')
@@ -174,8 +180,8 @@ endfunction
 
 function! s:diff_window_count() abort
   let c = 0
-  for nr in range(1,winnr('$'))
-    let c += getwinvar(nr,'&diff')
+  for nr in range(1, winnr('$'))
+    let c += getwinvar(nr, '&diff')
   endfor
   return c
 endfunction
