@@ -248,12 +248,24 @@ let g:oremap = {"[t": "", "]t": ""}
 
 " Ag
 nnoremap <Leader>aa :GrepperAg 
-nnoremap <Leader>agw "wyiw:GrepperAg '<C-r>w' 
-nnoremap <Leader>agW "wyiW:GrepperAg '<C-r>w' 
 nnoremap <Leader>aw "wyiw:GrepperAg '\b<C-r>w\b' 
+nnoremap <Leader>anw "wyiw:GrepperAg '<C-r>w' 
 nnoremap <Leader>aW "wyiW:GrepperAg '\b<C-r>w\b' 
-nnoremap <Leader>ap "wyiw:GrepperAg '(message\|rpc\|enum) \b<C-r>w\b' protobuf/<CR>
+nnoremap <Leader>anW "wyiW:GrepperAg '<C-r>w' 
+nnoremap <Leader>ag "wyiw:GrepperAg '(message\|rpc\|enum) \b<C-r>w\b' protobuf/<CR>
 nnoremap <Leader>at "wyiw:GrepperAg '^(\s)*(struct\|enum\|\S+)? \b<C-r>w\b' thrift/<CR>
+
+let s:projects = {
+\ 'm': 'python/manhattan/',
+\ 'b': 'python/batmobile/',
+\ 'p': 'python/',
+\ 'j': 'javascript/',
+\}
+
+for [name, path] in items(s:projects)
+  exec 'nnoremap <Leader>a' . name . ' "wyiw:GrepperAg "\b<C-r>w\b" ' . path . '<CR>'
+  exec 'nnoremap <Leader>as' . name . ' "wyiw:GrepperAg "\b<C-r>w\b" ' . path . ' -G "(?<!test).(jsx?\|py)" <CR>'
+endfor
 
 nnoremap <silent> <leader>a :set operatorfunc=util#GrepOperator<CR>g@
 vnoremap <silent> <leader>a :<C-u>call util#GrepOperator(visualmode())<CR>
