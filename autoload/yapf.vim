@@ -41,7 +41,7 @@ function! yapf#YAPF() range
   endif
 
   " Update the buffer.
-  execute '1,' . string(line('$')) . 'delete'
+  execute a:firstline . ',' . string(line('$')) . 'delete'
   call setline(1, l:formatted_text)
 
   " Reset cursor to first line of the formatted range.
