@@ -17,4 +17,7 @@ nnoremap <buffer> <Leader>rpif :call python#InstallExtDeps('python/dev_tools/for
 nnoremap <buffer> <Leader>rd :Topen<CR>:TestNearest -s<CR>
 nnoremap <buffer> <Leader>rr :call python#RunTestFile()<CR>
 
-nnoremap <buffer> <Leader>rf :Black<CR>
+nnoremap <buffer> <Leader>fb :Black<CR>
+
+map <buffer> <silent> = :call yapf#YAPF()<cr>
+map <buffer> <silent> <Leader>fy :call yapf#YAPF()<cr>
