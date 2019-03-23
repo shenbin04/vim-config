@@ -100,17 +100,28 @@ let g:ale_sign_warning = '>>'
 let g:ale_linters = {
 \   'javascript': ['eslint', 'flow'],
 \   'python': ['pylint', 'flake8'],
+\   'css': ['stylelint'],
+\}
+let g:ale_fixers = {
+\   'javascript': ['prettier'],
+\   'python': ['ALEBlack'],
+\   'css': ['prettier'],
 \}
 let g:ale_javascript_eslint_options = js#ESLintArgs()
 let g:ale_python_pylint_change_directory = 0
 let g:ale_python_pylint_options = python#PYLintArgs()
 let g:ale_python_flake8_options = '--ignore=E101,E501,W291,W292,W293'
 
+function! ALEBlack(buffer, lines)
+  Black
+endfunction
+
 hi ALEErrorSign ctermfg=015 ctermbg=001 cterm=none
 hi ALEWarningSign ctermfg=015 ctermbg=166 cterm=none
 hi link ALEError clear
 hi link ALEWarning clear
 
+nmap <Leader>fa <Plug>(ale_fix)
 nnoremap <Leader>p :ALEPreviousWrap<CR>
 nnoremap <Leader>n :ALENextWrap<CR>
 
@@ -327,5 +338,4 @@ nnoremap <silent> <expr> <Leader>r Remembrall(',r')
 nnoremap <silent> <expr> <Leader>f Remembrall(',f')
 
 " Black
-let g:black_linelength = 120
 let g:black_skip_string_normalization = 1
