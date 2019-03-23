@@ -58,6 +58,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/L9'
 Plug 'vim-scripts/YankRing.vim', { 'on': 'YRCheckClipboard' }
 Plug 'vim-scripts/nginx.vim'
+Plug 'vimjas/vim-python-pep8-indent'
 Plug 'w0rp/ale'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
