@@ -278,9 +278,6 @@ for [name, path] in items(s:projects)
   exec 'nnoremap <Leader>as' . name . ' "wyiw:GrepperAg "\b<C-r>w\b" ' . path . ' -G "(?<!test).(jsx?\|py)" <CR>'
 endfor
 
-nnoremap <silent> <leader>a :set operatorfunc=util#GrepOperator<CR>g@
-vnoremap <silent> <leader>a :<C-u>call util#GrepOperator(visualmode())<CR>
-
 " HLT
 nmap <Leader>_ <Plug>HiLinkTrace
 

@@ -130,20 +130,6 @@ function! util#OpenDiffusion() range
   silent execute cmd
 endfunction
 
-function! util#GrepOperator(type)
-  let saved_unnamed_register = @@
-  if a:type ==# 'v'
-    normal! `<v`>y
-  elseif a:type ==# 'char'
-    normal! `[v`]y
-  else
-    return
-  endif
-
-  silent execute 'GrepperAg ' . shellescape(@@)
-  let @@ = saved_unnamed_register
-endfunction
-
 function! util#ClearHighlight()
   if exists('g:plugs["jedi-vim"]')
     call jedi#remove_usages()
