@@ -32,7 +32,6 @@ Plug 'mxw/vim-jsx'
 Plug 'nviennot/molokai'
 Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
-Plug 'prettier/vim-prettier', { 'do': 'npm i -g prettier' }
 Plug 'scrooloose/nerdtree'
 Plug 'shenbin04/fzf.vim'
 Plug 'shenbin04/vim-esformatter', { 'do': 'npm i -g esformatter' }
