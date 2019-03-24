@@ -72,6 +72,7 @@ silent! let g:plugs['vim-surround'].commit = 'aa1f120'
 silent! let g:plugs['vim-test'].commit = '062c489'
 silent! let g:plugs['vim-textobj-line'].commit = '0a78169'
 silent! let g:plugs['vim-textobj-python'].commit = '585c76d'
+silent! let g:plugs['vim-prettier'].commit = 'dc1dd62'
 silent! let g:plugs['vim-textobj-user'].commit = 'e231b65'
 silent! let g:plugs['vim-unimpaired'].commit = 'f185e75'
 
