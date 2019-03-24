@@ -20,5 +20,6 @@ nnoremap <buffer> <Leader>rr :call python#RunTestFile()<CR>
 nnoremap <buffer> <Leader>fb :Black<CR>
 
 nnoremap <buffer> <silent> = :set operatorfunc=util#yapfOperator<CR>g@
+nnoremap <buffer> <silent> == V:YAPF<CR>
 vnoremap <buffer> <silent> = :call yapf#YAPF()<CR>
 nnoremap <buffer> <silent> <Leader>fy :YAPF<CR>
