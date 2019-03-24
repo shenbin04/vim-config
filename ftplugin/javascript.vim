@@ -71,3 +71,7 @@ vnoremap <buffer> <silent> <Leader>fes :EsformatterVisual<CR>
 
 nnoremap <buffer> <silent> <Leader>ftap :call js#ClassFunctionToClassProperty()<CR>
 nnoremap <buffer> <silent> <Leader>ftaf :call js#ToArrowFunction()<CR>
+
+nnoremap <buffer> <silent> = :set operatorfunc=util#prettierOperator<CR>g@
+nnoremap <buffer> <silent> == V:Prettier<CR>
+vnoremap <buffer> <silent> = :Prettier<CR>

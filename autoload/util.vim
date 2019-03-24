@@ -138,6 +138,19 @@ function! util#yapfOperator(type, ...)
   endif
 endfunction
 
+function! util#prettierOperator(type, ...)
+  if a:type ==# 'line' || a:type ==# 'char'
+    let line_start = getpos("'[")[1]
+    let line_end = getpos("']")[1]
+    echo [line_start, line_end]
+    execute line_start . ',' . line_end . 'call prettier#Prettier()'
+  endif
+endfunction
+
+function! util#GetCharOffset(line)
+  return len(join(getline(0, a:line)[:-2], ' '))
+endfunction
+
 function! util#ClearHighlight()
   if exists('g:plugs["jedi-vim"]')
     call jedi#remove_usages()
