@@ -130,6 +130,14 @@ function! util#OpenDiffusion() range
   silent execute cmd
 endfunction
 
+function! util#yapfOperator(type, ...)
+  if a:type ==# 'line'
+    let line_start = getpos("'[")[1]
+    let line_end = getpos("']")[1]
+    silent execute line_start . ',' . line_end . 'call yapf#YAPF()'
+  endif
+endfunction
+
 function! util#ClearHighlight()
   if exists('g:plugs["jedi-vim"]')
     call jedi#remove_usages()
