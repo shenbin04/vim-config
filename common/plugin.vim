@@ -103,7 +103,10 @@ let g:ale_linters = {
 \   'css': ['stylelint'],
 \}
 let g:ale_fixers = {
-\   'javascript': ['prettier'],
+\   'javascript': [
+\     'prettier',
+\     'ALEJavascriptFix',
+\   ],
 \   'python': ['ALEBlack'],
 \   'css': ['prettier'],
 \}
@@ -111,6 +114,16 @@ let g:ale_javascript_eslint_options = js#ESLintArgs()
 let g:ale_python_pylint_change_directory = 0
 let g:ale_python_pylint_options = python#PYLintArgs()
 let g:ale_python_flake8_options = '--ignore=E101,E501,W291,W292,W293'
+
+function! ALEJavascriptFix(buffer, lines)
+  let file = util#ExpandRelativeToGit('%:p') . '.tmp'
+  call writefile(a:lines, file)
+  call system('node_modules/.bin/eslint --fix ' . file)
+  call system('npm run organize-imports ' . file)
+  let result = readfile(file)
+  call delete(file)
+  return result
+endfunction
 
 function! ALEBlack(buffer, lines)
   Black
