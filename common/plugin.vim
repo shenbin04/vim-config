@@ -104,6 +104,7 @@ let g:ale_linters = {
 \}
 let g:ale_fixers = {
 \   'javascript': [
+\     'ALEPrettierFix',
 \     'prettier',
 \     'ALEJavascriptFix',
 \   ],
@@ -115,13 +116,22 @@ let g:ale_python_pylint_change_directory = 0
 let g:ale_python_pylint_options = python#PYLintArgs()
 let g:ale_python_flake8_options = '--ignore=E101,E501,W291,W292,W293'
 
+function! ALEPrettierFix(buffer, lines)
+  echo '[ALE] Running prettier fix...'
+endfunction
+
 function! ALEJavascriptFix(buffer, lines)
   let file = util#ExpandRelativeToGit('%:p') . '.tmp'
   call writefile(a:lines, file)
-  call system('node_modules/.bin/eslint --fix ' . file)
-  call system('npm run organize-imports ' . file)
+  echo '[ALE] Running eslint fix...'
+  let job = jobstart('node_modules/.bin/eslint --fix ' . file)
+  call jobwait([job])
+  echo '[ALE] Running organize-imports fix...'
+  let job = jobstart('npm run organize-imports ' . file)
+  call jobwait([job])
   let result = readfile(file)
   call delete(file)
+  echo '[ALE] Done'
   return result
 endfunction
 
