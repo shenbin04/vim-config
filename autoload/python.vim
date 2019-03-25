@@ -25,6 +25,10 @@ function! python#BuildDeps()
   execute ':Topen | T ./pants build-deps --build-deps-prune=True --virtualenv=oscar ' . pattern
 endfunction
 
+function! python#BuildDepsAll()
+  execute ':Topen | T ./engshare/bin/update-build-files'
+endfunction
+
 function! python#TargetGen()
   let pattern = fnamemodify(findfile('BUILD', '.;'), ':~:.:h') . '/*.py'
   execute ':Topen | T ./pants target-gen -- ' . pattern
