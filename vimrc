@@ -141,9 +141,9 @@ set incsearch
 
 " Viminfo
 if has('nvim')
-  set shada='500,/500,h,\"500,:2000,n~/.vim/main.shada
+  set shada='2000,/500,h,\"500,:2000,n~/.vim/main.shada
 else
-  set viminfo='500,/500,h,\"500,:2000,n~/.vim/viminfo
+  set viminfo='2000,/500,h,\"500,:2000,n~/.vim/viminfo
 endif
 
 " Undo
