@@ -20,6 +20,11 @@ function! python#OpenBuildFile()
   call util#TryOpenFile(file, 'Cannot find BUILD file ' . file)
 endfunction
 
+function! python#MakePants()
+  let pattern = fnamemodify(findfile('BUILD', '.;'), ':~:.:h') . ':' . split(expand('%:r'), '/')[-1]
+  execute ':Topen | T engshare/bin/mkpantsenv oscar ' . pattern
+endfunction
+
 function! python#BuildDeps()
   let pattern = fnamemodify(findfile('BUILD', '.;'), ':~:.:h') . ':' . split(expand('%:r'), '/')[-1]
   execute ':Topen | T ./pants build-deps --build-deps-prune=True --virtualenv=oscar ' . pattern

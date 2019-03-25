@@ -8,6 +8,7 @@ nnoremap <buffer> gb :call python#OpenBuildFile()<CR>
 nnoremap <buffer> <Leader>rpb :call python#BuildDeps()<CR>
 nnoremap <buffer> <Leader>rpa :call python#BuildDepsAll()<CR>
 nnoremap <buffer> <Leader>rpt :call python#TargetGen()<CR>
+nnoremap <buffer> <Leader>rpp :call python#MakePants()<CR>
 nnoremap <buffer> <Leader>rpg :call python#GenAll()<CR>
 
 nnoremap <buffer> <Leader>rpim :call python#InstallExtDeps('python/manhattan:')<CR>
