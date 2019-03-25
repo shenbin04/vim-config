@@ -298,7 +298,7 @@ let s:projects = {
 
 for [name, path] in items(s:projects)
   exec 'nnoremap <Leader>a' . name . ' "wyiw:GrepperAg "\b<C-r>w\b" ' . path . '<CR>'
-  exec 'nnoremap <Leader>as' . name . ' "wyiw:GrepperAg "\b<C-r>w\b" ' . path . ' -G "(?<!test).(jsx?\|py)" <CR>'
+  exec 'nnoremap <Leader>as' . name . ' "wyiw:GrepperAg "\b<C-r>w\b" ' . path . ' -G "(?<!test)\.(jsx?\|py)$" <CR>'
 endfor
 
 " HLT
