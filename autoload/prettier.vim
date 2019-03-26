@@ -1,7 +1,11 @@
 function! prettier#Prettier(...) range
-  let l:cmd = 'prettier --range-start ' . util#GetCharOffset(a:firstline)
-        \ . ' --range-end ' . (a:lastline > a:firstline ? util#GetCharOffset(a:lastline) : util#GetCharOffset(a:lastline + 1) - 1)
-        \ . ' ' . expand('%')
+  if a:firstline == 1 && a:lastline == line('$')
+    let l:cmd = 'prettier ' . expand('%')
+  else
+    let l:cmd = 'prettier --range-start ' . util#GetCharOffset(a:firstline)
+          \ . ' --range-end ' . (a:lastline > a:firstline ? util#GetCharOffset(a:lastline) : util#GetCharOffset(a:lastline + 1) - 1)
+          \ . ' ' . expand('%')
+  endif
   let l:formatted_text = systemlist(l:cmd)
 
   if v:shell_error

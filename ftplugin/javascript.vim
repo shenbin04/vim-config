@@ -75,3 +75,4 @@ nnoremap <buffer> <silent> <Leader>ftaf :call js#ToArrowFunction()<CR>
 nnoremap <buffer> <silent> = :set operatorfunc=util#prettierOperator<CR>g@
 nnoremap <buffer> <silent> == V:Prettier<CR>
 vnoremap <buffer> <silent> = :Prettier<CR>
+noremap <buffer> <silent> <Leader>fp :%Prettier<CR>
