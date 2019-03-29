@@ -16,7 +16,7 @@ function! FindJest(...)
   let prefix = a:0 > 0 ? a:1 : ''
   let root = fnamemodify(finddir('node_modules', '.;'), ':~:.:h')
   let jest = root . '/node_modules/.bin/jest'
-  let g:test#javascript#jest#executable = 'NODE_PATH=$(pwd) ' . prefix . jest . ' -c ' . root . '/package.json'
+  let g:test#javascript#jest#executable = 'NODE_ENV=testing NODE_PATH=$(pwd) ' . prefix . jest . ' -c ' . root . '/package.json'
 endfunction
 
 function! GetCoverage()
