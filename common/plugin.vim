@@ -334,7 +334,7 @@ nnoremap <silent> <Leader>` :Ttoggle<CR>
 nnoremap <silent> <Leader>rb :Tkill<CR>
 nnoremap <silent> <Leader>rc :Tclose!<CR>
 
-nnoremap <silent> <Leader>rgb :Topen<CR>:T git branch<CR>
+nnoremap <silent> <Leader>rgb :Topen<CR>:T git --no-pager branch<CR>
 nnoremap <silent> <Leader>rgss :Topen<CR>:T git stash -u<CR>
 nnoremap <silent> <Leader>rgsp :Topen<CR>:T git stash pop<CR>
 nnoremap <silent> <Leader>rgsa :Topen<CR>:T git stash apply<CR>
