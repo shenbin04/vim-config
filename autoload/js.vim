@@ -101,9 +101,14 @@ function! js#OpenSnapshotFile()
   endfor
 endfunction
 
-function! js#OpenScssFile()
-  let file = GetPrefix() . '.scss'
-  call util#TryOpenFile(file, 'Cannot find scss file ' . file)
+function! js#OpenCssFile()
+  let prefix = GetPrefix()
+  for extension in ['.css', '.scss', '.sass']
+    let file = prefix . extension
+    if util#TryOpenFile(file, 'Cannot find css file ' . file)
+      return
+    endif
+  endfor
 endfunction
 
 function! js#ESLintArgs()
