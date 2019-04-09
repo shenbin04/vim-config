@@ -358,4 +358,5 @@ nnoremap <silent> <expr> <Leader>r Remembrall(',r')
 nnoremap <silent> <expr> <Leader>f Remembrall(',f')
 
 " Black
+let g:black_linelength = 120
 let g:black_skip_string_normalization = 1
