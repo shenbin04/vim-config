@@ -74,7 +74,7 @@ if v:version >= 800
     Plug 'roxma/vim-hug-neovim-rpc'
   endif
   Plug 'ternjs/tern_for_vim', { 'do': 'npm i' }
-  Plug 'zchee/deoplete-jedi'
+  Plug 'deoplete-plugins/deoplete-jedi'
   Plug 'davidhalter/jedi-vim'
 else
   function! BuildYCM(info)
