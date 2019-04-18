@@ -15,8 +15,16 @@ endfunction
 function! FindJest(...)
   let prefix = a:0 > 0 ? a:1 : ''
   let root = fnamemodify(finddir('node_modules', '.;'), ':~:.:h')
+
   let jest = root . '/node_modules/.bin/jest'
-  let g:test#javascript#jest#executable = 'NODE_ENV=testing NODE_PATH=$(pwd) ' . prefix . jest . ' -c ' . root . '/package.json'
+  let config = root . '/package.json'
+
+  let jest_project_config = findfile('jest.config.js', '.;')
+  if jest_project_config != ''
+    let config = jest_project_config
+  endif
+
+  let g:test#javascript#jest#executable = 'NODE_ENV=testing NODE_PATH=$(pwd) ' . prefix . jest . ' -c ' . config
 endfunction
 
 function! GetCoverage()
