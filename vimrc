@@ -112,6 +112,7 @@ set encoding=utf-8
 set foldmethod=indent
 set tags+=tags;$HOME
 set viewoptions=folds,cursor
+set diffopt+=vertical
 set showmatch
 set noautoread
 
