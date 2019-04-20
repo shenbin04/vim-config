@@ -282,12 +282,13 @@ let g:oremap = {"[t": "", "]t": ""}
 
 " Ag
 nnoremap <Leader>aa :GrepperAg 
-nnoremap <Leader>aw "wyiw:GrepperAg '\b<C-r>w\b' 
-nnoremap <Leader>anw "wyiw:GrepperAg '<C-r>w' 
-nnoremap <Leader>aW "wyiW:GrepperAg '\b<C-r>w\b' 
-nnoremap <Leader>anW "wyiW:GrepperAg '<C-r>w' 
-nnoremap <Leader>ag "wyiw:GrepperAg '(message\|rpc\|enum) \b<C-r>w\b' protobuf/<CR>
-nnoremap <Leader>at "wyiw:GrepperAg '^(\s)*(struct\|enum\|\S+)? \b<C-r>w\b' thrift/<CR>
+nnoremap <Leader>aw "wyiw:GrepperAg '\b<C-R>w\b' 
+nnoremap <Leader>anw "wyiw:GrepperAg '<C-R>w' 
+nnoremap <Leader>aW "wyiW:GrepperAg '\b<C-R>w\b' 
+nnoremap <Leader>anW "wyiW:GrepperAg '<C-R>w' 
+nnoremap <Leader>ag "wyiw:GrepperAg '(message\|rpc\|enum) \b<C-R>w\b' protobuf/<CR>
+nnoremap <Leader>at "wyiw:GrepperAg '^(\s)*(struct\|enum\|\S+)? \b<C-R>w\b' thrift/<CR>
+vnoremap <Leader>aa "wy:GrepperAg '\b<C-R>w\b' 
 
 let s:projects = {
 \ 'm': 'python/manhattan/',
@@ -296,9 +297,20 @@ let s:projects = {
 \ 'j': 'javascript/',
 \}
 
+function! s:GrepByWord(by_word, path)
+  let boundary = a:by_word ? "\\b" : ""
+  let cmd = 'GrepperAg ' . "\"" . boundary . @w . boundary . "\" " . a:path
+  exec "normal! :" . cmd . "\<CR>"
+  call histadd('cmd', cmd)
+endfunction
+
 for [name, path] in items(s:projects)
-  exec 'nnoremap <Leader>a' . name . ' "wyiw:GrepperAg "\b<C-r>w\b" ' . path . '<CR>'
-  exec 'nnoremap <Leader>as' . name . ' "wyiw:GrepperAg "\b<C-r>w\b" ' . path . ' -G "(?<!test)\.(jsx?\|py)$" <CR>'
+  exec 'nnoremap <Leader>a' . name "\"wyiw:call s:GrepByWord(1, '" . path . "')\<CR>"
+  exec 'nnoremap <Leader>an' . name "\"wyiw:call s:GrepByWord(0, '" . path . "')\<CR>"
+  exec 'nnoremap <Leader>as' . name "\"wyiw:call s:GrepByWord(1, '" . path . ' -G "(?<!test)\.(jsx?\|py)$"' . "')\<CR>"
+  exec 'vnoremap <Leader>a' . name "\"wy:call s:GrepByWord(1, '" . path . "')\<CR>"
+  exec 'vnoremap <Leader>an' . name "\"wy:call s:GrepByWord(0, '" . path . "')\<CR>"
+  exec 'vnoremap <Leader>as' . name "\"wy:call s:GrepByWord(1, '" . path . ' -G "(?<!test)\.(jsx?\|py)$"' . "')\<CR>"
 endfor
 
 " HLT
