@@ -192,3 +192,10 @@ function! s:diff_window_count() abort
   endfor
   return c
 endfunction
+
+function! util#GrepByWord(by_word, path)
+  let boundary = a:by_word ? "\\b" : ""
+  let cmd = 'GrepperAg ' . "\"" . boundary . @w . boundary . "\" " . a:path
+  exec "normal! :" . cmd . "\<CR>"
+  call histadd('cmd', cmd)
+endfunction

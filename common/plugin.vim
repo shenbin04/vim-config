@@ -284,6 +284,8 @@ let g:oremap = {"[t": "", "]t": ""}
 nnoremap <Leader>aa :GrepperAg 
 nnoremap <Leader>aw "wyiw:GrepperAg '\b<C-R>w\b' 
 nnoremap <Leader>anw "wyiw:GrepperAg '<C-R>w' 
+nnoremap <Leader>asw "wyiw:GrepperAg -G "(?<!test)\.(jsx?\|py)$" '\b<C-R>w\b' 
+nnoremap <Leader>asnw "wyiw:GrepperAg -G "(?<!test)\.(jsx?\|py)$" '<C-R>w' 
 nnoremap <Leader>aW "wyiW:GrepperAg '\b<C-R>w\b' 
 nnoremap <Leader>anW "wyiW:GrepperAg '<C-R>w' 
 nnoremap <Leader>ag "wyiw:GrepperAg '(message\|rpc\|enum) \b<C-R>w\b' protobuf/<CR>
@@ -297,20 +299,13 @@ let s:projects = {
 \ 'j': 'javascript/',
 \}
 
-function! s:GrepByWord(by_word, path)
-  let boundary = a:by_word ? "\\b" : ""
-  let cmd = 'GrepperAg ' . "\"" . boundary . @w . boundary . "\" " . a:path
-  exec "normal! :" . cmd . "\<CR>"
-  call histadd('cmd', cmd)
-endfunction
-
 for [name, path] in items(s:projects)
-  exec 'nnoremap <Leader>a' . name "\"wyiw:call s:GrepByWord(1, '" . path . "')\<CR>"
-  exec 'nnoremap <Leader>an' . name "\"wyiw:call s:GrepByWord(0, '" . path . "')\<CR>"
-  exec 'nnoremap <Leader>as' . name "\"wyiw:call s:GrepByWord(1, '" . path . ' -G "(?<!test)\.(jsx?\|py)$"' . "')\<CR>"
-  exec 'vnoremap <Leader>a' . name "\"wy:call s:GrepByWord(1, '" . path . "')\<CR>"
-  exec 'vnoremap <Leader>an' . name "\"wy:call s:GrepByWord(0, '" . path . "')\<CR>"
-  exec 'vnoremap <Leader>as' . name "\"wy:call s:GrepByWord(1, '" . path . ' -G "(?<!test)\.(jsx?\|py)$"' . "')\<CR>"
+  exec 'nnoremap <Leader>a' . name "\"wyiw:call util#GrepByWord(1, '" . path . "')\<CR>"
+  exec 'nnoremap <Leader>an' . name "\"wyiw:call util#GrepByWord(0, '" . path . "')\<CR>"
+  exec 'nnoremap <Leader>as' . name "\"wyiw:call util#GrepByWord(1, '" . path . ' -G "(?<!test)\.(jsx?\|py)$"' . "')\<CR>"
+  exec 'vnoremap <Leader>a' . name "\"wy:call util#GrepByWord(1, '" . path . "')\<CR>"
+  exec 'vnoremap <Leader>an' . name "\"wy:call util#GrepByWord(0, '" . path . "')\<CR>"
+  exec 'vnoremap <Leader>as' . name "\"wy:call util#GrepByWord(1, '" . path . ' -G "(?<!test)\.(jsx?\|py)$"' . "')\<CR>"
 endfor
 
 " HLT
