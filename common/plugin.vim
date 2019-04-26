@@ -368,6 +368,7 @@ let g:AutoPairsShortcutBackInsert = '<Leader>b'
 " Remembrall
 nnoremap <silent> <expr> <Leader>r Remembrall(',r')
 nnoremap <silent> <expr> <Leader>f Remembrall(',f')
+nnoremap <silent> <expr> <Leader>a Remembrall(',a')
 
 " Black
 let g:black_linelength = 120
