@@ -18,9 +18,20 @@ function! s:MaybeInsertModeForTerminal()
   endif
 endfunction
 
+function! PrepareFZFSwitch()
+  let @s=matchstr(getline('.'), '\v\> ?\zs.+\ze$')
+  close
+  sleep 1m
+endfunction
+
 autocmd TermOpen * call s:MaybeInsertModeForTerminal()
 autocmd BufWinEnter,WinEnter term://* call s:MaybeInsertModeForTerminal()
-autocmd FileType fzf tnoremap <buffer> <C-k> <Up>|tnoremap <buffer> <C-j> <Down>
+autocmd FileType fzf tnoremap <buffer> <C-k> <Up>|
+      \ tnoremap <buffer> <C-j> <Down>|
+      \ tnoremap <C-g> <C-\><C-n>:call PrepareFZFSwitch()<CR>:call fzf#vim#gitfiles('.', {'options': ['--query', @s]})<CR>|
+      \ tnoremap <C-h> <C-\><C-n>:call PrepareFZFSwitch()<CR>:call fzf#vim#history({'options': ['--query', @s]})<CR>|
+      \ tnoremap <C-b> <C-\><C-n>:call PrepareFZFSwitch()<CR>:call fzf#vim#buffers('.', {'options': ['--query', @s]})<CR>|
+      \ tnoremap <C-c> <C-\><C-n>:call PrepareFZFSwitch()<CR>:call fzf#vim#gitfiles(expand('%:h'), {'options': ['--query', @s, '--prompt', 'Dir> ']})<CR>
 autocmd FileType neoterm setlocal nocursorline nocursorcolumn
 
 hi link TermCursorNC Cursor

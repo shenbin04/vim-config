@@ -273,7 +273,6 @@ noremap <Leader>za :Files<CR>
 noremap <Leader>zb :BCommits<CR>
 noremap <Leader>zc :Commits<CR>
 noremap <Leader>zm :Maps<CR>
-tnoremap <C-f> <C-\><C-n>:let @s=matchstr(getline('.'), '\v\> ?\zs.+\ze$')<CR>:close<CR>:sleep 100m<CR>:call fzf#vim#gitfiles('.', {'options': ['--query', @s]})<CR>
 
 " Unimpaired
 let g:nremap = {"[t": "", "]t": ""}
