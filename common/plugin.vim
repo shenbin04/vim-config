@@ -240,7 +240,7 @@ let g:highlightedyank_highlight_duration = 500
 
 " FZF
 let g:fzf_history_dir = '~/.fzf-history'
-let g:fzf_layout = {'down': '50%'}
+let g:fzf_layout = {'down': '16'}
 let g:fzf_ignore = ['\v(\.git/|runtime/doc/|term:|\.vim/bundle/)']
 let g:fzf_colors = {
       \ 'fg':      ['fg', 'Normal'],
@@ -257,7 +257,7 @@ let g:fzf_colors = {
       \ 'spinner': ['fg', 'Label'],
       \ 'header':  ['fg', 'Comment'],
       \ }
-noremap <Leader>, :call util#CloseFugitive()<CR>:History<CR>
+noremap <Leader>, :cclose<CR>:call util#CloseFugitive()<CR>:History<CR>
 noremap <Leader>. :Mixed<CR>
 noremap <Leader>za :Files<CR>
 noremap <Leader>zb :BCommits<CR>
