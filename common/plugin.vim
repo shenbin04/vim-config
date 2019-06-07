@@ -21,6 +21,7 @@ nnoremap <silent> <Leader>gs :10Gstatus<CR>
 nnoremap <silent> <Leader>gd :call util#GitDiff()<CR>
 nnoremap <silent> <Leader>gb :Gblame<CR>
 nnoremap <silent> <Leader>gr :Gread<CR>
+nnoremap <silent> <Leader>dm :Gdiff master<CR>
 
 nnoremap <silent> <Leader>rgd :Git diff<CR>
 
