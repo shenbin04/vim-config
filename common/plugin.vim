@@ -279,7 +279,7 @@ nnoremap <Leader>asnw "wyiw:GrepperAg -G "(?<!test)\.(jsx?\|py)$" '<C-R>w'
 nnoremap <Leader>aW "wyiW:GrepperAg '\b<C-R>w\b' 
 nnoremap <Leader>anW "wyiW:GrepperAg '<C-R>w' 
 nnoremap <Leader>ag "wyiw:GrepperAg '(message\|rpc\|enum) \b<C-R>w\b' protobuf/<CR>
-nnoremap <Leader>at "wyiw:GrepperAg '^(\s)*(struct\|enum\|\S+)? \b<C-R>w\b' thrift/<CR>
+nnoremap <Leader>at :let g:grepper.jump = 1<CR>:let g:grepper.switch = 0<CR>"wyiw:GrepperAg '(^\s+\b<C-R>w\b\|^(struct\|enum) \b<C-R>w\b\|\b<C-R>w\(\|^\s+\d+: .*\b<C-R>w\b(\s+// .+)?$)' thrift/<CR>:let g:grepper.jump = 0<CR>:let g:grepper.switch = 1<CR>zz
 vnoremap <Leader>aa "wy:GrepperAg '\b<C-R>w\b' 
 
 let s:projects = {
