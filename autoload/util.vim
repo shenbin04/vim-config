@@ -166,7 +166,7 @@ function! util#GitDiff()
 endfunction
 
 function! util#GitDiffEnd()
-  if s:diff_window_count() == 2
+  if s:get_diff_window_count() == 2
     call s:diff_window_syntax('on')
   endif
 endfunction
@@ -177,6 +177,13 @@ function! util#CloseFugitive()
   endif
 endfunction
 
+function! util#CloseDiff()
+  let diff_buffers = s:get_diff_buffers()
+  for bufnr in diff_buffers
+    exec 'bd' . bufnr
+  endfor
+endfunction
+
 function! s:diff_window_syntax(syntax) abort
   for nr in range(1, winnr('$'))
     if getwinvar(nr, '&diff')
@@ -185,12 +192,18 @@ function! s:diff_window_syntax(syntax) abort
   endfor
 endfunction
 
-function! s:diff_window_count() abort
-  let c = 0
+function! s:get_diff_buffers() abort
+  let diff_buffers = []
   for nr in range(1, winnr('$'))
-    let c += getwinvar(nr, '&diff')
+    if getwinvar(nr, '&diff')
+      call add(diff_buffers, winbufnr(nr))
+    endif
   endfor
-  return c
+  return diff_buffers
+endfunction
+
+function! s:get_diff_window_count() abort
+  return len(s:get_diff_buffers())
 endfunction
 
 function! util#GrepByWord(by_word, path)

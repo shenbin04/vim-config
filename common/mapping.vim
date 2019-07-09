@@ -8,7 +8,8 @@ nnoremap <silent> <Leader>cq :cclose<CR>
 nnoremap <silent> <Leader>cl :lclose<CR>
 nnoremap <silent> <Leader>cp :pclose<CR>
 nnoremap <silent> <Leader>cf :call util#CloseFugitive()<CR>
-nnoremap <silent> <Leader>co :cclose<CR>:pclose<CR>:helpclose<CR>:lclose<CR>:Tclose<CR>:call util#CloseFugitive()<CR>
+nnoremap <silent> <Leader>cd :call util#CloseDiff()<CR>
+nnoremap <silent> <Leader>co :cclose<CR>:pclose<CR>:helpclose<CR>:lclose<CR>:Tclose<CR>:call util#CloseFugitive()<CR>:call util#CloseDiff()<CR>
 nnoremap <silent> <Leader>q :q<CR>
 nnoremap <silent> <Leader>w :w<CR>
 nnoremap <silent> <Leader>1 :BufSurfBack<CR>

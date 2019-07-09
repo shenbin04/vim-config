@@ -66,3 +66,56 @@ function! python#RunTestFile()
   let command = coverage_file . ' coverage run --branch --include ' . python_file . ' -m pytest ' . test_file . ' && ' . coverage_file . ' coverage report -m'
   execute ':Topen | T ' . command
 endfunction
+
+function! python#ShowError() abort
+  let origin_win_id = win_getid()
+  wincmd l
+  normal! Gzb
+
+  if search('\v^E\s+AssertionError: \zs', 'b')
+    if search('Expected call:', 'cW')
+      normal! f(
+      silent normal! "xyib
+      call search('Actual call:')
+      normal! f(
+      silent normal! "yyib
+    else
+      silent normal! "xy%
+      normal! %2W
+      silent normal! "yy%
+    endif
+
+    let x = substitute(substitute(@x, '\n', '', 'g'), '<.*>', '"\0"', 'g')
+    let y = substitute(substitute(@y, '\n', '', 'g'), '<.*>', '"\0"', 'g')
+
+    botright 10new
+    call setline(1, x)
+    YAPF
+    diffthis
+    setlocal buftype=nofile bufhidden=delete filetype=python foldcolumn=0 noswapfile
+
+    vertical rightbelow new
+    call setline(1, y)
+    YAPF
+    diffthis
+    setlocal buftype=nofile bufhidden=delete filetype=python foldcolumn=0 noswapfile
+
+    normal ]c
+
+    call win_gotoid(origin_win_id)
+  endif
+endfunction
+
+function! python#ShowErrorNext()
+  let origin_win_id = win_getid()
+  wincmd j
+  normal ]c
+  call win_gotoid(origin_win_id)
+endfunction
+
+function! python#ShowErrorPrev()
+  let origin_win_id = win_getid()
+  wincmd j
+  normal [c
+  call win_gotoid(origin_win_id)
+endfunction
