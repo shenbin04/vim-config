@@ -212,3 +212,10 @@ function! util#GrepByWord(by_word, path)
   exec "normal! :" . cmd . "\<CR>"
   call histadd('cmd', cmd)
 endfunction
+
+function! util#Topen()
+  call util#CloseDiff()
+  update
+  edit
+  Topen
+endfunction

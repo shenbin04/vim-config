@@ -82,12 +82,14 @@ endfunction
 
 function! js#RunTest(param)
   let root = fnamemodify(finddir('node_modules', '.;'), ':~:.:h')
-  execute ':Topen | T npm test --prefix ' . root . ' -- ' . a:param
+  call util#Topen()
+  execute ':T npm test --prefix ' . root . ' -- ' . a:param
 endfunction
 
 function! js#RunFlow()
   let root = fnamemodify(findfile('.flowconfig', '.;'), ':~:.:h')
-  execute ':Topen | T flow ' . root . ' --show-all-errors'
+  call util#Topen()
+  execute ':T flow ' . root . ' --show-all-errors'
 endfunction
 
 function! js#OpenTestFile()
@@ -125,11 +127,13 @@ function! js#ESLintArgs()
 endfunction
 
 function! js#RequireToImport()
-  execute ':Topen | T npm run update-require-to-import ' . util#ExpandRelative('%')
+  call util#Topen()
+  execute ':T npm run update-require-to-import ' . util#ExpandRelative('%')
 endfunction
 
 function! js#OrganizeImports()
-  execute ':Topen | T npm run organize-imports ' . util#ExpandRelative('%')
+  call util#Topen()
+  execute ':T npm run organize-imports ' . util#ExpandRelative('%')
 endfunction
 
 function! js#FindFunction(command)

@@ -16,7 +16,7 @@ nnoremap <buffer> <silent> <Leader>rpir :call python#InstallExtDeps('internal-si
 nnoremap <buffer> <silent> <Leader>rpib :call python#InstallExtDeps('python/batmobile:')<CR>
 nnoremap <buffer> <silent> <Leader>rpif :call python#InstallExtDeps('python/dev_tools/foreman:')<CR>
 
-nnoremap <buffer> <silent> <Leader>rd :Topen<CR>:TestNearest -s<CR>
+nnoremap <buffer> <silent> <Leader>rd :call util#Topen()<CR>:TestNearest -s<CR>
 nnoremap <buffer> <silent> <Leader>rr :call python#RunTestFile()<CR>
 
 nnoremap <buffer> <silent> <Leader>fb :Black<CR>

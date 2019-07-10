@@ -230,8 +230,8 @@ hi notesName ctermfg=81 cterm=underline
 " Vim Test
 let g:test#strategy = 'neoterm'
 let g:test#preserve_screen = 0
-nnoremap <silent> <Leader>rl :Topen<CR>:TestNearest<CR>
-nnoremap <silent> <Leader>rr :Topen<CR>:TestFile<CR>
+nnoremap <silent> <Leader>rl :call util#Topen()<CR>:TestNearest<CR>
+nnoremap <silent> <Leader>rr :call util#Topen()<CR>:TestFile<CR>
 
 " Highlightedyank
 if !exists('##TextYankPost')
@@ -331,10 +331,10 @@ nnoremap <silent> <Leader>` :Ttoggle<CR>
 nnoremap <silent> <Leader>rb :Tkill<CR>
 nnoremap <silent> <Leader>rc :Tclose!<CR>
 
-nnoremap <silent> <Leader>rgb :Topen<CR>:T git --no-pager branch<CR>
-nnoremap <silent> <Leader>rgss :Topen<CR>:T git stash -u<CR>
-nnoremap <silent> <Leader>rgsp :Topen<CR>:T git stash pop<CR>
-nnoremap <silent> <Leader>rgsa :Topen<CR>:T git stash apply<CR>
+nnoremap <silent> <Leader>rgb :call util#Topen()<CR>:T git --no-pager branch<CR>
+nnoremap <silent> <Leader>rgss :call util#Topen()<CR>:T git stash -u<CR>
+nnoremap <silent> <Leader>rgsp :call util#Topen()<CR>:T git stash pop<CR>
+nnoremap <silent> <Leader>rgsa :call util#Topen()<CR>:T git stash apply<CR>
 
 " GV
 nnoremap <silent> <Leader>gla :GV<CR>
