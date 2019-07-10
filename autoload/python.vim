@@ -68,6 +68,8 @@ function! python#RunTestFile()
 endfunction
 
 function! python#ShowError() abort
+  call util#CloseDiff()
+
   let origin_win_id = win_getid()
   wincmd l
   normal! Gzb
@@ -88,7 +90,7 @@ function! python#ShowError() abort
     let x = substitute(substitute(@x, '\n', '', 'g'), '<.*>', '"\0"', 'g')
     let y = substitute(substitute(@y, '\n', '', 'g'), '<.*>', '"\0"', 'g')
 
-    botright 10new
+    botright 8new
     call setline(1, x)
     YAPF
     diffthis
