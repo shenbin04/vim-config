@@ -77,6 +77,13 @@ function! python#RunTestFile()
   execute ':T ' . command
 endfunction
 
+function! s:ProcessError(input)
+  let result = substitute(a:input, '\n', '', 'g')
+  let result = substitute(result, '<.*>', '"\0"', 'g')
+  let result = substitute(result, 'u\(''\S*''\)', '\1', 'g')
+  return result
+endfunction
+
 function! python#ShowError() abort
   let origin_win_id = win_getid()
 
@@ -98,8 +105,8 @@ function! python#ShowError() abort
 
     call win_gotoid(origin_win_id)
 
-    let x = substitute(substitute(@x, '\n', '', 'g'), '<.*>', '"\0"', 'g')
-    let y = substitute(substitute(@y, '\n', '', 'g'), '<.*>', '"\0"', 'g')
+    let x = s:ProcessError(@x)
+    let y = s:ProcessError(@y)
 
     botright 8new
     call setline(1, x)
