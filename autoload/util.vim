@@ -206,6 +206,14 @@ function! s:get_diff_window_count() abort
   return len(s:get_diff_buffers())
 endfunction
 
+function! util#get_neoterm_window() abort
+  for nr in range(1, winnr('$'))
+    if getwinvar(nr, '&filetype') ==# 'neoterm'
+      return win_getid(nr)
+    endif
+  endfor
+endfunction
+
 function! util#GrepByWord(by_word, path)
   let boundary = a:by_word ? "\\b" : ""
   let cmd = 'GrepperAg ' . "\"" . boundary . @w . boundary . "\" " . a:path
@@ -215,7 +223,5 @@ endfunction
 
 function! util#Topen()
   call util#CloseDiff()
-  update
-  edit
   Topen
 endfunction

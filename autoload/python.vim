@@ -78,10 +78,9 @@ function! python#RunTestFile()
 endfunction
 
 function! python#ShowError() abort
-  call util#CloseDiff()
-
   let origin_win_id = win_getid()
-  wincmd l
+
+  call win_gotoid(util#get_neoterm_window())
   normal! Gzb
 
   if search('\v^E\s+AssertionError: \zs', 'b')
@@ -97,6 +96,8 @@ function! python#ShowError() abort
       silent normal! "yy%
     endif
 
+    call win_gotoid(origin_win_id)
+
     let x = substitute(substitute(@x, '\n', '', 'g'), '<.*>', '"\0"', 'g')
     let y = substitute(substitute(@y, '\n', '', 'g'), '<.*>', '"\0"', 'g')
 
@@ -104,18 +105,18 @@ function! python#ShowError() abort
     call setline(1, x)
     YAPF
     diffthis
-    setlocal buftype=nofile bufhidden=delete filetype=python foldcolumn=0 noswapfile
+    setlocal buftype=nofile bufhidden=delete filetype=python foldcolumn=0 noswapfile nomodifiable
 
     vertical rightbelow new
     call setline(1, y)
     YAPF
     diffthis
-    setlocal buftype=nofile bufhidden=delete filetype=python foldcolumn=0 noswapfile
+    setlocal buftype=nofile bufhidden=delete filetype=python foldcolumn=0 noswapfile nomodifiable
 
     normal ]c
-
-    call win_gotoid(origin_win_id)
   endif
+
+  call win_gotoid(origin_win_id)
 endfunction
 
 function! python#ShowErrorNext()
