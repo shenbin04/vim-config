@@ -64,8 +64,6 @@ nnoremap <buffer> <silent> <Leader>fjj :call js#FormatJsxJoin()<CR>
 nnoremap <buffer> <silent> <Leader>fjs :call js#FormatJsxSort()<CR>
 nnoremap <buffer> <silent> <Leader>ftb :call js#FormatTagBreak()<CR>
 nnoremap <buffer> <silent> <Leader>ftj :call js#FormatTagJoin()<CR>
-nnoremap <buffer> <silent> <Leader>fab :call js#FormatArrayBreak()<CR>
-nnoremap <buffer> <silent> <Leader>faj :call js#FormatArrayJoin()<CR>
 
 vnoremap <buffer> <silent> <Leader>fes :EsformatterVisual<CR>
 

@@ -292,22 +292,6 @@ function! js#FormatTagJoin()
   endif
 endfunction
 
-function! js#FormatArrayBreak()
-  let lnum = line('.')
-  let line = getline('.')
-  if line =~# s:js_array_regex
-    let [_, indent, variable, array, trailing; rest] = matchlist(line, s:js_array_regex)
-    call setline(lnum, indent . variable)
-    let res = map(split(array, ', '), {k, v -> indent . s:indent . v . ','})
-    call add(res, indent . trailing)
-    call append(lnum, res)
-  endif
-endfunction
-
-function! js#FormatArrayJoin()
-  normal! $va]Jhxx%lx
-endfunction
-
 function! js#ShowFlowCoverage()
   if exists('b:flow_coverage_status')
     echo b:flow_coverage_status
