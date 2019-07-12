@@ -21,6 +21,10 @@ function! util#TryOpenFile(file, message)
   endif
 endfunction
 
+function! util#GetBaseFileName()
+  return split(expand('%:t:r'), '\.')[0]
+endfunction
+
 function! util#ExpandRelative(pattern)
   return fnamemodify(expand(a:pattern), ':.')
 endfunction

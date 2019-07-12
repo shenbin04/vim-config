@@ -2,17 +2,16 @@ let s:js_function_regex = '\v^  \w+(\(.*\)(: \w+)? \{|(: \w+)? \= \(.*\)(: \w+)?
 let s:js_object_regex = '\v\{\zs.+\ze\}.*'
 let s:js_jsx_tag_regex = '\v^(\s*)(.*)(\<(\S+)[^>]*\>)(.*)(\<\/\4\>)(;?)$'
 let s:js_jsx_open_tag_regex = '\v^(\s*)(.*)(\<\S+) (.{-1,})( ?/{,1}\>)(.*)'
-let s:js_array_regex = '\v^(\s*)(.*\[)(.+)(\].*)'
 
 let s:indent = repeat(' ', &shiftwidth)
 
-function! GetPrefix()
+function! s:GetPrefix()
   let dir = split(util#ExpandRelative('%:p:h'), '/')
   let base = join(dir[0:dir[-1] == '__snapshots__' ? -2 : -1], '/')
-  return base . '/' . split(expand('%:t:r'), '\.')[0]
+  return base . '/' . util#GetBaseFileName()
 endfunction
 
-function! FindJest(...)
+function! s:FindJest(...)
   let prefix = a:0 > 0 ? a:1 : ''
   let root = fnamemodify(finddir('node_modules', '.;'), ':~:.:h')
 
@@ -27,7 +26,7 @@ function! FindJest(...)
   let g:test#javascript#jest#executable = 'NODE_ENV=testing NODE_PATH=$(pwd) ' . prefix . jest . ' -c ' . config
 endfunction
 
-function! GetCoverage()
+function! s:GetCoverage()
   let test_file = js#GetJSFileFromTestFile()
   let root = fnamemodify(finddir('node_modules', '.;'), ':~:.:h')
   if root !=# '.'
@@ -37,7 +36,7 @@ function! GetCoverage()
 endfunction
 
 function! js#OpenJSFile()
-  let prefix = GetPrefix()
+  let prefix = s:GetPrefix()
   for extension in ['.js', '.jsx']
     let file = prefix . extension
     if util#TryOpenFile(file, 'Cannot find javascript file ' . file)
@@ -47,36 +46,36 @@ function! js#OpenJSFile()
 endfunction
 
 function! js#GetJSFileFromTestFile()
-  return GetPrefix() . '.' . expand('%:e')
+  return s:GetPrefix() . '.' . expand('%:e')
 endfunction
 
 function! js#RunTestFile()
-  call FindJest()
-  Topen
-  execute ':TestFile' . GetCoverage()
+  call s:FindJest()
+  call util#Topen()
+  execute ':TestFile' . s:GetCoverage()
 endfunction
 
 function! js#RunTestUpdate()
-  call FindJest()
-  Topen
-  execute ':TestFile' . GetCoverage() . ' -u'
+  call s:FindJest()
+  call util#Topen()
+  execute ':TestFile' . s:GetCoverage() . ' -u'
 endfunction
 
 function! js#RunTestWatch()
-  call FindJest()
-  Topen
-  execute ':TestFile' . GetCoverage() . ' --watch'
+  call s:FindJest()
+  call util#Topen()
+  execute ':TestFile' . s:GetCoverage() . ' --watch'
 endfunction
 
 function! js#RunTestLine()
-  call FindJest()
-  Topen
+  call s:FindJest()
+  call util#Topen()
   execute ':TestNearest'
 endfunction
 
 function! js#RunTestDebug()
-  call FindJest('node --inspect ')
-  Topen
+  call s:FindJest('node --inspect ')
+  call util#Topen()
   execute ':TestNearest'
 endfunction
 
@@ -93,7 +92,7 @@ function! js#RunFlow()
 endfunction
 
 function! js#OpenTestFile()
-  let prefix = GetPrefix()
+  let prefix = s:GetPrefix()
   for extension in ['.js', '.jsx']
     let file = prefix . '.test' . extension
     if util#TryOpenFile(file, 'Cannot find test file ' . file)
@@ -104,7 +103,7 @@ endfunction
 
 function! js#OpenSnapshotFile()
   for extension in ['.js', '.jsx']
-    let file = util#ExpandRelative('%:p:h') . '/__snapshots__/' . split(expand('%:t:r'), '\.')[0] . '.test' . extension . '.snap'
+    let file = util#ExpandRelative('%:p:h') . '/__snapshots__/' . util#GetBaseFileName() . '.test' . extension . '.snap'
     if util#TryOpenFile(file, 'Cannot find snapshot file ' . file)
       return
     endif
@@ -112,7 +111,7 @@ function! js#OpenSnapshotFile()
 endfunction
 
 function! js#OpenCssFile()
-  let prefix = GetPrefix()
+  let prefix = s:GetPrefix()
   for extension in ['.css', '.scss', '.sass']
     let file = prefix . extension
     if util#TryOpenFile(file, 'Cannot find css file ' . file)
