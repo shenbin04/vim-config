@@ -35,13 +35,6 @@ snippet irxt "Import react-redux type"
 import type {${1:MapDispatchToProps}${2:, MapStateToProps}} from 'react-redux';
 endsnippet
 
-snippet cls "React class"
-class $1 extends React.Component {
-  render() {
-  }
-}
-endsnippet
-
 snippet aff "Add arrow function: `() => {}`"
 ${1:()} => {
   $0
@@ -54,30 +47,99 @@ $1 = ${2:()} => {
 }
 endsnippet
 
-snippet exp "Add export: `export const module = {};`"
-export const $1 = {
+snippet ec "Add export const: `export const module = {};`" b
+export const $0
+endsnippet
+
+snippet ef "Add export function: `export function () {};`" b
+export function $1() {
   $0
 };
 endsnippet
 
 snippet co "Add destructure: `const {a} = obj;`" b
-const {$1} = $0;
+const {$1} = ${0:this.props};
 endsnippet
 
-snippet ty "Add type: `type a = {};`"
+snippet fo "Add flow object: `type a = {};`"
 type $1 = {$0};
-endsnippet
-
-snippet fa "Add fat arrow: `() => ;`"
-() => $0
 endsnippet
 
 snippet fp "Add flow for Props"
 type OwnProps = {|
+  $1
 |};
 type Props = {|
   ...OwnProps,
+  $0
 |};
+endsnippet
+
+snippet nc "New react component" b
+// @flow
+import React from 'react';
+
+type Props = {|
+|};
+
+${1:export }class ${2:`!v util#GetBaseFileName()`} extends React.Component<Props> {
+  render() {
+    ${0:<div />}
+  }
+}
+endsnippet
+
+snippet nt "New react component test with enzyme" b
+// @flow
+import {shallow} from 'enzyme';
+import React from 'react';
+
+import {${1:`!v util#GetBaseFileName()`}} from './`!v util#GetBaseFileName() . '.' . expand('%:e')`';
+
+jest.unmock('./`!v util#GetBaseFileName()`');
+
+const defaultProps = {
+};
+
+describe('$1', () => {
+  it('renders', () => {
+    const component = shallow(<$1 {...defaultProps} />);
+    expect(component).toMatchSnapshot();
+  });
+});
+endsnippet
+
+snippet ntf "New react component test with factory" b
+// @flow
+import {factoryShallow} from 'javascript/oscar-test-utils/factory';
+
+import {${1:`!v util#GetBaseFileName()`}} from './`!v util#GetBaseFileName() . '.' . expand('%:e')`';
+
+jest.unmock('./`!v util#GetBaseFileName()`');
+
+const defaultProps = {
+};
+
+describe('$1', () => {
+  it('renders', () => {
+    const {component} = factoryShallow($1, defaultProps);
+    expect(component).toMatchSnapshot();
+  });
+});
+endsnippet
+
+snippet fs "Factory shallow render"
+const {component} = factoryShallow(${1:`!v util#GetBaseFileName()`}, defaultProps, {
+  $2: $3,
+});
+expect(component$4).toMatchSnapshot();
+endsnippet
+
+snippet fm "Factory mount render"
+const {component} = factoryMount(${1:`!v util#GetBaseFileName()`}, defaultProps, {
+  $2: $3,
+});
+expect(component).toMatchSnapshot();
 endsnippet
 
 snippet it "it (jest)"
