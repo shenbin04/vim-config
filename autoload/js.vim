@@ -300,6 +300,9 @@ endfunction
 function! js#NewTestFile()
   let file_name = util#GetBaseFileName()
   let test_file = expand('%:p:h') . '/' . file_name . '.test.' . expand('%:e')
-  exec 'edit ' . test_file
-  normal intf,e
+
+  if !util#TryOpenFile(test_file, '')
+    exec 'edit ' . test_file
+    normal intf,e
+  endif
 endfunction
