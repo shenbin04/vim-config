@@ -357,4 +357,5 @@ nnoremap <silent> <expr> <Leader>a Remembrall(',a')
 
 " Black
 let g:black_linelength = 120
+let g:black_fast = 1
 let g:black_skip_string_normalization = 1

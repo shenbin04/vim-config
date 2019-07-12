@@ -84,6 +84,13 @@ function! s:ProcessError(input)
   return result
 endfunction
 
+function! s:FormatError(input)
+  let black_linelength = g:black_linelength
+  let g:black_linelength = 80
+  silent! Black
+  let g:black_linelength = black_linelength
+endfunction
+
 function! python#ShowError() abort
   let origin_win_id = win_getid()
 
@@ -110,13 +117,13 @@ function! python#ShowError() abort
 
     botright 8new
     call setline(1, x)
-    YAPF
+    call s:FormatError(x)
     diffthis
     setlocal buftype=nofile bufhidden=delete filetype=python foldcolumn=0 noswapfile nomodifiable
 
     vertical rightbelow new
     call setline(1, y)
-    YAPF
+    call s:FormatError(y)
     diffthis
     setlocal buftype=nofile bufhidden=delete filetype=python foldcolumn=0 noswapfile nomodifiable
 
