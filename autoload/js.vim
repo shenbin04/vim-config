@@ -39,7 +39,7 @@ function! js#OpenJSFile()
   let prefix = s:GetPrefix()
   for extension in ['.js', '.jsx']
     let file = prefix . extension
-    if util#TryOpenFile(file, 'Cannot find javascript file ' . file)
+    if util#TryOpenFile(file)
       return
     endif
   endfor
@@ -95,7 +95,7 @@ function! js#OpenTestFile()
   let prefix = s:GetPrefix()
   for extension in ['.js', '.jsx']
     let file = prefix . '.test' . extension
-    if util#TryOpenFile(file, 'Cannot find test file ' . file)
+    if util#TryOpenFile(file)
       return
     endif
   endfor
@@ -104,7 +104,7 @@ endfunction
 function! js#OpenSnapshotFile()
   for extension in ['.js', '.jsx']
     let file = util#ExpandRelative('%:p:h') . '/__snapshots__/' . util#GetBaseFileName() . '.test' . extension . '.snap'
-    if util#TryOpenFile(file, 'Cannot find snapshot file ' . file)
+    if util#TryOpenFile(file)
       return
     endif
   endfor
@@ -114,7 +114,7 @@ function! js#OpenCssFile()
   let prefix = s:GetPrefix()
   for extension in ['.css', '.scss', '.sass']
     let file = prefix . extension
-    if util#TryOpenFile(file, 'Cannot find css file ' . file)
+    if util#TryOpenFile(file)
       return
     endif
   endfor
@@ -301,7 +301,7 @@ function! js#NewTestFile()
   let file_name = util#GetBaseFileName()
   let test_file = expand('%:p:h') . '/' . file_name . '.test.' . expand('%:e')
 
-  if !util#TryOpenFile(test_file, '')
+  if !util#TryOpenFile(test_file)
     exec 'edit ' . test_file
     normal intf,e
   endif
