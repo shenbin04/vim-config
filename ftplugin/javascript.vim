@@ -22,6 +22,8 @@ hi jsTemplateBraces ctermfg=81
 
 runtime common/js_switch.vim
 
+nnoremap <buffer> <silent> <Leader>ct :call js#NewTestFile()<CR>
+
 nnoremap <buffer> <silent> <Leader>fc :call js#ShowFlowCoverage()<CR>
 nnoremap <buffer> <silent> <Leader>ft :FlowTypeAtPos<CR>
 

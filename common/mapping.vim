@@ -16,6 +16,8 @@ nnoremap <silent> <Leader>1 :BufSurfBack<CR>
 nnoremap <silent> <Leader>2 :BufSurfForward<CR>
 nnoremap <silent> <Leader>3 :b#<CR>
 
+nnoremap <Leader>cc :edit <C-R>=expand('%:p:h')<CR>/
+
 " Tab
 nnoremap [t :tabprevious<CR>
 nnoremap ]t :tabnext<CR>

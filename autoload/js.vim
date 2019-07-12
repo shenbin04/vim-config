@@ -296,3 +296,10 @@ function! js#ShowFlowCoverage()
     echo b:flow_coverage_status
   endif
 endfunction
+
+function! js#NewTestFile()
+  let file_name = util#GetBaseFileName()
+  let test_file = expand('%:p:h') . '/' . file_name . '.test.' . expand('%:e')
+  exec 'edit ' . test_file
+  normal intf,e
+endfunction
