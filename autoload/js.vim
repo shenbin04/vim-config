@@ -80,9 +80,9 @@ function! js#RunTestDebug()
 endfunction
 
 function! js#RunTest(param)
-  let root = fnamemodify(finddir('node_modules', '.;'), ':~:.:h')
+  call s:FindJest()
   call util#Topen()
-  execute ':T npm test --prefix ' . root . ' -- ' . a:param
+  execute ':T ' . g:test#javascript#jest#executable . ' ' . a:param
 endfunction
 
 function! js#RunFlow()
