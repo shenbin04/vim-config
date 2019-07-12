@@ -17,6 +17,7 @@ function! util#TryOpenFile(file, message)
     endif
     return 1
   else
+    echo a:message
     return 0
   endif
 endfunction
