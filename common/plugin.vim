@@ -281,6 +281,7 @@ nnoremap <Leader>anW "wyiW:GrepperAg '<C-R>w'
 nnoremap <Leader>ag "wyiw:GrepperAg '(message\|rpc\|enum) \b<C-R>w\b' protobuf/<CR>
 nnoremap <Leader>at :let g:grepper.jump = 1<CR>:let g:grepper.switch = 0<CR>"wyiw:GrepperAg '(^\s+\b<C-R>w\b\|^(struct\|enum) \b<C-R>w\b\|\b<C-R>w\(\|^\s+\d+: .*\b<C-R>w\b(\s+// .+)?$)' thrift/<CR>:let g:grepper.jump = 0<CR>:let g:grepper.switch = 1<CR>zz
 vnoremap <Leader>aa "wy:GrepperAg '\b<C-R>w\b' 
+nnoremap <Leader>av :GrepperAg ~/.vim/<S-Left><Left> 
 
 let s:projects = {
 \ 'm': 'python/manhattan/',
