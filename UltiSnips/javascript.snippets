@@ -32,7 +32,15 @@ import {connect} from 'react-redux';
 endsnippet
 
 snippet irxt "Import react-redux type"
-import type {${1:MapDispatchToProps}${2:, MapStateToProps}} from 'react-redux';
+import type {${1:MapDispatchToProps}${2:, }${0:MapStateToProps}}} from 'react-redux';
+endsnippet
+
+snippet icr "Import care_router_xxx"
+import {$1} from 'js/${2:care_router_shared}/${0:types}';
+endsnippet
+
+snippet icrt "Import care_router_shared types"
+import type {$1} from 'js/care_router_shared/types';
 endsnippet
 
 snippet aff "Add arrow function: `() => {}`"
@@ -94,7 +102,7 @@ snippet nt "New react component test with enzyme" b
 import {shallow} from 'enzyme';
 import React from 'react';
 
-import {${1:`!v util#GetBaseFileName()`}} from './`!v util#GetBaseFileName() . '.' . expand('%:e')`';
+import {${1:`!v util#GetBaseFileName()`}} from './`!v util#GetBaseFileName()`';
 
 jest.unmock('./`!v util#GetBaseFileName()`');
 
@@ -113,7 +121,7 @@ snippet ntf "New react component test with factory" b
 // @flow
 import {factoryShallow} from 'javascript/oscar-test-utils/factory';
 
-import {${1:`!v util#GetBaseFileName()`}} from './`!v util#GetBaseFileName() . '.' . expand('%:e')`';
+import {${1:`!v util#GetBaseFileName()`}} from './`!v util#GetBaseFileName()`';
 
 jest.unmock('./`!v util#GetBaseFileName()`');
 
