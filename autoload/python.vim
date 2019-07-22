@@ -92,12 +92,20 @@ function! s:FormatError(input)
 endfunction
 
 function! python#ShowError() abort
+  if !exists('g:shell_prompt')
+    echohl ErrorMsg
+    echo 'Please set g:shell_prompt first'
+    echohl None
+    return
+  endif
+
   let origin_win_id = win_getid()
 
   call win_gotoid(util#get_neoterm_window())
   normal! Gzb
 
-  if search('\v^E\s+AssertionError: \zs', 'b')
+  call search('\v' . xolox#misc#escape#substitute(g:shell_prompt), 'b')
+  if search('\v^E\s+AssertionError: \zs', '')
     if search('Expected call:', 'cW')
       normal! f(
       silent normal! "xyib
@@ -109,6 +117,7 @@ function! python#ShowError() abort
       normal! %2W
       silent normal! "yy%
     endif
+    call search('\v^E\s+AssertionError: \zs', 'b')
 
     call win_gotoid(origin_win_id)
 
