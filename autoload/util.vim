@@ -113,11 +113,12 @@ function! util#OpenStash() range
   endif
   let top = a:firstline
   let bot = a:lastline
-  let cmd = '!open ' . g:stash_url . util#ExpandRelativeToGit('%:p') . '\#' . top
+  let path = '!open ' . g:stash_url . util#ExpandRelativeToGit('%:p') . '\#' . top
   if bot > top
-    let cmd = cmd . '-' . bot
+    let path = path . '-' . bot
   endif
-  silent execute cmd
+  let @+ = path
+  silent execute '!open ' . path
 endfunction
 
 function! util#OpenDiffusion() range
@@ -127,11 +128,12 @@ function! util#OpenDiffusion() range
   endif
   let top = a:firstline
   let bot = a:lastline
-  let cmd = '!open ' . g:diffusion_url . util#ExpandRelativeToGit('%:p') . '\$' . top
+  let path = g:diffusion_url . util#ExpandRelativeToGit('%:p') . '\$' . top
   if bot > top
-    let cmd = cmd . '-' . bot
+    let path = path . '-' . bot
   endif
-  silent execute cmd
+  let @+ = path
+  silent execute '!open ' . path
 endfunction
 
 function! util#yapfOperator(type, ...)
