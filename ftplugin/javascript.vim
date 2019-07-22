@@ -76,3 +76,5 @@ nnoremap <buffer> <silent> = :set operatorfunc=util#prettierOperator<CR>g@
 nnoremap <buffer> <silent> == V:Prettier<CR>
 vnoremap <buffer> <silent> = :Prettier<CR>
 nnoremap <buffer> <silent> <Leader>fp :%Prettier<CR>
+
+nnoremap <buffer> <silent> <Leader>fe :call js#ShowError()<CR>

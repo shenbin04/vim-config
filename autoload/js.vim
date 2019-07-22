@@ -306,3 +306,29 @@ function! js#NewTestFile()
     normal intf,e
   endif
 endfunction
+
+function! js#ShowError() abort
+  if !exists('g:shell_prompt')
+    echohl ErrorMsg
+    echo 'Please set g:shell_prompt first'
+    echohl None
+    return
+  endif
+
+  let origin_win_id = win_getid()
+
+  call win_gotoid(util#get_neoterm_window())
+  normal! Gzb
+
+  call search('\v' . xolox#misc#escape#substitute(g:shell_prompt), 'b')
+  if search('\v● ', 'W')
+    normal! zt
+  else
+    normal! Gzb
+    echohl ErrorMsg
+    echo 'No error found'
+    echohl None
+  endif
+
+  call win_gotoid(origin_win_id)
+endfunction
