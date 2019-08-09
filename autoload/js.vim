@@ -67,6 +67,12 @@ function! js#RunTestWatch()
   execute ':TestFile' . s:GetCoverage() . ' --watch'
 endfunction
 
+function! js#RunTestOnly()
+  call s:FindJest()
+  call util#Topen()
+  execute ':TestFile' . s:GetCoverage() . ' -o'
+endfunction
+
 function! js#RunTestLine()
   call s:FindJest()
   call util#Topen()

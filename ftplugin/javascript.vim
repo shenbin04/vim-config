@@ -29,6 +29,7 @@ nnoremap <buffer> <silent> <Leader>ft :FlowTypeAtPos<CR>
 
 nnoremap <buffer> <silent> <Leader>rr :call js#RunTestFile()<CR>
 nnoremap <buffer> <silent> <Leader>rw :call js#RunTestWatch()<CR>
+nnoremap <buffer> <silent> <Leader>ro :call js#RunTestOnly()<CR>
 nnoremap <buffer> <silent> <Leader>rl :call js#RunTestLine()<CR>
 nnoremap <buffer> <silent> <Leader>rd :call js#RunTestDebug()<CR>
 nnoremap <buffer> <silent> <Leader>ru :call js#RunTestUpdate()<CR>
