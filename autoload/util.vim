@@ -113,11 +113,11 @@ function! util#OpenStash() range
   endif
   let top = a:firstline
   let bot = a:lastline
-  let path = '!open ' . g:stash_url . util#ExpandRelativeToGit('%:p') . '\#' . top
+  let path = g:stash_url . util#ExpandRelativeToGit('%:p') . '\#' . top
   if bot > top
     let path = path . '-' . bot
   endif
-  let @+ = path
+  let @+ = xolox#misc#str#unescape(path)
   silent execute '!open ' . path
 endfunction
 
@@ -132,7 +132,7 @@ function! util#OpenDiffusion() range
   if bot > top
     let path = path . '-' . bot
   endif
-  let @+ = path
+  let @+ = xolox#misc#str#unescape(path)
   silent execute '!open ' . path
 endfunction
 
