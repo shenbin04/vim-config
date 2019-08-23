@@ -141,6 +141,11 @@ function! js#OrganizeImports()
   execute ':T npm run organize-imports ' . util#ExpandRelative('%')
 endfunction
 
+function! js#TypeConnect()
+  call util#Topen()
+  execute ':T npm run type-connect ' . util#ExpandRelative('%')
+endfunction
+
 function! js#FindFunction(command)
   execute 'normal! j?' . escape(s:js_function_regex, '?') . "\<CR>$V%" . a:command
 endfunction

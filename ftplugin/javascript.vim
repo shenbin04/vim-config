@@ -41,6 +41,7 @@ nnoremap <buffer> <silent> <Leader>rtw :call js#RunTest('--watch')<CR>
 
 nnoremap <buffer> <silent> <Leader>rni :call js#RequireToImport()<CR>
 nnoremap <buffer> <silent> <Leader>rno :call js#OrganizeImports()<CR>
+nnoremap <buffer> <silent> <Leader>rntc :call js#TypeConnect()<CR>
 
 onoremap <buffer> if :call js#FindFunction('')<CR>
 vnoremap <buffer> if :call js#FindFunction('')<CR>
