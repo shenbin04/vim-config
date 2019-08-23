@@ -23,7 +23,7 @@ function! s:FindJest(...)
     let config = jest_project_config
   endif
 
-  let g:test#javascript#jest#executable = 'NODE_ENV=testing NODE_PATH=$(pwd) ' . prefix . jest . ' -c ' . config
+  let g:test#javascript#jest#executable = 'NODE_ENV=testing NODE_PATH=$(pwd) ' . prefix . jest . ' --no-cache -c ' . config
 endfunction
 
 function! s:GetCoverage()
