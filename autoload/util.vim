@@ -163,11 +163,11 @@ function! util#ClearHighlight()
   endif
 endfunction
 
-function! util#GitDiff()
+function! util#GitDiff(target)
   if expand('%') ==# ''
     return
   endif
-  Gdiff
+  exec 'Gdiff ' . a:target
   call s:diff_window_syntax('diff')
 endfunction
 
