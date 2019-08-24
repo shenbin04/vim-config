@@ -80,6 +80,7 @@ hi NERDTreeClosable ctermfg=7 cterm=none
 let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeShowFiles = 1
 let g:NERDTreeShowBookmarks = 1
+let g:NERDTreeMinimalUI = 1
 let g:NERDTreeHighlightCursorline = 1
 let g:NERDTreeMapJumpNextSibling = ''
 let g:NERDTreeMapJumpPrevSibling = ''
