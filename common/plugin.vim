@@ -16,12 +16,16 @@ let g:python_highlight_all = 1
 let g:vim_json_syntax_conceal = 0
 
 " Fugitive
-nnoremap <Leader>gc :Git checkout 
 nnoremap <silent> <Leader>gs :10Gstatus<CR>
-nnoremap <silent> <Leader>gdd :call util#GitDiff('')<CR>
+nnoremap <silent> <Leader>gd :call util#GitDiff('')<CR>
+nnoremap <silent> <Leader>gm :call util#GitDiff('master')<CR>
 nnoremap <silent> <Leader>gb :Gblame<CR>
-nnoremap <silent> <Leader>gr :Gread<CR>
-nnoremap <silent> <Leader>gdm :call util#GitDiff('master')<CR>
+nnoremap <silent> <Leader>grm :Gread! show master:%<CR>
+nnoremap <silent> <Leader>grh :Gread! show HEAD:%<CR>
+nnoremap <silent> <Leader>grr :Git reset<CR>
+nnoremap <silent> <Leader>grp :Git stash -u<CR>:Git stash drop<CR>
+nnoremap <silent> <Leader>gp :Git add -p %<CR>
+nnoremap <silent> <Leader>gc :Gcommit -v<CR>
 
 nnoremap <silent> <Leader>rgd :Git diff<CR>
 
@@ -33,8 +37,7 @@ autocmd User fugitive
 " Gitgutter
 let g:gitgutter_max_signs = 1000
 nmap <Leader>ga <Plug>GitGutterStageHunk
-nmap <Leader>gr <Plug>GitGutterUndoHunk
-nmap <Leader>gp <Plug>GitGutterPreviewHunk
+nmap <Leader>gu <Plug>GitGutterUndoHunk
 hi GitGutterAdd ctermfg=28 ctermbg=234 cterm=none
 hi GitGutterAddLine ctermfg=28 ctermbg=234 cterm=none
 hi GitGutterChange ctermfg=3 ctermbg=234 cterm=none
