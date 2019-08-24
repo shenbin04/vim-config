@@ -339,6 +339,7 @@ nnoremap <silent> <Leader>rgsa :call util#Topen()<CR>:T git stash apply<CR>
 
 " GV
 nnoremap <silent> <Leader>gla :GV<CR>
+nnoremap <silent> <Leader>glp :GV -- <C-R>=expand('%:h')<CR><CR>
 nnoremap <silent> <Leader>gll :GV!<CR>
 
 " Slash
