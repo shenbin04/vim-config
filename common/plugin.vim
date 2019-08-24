@@ -264,9 +264,11 @@ let g:fzf_colors = {
 noremap <Leader>, :cclose<CR>:call util#CloseFugitive()<CR>:History<CR>
 noremap <Leader>. :Mixed<CR>
 noremap <Leader>za :Files<CR>
-noremap <Leader>zb :BCommits<CR>
-noremap <Leader>zc :Commits<CR>
+noremap <Leader>zgb :BCommits<CR>
+noremap <Leader>zgc :Commits<CR>
 noremap <Leader>zm :Maps<CR>
+noremap <Leader>zz :GFiles?<CR>
+noremap <Leader>zc :History:<CR>
 
 " Unimpaired
 let g:nremap = {"[t": "", "]t": ""}
