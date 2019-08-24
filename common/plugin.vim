@@ -25,7 +25,8 @@ nnoremap <silent> <Leader>grh :Gread! show HEAD:%<CR>
 nnoremap <silent> <Leader>grr :Git reset<CR>
 nnoremap <silent> <Leader>grp :Git stash -u<CR>:Git stash drop<CR>
 nnoremap <silent> <Leader>gp :Git add -p %<CR>
-nnoremap <silent> <Leader>gc :Gcommit -v<CR>
+nnoremap <silent> <Leader>gcc :Gcommit -v<CR>
+nnoremap <silent> <Leader>gca :Gcommit -v --amend<CR>
 
 nnoremap <silent> <Leader>rgd :Git diff<CR>
 
