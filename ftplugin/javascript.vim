@@ -80,3 +80,5 @@ vnoremap <buffer> <silent> = :Prettier<CR>
 nnoremap <buffer> <silent> <Leader>fp :%Prettier<CR>
 
 nnoremap <buffer> <silent> <Leader>fe :call js#ShowError()<CR>
+
+let b:AutoPairs = AutoPairsDefine({'|' : '|'})
