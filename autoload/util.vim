@@ -45,7 +45,7 @@ function! util#CloseLastWindow()
   endif
 endfunction
 
-function! util#zoom()
+function! util#Zoom()
   if winnr('$') == 1 && len(gettabinfo()) > 1
     q
   elseif winnr('$') > 1

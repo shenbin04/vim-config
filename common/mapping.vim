@@ -28,7 +28,7 @@ nnoremap [t :tabprevious<CR>
 nnoremap ]t :tabnext<CR>
 
 " Window
-nnoremap <silent> M :call util#zoom()<CR>
+nnoremap <silent> M :call util#Zoom()<CR>
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
