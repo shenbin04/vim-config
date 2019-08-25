@@ -231,3 +231,17 @@ function! util#Topen()
   call util#CloseDiff()
   Topen
 endfunction
+
+function! util#FindProject()
+  for file in ['.flowconfig', 'webpack.config.js', 'jest.config.js']
+    let path = findfile(file, '.;')
+    if len(path)
+      return fnamemodify(path, ':~:.:h')
+    endif
+  endfor
+  return ''
+endfunction
+
+function! util#EditProject()
+  execute 'Files ' . util#FindProject()
+endfunction
