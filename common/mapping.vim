@@ -20,6 +20,7 @@ nnoremap <silent> <Leader>ep :call util#EditProject()<CR>
 nnoremap <silent> <Leader>ew :Files python/manhattan<CR>
 nnoremap <silent> <Leader>ej :Files javascript<CR>
 nnoremap <silent> <Leader>em :Files mobile<CR>
+nnoremap <silent> <Leader>ev :Files $HOME/.vim<CR>
 
 nnoremap <Leader>cc :edit <C-R>=expand('%:p:h')<CR>/
 
@@ -113,7 +114,6 @@ nnoremap gV `[v`]
 nnoremap <C-b> :redraw!<CR>
 nnoremap <F2> :setlocal spell!<CR>
 nnoremap <Leader>cu :set cursorline! cursorcolumn!<CR>
-nnoremap <Leader>ev :e $HOME/.vim/vimrc<CR>
 inoremap jk <ESC>
 inoremap <C-d> <Esc>ddi
 inoremap <C-u> <Esc>lgUiwgi
