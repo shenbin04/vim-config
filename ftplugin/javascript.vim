@@ -34,7 +34,6 @@ nnoremap <buffer> <silent> <Leader>rl :call js#RunTestLine()<CR>
 nnoremap <buffer> <silent> <Leader>rd :call js#RunTestDebug()<CR>
 nnoremap <buffer> <silent> <Leader>ru :call js#RunTestUpdate()<CR>
 
-nnoremap <buffer> <silent> <Leader>rf :call js#RunFlow()<CR>
 nnoremap <buffer> <silent> <Leader>rtt :call js#RunTest('')<CR>
 nnoremap <buffer> <silent> <Leader>rtu :call js#RunTest('-u')<CR>
 nnoremap <buffer> <silent> <Leader>rtw :call js#RunTest('--watch')<CR>
