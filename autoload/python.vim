@@ -43,11 +43,6 @@ function! python#TargetGen()
   execute ':T ./pants target-gen -- ' . pattern
 endfunction
 
-function! python#GenAll()
-  call python#GenThrift()
-  call python#GenProtobuf()
-endfunction
-
 function! python#GenThrift()
   call util#Topen()
   execute ':T ./pants gen-thrift-py thrift/src::'
@@ -58,12 +53,9 @@ function! python#GenProtobuf()
   execute ':T ./pants gen-protobuf-py protobuf/src::'
 endfunction
 
-function! python#InstallExtDeps(target)
-  let command = 'TARGET_EXT_DEPS=`./pants dependencies --dependencies-external-only ' . a:target . ' | sort | uniq`
-  \ && xargs pip install --no-cache-dir <<< "$TARGET_EXT_DEPS"'
-
+function! python#InstallDeps(target)
   call util#Topen()
-  execute ':T ' . command
+  execute ':T ./engshare/bin/mkpantsenv oscar ' . a:target
 endfunction
 
 function! python#RunTestFile()

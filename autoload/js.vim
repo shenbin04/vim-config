@@ -361,3 +361,8 @@ function! js#ShowError() abort
 
   call win_gotoid(origin_win_id)
 endfunction
+
+function! js#GenProtobuf()
+  call util#Topen()
+  execute ':T ./pants gen-protobuf-javascript protobuf/src::'
+endfunction

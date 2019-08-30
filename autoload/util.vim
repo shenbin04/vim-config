@@ -249,3 +249,9 @@ endfunction
 function! util#SendKeys(cmd)
   call neoterm#exec({'cmd': [a:cmd]})
 endfunction
+
+function! util#GenAll()
+  call python#GenThrift()
+  call python#GenProtobuf()
+  call js#GenProtobuf()
+endfunction

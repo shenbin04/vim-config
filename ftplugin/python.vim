@@ -9,12 +9,6 @@ nnoremap <buffer> <silent> <Leader>rpb :call python#BuildDeps()<CR>
 nnoremap <buffer> <silent> <Leader>rpa :call python#BuildDepsAll()<CR>
 nnoremap <buffer> <silent> <Leader>rpt :call python#TargetGen()<CR>
 nnoremap <buffer> <silent> <Leader>rpp :call python#MakePants()<CR>
-nnoremap <buffer> <silent> <Leader>rpg :call python#GenAll()<CR>
-
-nnoremap <buffer> <silent> <Leader>rpim :call python#InstallExtDeps('python/manhattan:')<CR>
-nnoremap <buffer> <silent> <Leader>rpir :call python#InstallExtDeps('internal-site/internal_site:')<CR>
-nnoremap <buffer> <silent> <Leader>rpib :call python#InstallExtDeps('python/batmobile:')<CR>
-nnoremap <buffer> <silent> <Leader>rpif :call python#InstallExtDeps('python/dev_tools/foreman:')<CR>
 
 nnoremap <buffer> <silent> <Leader>rd :call util#Topen()<CR>:TestNearest -s<CR>
 nnoremap <buffer> <silent> <Leader>rr :call python#RunTestFile()<CR>

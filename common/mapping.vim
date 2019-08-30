@@ -108,6 +108,14 @@ cnoremap <C-n> <Down>
 " Help
 nnoremap gh :h <C-r><C-w><CR>
 
+" Run
+nnoremap <silent> <Leader>rpg :call util#GenAll()<CR>
+
+nnoremap <silent> <Leader>rpim :call python#InstallDeps('python/manhattan::')<CR>
+nnoremap <silent> <Leader>rpir :call python#InstallDeps('internal-site/internal_site::')<CR>
+nnoremap <silent> <Leader>rpib :call python#InstallDeps('python/batmobile::')<CR>
+
+
 " Misc
 nnoremap <Space> za
 nnoremap gV `[v`]
