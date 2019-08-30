@@ -1,4 +1,5 @@
 let s:js_function_regex = '\v^  \w+(\(.*\)(: \w+)? \{|(: \w+)? \= \(.*\)(: \w+)? \=\> (\{|.+;))$'
+let s:js_class_regex = '\v^(export )?class \w+ extends .*$'
 let s:js_object_regex = '\v\{\zs.+\ze\}.*'
 let s:js_jsx_tag_regex = '\v^(\s*)(.*)(\<(\S+)[^>]*\>)(.*)(\<\/\4\>)(;?)$'
 let s:js_jsx_open_tag_regex = '\v^(\s*)(.*)(\<\S+) (.{-1,})( ?/{,1}\>)(.*)'
@@ -157,7 +158,22 @@ function! js#FindFunction(command)
 endfunction
 
 function! js#FindFunctionNext()
-  call search(s:js_function_regex)
+  let line_current = line('.')
+  let line_function = search(s:js_function_regex)
+  let line_class = search(s:js_class_regex)
+  if line_current >= line_class && line_current < line_function
+    call cursor(line_function, 0)
+  endif
+endfunction
+
+function! js#FindFunctionPrevious()
+  let line_current = line('.')
+  let line_function = search(s:js_function_regex, 'b')
+  let line_class = search(s:js_class_regex, 'b')
+
+  if line_current <= line_class || line_current > line_function
+    call cursor(line_function, 0)
+  endif
 endfunction
 
 function! js#ClassFunctionToClassProperty()
@@ -185,10 +201,6 @@ function! js#ToArrowFunction()
   else
     echo 'Not a function.'
   endif
-endfunction
-
-function! js#FindFunctionPrevious()
-  call search(s:js_function_regex, 'b')
 endfunction
 
 function! js#FindProperty()
