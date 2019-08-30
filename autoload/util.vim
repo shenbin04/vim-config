@@ -245,3 +245,7 @@ endfunction
 function! util#EditProject()
   execute 'Files ' . util#FindProject()
 endfunction
+
+function! util#SendKeys(cmd)
+  call neoterm#exec({'cmd': [a:cmd]})
+endfunction
