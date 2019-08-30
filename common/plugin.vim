@@ -237,7 +237,6 @@ let g:test#strategy = 'neoterm'
 let g:test#preserve_screen = 0
 nnoremap <silent> <Leader>rl :call util#Topen()<CR>:TestNearest<CR>
 nnoremap <silent> <Leader>rr :call util#Topen()<CR>:TestFile<CR>
-nnoremap <silent> <Leader>rf :call js#RunFlow()<CR>
 
 " Highlightedyank
 if !exists('##TextYankPost')

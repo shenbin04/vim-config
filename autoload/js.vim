@@ -97,6 +97,12 @@ function! js#RunFlow()
   execute ':T flow ' . root . ' --show-all-errors'
 endfunction
 
+function! js#RunGlow()
+  let root = fnamemodify(findfile('.flowconfig', '.;'), ':p:h')
+  call util#Topen()
+  execute ':T pushd ' . root . '> /dev/null && glow -w && popd > /dev/null'
+endfunction
+
 function! js#OpenTestFile()
   let prefix = s:GetPrefix()
   for extension in ['.js', '.jsx']

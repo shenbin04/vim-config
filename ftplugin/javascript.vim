@@ -21,6 +21,7 @@ hi jsClassDefinition ctermfg=81
 hi jsTemplateBraces ctermfg=81
 
 runtime common/js_switch.vim
+runtime common/run_flow.vim
 
 nnoremap <buffer> <silent> <Leader>ct :call js#NewTestFile()<CR>
 
