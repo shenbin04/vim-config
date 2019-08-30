@@ -271,6 +271,7 @@ noremap <Leader>zgc :Commits<CR>
 noremap <Leader>zm :Maps<CR>
 noremap <Leader>zz :GFiles?<CR>
 noremap <Leader>zc :History:<CR>
+noremap <silent> <Leader>zb :call fzf#run({'source': 'git --no-pager branch --format "%(refname:short)"', 'sink': '!git checkout'})<CR>
 
 " Unimpaired
 let g:nremap = {"[t": "", "]t": ""}
