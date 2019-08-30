@@ -344,19 +344,40 @@ function! js#ShowError() abort
     return
   endif
 
-  let origin_win_id = win_getid()
+  let neoterm_win_id = util#get_neoterm_window()
+  if !neoterm_win_id
+    return
+  endif
 
-  call win_gotoid(util#get_neoterm_window())
+  let origin_win_id = win_getid()
+  call win_gotoid(neoterm_win_id)
   normal! Gzb
 
   call search('\v' . xolox#misc#escape#substitute(g:shell_prompt), 'b')
   if search('\v● ', 'W')
     normal! zt
   else
-    normal! Gzb
-    echohl ErrorMsg
-    echo 'No error found'
-    echohl None
+    if getline(1) =~ '\vGlow v.*'
+      normal! gg
+      if search('\v\s+/')
+        let lnum = line('.')
+        let lines = [trim(getline(lnum))]
+        while getline(lnum + 1) =~ '\v^\S+'
+          call add(lines, getline(lnum + 1))
+          let lnum = lnum + 1
+        endwhile
+
+        call win_gotoid(origin_win_id)
+        let [path, line] = split(fnamemodify(join(lines, ''), ':~:.'), ':')
+        execute 'edit ' . path
+        execute line
+      endif
+    else
+      normal! Gzb
+      echohl ErrorMsg
+      echo 'No error found'
+      echohl None
+    endif
   endif
 
   call win_gotoid(origin_win_id)
