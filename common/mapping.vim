@@ -104,6 +104,11 @@ noremap <silent> <Leader>oh :call util#OpenHtml()<CR>
 " Command-line
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
+cabbrev gsta :call util#Topen()<CR>:T git stash -u<CR>
+cabbrev gstaa :call util#Topen()<CR>:T git stash apply<CR>
+cabbrev gstap :call util#Topen()<CR>:T git stash pop<CR>
+cabbrev grset :call util#Topen()<CR>:T git reset<CR>
+cabbrev gd :Git diff<CR>
 
 " Help
 nnoremap gh :h <C-r><C-w><CR>
@@ -114,7 +119,6 @@ nnoremap <silent> <Leader>rpg :call util#GenAll()<CR>
 nnoremap <silent> <Leader>rpim :call python#InstallDeps('python/manhattan::')<CR>
 nnoremap <silent> <Leader>rpir :call python#InstallDeps('internal-site/internal_site::')<CR>
 nnoremap <silent> <Leader>rpib :call python#InstallDeps('python/batmobile::')<CR>
-
 
 " Misc
 nnoremap <Space> za

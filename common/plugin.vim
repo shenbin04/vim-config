@@ -22,13 +22,9 @@ nnoremap <silent> <Leader>gm :call util#GitDiff('master')<CR>
 nnoremap <silent> <Leader>gb :Gblame<CR>
 nnoremap <silent> <Leader>grm :Gread! show master:%<CR>
 nnoremap <silent> <Leader>grh :Gread! show HEAD:%<CR>
-nnoremap <silent> <Leader>grr :Git reset<CR>
-nnoremap <silent> <Leader>grp :Git stash -u<CR>:Git stash drop<CR>
 nnoremap <silent> <Leader>gp :Git add -p %<CR>
 nnoremap <silent> <Leader>gcc :Gcommit -v<CR>
 nnoremap <silent> <Leader>gca :Gcommit -v --amend<CR>
-
-nnoremap <silent> <Leader>rgd :Git diff<CR>
 
 autocmd User fugitive
   \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
@@ -339,11 +335,6 @@ nnoremap <Leader>t :Topen \| T
 nnoremap <silent> <Leader>` :Ttoggle<CR>
 nnoremap <silent> <Leader>rb :Tkill<CR>
 nnoremap <silent> <Leader>rc :Tclose!<CR>
-
-nnoremap <silent> <Leader>rgb :call util#Topen()<CR>:T git --no-pager branch<CR>
-nnoremap <silent> <Leader>rgss :call util#Topen()<CR>:T git stash -u<CR>
-nnoremap <silent> <Leader>rgsp :call util#Topen()<CR>:T git stash pop<CR>
-nnoremap <silent> <Leader>rgsa :call util#Topen()<CR>:T git stash apply<CR>
 
 " GV
 nnoremap <silent> <Leader>gla :GV<CR>
