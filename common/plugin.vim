@@ -339,7 +339,7 @@ nnoremap <silent> <Leader>rc :Tclose!<CR>
 
 " GV
 nnoremap <silent> <Leader>gla :GV<CR>
-nnoremap <silent> <Leader>glp :GV -- <C-R>=expand('%:h')<CR><CR>
+nnoremap <silent> <Leader>glc :GV -- <C-R>=expand('%:h')<CR><CR>
 nnoremap <silent> <Leader>gll :GV!<CR>
 
 " Slash
