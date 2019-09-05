@@ -22,7 +22,7 @@ nnoremap <silent> <Leader>gm :call util#GitDiff('master')<CR>
 nnoremap <silent> <Leader>gb :Gblame<CR>
 nnoremap <silent> <Leader>grm :Gread! show master:%<CR>
 nnoremap <silent> <Leader>grh :Gread! show HEAD:%<CR>
-nnoremap <silent> <Leader>gp :Git add -p %<CR>
+nnoremap <silent> <Leader>gap :Git add -p %<CR>
 nnoremap <silent> <Leader>gcc :Gcommit -v<CR>
 nnoremap <silent> <Leader>gca :Gcommit -v --amend<CR>
 
@@ -33,7 +33,8 @@ autocmd User fugitive
 
 " Gitgutter
 let g:gitgutter_max_signs = 1000
-nmap <Leader>ga <Plug>GitGutterStageHunk
+nmap <Leader>gaa <Plug>GitGutterStageHunk
+nmap <Leader>gp <Plug>GitGutterPreviewHunk
 nmap <Leader>gu <Plug>GitGutterUndoHunk
 hi GitGutterAdd ctermfg=28 ctermbg=234 cterm=none
 hi GitGutterAddLine ctermfg=28 ctermbg=234 cterm=none
