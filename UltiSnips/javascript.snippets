@@ -150,6 +150,18 @@ const {component} = factoryMount(${1:`!v util#GetBaseFileName()`}, defaultProps,
 expect(component).toMatchSnapshot();
 endsnippet
 
+snippet iri "Import react-intl"
+import {${1:FormattedMessage}} from 'react-intl';
+endsnippet
+
+snippet afm "Add FormattedMessage"
+<FormattedMessage
+  defaultMessage="${1}"
+  description="${2}"
+  id="${3}"
+/>
+endsnippet
+
 snippet it "it (jest)"
 it('${1:description}', () => {
   $0
