@@ -121,14 +121,22 @@ function! util#OpenStash() range
   silent execute '!open ' . path
 endfunction
 
-function! util#OpenDiffusion() range
+function! util#OpenDiffusion() range abort
   if !exists('g:diffusion_url')
     echo 'Please set g:diffusion_url first'
     return
   endif
   let top = a:firstline
   let bot = a:lastline
-  let path = g:diffusion_url . util#ExpandRelativeToGit('%:p') . '\$' . top
+
+  let branch = system('git rev-parse --abbrev-ref HEAD')[0:-2]
+  let hash = system('git rev-parse --verify HEAD')[0:-2]
+  let path = g:diffusion_url . util#ExpandRelativeToGit('%:p')
+  if branch == 'master'
+    let path = path . '\;' . fugitive#RevParse('HEAD')
+  endif
+
+  let path = path . '\$' . top
   if bot > top
     let path = path . '-' . bot
   endif
