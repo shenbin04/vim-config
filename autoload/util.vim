@@ -129,17 +129,19 @@ function! util#OpenDiffusion() range abort
   let top = a:firstline
   let bot = a:lastline
 
-  let branch = system('git rev-parse --abbrev-ref HEAD')[0:-2]
-  let hash = system('git rev-parse --verify HEAD')[0:-2]
   let path = g:diffusion_url . util#ExpandRelativeToGit('%:p')
+
+  let branch = system('git rev-parse --abbrev-ref HEAD')[0:-2]
   if branch == 'master'
-    let path = path . '\;' . fugitive#RevParse('HEAD')
+    let hash = system('git rev-parse --verify HEAD')[0:-2]
+    let path = path . '\;' . hash
   endif
 
   let path = path . '\$' . top
   if bot > top
     let path = path . '-' . bot
   endif
+
   let @+ = xolox#misc#str#unescape(path)
   silent execute '!open ' . path
 endfunction
