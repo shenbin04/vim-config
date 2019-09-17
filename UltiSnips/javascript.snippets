@@ -69,11 +69,11 @@ snippet co "Add destructure: `const {a} = obj;`" b
 const {$1} = ${0:this.props};
 endsnippet
 
-snippet fo "Add flow object: `type a = {};`"
+snippet fo "Add flow object: `type a = {};`" b
 type $1 = {$0};
 endsnippet
 
-snippet fp "Add flow for Props"
+snippet fp "Add flow for Props" b
 type OwnProps = {|
   $1
 |};
@@ -83,7 +83,7 @@ type Props = {|
 |};
 endsnippet
 
-snippet nc "New react component" b
+snippet nc "New react class component" b
 // @flow
 import React from 'react';
 
@@ -91,9 +91,23 @@ type Props = {|
 |};
 
 ${1:export }class ${2:`!v util#GetBaseFileName()`} extends React.Component<Props> {
-  render() {
-    return (${0:<div />});
-  }
+  return (
+    $0
+  );
+}
+endsnippet
+
+snippet nf "New react functional component" b
+// @flow
+import React from 'react';
+
+type Props = {|
+|};
+
+${1:export }function ${2:`!v util#GetBaseFileName()`}(${3:props: Props}) {
+  return (
+    $0
+  );
 }
 endsnippet
 
