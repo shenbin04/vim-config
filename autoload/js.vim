@@ -24,7 +24,14 @@ function! s:FindJest(...)
     let config = jest_project_config
   endif
 
-  let g:test#javascript#jest#executable = 'NODE_ENV=testing NODE_PATH=' . root . ' ' . prefix . jest . ' --no-cache -c ' . config
+  let cmd = 'NODE_ENV=testing NODE_PATH=' . root . ' ' . prefix . jest . ' -c ' . config
+  if !exists('g:test#javascript#jest#nocache')
+    let g:test#javascript#jest#nocache = 0
+  endif
+  if g:test#javascript#jest#nocache
+    let cmd .= ' --no-cache'
+  endif
+  let g:test#javascript#jest#executable = cmd
 endfunction
 
 function! s:GetCoverage()
