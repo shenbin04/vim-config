@@ -22,6 +22,8 @@ nnoremap <silent> <Leader>ej :Files javascript<CR>
 nnoremap <silent> <Leader>em :Files mobile<CR>
 nnoremap <silent> <Leader>ev :Files $HOME/.vim<CR>
 
+nnoremap <Leader>ef :call util#RenameFile()<CR>
+
 nnoremap <Leader>cc :edit <C-R>=expand('%:p:h')<CR>/
 
 " Tab
