@@ -394,3 +394,15 @@ function! js#GenProtobuf()
   call util#Topen()
   execute ':T ./pants gen-protobuf-javascript protobuf/src::'
 endfunction
+
+function! SendFileToTern(...)
+  silent! py3 tern_sendBuffer()
+endfunction
+
+function! js#SendFileToTern()
+  if has('timers')
+    call timer_start(100, 'SendFileToTern')
+  else
+    call SendFileToTern()
+  endif
+endfunction
