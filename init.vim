@@ -4,8 +4,6 @@ source ~/.vimrc
 
 set inccommand=nosplit
 
-tnoremap <Leader><ESC> <C-\><C-n>
-
 tnoremap <C-h> <C-\><C-n><C-w>h:call util#MaybeInsertMode()<CR>
 tnoremap <C-j> <C-\><C-n><C-w>j:call util#MaybeInsertMode()<CR>
 tnoremap <C-k> <C-\><C-n><C-w>k:call util#MaybeInsertMode()<CR>
@@ -33,6 +31,7 @@ autocmd FileType fzf tnoremap <buffer> <C-k> <Up>|
       \ tnoremap <buffer> <C-b> <C-\><C-n>:call PrepareFZFSwitch()<CR>:call fzf#vim#buffers('.', {'options': ['--query', @s]})<CR>|
       \ tnoremap <buffer> <C-c> <C-\><C-n>:call PrepareFZFSwitch()<CR>:call fzf#vim#gitfiles(expand('%:h'), {'options': ['--query', @s, '--prompt', 'Dir> ']})<CR>|
       \ tnoremap <buffer> <C-a> <C-\><C-n>:call PrepareFZFSwitch()<CR>:call fzf#vim#files(expand('%:h'), {'options': ['--query', @s, '--prompt', 'Dir All> ']})<CR>
-autocmd FileType neoterm setlocal nocursorline nocursorcolumn
+autocmd FileType neoterm setlocal nocursorline nocursorcolumn|
+      \ tnoremap <buffer> <Leader><ESC> <C-\><C-n>
 
 hi link TermCursorNC Cursor
