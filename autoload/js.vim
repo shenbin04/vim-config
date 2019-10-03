@@ -76,9 +76,8 @@ function! js#RunTestWatch()
 endfunction
 
 function! js#RunTestOnly()
-  call s:FindJest()
   call util#Topen()
-  execute ':TestFile' . s:GetCoverage() . ' -o'
+  execute ':T npm test -- -o'
 endfunction
 
 function! js#RunTestLine()
