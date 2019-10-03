@@ -243,7 +243,7 @@ function! util#Topen()
 endfunction
 
 function! util#FindProject()
-  for file in ['.flowconfig', 'webpack.config.js', 'jest.config.js']
+  for file in ['.flowconfig', 'webpack.config.js', 'jest.config.js', '.project']
     let path = findfile(file, '.;')
     if len(path)
       return fnamemodify(path, ':~:.:h')
