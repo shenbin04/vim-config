@@ -276,11 +276,12 @@ let g:xremap = {"[t": "", "]t": ""}
 let g:oremap = {"[t": "", "]t": ""}
 
 " Ag
+let g:ag_no_test = ' -G "(?<!test)\.(jsx?|py|m|swift|h)$"'
 nnoremap <Leader>aa :GrepperAg 
 nnoremap <Leader>aw "wyiw:GrepperAg '\b<C-R>w\b' 
 nnoremap <Leader>anw "wyiw:GrepperAg '<C-R>w' 
-nnoremap <Leader>asw "wyiw:GrepperAg -G "(?<!test)\.(jsx?\|py)$" '\b<C-R>w\b' 
-nnoremap <Leader>asnw "wyiw:GrepperAg -G "(?<!test)\.(jsx?\|py)$" '<C-R>w' 
+nnoremap <Leader>asw "wyiw:GrepperAg <C-R>=g:ag_no_test<CR> '\b<C-R>w\b' 
+nnoremap <Leader>asnw "wyiw:GrepperAg <C-R>=g:ag_no_test<CR> '<C-R>w' 
 nnoremap <Leader>aW "wyiW:GrepperAg '\b<C-R>w\b' 
 nnoremap <Leader>anW "wyiW:GrepperAg '<C-R>w' 
 nnoremap <Leader>ag "wyiw:GrepperAg '(message\|rpc\|enum) \b<C-R>w\b' protobuf/<CR>
@@ -288,21 +289,14 @@ nnoremap <Leader>at :let g:grepper.jump = 1<CR>:let g:grepper.switch = 0<CR>"wyi
 vnoremap <Leader>aa "wy:GrepperAg '\b<C-R>w\b' 
 nnoremap <Leader>av :GrepperAg ~/.vim/<S-Left><Left> 
 
-let s:projects = {
-\ 'm': 'python/manhattan/',
-\ 'b': 'python/batmobile/',
-\ 'p': 'python/',
-\ 'j': 'javascript/',
-\}
-
-for [name, path] in items(s:projects)
-  exec 'nnoremap <Leader>a' . name "\"wyiw:call util#GrepByWord(1, '" . path . "')\<CR>"
-  exec 'nnoremap <Leader>an' . name "\"wyiw:call util#GrepByWord(0, '" . path . "')\<CR>"
-  exec 'nnoremap <Leader>as' . name "\"wyiw:call util#GrepByWord(1, '" . path . ' -G "(?<!test)\.(jsx?\|py)$"' . "')\<CR>"
-  exec 'vnoremap <Leader>a' . name "\"wy:call util#GrepByWord(1, '" . path . "')\<CR>"
-  exec 'vnoremap <Leader>an' . name "\"wy:call util#GrepByWord(0, '" . path . "')\<CR>"
-  exec 'vnoremap <Leader>as' . name "\"wy:call util#GrepByWord(1, '" . path . ' -G "(?<!test)\.(jsx?\|py)$"' . "')\<CR>"
-endfor
+nnoremap <Leader>ap "wyiw:call util#GrepByWord(1, util#FindProject() . g:ag_no_test)<CR>
+nnoremap <Leader>asp "wyiw:call util#GrepByWord(1, util#FindProject())<CR>
+nnoremap <Leader>awp "wyiw:call util#GrepByWord(0, util#FindProject() . g:ag_no_test)<CR>
+nnoremap <Leader>aswp "wyiw:call util#GrepByWord(0, util#FindProject())<CR>
+vnoremap <Leader>ap "wy:call util#GrepByWord(1, util#FindProject() . g:ag_no_test)<CR>
+vnoremap <Leader>asp "wy:call util#GrepByWord(1, util#FindProject())<CR>
+vnoremap <Leader>awp "wy:call util#GrepByWord(0, util#FindProject() . g:ag_no_test)<CR>
+vnoremap <Leader>aswp "wy:call util#GrepByWord(0, util#FindProject())<CR>
 
 " HLT
 nmap <Leader>_ <Plug>HiLinkTrace
