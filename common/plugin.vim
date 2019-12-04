@@ -205,6 +205,7 @@ if exists('g:plugs["jedi-vim"]')
   let g:jedi#documentation_command = ''
   let g:jedi#goto_assignments_command = '<Leader>ff'
   let g:jedi#goto_definitions_command = ''
+  let g:jedi#goto_stubs_command = ''
 
   hi link jediUsage Search
 endif
