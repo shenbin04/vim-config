@@ -17,14 +17,8 @@ function! s:FindJest(...)
   let root = fnamemodify(finddir('node_modules', '.;'), ':~:.:h')
 
   let jest = root . '/node_modules/.bin/jest'
-  let config = root . '/package.json'
 
-  let jest_project_config = findfile('jest.config.js', '.;')
-  if jest_project_config != ''
-    let config = jest_project_config
-  endif
-
-  let cmd = 'NODE_ENV=testing NODE_PATH=' . root . ' ' . prefix . jest . ' -c ' . config
+  let cmd = 'NODE_ENV=testing NODE_PATH=' . root . ' ' . prefix . jest
   if !exists('g:test#javascript#jest#nocache')
     let g:test#javascript#jest#nocache = 0
   endif
