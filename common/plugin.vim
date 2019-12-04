@@ -277,7 +277,7 @@ let g:xremap = {"[t": "", "]t": ""}
 let g:oremap = {"[t": "", "]t": ""}
 
 " Ag
-let g:ag_no_test = ' -G "(?<!test)\.(jsx?|py|m|swift|h)$"'
+let g:ag_no_test = ' -G "(?<!test)\.(jsx?|py|m|swift|h|html)$"'
 nnoremap <Leader>aa :GrepperAg 
 nnoremap <Leader>aw "wyiw:GrepperAg '\b<C-R>w\b' 
 nnoremap <Leader>anw "wyiw:GrepperAg '<C-R>w' 
