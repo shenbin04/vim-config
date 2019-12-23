@@ -17,7 +17,7 @@ function! s:MaybeInsertModeForTerminal()
 endfunction
 
 function! PrepareFZFSwitch()
-  let @s=matchstr(getline('.'), '\v\> ?\zs.+\ze$')
+  let @s=matchstr(getline('.'), '\v\> ?\zs.{-}\ze\s*(└─*┘)?$')
   close
   sleep 1m
 endfunction
