@@ -231,6 +231,9 @@ function! util#get_neoterm_window() abort
 endfunction
 
 function! util#toggle_search_use_fzf() abort
+  if !exists('g:search#use_fzf')
+    let g:search#use_fzf = 1
+  endif
   let g:search#use_fzf = !g:search#use_fzf
   echo g:search#use_fzf ? 'search use fzf' : 'search use grepper'
 endfunction
@@ -256,21 +259,25 @@ function! util#ag(args, bang)
     return
   endif
 
-  let query = args[0]
   let dir = ''
 
-  if len(args) >= 2 && args[1][0] != '-'
-    let dir = args[1]
+  let i = 1
+  if len(args) >= 2
+    while i < len(args) - 1 && args[i + 1][0] != '-'
+      let i = i + 1
+    endwhile
+    let dir = args[i]
   endif
 
-  let options = {'options': '--prompt "Ag ' . xolox#misc#escape#pattern(query)}
+  let options = {}
   if empty(dir)
     let options.options .= ' "'
   else
     let options.dir = dir
-    let options.options = options.options . ' in ' . dir . ' "'
-    unlet args[1]
+    let options.options = '--prompt Ag[' . dir . ']'
+    unlet args[i]
   endif
+
   call fzf#vim#ag_raw(join(args), fzf#vim#with_preview(options), a:bang)
 endfunction
 
