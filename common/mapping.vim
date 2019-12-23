@@ -58,6 +58,8 @@ nnoremap { {zz
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 
+nnoremap go :call util#OpenOwnersFile()<CR>
+
 " Search
 nnoremap <Leader>s :%s/
 nnoremap <Leader>S :%S/

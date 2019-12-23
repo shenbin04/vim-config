@@ -242,6 +242,11 @@ function! util#Topen()
   Topen
 endfunction
 
+function! util#OpenOwnersFile()
+  let file = findfile('OWNERS', '.;')
+  call util#TryOpenFile(file)
+endfunction
+
 function! util#FindProject()
   for file in ['.project', '.flowconfig', 'webpack.config.js', 'jest.config.js']
     let path = findfile(file, '.;')
