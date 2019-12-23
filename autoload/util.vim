@@ -230,11 +230,48 @@ function! util#get_neoterm_window() abort
   endfor
 endfunction
 
+function! util#toggle_search_use_fzf() abort
+  let g:search#use_fzf = !g:search#use_fzf
+  echo g:search#use_fzf ? 'search use fzf' : 'search use grepper'
+endfunction
+
+function! util#get_search_cmd() abort
+  if !exists('g:search#use_fzf')
+    return 'Ag!'
+  endif
+  return g:search#use_fzf ? 'Ag!' : 'GrepperAg'
+endfunction
+
 function! util#GrepByWord(by_word, path)
   let boundary = a:by_word ? "\\b" : ""
-  let cmd = 'GrepperAg ' . "\"" . boundary . @w . boundary . "\" " . a:path
+  let cmd = util#get_search_cmd() . " \"" . boundary . @w . boundary . "\" " . a:path
   exec "normal! :" . cmd . "\<CR>"
   call histadd('cmd', cmd)
+endfunction
+
+function! util#ag(args, bang)
+  let args = split(a:args)
+
+  if empty(args)
+    return
+  endif
+
+  let query = args[0]
+  let dir = ''
+
+  if len(args) >= 2 && args[1][0] != '-'
+    let dir = args[1]
+  endif
+
+  let options = {'options': '--prompt "Ag ' . xolox#misc#escape#pattern(query)}
+  if empty(dir)
+    let options.options .= ' "'
+  else
+    let options.dir = dir
+    let options.options = options.options . ' in ' . dir . ' "'
+    unlet args[1]
+  endif
+  call fzf#vim#ag_raw(join(args), fzf#vim#with_preview(options), a:bang)
 endfunction
 
 function! util#Topen()

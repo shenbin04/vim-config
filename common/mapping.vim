@@ -133,3 +133,4 @@ nnoremap <Leader>cu :set cursorline! cursorcolumn!<CR>
 inoremap jk <ESC>
 inoremap <C-d> <Esc>ddi
 inoremap <C-u> <Esc>lgUiwgi
+nnoremap <silent> <F4> :call util#toggle_search_use_fzf()<CR>

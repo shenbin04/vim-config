@@ -261,6 +261,15 @@ let g:fzf_colors = {
       \ 'spinner': ['fg', 'Label'],
       \ 'header':  ['fg', 'Comment'],
       \ }
+
+command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+command! -bang -nargs=? -complete=dir GitFiles call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(), <bang>0)
+command! -bang -nargs=? -complete=dir GFiles call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(), <bang>0)
+command! -bang -nargs=? -complete=dir Mixed call fzf#vim#mixed(<q-args>, fzf#vim#with_preview(), <bang>0)
+command! -bang -nargs=+ -complete=dir Ag call util#ag(<q-args>, <bang>0)
+
+nnoremap <Leader>aa :<C-R>=util#get_search_cmd()<CR> 
+
 noremap <Leader>, :cclose<CR>:call util#CloseFugitive()<CR>:History<CR>
 noremap <Leader>. :Mixed<CR>
 noremap <Leader>za :Files<CR>
@@ -278,17 +287,16 @@ let g:oremap = {"[t": "", "]t": ""}
 
 " Ag
 let g:ag_no_test = ' -G "(?<!test)\.(jsx?|py|m|swift|h|html)$"'
-nnoremap <Leader>aa :GrepperAg 
-nnoremap <Leader>aw "wyiw:GrepperAg '\b<C-R>w\b' 
-nnoremap <Leader>anw "wyiw:GrepperAg '<C-R>w' 
-nnoremap <Leader>asw "wyiw:GrepperAg <C-R>=g:ag_no_test<CR> '\b<C-R>w\b' 
-nnoremap <Leader>asnw "wyiw:GrepperAg <C-R>=g:ag_no_test<CR> '<C-R>w' 
-nnoremap <Leader>aW "wyiW:GrepperAg '\b<C-R>w\b' 
-nnoremap <Leader>anW "wyiW:GrepperAg '<C-R>w' 
-nnoremap <Leader>ag "wyiw:GrepperAg '(message\|rpc\|enum) \b<C-R>w\b' protobuf/<CR>
+nnoremap <Leader>aw "wyiw:<C-R>=util#get_search_cmd()<CR> '\b<C-R>w\b' 
+nnoremap <Leader>anw "wyiw:<C-R>=util#get_search_cmd()<CR> '<C-R>w' 
+nnoremap <Leader>asw "wyiw:<C-R>=util#get_search_cmd()<CR> <C-R>=g:ag_no_test<CR> '\b<C-R>w\b' 
+nnoremap <Leader>asnw "wyiw:<C-R>=util#get_search_cmd()<CR> <C-R>=g:ag_no_test<CR> '<C-R>w' 
+nnoremap <Leader>aW "wyiW:<C-R>=util#get_search_cmd()<CR> '\b<C-R>w\b' 
+nnoremap <Leader>anW "wyiW:<C-R>=util#get_search_cmd()<CR> '<C-R>w' 
+nnoremap <Leader>ag "wyiw:<C-R>=util#get_search_cmd()<CR> '(message\|rpc\|enum) \b<C-R>w\b' protobuf/<CR>
 nnoremap <Leader>at :let g:grepper.jump = 1<CR>:let g:grepper.switch = 0<CR>"wyiw:GrepperAg '(^\s+\b<C-R>w\b\|^(struct\|enum) \b<C-R>w\b\|\b<C-R>w\(\|^\s+\d+: .*\b<C-R>w\b(\s+// .+)?$)' thrift/<CR>:let g:grepper.jump = 0<CR>:let g:grepper.switch = 1<CR>zz
-vnoremap <Leader>aa "wy:GrepperAg '\b<C-R>w\b' 
-nnoremap <Leader>av :GrepperAg ~/.vim/<S-Left><Left> 
+vnoremap <Leader>aa "wy:<C-R>=util#get_search_cmd()<CR> '\b<C-R>w\b' 
+nnoremap <Leader>av :<C-R>=util#get_search_cmd()<CR> ~/.vim/<S-Left><Left> 
 
 nnoremap <Leader>ap "wyiw:call util#GrepByWord(1, util#FindProject() . g:ag_no_test)<CR>
 nnoremap <Leader>asp "wyiw:call util#GrepByWord(1, util#FindProject())<CR>
