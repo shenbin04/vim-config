@@ -86,4 +86,6 @@ nnoremap <buffer> <silent> <Leader>fe :call js#ShowError()<CR>
 
 let b:AutoPairs = AutoPairsDefine({'|' : '|'})
 
+nnoremap <buffer> <F3> :FlowCoverageToggle<CR>
+
 call js#SendFileToTern()
