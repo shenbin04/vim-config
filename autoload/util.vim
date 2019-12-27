@@ -270,9 +270,7 @@ function! util#ag(args, bang)
   endif
 
   let options = {}
-  if empty(dir)
-    let options.options .= ' "'
-  else
+  if !empty(dir)
     let options.dir = dir
     let options.options = '--prompt Ag[' . dir . ']'
     unlet args[i]
