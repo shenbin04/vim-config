@@ -356,21 +356,15 @@ function! js#ShowError() abort
   call search('\v' . xolox#misc#escape#substitute(g:shell_prompt), 'b')
   if search('\v● ', 'W')
     normal! zt
+  elseif search('\v^Error ┈+( |\n)', 'W')
+    normal! zt
+
+    call OpenFilesFromCurrentLine('\v^Error ┈+( |\n)\zs.*', origin_win_id)
   else
     if getline(1) =~ '\vGlow v.*'
       normal! gg
       if search('\v\s+/')
-        let lnum = line('.')
-        let lines = [trim(getline(lnum))]
-        while getline(lnum + 1) =~ '\v^\S+'
-          call add(lines, getline(lnum + 1))
-          let lnum = lnum + 1
-        endwhile
-
-        call win_gotoid(origin_win_id)
-        let [path, line] = split(fnamemodify(join(lines, ''), ':~:.'), ':')
-        execute 'edit ' . path
-        execute line
+        call OpenFilesFromCurrentLine('\v\s+/', origin_win_id)
       endif
     else
       normal! Gzb
@@ -381,6 +375,20 @@ function! js#ShowError() abort
   endif
 
   call win_gotoid(origin_win_id)
+endfunction
+
+function! OpenFilesFromCurrentLine(pattern, origin_win_id)
+  let lnum = line('.')
+  let lines = [matchstr(trim(getline(lnum)), a:pattern)]
+  while getline(lnum + 1) =~ '\v^\S+'
+    call add(lines, trim(getline(lnum + 1)))
+    let lnum = lnum + 1
+  endwhile
+
+  call win_gotoid(a:origin_win_id)
+  let [path, line; rest] = split(fnamemodify(join(lines, ''), ':~:.'), ':')
+  execute 'edit ' . path
+  execute line
 endfunction
 
 function! js#GenProtobuf()
