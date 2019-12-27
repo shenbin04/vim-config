@@ -133,4 +133,5 @@ nnoremap <Leader>cu :set cursorline! cursorcolumn!<CR>
 inoremap jk <ESC>
 inoremap <C-d> <Esc>ddi
 inoremap <C-u> <Esc>lgUiwgi
-nnoremap <silent> <F4> :call util#toggle_search_use_fzf()<CR>
+nnoremap <silent> <F4> :call util#toggle_flag('g:search#use_fzf', 1)<CR>
+nnoremap <silent> <F5> :call util#toggle_flag('g:test#javascript#jest#cache', 1)<CR>

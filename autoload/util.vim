@@ -177,7 +177,7 @@ function! util#GitDiff(target)
   if expand('%') ==# ''
     return
   endif
-  exec 'Gdiff ' . a:target
+  execute 'Gdiff ' . a:target
   call s:diff_window_syntax('diff')
 endfunction
 
@@ -196,7 +196,7 @@ endfunction
 function! util#CloseDiff()
   let diff_buffers = s:get_diff_buffers()
   for bufnr in diff_buffers
-    exec 'bd' . bufnr
+    execute 'bd' . bufnr
   endfor
 endfunction
 
@@ -230,12 +230,12 @@ function! util#get_neoterm_window() abort
   endfor
 endfunction
 
-function! util#toggle_search_use_fzf() abort
-  if !exists('g:search#use_fzf')
-    let g:search#use_fzf = 1
+function! util#toggle_flag(flag, default) abort
+  if !exists(a:flag)
+    execute 'let ' . a:flag . ' = ' . a:default
   endif
-  let g:search#use_fzf = !g:search#use_fzf
-  echo g:search#use_fzf ? 'search use fzf' : 'search use grepper'
+  execute 'let ' . a:flag . ' = !' . a:flag
+  execute 'echo "[toggle_flag] ' . a:flag . ' = " . ' . a:flag
 endfunction
 
 function! util#get_search_cmd() abort
@@ -248,7 +248,7 @@ endfunction
 function! util#GrepByWord(by_word, path)
   let boundary = a:by_word ? "\\b" : ""
   let cmd = util#get_search_cmd() . " \"" . boundary . @w . boundary . "\" " . a:path
-  exec "normal! :" . cmd . "\<CR>"
+  execute "normal! :" . cmd . "\<CR>"
   call histadd('cmd', cmd)
 endfunction
 
