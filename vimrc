@@ -116,6 +116,7 @@ set viewoptions=folds,cursor
 set diffopt+=vertical
 set showmatch
 set noautoread
+set path+=$HOME/.vim
 
 " Formatting
 set autoindent
