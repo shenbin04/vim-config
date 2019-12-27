@@ -16,16 +16,25 @@ function! s:FindJest(...)
   let prefix = a:0 > 0 ? a:1 : ''
   let root = fnamemodify(finddir('node_modules', '.;'), ':~:.:h')
 
-  let jest = root . '/node_modules/.bin/jest'
-
-  let cmd = 'NODE_ENV=testing NODE_PATH=' . root . ' ' . prefix . jest
-  if !exists('g:test#javascript#jest#nocache')
-    let g:test#javascript#jest#nocache = 0
+  let cmd = 'NODE_ENV=testing NODE_PATH=. ' . prefix . 'node_modules/.bin/jest'
+  if root != '.'
+    let g:test#javascript#jest#should_pop = 1
+    let cmd = 'pushd ' . root . ' > /dev/null && ' . cmd
   endif
-  if g:test#javascript#jest#nocache
+  if !exists('g:test#javascript#jest#cache')
+    let g:test#javascript#jest#cache = 1
+  endif
+  if !g:test#javascript#jest#cache
     let cmd .= ' --no-cache'
   endif
   let g:test#javascript#jest#executable = cmd
+endfunction
+
+function! s:MaybePop()
+  if exists('g:test#javascript#jest#should_pop') && g:test#javascript#jest#should_pop
+    let g:test#javascript#jest#should_pop = 0
+    execute 'T popd > /dev/null'
+  endif
 endfunction
 
 function! s:GetCoverage()
@@ -55,41 +64,43 @@ function! js#RunTestFile()
   call s:FindJest()
   call util#Topen()
   execute ':TestFile' . s:GetCoverage()
+  call s:MaybePop()
 endfunction
 
 function! js#RunTestUpdate()
   call s:FindJest()
   call util#Topen()
   execute ':TestFile' . s:GetCoverage() . ' -u'
+  call s:MaybePop()
 endfunction
 
 function! js#RunTestWatch()
   call s:FindJest()
   call util#Topen()
   execute ':TestFile' . s:GetCoverage() . ' --watch'
+  call s:MaybePop()
 endfunction
 
 function! js#RunTestOnly()
+  call s:FindJest()
   call util#Topen()
-  execute ':T npm test -- -o'
+  echo g:test#javascript#jest#executable
+  execute ':T ' . g:test#javascript#jest#executable . ' -o'
+  call s:MaybePop()
 endfunction
 
 function! js#RunTestLine()
   call s:FindJest()
   call util#Topen()
   execute ':TestNearest'
+  call s:MaybePop()
 endfunction
 
 function! js#RunTestDebug()
   call s:FindJest('node --inspect ')
   call util#Topen()
   execute ':TestNearest'
-endfunction
-
-function! js#RunTest(param)
-  call s:FindJest()
-  call util#Topen()
-  execute ':T ' . g:test#javascript#jest#executable . ' ' . a:param
+  call s:MaybePop()
 endfunction
 
 function! js#RunFlow()
