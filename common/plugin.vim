@@ -186,6 +186,8 @@ if exists('g:plugs["deoplete.nvim"]')
   let g:deoplete#enable_at_startup = 1
   inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
 
+  call deoplete#custom#option('min_pattern_length', 0)
+
   " deoplete-ternjs
   let g:deoplete#sources#ternjs#types = 1
   let g:deoplete#sources#ternjs#include_keywords = 1
