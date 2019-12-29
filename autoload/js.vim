@@ -97,7 +97,7 @@ function! js#RunTestLine()
 endfunction
 
 function! js#RunTestDebug()
-  call s:FindJest('node --inspect ')
+  call s:FindJest('node --inspect-brk ')
   call util#Topen()
   execute ':TestNearest'
   call s:MaybePop()
