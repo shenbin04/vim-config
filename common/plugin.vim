@@ -359,3 +359,14 @@ nnoremap <silent> <expr> <Leader>a Remembrall(',a')
 let g:black_linelength = 120
 let g:black_fast = 1
 let g:black_skip_string_normalization = 1
+
+" Startify
+let g:startify_custom_header = []
+let g:startify_files_number = 20
+let g:startify_lists = [
+      \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
+      \ { 'type': 'files',     'header': ['   MRU']            },
+      \ { 'type': 'sessions',  'header': ['   Sessions']       },
+      \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+      \ { 'type': 'commands',  'header': ['   Commands']       },
+      \ ]
