@@ -185,13 +185,23 @@ noremap \& :Tabularize /\(&\\|\\\\\)<CR>
 if exists('g:plugs["deoplete.nvim"]')
   let g:deoplete#enable_at_startup = 1
   inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
+
+  " deoplete-ternjs
+  let g:deoplete#sources#ternjs#types = 1
+  let g:deoplete#sources#ternjs#include_keywords = 1
+  let g:deoplete#sources#ternjs#filetypes = ['jsx']
+
+  " deoplete-flow
+  let g:deoplete#sources#flow#filetypes = ['jsx']
 endif
 
 " Tern
 if exists('g:plugs["tern_for_vim"]')
+  let g:tern#command = ['tern']
+  let g:tern#arguments = ['--persistent']
   let g:tern_show_signature_in_pum = 1
   let g:tern_request_timeout = 10
-  autocmd FileType javascript setlocal omnifunc=tern#Complete
+
   autocmd FileType javascript nnoremap <silent> <buffer> <Leader>ff :TernDef<CR>
   autocmd FileType javascript nnoremap <silent> <buffer> <Leader>fr :TernRename<CR>
 endif

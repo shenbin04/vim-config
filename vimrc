@@ -79,6 +79,8 @@ if v:version >= 800
   Plug 'ternjs/tern_for_vim', { 'do': 'npm i' }
   Plug 'deoplete-plugins/deoplete-jedi'
   Plug 'davidhalter/jedi-vim'
+  Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+  Plug 'carlitux/deoplete-flow'
 else
   function! BuildYCM(info)
     if a:info.status == 'installed' || a:info.force
