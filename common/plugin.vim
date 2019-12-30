@@ -186,20 +186,25 @@ if exists('g:plugs["deoplete.nvim"]')
   let g:deoplete#enable_at_startup = 1
   inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
 
-  call deoplete#custom#option('min_pattern_length', 0)
+  call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
 
   " deoplete-ternjs
   let g:deoplete#sources#ternjs#types = 1
-  let g:deoplete#sources#ternjs#include_keywords = 1
-  let g:deoplete#sources#ternjs#filetypes = ['jsx']
 
-  " deoplete-flow
-  let g:deoplete#sources#flow#filetypes = ['jsx']
+  " deoplete-vim-lsp
+  call deoplete#custom#source('lsp', {'rank': 999, 'min_pattern_length': 0})
+
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'flow',
+        \ 'cmd': {server_info->['flow', 'lsp', '--from', 'vim-lsp']},
+        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), '.flowconfig'))},
+        \ 'whitelist': ['javascript', 'javascript.jsx', 'javascript.flow'],
+        \ })
 endif
 
 " Tern
 if exists('g:plugs["tern_for_vim"]')
-  let g:tern#command = ['tern']
+  let g:tern#command = [$HOME . '/.vim/bundle/tern_for_vim/node_modules/.bin/tern']
   let g:tern#arguments = ['--persistent']
   let g:tern_show_signature_in_pum = 1
   let g:tern_request_timeout = 10

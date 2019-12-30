@@ -79,8 +79,14 @@ if v:version >= 800
   Plug 'ternjs/tern_for_vim', { 'do': 'npm i' }
   Plug 'deoplete-plugins/deoplete-jedi'
   Plug 'davidhalter/jedi-vim'
-  Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-  Plug 'carlitux/deoplete-flow'
+  Plug 'carlitux/deoplete-ternjs'
+
+  Plug 'prabirshrestha/async.vim'
+  Plug 'prabirshrestha/vim-lsp'
+  Plug 'lighttiger2505/deoplete-vim-lsp'
+
+  Plug 'Shougo/neco-vim'
+  Plug 'ujihisa/neco-look'
 else
   function! BuildYCM(info)
     if a:info.status == 'installed' || a:info.force
@@ -120,6 +126,7 @@ set diffopt+=vertical
 set showmatch
 set noautoread
 set path+=$HOME/.vim
+set completeopt-=preview
 
 " Formatting
 set autoindent
