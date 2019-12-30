@@ -26,7 +26,7 @@ runtime common/run_flow.vim
 nnoremap <buffer> <silent> <Leader>ct :call js#NewTestFile()<CR>
 
 nnoremap <buffer> <silent> <Leader>fc :call js#ShowFlowCoverage()<CR>
-nnoremap <buffer> <silent> <Leader>ft :FlowTypeAtPos<CR>
+nnoremap <buffer> <silent> <Leader>ftp :FlowTypeAtPos<CR>
 
 nnoremap <buffer> <silent> <Leader>rr :call js#RunTestFile()<CR>
 nnoremap <buffer> <silent> <Leader>rw :call js#RunTestWatch()<CR>
