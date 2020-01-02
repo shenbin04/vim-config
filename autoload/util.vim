@@ -297,6 +297,12 @@ function! util#FindProject()
       return fnamemodify(path, ':~:.:h')
     endif
   endfor
+
+  let git_dir = finddir('.git', '.;')
+  if len(git_dir)
+    return fnamemodify(git_dir, ':h')
+  endif
+
   return ''
 endfunction
 
