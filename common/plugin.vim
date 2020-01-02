@@ -300,7 +300,7 @@ let g:xremap = {"[t": "", "]t": ""}
 let g:oremap = {"[t": "", "]t": ""}
 
 " Ag
-let g:ag_no_test = ' -G "(?<!test)\.(jsx?|py|m|swift|h|html)$"'
+let g:ag_no_test = ' -G "(?<!test)\.(jsx?|py|m|swift|h|html|ts)$"'
 nnoremap <Leader>aw "wyiw:<C-R>=util#get_search_cmd()<CR> '\b<C-R>w\b' 
 nnoremap <Leader>anw "wyiw:<C-R>=util#get_search_cmd()<CR> '<C-R>w' 
 nnoremap <Leader>asw "wyiw:<C-R>=util#get_search_cmd()<CR> <C-R>=g:ag_no_test<CR> '\b<C-R>w\b' 
