@@ -264,7 +264,6 @@ function! util#ag(args, bang)
   let i = 0
   if len(args) >= 2
     while i < len(args) - 1 && args[i + 1][0] != '-'
-      echo args[i + 1][0]
       let i = i + 1
       let dir = args[i]
     endwhile
