@@ -376,7 +376,6 @@ let g:black_skip_string_normalization = 1
 
 " Startify
 let g:startify_change_to_dir = 0
-let g:startify_change_to_vcs_root = 1
 let g:startify_custom_header = []
 let g:startify_files_number = 20
 let g:startify_lists = [
