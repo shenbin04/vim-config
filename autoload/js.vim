@@ -60,6 +60,13 @@ function! js#GetJSFileFromTestFile()
   return s:GetPrefix() . '.' . expand('%:e')
 endfunction
 
+function! js#RunTest(param)
+  call s:FindJest()
+  call util#Topen()
+  execute ':T ' . g:test#javascript#jest#executable . ' ' . a:param
+  call s:MaybePop()
+endfunction
+
 function! js#RunTestFile()
   call s:FindJest()
   call util#Topen()
