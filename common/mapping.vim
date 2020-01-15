@@ -130,7 +130,6 @@ nnoremap gV `[v`]
 nnoremap <C-b> :redraw!<CR>
 nnoremap <F2> :setlocal spell!<CR>
 nnoremap <Leader>cu :set cursorline! cursorcolumn!<CR>
-inoremap jk <ESC>
 inoremap <C-d> <Esc>ddi
 inoremap <C-u> <Esc>lgUiwgi
 nnoremap <silent> <F4> :call util#toggle_flag('g:search#use_fzf', 1)<CR>
