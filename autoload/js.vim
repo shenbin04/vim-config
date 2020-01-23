@@ -425,3 +425,10 @@ function! js#SendFileToTern()
     call SendFileToTern()
   endif
 endfunction
+
+function! js#SetPath()
+  let config = fnamemodify(findfile('BUILD', '.;'), ':~:.:h')
+  if len(config)
+    execute 'setlocal path+=' . config
+  endif
+endfunction

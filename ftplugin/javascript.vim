@@ -93,3 +93,4 @@ nnoremap <silent> <buffer> <Leader>fd :TernDef<CR>
 nnoremap <silent> <buffer> <Leader>fr :TernRename<CR>
 
 call js#SendFileToTern()
+call js#SetPath()
