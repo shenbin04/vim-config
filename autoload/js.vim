@@ -12,9 +12,18 @@ function! s:GetPrefix()
   return base . '/' . util#GetBaseFileName()
 endfunction
 
+function! s:FindRoot()
+  let roots = finddir('node_modules', '.;', -1)
+  for root in roots
+    if filereadable(root . '/node_modules/.bin/jest')
+      return fnamemodify(root, ':~:.:h')
+    endif
+  endfor
+endfunction
+
 function! s:FindJest(...)
   let prefix = a:0 > 0 ? a:1 : ''
-  let root = fnamemodify(finddir('node_modules', '.;'), ':~:.:h')
+  let root = s:FindRoot()
 
   let cmd = 'NODE_ENV=testing NODE_PATH=. ' . prefix . 'node_modules/.bin/jest'
   if root != '.'
