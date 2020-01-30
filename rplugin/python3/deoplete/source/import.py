@@ -13,8 +13,7 @@ class Source(Base):
         self.name = 'import'
         self.mark = '[I]'
         self.rank = 500
-        self.input_pattern = '^import.*from.*'
-        self.events: typing.List[str] = ['InsertEnter']
+        self.input_pattern = '^import.+from.+'
 
     def gather_candidates(self, context: UserContext) -> Candidates:
         roots = [root for root in self.vim.command_output('echo &path').split(',') if root]
