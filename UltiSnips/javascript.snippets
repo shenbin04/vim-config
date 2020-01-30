@@ -2,7 +2,7 @@ snippet ap "Add property: `key: value,`" b
 $1: $0,
 endsnippet
 
-snippet ao "Add property: `key: {},`" b
+snippet ao "Add object property: `key: {},`" b
 $1: {
   $0
 },
@@ -29,18 +29,6 @@ endsnippet
 
 snippet irxc "Import react-redux connect"
 import {connect} from 'react-redux';
-endsnippet
-
-snippet irxt "Import react-redux type"
-import type {${1:MapDispatchToProps}${2:, }${0:MapStateToProps}}} from 'react-redux';
-endsnippet
-
-snippet icr "Import care_router_xxx"
-import {$1} from 'js/${2:care_router_shared}/${0:types}';
-endsnippet
-
-snippet icrt "Import care_router_shared types"
-import type {$1} from 'js/care_router_shared/types';
 endsnippet
 
 snippet aff "Add arrow function: `() => {}`"
@@ -118,8 +106,6 @@ import React from 'react';
 
 import {${1:`!v util#GetBaseFileName()`}} from './`!v util#GetBaseFileName()`';
 
-jest.unmock('./`!v util#GetBaseFileName()`');
-
 const defaultProps = {
 };
 
@@ -136,8 +122,6 @@ snippet ntf "New react component test with factory" b
 import {factoryShallow} from 'javascript/oscar-test-utils/factory';
 
 import {${1:`!v util#GetBaseFileName()`}} from './`!v util#GetBaseFileName()`';
-
-jest.unmock('./`!v util#GetBaseFileName()`');
 
 const defaultProps = {
 };
