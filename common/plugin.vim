@@ -120,6 +120,7 @@ let g:ale_fixers = {
 \   ],
 \}
 let g:ale_python_pylint_change_directory = 0
+let g:ale_python_pylint_use_global = 1
 let g:ale_python_flake8_options = '--ignore=E101,E501,W291,W292,W293,W503'
 
 function! ALEPrettierAfter(buffer, lines)
