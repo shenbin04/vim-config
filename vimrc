@@ -79,7 +79,7 @@ if v:version >= 800
   endif
   Plug 'ternjs/tern_for_vim', { 'do': 'npm i' }
   Plug 'deoplete-plugins/deoplete-jedi'
-  Plug 'davidhalter/jedi-vim'
+  Plug 'davidhalter/jedi-vim', { 'do': 'git submodule update --init --recursive' }
   Plug 'carlitux/deoplete-ternjs'
 
   Plug 'prabirshrestha/async.vim'

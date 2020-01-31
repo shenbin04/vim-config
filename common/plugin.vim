@@ -211,12 +211,12 @@ endif
 " Jedi
 if exists('g:plugs["jedi-vim"]')
   let g:jedi#completions_enabled = 0
-  let g:jedi#goto_command = '<Leader>fd'
+  let g:jedi#goto_command = '<Leader>ff'
   let g:jedi#usages_command = '<Leader>fu'
   let g:jedi#rename_command = '<Leader>fr'
   let g:jedi#documentation_command = ''
-  let g:jedi#goto_assignments_command = '<Leader>ff'
-  let g:jedi#goto_definitions_command = ''
+  let g:jedi#goto_assignments_command = ''
+  let g:jedi#goto_definitions_command = '<Leader>fd'
   let g:jedi#goto_stubs_command = ''
 
   hi link jediUsage Search
