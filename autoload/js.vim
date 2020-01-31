@@ -160,11 +160,6 @@ function! js#OpenCssFile()
   endfor
 endfunction
 
-function! js#ESLintArgs()
-  let rules = finddir('.arc/linters/eslint_rules', '.;')
-  return rules != '' ? '--rulesdir ' . shellescape(fnamemodify(rules, ':p:h')) : ''
-endfunction
-
 function! js#RequireToImport()
   call util#Topen()
   execute ':T npm run update-require-to-import ' . util#ExpandRelative('%')

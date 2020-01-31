@@ -1,9 +1,3 @@
-function! python#PYLintArgs()
-  let config = findfile('.arc/.pylintrc', '.;')
-  let config_path = config != '' ? ' --rcfile ' . shellescape(fnamemodify(config, ':p')) : '-E'
-  return '-E -d E1101' . config_path
-endfunction
-
 function! python#OpenPythonFile()
   let dir = util#ExpandRelative('%:p:h')
   let file = dir . '/' . join(split(expand('%:t'), '_')[0:-2], '_') . '.py'

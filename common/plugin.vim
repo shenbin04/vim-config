@@ -119,10 +119,8 @@ let g:ale_fixers = {
 \     'ALEPrettierAfter',
 \   ],
 \}
-let g:ale_javascript_eslint_options = js#ESLintArgs()
 let g:ale_python_pylint_change_directory = 0
-let g:ale_python_pylint_options = python#PYLintArgs()
-let g:ale_python_flake8_options = '--ignore=E101,E501,W291,W292,W293'
+let g:ale_python_flake8_options = '--ignore=E101,E501,W291,W292,W293,W503'
 
 function! ALEPrettierAfter(buffer, lines)
   echo '[ALE] Done'
