@@ -169,7 +169,7 @@ endfunction
 
 function! util#ClearHighlight()
   if exists('g:plugs["jedi-vim"]')
-    call jedi#remove_usages()
+    call jedi#clear_usages()
   endif
 endfunction
 
