@@ -85,8 +85,10 @@ function! util#SelectBetweenPattern(pattern)
   execute "normal! " . current . "GV" . end . "G"
 endfunction
 
-function! util#SetReg(reg, message)
-  execute 'let @' . a:reg . '="' . a:message . '"'
+function! util#SetReg(regs, message)
+  for reg in a:regs
+    execute 'let @' . reg. '="' . a:message . '"'
+  endfor
   echo 'Copied: ' . a:message
 endfunction
 
