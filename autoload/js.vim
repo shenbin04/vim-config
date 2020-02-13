@@ -392,40 +392,52 @@ function! js#ShowError() abort
 
   call search('\v' . xolox#misc#escape#substitute(g:shell_prompt), 'b')
   if search('\v● ', 'W')
-    normal! zt
-  elseif search('\v^Error ┈+( |\n)', 'W')
-    normal! zt
-
-    call OpenFilesFromCurrentLine('\v^Error ┈+( |\n)\zs.*', origin_win_id)
+    " jest error
+    call s:FindError({
+          \ 'pattern': '\v\(\_S*:\_d+:\_d+\)',
+          \ 'origin_win_id': origin_win_id,
+          \ 'cmd': 'normal! "xyib'
+          \ })
+  elseif search('\v^Error ┈+', 'W')
+    " flow error
+    call s:FindError({
+          \ 'pattern': '\v^Error ┈+ ?\n?\zs\_S+:\_d+:\_d+',
+          \ 'origin_win_id': origin_win_id,
+          \ 'cmd': 'normal! "xy}'
+          \ })
+  elseif getline(1) =~ '\vGlow v.*'
+    " glow error
+    normal! gg
+    call s:FindError({
+          \ 'pattern': '\v\zs\_S+:\_d+',
+          \ 'origin_win_id': origin_win_id,
+          \ 'cmd': 'normal! "xy/\v:\d+'
+          \ })
   else
-    if getline(1) =~ '\vGlow v.*'
-      normal! gg
-      if search('\v\s+/')
-        call OpenFilesFromCurrentLine('\v\s+/', origin_win_id)
-      endif
-    else
-      normal! Gzb
-      echohl ErrorMsg
-      echo 'No error found'
-      echohl None
-    endif
+    normal! Gzb
+    echohl ErrorMsg
+    echo 'No error found'
+    echohl None
   endif
 
   call win_gotoid(origin_win_id)
 endfunction
 
-function! OpenFilesFromCurrentLine(pattern, origin_win_id)
+function! s:FindError(options)
+  let options = a:options
+  normal! zt
   let lnum = line('.')
-  let lines = [matchstr(trim(getline(lnum)), a:pattern)]
-  while getline(lnum + 1) =~ '\v^\S+'
-    call add(lines, trim(getline(lnum + 1)))
-    let lnum = lnum + 1
-  endwhile
 
-  call win_gotoid(a:origin_win_id)
-  let [path, line; rest] = split(fnamemodify(join(lines, ''), ':~:.'), ':')
-  execute 'edit ' . path
-  execute line
+  if search(options.pattern, 'c')
+    execute options.cmd
+    execute lnum
+    normal! zt
+
+    call win_gotoid(options.origin_win_id)
+    let [path, line; rest] = split(fnamemodify(join(split(@x), ''), ':~:.'), ':')
+    execute 'edit ' . path
+    execute line
+  endif
 endfunction
 
 function! js#GenProtobuf()
