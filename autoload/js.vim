@@ -15,21 +15,27 @@ endfunction
 function! s:FindRoot()
   let roots = finddir('node_modules', '.;', -1)
   for root in roots
-    if filereadable(root . '/node_modules/.bin/jest')
+    if filereadable(root . '/.bin/jest')
       return fnamemodify(root, ':~:.:h')
     endif
   endfor
 endfunction
 
 function! s:FindJest(...)
-  let prefix = a:0 > 0 ? a:1 : ''
+  let options = a:0 > 0 ? a:1 : {}
   let root = s:FindRoot()
 
-  let cmd = 'NODE_ENV=testing NODE_PATH=. ' . prefix . 'node_modules/.bin/jest'
-  let cmd .= ' --projects ' . util#ExpandRelative('%:h')
+  let cmd = ''
+
   if root != '.'
     let g:test#javascript#jest#should_pop = 1
-    let cmd = 'pushd ' . root . ' > /dev/null && ' . cmd
+    let cmd = 'pushd ' . root . ' > /dev/null && '
+    execute 'cd '. root
+  endif
+
+  let cmd .= 'NODE_ENV=testing NODE_PATH=. ' . get(options, 'prefix', '') . 'node_modules/.bin/jest'
+  if get(options, 'project', 1)
+    let cmd .= ' --projects ' . fnamemodify(findfile('jest.config.js', '.;'), ':~:.:h')
   endif
   if !exists('g:test#javascript#jest#cache')
     let g:test#javascript#jest#cache = 1
@@ -44,6 +50,7 @@ function! s:MaybePop()
   if exists('g:test#javascript#jest#should_pop') && g:test#javascript#jest#should_pop
     let g:test#javascript#jest#should_pop = 0
     execute 'T popd > /dev/null'
+    execute 'cd -'
   endif
 endfunction
 
@@ -70,8 +77,15 @@ function! js#GetJSFileFromTestFile()
   return s:GetPrefix() . '.' . expand('%:e')
 endfunction
 
-function! js#RunTest(param)
+function! js#RunTestsInProject(param)
   call s:FindJest()
+  call util#Topen()
+  execute ':T ' . g:test#javascript#jest#executable . ' ' . a:param
+  call s:MaybePop()
+endfunction
+
+function! js#RunTestsAll(param)
+  call s:FindJest({'project': 0})
   call util#Topen()
   execute ':T ' . g:test#javascript#jest#executable . ' ' . a:param
   call s:MaybePop()
@@ -114,7 +128,7 @@ function! js#RunTestLine()
 endfunction
 
 function! js#RunTestDebug()
-  call s:FindJest('node --inspect-brk ')
+  call s:FindJest({'prefix': 'node --inspect-brk '})
   call util#Topen()
   execute ':TestNearest'
   call s:MaybePop()

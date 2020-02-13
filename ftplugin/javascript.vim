@@ -37,10 +37,15 @@ nnoremap <buffer> <silent> <Leader>ru :call js#RunTestUpdate()<CR>
 
 nnoremap <buffer> <silent> <Leader>rku :call util#SendKeys('u')<CR>
 
-nnoremap <buffer> <silent> <Leader>rtt :call js#RunTest('')<CR>
-nnoremap <buffer> <silent> <Leader>rto :call js#RunTest('-o')<CR>
-nnoremap <buffer> <silent> <Leader>rtu :call js#RunTest('-u')<CR>
-nnoremap <buffer> <silent> <Leader>rtw :call js#RunTest('--watch')<CR>
+nnoremap <buffer> <silent> <Leader>rtt :call js#RunTestsInProject('')<CR>
+nnoremap <buffer> <silent> <Leader>rto :call js#RunTestsInProject('-o')<CR>
+nnoremap <buffer> <silent> <Leader>rtu :call js#RunTestsInProject('-u')<CR>
+nnoremap <buffer> <silent> <Leader>rtw :call js#RunTestsInProject('--watch')<CR>
+
+nnoremap <buffer> <silent> <Leader>rtaa :call js#RunTestsAll('')<CR>
+nnoremap <buffer> <silent> <Leader>rtao :call js#RunTestsAll('-o')<CR>
+nnoremap <buffer> <silent> <Leader>rtau :call js#RunTestsAll('-u')<CR>
+nnoremap <buffer> <silent> <Leader>rtaw :call js#RunTestsAll('--watch')<CR>
 
 nnoremap <buffer> <silent> <Leader>rni :call js#RequireToImport()<CR>
 nnoremap <buffer> <silent> <Leader>rno :call js#OrganizeImports()<CR>
