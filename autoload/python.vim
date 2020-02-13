@@ -92,6 +92,8 @@ function! python#ShowError() abort
 
   call search('\v' . xolox#misc#escape#substitute(g:shell_prompt), 'b')
   if search('\v^E\s+AssertionError: \zs')
+    let @x = ''
+    let @y = ''
     if search('Expected call:', 'cW')
       normal! f(
       silent normal! "xyib
