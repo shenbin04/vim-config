@@ -40,7 +40,7 @@ nnoremap <buffer> <silent> <Leader>rku :call util#SendKeys('u')<CR>
 nnoremap <buffer> <silent> <Leader>rtt :call js#RunTest('')<CR>
 nnoremap <buffer> <silent> <Leader>rto :call js#RunTest('-o')<CR>
 nnoremap <buffer> <silent> <Leader>rtu :call js#RunTest('-u')<CR>
-nnoremap <buffer> <silent> <Leader>rtw :call js#RunTest('-w')<CR>
+nnoremap <buffer> <silent> <Leader>rtw :call js#RunTest('--watch')<CR>
 
 nnoremap <buffer> <silent> <Leader>rni :call js#RequireToImport()<CR>
 nnoremap <buffer> <silent> <Leader>rno :call js#OrganizeImports()<CR>

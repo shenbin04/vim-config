@@ -26,6 +26,7 @@ function! s:FindJest(...)
   let root = s:FindRoot()
 
   let cmd = 'NODE_ENV=testing NODE_PATH=. ' . prefix . 'node_modules/.bin/jest'
+  let cmd .= ' --projects ' . util#ExpandRelative('%:h')
   if root != '.'
     let g:test#javascript#jest#should_pop = 1
     let cmd = 'pushd ' . root . ' > /dev/null && ' . cmd
