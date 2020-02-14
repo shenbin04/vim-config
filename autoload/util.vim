@@ -257,7 +257,6 @@ endfunction
 function! util#ag(args, bang)
   let quote_query_match = matchlist(a:args, '\v([''"].*[''"]) ?(.*)')
 
-  echo quote_query_match
   if !empty(quote_query_match)
     let args = split(quote_query_match[2])
     call insert(args, quote_query_match[1])
