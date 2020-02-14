@@ -30,7 +30,7 @@ autocmd FileType fzf tnoremap <buffer> <C-k> <Up>|
       \ tnoremap <buffer> <C-h> <C-\><C-n>:call PrepareFZFSwitch()<CR>:call fzf#vim#history({'options': ['--query', @s]})<CR>|
       \ tnoremap <buffer> <C-b> <C-\><C-n>:call PrepareFZFSwitch()<CR>:call fzf#vim#buffers('.', {'options': ['--query', @s]})<CR>|
       \ tnoremap <buffer> <C-c> <C-\><C-n>:call PrepareFZFSwitch()<CR>:call fzf#vim#gitfiles(expand('%:h'), {'options': ['--query', @s, '--prompt', 'Dir> ']})<CR>|
-      \ tnoremap <buffer> <C-a> <C-\><C-n>:call PrepareFZFSwitch()<CR>:call fzf#vim#files(expand('%:h'), {'options': ['--query', @s, '--prompt', 'Dir All> ']})<CR>
+      \ tnoremap <buffer> <C-a> <C-\><C-n>:call PrepareFZFSwitch()<CR>:call fzf#vim#files('.', {'options': ['--query', @s, '--prompt', 'Dir All> ']})<CR>
 autocmd FileType neoterm setlocal nocursorline nocursorcolumn|
       \ tnoremap <buffer> <Leader><ESC> <C-\><C-n>
 
