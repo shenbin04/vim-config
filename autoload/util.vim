@@ -296,18 +296,18 @@ endfunction
 
 function! util#FindProject()
   for file in ['.project', '.flowconfig', 'webpack.config.js', 'jest.config.js']
-    let path = findfile(file, '.;')
+    let path = findfile(file, '.;' . getcwd())
     if len(path)
       return fnamemodify(path, ':~:.:h')
     endif
   endfor
 
-  let git_dir = finddir('.git', '.;')
+  let git_dir = finddir('.git', '.;' . getcwd())
   if len(git_dir)
     return fnamemodify(git_dir, ':h')
   endif
 
-  return ''
+  return '.'
 endfunction
 
 function! util#EditProject()
