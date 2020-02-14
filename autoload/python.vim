@@ -56,13 +56,19 @@ function! python#RunTestFile()
   let test_file = util#ExpandRelative('%:p')
   let dir = util#ExpandRelative('%:p:h')
   let python_file = dir . '/' . join(split(expand('%:t'), '_')[0:-2], '_') . '.py'
-  let coverage_file = 'COVERAGE_FILE=.coverage.python'
-  let command = coverage_file . ' coverage run --branch --include ' . python_file
+  let command = 'COVERAGE_FILE=.coverage.python coverage run --branch --include ' . python_file
         \ . ' -m pytest --pdb ' . test_file
         \ . ' && ' . coverage_file . ' coverage report -m'
 
   call util#Topen()
   execute ':T ' . command
+endfunction
+
+function! python#DebugTestFile()
+  normal! Oimport ipdb; ipdb.set_trace()
+  w
+  call util#Topen()
+  TestNearest -s
 endfunction
 
 function! s:ProcessError(input)

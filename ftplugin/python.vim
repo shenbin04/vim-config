@@ -10,7 +10,7 @@ nnoremap <buffer> <silent> <Leader>rpa :call python#BuildDepsAll()<CR>
 nnoremap <buffer> <silent> <Leader>rpt :call python#TargetGen()<CR>
 nnoremap <buffer> <silent> <Leader>rpp :call python#MakePants()<CR>
 
-nnoremap <buffer> <silent> <Leader>rd :call util#Topen()<CR>:TestNearest -s<CR>
+nnoremap <buffer> <silent> <Leader>rd :call python#DebugTestFile()<CR>
 nnoremap <buffer> <silent> <Leader>rr :call python#RunTestFile()<CR>
 
 nnoremap <buffer> <silent> <Leader>fb :Black<CR>
