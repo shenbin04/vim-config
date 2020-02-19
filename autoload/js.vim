@@ -78,58 +78,58 @@ function! js#GetJSFileFromTestFile()
 endfunction
 
 function! js#RunTestsInProject(param)
-  call s:FindJest()
   call util#Topen()
+  call s:FindJest()
   execute ':T ' . g:test#javascript#jest#executable . ' ' . a:param
   call s:MaybePop()
 endfunction
 
 function! js#RunTestsAll(param)
-  call s:FindJest({'project': 0})
   call util#Topen()
+  call s:FindJest({'project': 0})
   execute ':T ' . g:test#javascript#jest#executable . ' ' . a:param
   call s:MaybePop()
 endfunction
 
 function! js#RunTestFile()
-  call s:FindJest()
   call util#Topen()
+  call s:FindJest()
   execute ':TestFile' . s:GetCoverage()
   call s:MaybePop()
 endfunction
 
 function! js#RunTestUpdate()
-  call s:FindJest()
   call util#Topen()
+  call s:FindJest()
   execute ':TestFile' . s:GetCoverage() . ' -u'
   call s:MaybePop()
 endfunction
 
 function! js#RunTestWatch()
-  call s:FindJest()
   call util#Topen()
+  call s:FindJest()
   execute ':TestFile' . s:GetCoverage() . ' --watch'
   call s:MaybePop()
 endfunction
 
 function! js#RunTestOnly()
-  call s:FindJest()
   call util#Topen()
+  call s:FindJest()
   echo g:test#javascript#jest#executable
   execute ':T ' . g:test#javascript#jest#executable . ' -o'
   call s:MaybePop()
 endfunction
 
 function! js#RunTestLine()
-  call s:FindJest()
   call util#Topen()
+  call s:FindJest()
   execute ':TestNearest'
   call s:MaybePop()
 endfunction
 
 function! js#RunTestDebug()
-  call s:FindJest({'prefix': 'node --inspect-brk '})
   call util#Topen()
+  call s:FindJest({'prefix': 'node --inspect-brk '})
   execute ':TestNearest'
   call s:MaybePop()
 endfunction
