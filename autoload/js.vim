@@ -77,61 +77,46 @@ function! js#GetJSFileFromTestFile()
   return s:GetPrefix() . '.' . expand('%:e')
 endfunction
 
-function! js#RunTestsInProject(param)
+function! s:RunTest(...)
+  let options = a:0 > 1 ? a:2 : {}
   call util#Topen()
-  call s:FindJest()
-  execute ':T ' . g:test#javascript#jest#executable . ' ' . a:param
+  call s:FindJest(options)
+  execute a:1()
   call s:MaybePop()
 endfunction
 
-function! js#RunTestsAll(param)
-  call util#Topen()
-  call s:FindJest({'project': 0})
-  execute ':T ' . g:test#javascript#jest#executable . ' ' . a:param
-  call s:MaybePop()
+function! js#RunTestsInProject(param)
+  call s:RunTest({-> 'T ' . g:test#javascript#jest#executable . ' ' . a:param})
 endfunction
 
 function! js#RunTestFile()
-  call util#Topen()
-  call s:FindJest()
-  execute ':TestFile' . s:GetCoverage()
-  call s:MaybePop()
+  call s:RunTest({-> 'TestFile' . s:GetCoverage()})
 endfunction
 
 function! js#RunTestUpdate()
-  call util#Topen()
-  call s:FindJest()
-  execute ':TestFile' . s:GetCoverage() . ' -u'
-  call s:MaybePop()
+  call s:RunTest({-> 'TestFile' . s:GetCoverage() . ' -u'})
 endfunction
 
 function! js#RunTestWatch()
-  call util#Topen()
-  call s:FindJest()
-  execute ':TestFile' . s:GetCoverage() . ' --watch'
-  call s:MaybePop()
-endfunction
-
-function! js#RunTestOnly()
-  call util#Topen()
-  call s:FindJest()
-  echo g:test#javascript#jest#executable
-  execute ':T ' . g:test#javascript#jest#executable . ' -o'
-  call s:MaybePop()
+  call s:RunTest({-> 'TestFile' . s:GetCoverage() . ' --watch'})
 endfunction
 
 function! js#RunTestLine()
-  call util#Topen()
-  call s:FindJest()
-  execute ':TestNearest'
-  call s:MaybePop()
+  call s:RunTest({-> 'TestNearest'})
 endfunction
 
 function! js#RunTestDebug()
-  call util#Topen()
-  call s:FindJest({'prefix': 'node --inspect-brk '})
-  execute ':TestNearest'
-  call s:MaybePop()
+  normal! Odebugger;
+  w
+  call s:RunTest({-> 'TestNearest'}, {'prefix': 'node --inspect-brk '})
+endfunction
+
+function! js#RunTestsAll(param)
+  call s:RunTest({-> 'T ' . g:test#javascript#jest#executable . ' ' . a:param}, {'project': 0})
+endfunction
+
+function! js#RunTestOnly()
+  call s:RunTest({-> 'T ' . g:test#javascript#jest#executable . ' -o'})
 endfunction
 
 function! js#RunFlow()
