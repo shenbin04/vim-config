@@ -16,7 +16,7 @@ function! s:FindRoot()
   let roots = finddir('node_modules', '.;', -1)
   for root in roots
     if filereadable(root . '/.bin/jest')
-      return fnamemodify(root, ':~:.:h')
+      return fnamemodify(root, ':.:h')
     endif
   endfor
 endfunction
@@ -35,7 +35,7 @@ function! s:FindJest(...)
 
   let cmd .= 'NODE_ENV=testing NODE_PATH=. ' . get(options, 'prefix', '') . 'node_modules/.bin/jest'
   if get(options, 'project', 1)
-    let cmd .= ' --projects ' . fnamemodify(findfile('jest.config.js', '.;'), ':~:.:h')
+    let cmd .= ' --projects ' . fnamemodify(findfile('jest.config.js', '.;'), ':.:h')
   endif
   if !exists('g:test#javascript#jest#cache')
     let g:test#javascript#jest#cache = 1
@@ -56,7 +56,7 @@ endfunction
 
 function! s:GetCoverage()
   let test_file = js#GetJSFileFromTestFile()
-  let root = fnamemodify(finddir('node_modules', '.;'), ':~:.:h')
+  let root = fnamemodify(finddir('node_modules', '.;'), ':.:h')
   if root !=# '.'
     let test_file = test_file[matchend(test_file, root) + 1:]
   endif
@@ -120,13 +120,13 @@ function! js#RunTestOnly()
 endfunction
 
 function! js#RunFlow()
-  let root = fnamemodify(findfile('.flowconfig', '.;'), ':~:.:h')
+  let root = fnamemodify(findfile('.flowconfig', '.;'), ':.:h')
   call util#Topen()
   execute ':T flow ' . root . ' --show-all-errors'
 endfunction
 
 function! js#RunGlow()
-  let root = fnamemodify(findfile('.flowconfig', '.;'), ':p:h')
+  let root = fnamemodify(findfile('.flowconfig', '.;'), ':.:h')
   call util#Topen()
   execute ':T pushd ' . root . '> /dev/null && glow -w && popd > /dev/null'
 endfunction
@@ -419,7 +419,7 @@ function! s:FindError(options)
     normal! zt
 
     call win_gotoid(options.origin_win_id)
-    let [path, line; rest] = split(fnamemodify(join(split(@x), ''), ':~:.'), ':')
+    let [path, line; rest] = split(fnamemodify(join(split(@x), ''), ':.'), ':')
     execute 'edit ' . path
     execute line
   endif
@@ -443,7 +443,7 @@ function! js#SendFileToTern()
 endfunction
 
 function! js#SetPath()
-  let config = fnamemodify(findfile('BUILD', '.;'), ':~:.:h')
+  let config = fnamemodify(findfile('BUILD', '.;'), ':.:h')
   if len(config)
     execute 'setlocal path+=' . config
   endif
