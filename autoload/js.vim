@@ -120,14 +120,14 @@ function! js#RunTestOnly()
 endfunction
 
 function! js#RunFlow()
-  let root = fnamemodify(findfile('.flowconfig', '.;'), ':.:h')
   call util#Topen()
+  let root = fnamemodify(findfile('.flowconfig', '.;'), ':.:h')
   execute ':T flow ' . root . ' --show-all-errors'
 endfunction
 
 function! js#RunGlow()
-  let root = fnamemodify(findfile('.flowconfig', '.;'), ':.:h')
   call util#Topen()
+  let root = fnamemodify(findfile('.flowconfig', '.;'), ':.:h')
   execute ':T pushd ' . root . '> /dev/null && glow -w && popd > /dev/null'
 endfunction
 
