@@ -10,6 +10,7 @@ Plug 'cakebaker/scss-syntax.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'elzr/vim-json'
 Plug 'fakeezz/marvim'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'gerw/vim-HiLinkTrace'
 Plug 'godlygeek/tabular'
 Plug 'hail2u/vim-css3-syntax'
