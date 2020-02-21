@@ -38,6 +38,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'psf/black'
 Plug 'scrooloose/nerdtree'
 Plug 'shenbin04/fzf.vim'
+Plug 'shenbin04/neoterm'
 Plug 'shenbin04/vim-esformatter', { 'do': 'npm i -g esformatter' }
 Plug 'shenbin04/vim-flow-plus'
 Plug 'shime/vim-livedown', { 'do': 'npm i' }
@@ -68,17 +69,14 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 Plug 'yssl/QFEnter'
 
-Plug 'shenbin04/neoterm'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'ternjs/tern_for_vim', { 'do': 'npm i' }
 Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'davidhalter/jedi-vim', { 'do': 'git submodule update --init --recursive' }
 Plug 'carlitux/deoplete-ternjs'
-
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'lighttiger2505/deoplete-vim-lsp'
-
 Plug 'Shougo/neco-vim'
 Plug 'ujihisa/neco-look'
 
