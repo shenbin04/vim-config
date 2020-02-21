@@ -448,3 +448,11 @@ function! js#SetPath()
     execute 'setlocal path+=' . config
   endif
 endfunction
+
+function! js#GoToDefinition()
+  let current_pos = getpos('.')
+  silent! TernDef
+  if getpos('.') == current_pos
+    silent! LspDefinition
+  endif
+endfunction
