@@ -181,61 +181,41 @@ noremap \\| :Tabularize /\|<CR>
 noremap \& :Tabularize /\(&\\|\\\\\)<CR>
 
 " Deoplete
-if exists('g:plugs["deoplete.nvim"]')
-  let g:deoplete#enable_at_startup = 1
-  inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
+let g:deoplete#enable_at_startup = 1
+inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
 
-  call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
+call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
 
-  " deoplete-ternjs
-  let g:deoplete#sources#ternjs#types = 1
+" deoplete-ternjs
+let g:deoplete#sources#ternjs#types = 1
 
-  " deoplete-vim-lsp
-  call deoplete#custom#source('lsp', {'rank': 999, 'min_pattern_length': 0})
+" deoplete-vim-lsp
+call deoplete#custom#source('lsp', {'rank': 999, 'min_pattern_length': 0})
 
-  au User lsp_setup call lsp#register_server({
-        \ 'name': 'flow',
-        \ 'cmd': {server_info->['flow', 'lsp', '--from', 'vim-lsp']},
-        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), '.flowconfig'))},
-        \ 'whitelist': ['javascript', 'javascript.jsx'],
-        \ })
-endif
+au User lsp_setup call lsp#register_server({
+      \ 'name': 'flow',
+      \ 'cmd': {server_info->['flow', 'lsp', '--from', 'vim-lsp']},
+      \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), '.flowconfig'))},
+      \ 'whitelist': ['javascript', 'javascript.jsx'],
+      \ })
 
 " Tern
-if exists('g:plugs["tern_for_vim"]')
-  let g:tern#command = [$HOME . '/.vim/bundle/tern_for_vim/node_modules/.bin/tern']
-  let g:tern#arguments = ['--persistent']
-  let g:tern_show_signature_in_pum = 1
-  let g:tern_request_timeout = 10
-endif
+let g:tern#command = [$HOME . '/.vim/bundle/tern_for_vim/node_modules/.bin/tern']
+let g:tern#arguments = ['--persistent']
+let g:tern_show_signature_in_pum = 1
+let g:tern_request_timeout = 10
 
 " Jedi
-if exists('g:plugs["jedi-vim"]')
-  let g:jedi#completions_enabled = 0
-  let g:jedi#goto_command = '<Leader>ff'
-  let g:jedi#usages_command = '<Leader>fu'
-  let g:jedi#rename_command = '<Leader>fr'
-  let g:jedi#documentation_command = ''
-  let g:jedi#goto_assignments_command = ''
-  let g:jedi#goto_definitions_command = '<Leader>fd'
-  let g:jedi#goto_stubs_command = ''
+let g:jedi#completions_enabled = 0
+let g:jedi#goto_command = '<Leader>ff'
+let g:jedi#usages_command = '<Leader>fu'
+let g:jedi#rename_command = '<Leader>fr'
+let g:jedi#documentation_command = ''
+let g:jedi#goto_assignments_command = ''
+let g:jedi#goto_definitions_command = '<Leader>fd'
+let g:jedi#goto_stubs_command = ''
 
-  hi link jediUsage Search
-endif
-
-" YCM
-if exists('g:plugs["YouCompleteMe"]')
-  nnoremap <Leader>ff :YcmCompleter GoToDefinition<CR>
-  let g:ycm_key_invoke_completion = '<Leader><Tab>'
-  let g:ycm_confirm_extra_conf = 0
-  let g:ycm_show_diagnostics_ui = 0
-  let g:ycm_filetype_blacklist = {
-        \ 'tagbar' : 1,
-        \ 'qf' : 1,
-        \ 'shada' : 1
-        \ }
-  let g:ycm_global_ycm_extra_conf = '$HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-endif
+hi link jediUsage Search
 
 " Notes
 let g:notes_directories = ['$HOME/.vim/notes']

@@ -68,34 +68,19 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 Plug 'yssl/QFEnter'
 
-if v:version >= 800
-  if has('nvim')
-    Plug 'shenbin04/neoterm'
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  else
-    Plug 'Shougo/deoplete.nvim'
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
-  endif
-  Plug 'ternjs/tern_for_vim', { 'do': 'npm i' }
-  Plug 'deoplete-plugins/deoplete-jedi'
-  Plug 'davidhalter/jedi-vim', { 'do': 'git submodule update --init --recursive' }
-  Plug 'carlitux/deoplete-ternjs'
+Plug 'shenbin04/neoterm'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'ternjs/tern_for_vim', { 'do': 'npm i' }
+Plug 'deoplete-plugins/deoplete-jedi'
+Plug 'davidhalter/jedi-vim', { 'do': 'git submodule update --init --recursive' }
+Plug 'carlitux/deoplete-ternjs'
 
-  Plug 'prabirshrestha/async.vim'
-  Plug 'prabirshrestha/vim-lsp'
-  Plug 'lighttiger2505/deoplete-vim-lsp'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'lighttiger2505/deoplete-vim-lsp'
 
-  Plug 'Shougo/neco-vim'
-  Plug 'ujihisa/neco-look'
-else
-  function! BuildYCM(info)
-    if a:info.status == 'installed' || a:info.force
-      !./install.py --clang-completer --tern-completer
-    endif
-  endfunction
-  Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
-endif
+Plug 'Shougo/neco-vim'
+Plug 'ujihisa/neco-look'
 
 call plug#end()
 
