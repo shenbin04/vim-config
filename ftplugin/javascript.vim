@@ -26,7 +26,6 @@ runtime common/run_flow.vim
 nnoremap <buffer> <silent> <Leader>ct :call js#NewTestFile()<CR>
 
 nnoremap <buffer> <silent> <Leader>fc :call js#ShowFlowCoverage()<CR>
-nnoremap <buffer> <silent> <Leader>fp :FlowTypeAtPos<CR>
 
 nnoremap <buffer> <silent> <Leader>rr :call js#RunTestFile()<CR>
 nnoremap <buffer> <silent> <Leader>rw :call js#RunTestWatch()<CR>
@@ -87,6 +86,7 @@ nnoremap <buffer> <silent> <Leader>fe :call js#ShowError()<CR>
 nnoremap <buffer> <F3> :FlowCoverageToggle<CR>
 
 nnoremap <buffer> <silent> <Leader>ff :call js#GoToDefinition()<CR>
+nnoremap <buffer> <silent> <Leader>fp :LspHover<CR>
 nnoremap <buffer> <silent> <Leader>fr :TernRename<CR>
 
 let b:AutoPairs = AutoPairsDefine({'|' : '|'})
