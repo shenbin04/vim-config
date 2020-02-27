@@ -89,12 +89,12 @@ nnoremap <buffer> <silent> <Leader>fp :%Prettier<CR>
 
 nnoremap <buffer> <silent> <Leader>fe :call js#ShowError()<CR>
 
-let b:AutoPairs = AutoPairsDefine({'|' : '|'})
-
 nnoremap <buffer> <F3> :FlowCoverageToggle<CR>
 
 nnoremap <buffer> <silent> <Leader>ff :call js#GoToDefinition()<CR>
 nnoremap <buffer> <silent> <Leader>fr :TernRename<CR>
+
+let b:AutoPairs = AutoPairsDefine({'|' : '|'})
 
 call js#SendFileToTern()
 call js#SetPath()
