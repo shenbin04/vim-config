@@ -26,7 +26,7 @@ runtime common/run_flow.vim
 nnoremap <buffer> <silent> <Leader>ct :call js#NewTestFile()<CR>
 
 nnoremap <buffer> <silent> <Leader>fc :call js#ShowFlowCoverage()<CR>
-nnoremap <buffer> <silent> <Leader>ftp :FlowTypeAtPos<CR>
+nnoremap <buffer> <silent> <Leader>fp :FlowTypeAtPos<CR>
 
 nnoremap <buffer> <silent> <Leader>rr :call js#RunTestFile()<CR>
 nnoremap <buffer> <silent> <Leader>rw :call js#RunTestWatch()<CR>
@@ -81,11 +81,6 @@ vnoremap <buffer> <silent> <Leader>fes :EsformatterVisual<CR>
 
 nnoremap <buffer> <silent> <Leader>ftap :call js#ClassFunctionToClassProperty()<CR>
 nnoremap <buffer> <silent> <Leader>ftaf :call js#ToArrowFunction()<CR>
-
-nnoremap <buffer> <silent> = :set operatorfunc=util#prettierOperator<CR>g@
-nnoremap <buffer> <silent> == V:Prettier<CR>
-vnoremap <buffer> <silent> = :Prettier<CR>
-nnoremap <buffer> <silent> <Leader>fp :%Prettier<CR>
 
 nnoremap <buffer> <silent> <Leader>fe :call js#ShowError()<CR>
 
