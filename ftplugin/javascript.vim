@@ -25,8 +25,6 @@ runtime common/run_flow.vim
 
 nnoremap <buffer> <silent> <Leader>ct :call js#NewTestFile()<CR>
 
-nnoremap <buffer> <silent> <Leader>fc :call js#ShowFlowCoverage()<CR>
-
 nnoremap <buffer> <silent> <Leader>rr :call js#RunTestFile()<CR>
 nnoremap <buffer> <silent> <Leader>rw :call js#RunTestWatch()<CR>
 nnoremap <buffer> <silent> <Leader>ro :call js#RunTestOnly()<CR>
@@ -52,8 +50,8 @@ onoremap <buffer> if :call js#FindFunction('')<CR>
 vnoremap <buffer> if :call js#FindFunction('')<CR>
 onoremap <buffer> af :call js#FindFunction('j')<CR>
 vnoremap <buffer> af :call js#FindFunction('j')<CR>
-noremap <script> <buffer> <silent> [[ <nop>
-noremap <script> <buffer> <silent> ]] <nop>
+noremap <buffer> <silent> <script> [[ <nop>
+noremap <buffer> <silent> <script> ]] <nop>
 nnoremap <buffer> <silent> [[ :call js#FindFunctionPrevious()<CR>
 nnoremap <buffer> <silent> ]] :call js#FindFunctionNext()<CR>
 
@@ -81,7 +79,7 @@ nnoremap <buffer> <silent> <Leader>ftaf :call js#ToArrowFunction()<CR>
 
 nnoremap <buffer> <silent> <Leader>fe :call js#ShowError()<CR>
 
-nnoremap <buffer> <F3> :FlowCoverageToggle<CR>
+nnoremap <buffer> <F3> :FlowCoverageToggle<CR>:call js#ShowFlowCoverage()<CR>
 
 nnoremap <buffer> <silent> <Leader>ff :call js#GoToDefinition()<CR>
 nnoremap <buffer> <silent> <Leader>fp :LspHover<CR>
