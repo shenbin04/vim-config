@@ -233,19 +233,6 @@ function! js#FindTestCase(command)
   execute "normal! j?\\v^\\s+it\\('.+'\<CR>$V%" . a:command
 endfunction
 
-function! js#FormatObjectBreak()
-  let lnum = line('.')
-  let line = getline('.')
-  let [str, start, end] = matchstrpos(line, s:js_object_regex)
-  if !empty(str)
-    let indent = repeat(' ', indent(lnum))
-    let imports = sort(map(split(str, ','), {k, v -> indent . s:indent . xolox#misc#str#trim(v) . ','}))
-    call setline(lnum, line[:start - 1])
-    call append(lnum, indent . line[end:])
-    call append(lnum, imports)
-  endif
-endfunction
-
 function! js#FormatObjectSort()
   let lnum = line('.')
   let line = getline('.')
@@ -258,33 +245,6 @@ function! js#FormatObjectSort()
   endif
 endfunction
 
-function! js#FormatObjectJoin()
-  if getline('.') !~# s:js_object_regex
-    normal! $va{Jhxx%lx
-  endif
-endfunction
-
-function! js#FormatJsxBreak()
-  let lnum = line('.')
-  let line = getline('.')
-  if line =~# s:js_jsx_open_tag_regex
-    let [_, indent, variable, jsx_tag, prop, end_tag, trailing; rest] = matchlist(line, s:js_jsx_open_tag_regex)
-    if empty(variable)
-      call setline(lnum, indent . jsx_tag)
-      let props = map(sort(split(prop, '[}"]\zs ')), {k, v -> indent . s:indent . v})
-      call add(props, indent . xolox#misc#str#trim(end_tag))
-      call append(lnum, props)
-    else
-      call setline(lnum, indent . variable . '(')
-      let props = map(sort(split(prop, '[}"]\zs ')), {k, v -> indent . repeat(s:indent, 2) . v})
-      call insert(props, indent . s:indent . jsx_tag)
-      call add(props, indent . s:indent . xolox#misc#str#trim(end_tag))
-      call add(props, indent . ')' . trailing)
-      call append(lnum, props)
-    endif
-  endif
-endfunction
-
 function! js#FormatJsxSort()
   let lnum = line('.')
   let line = getline('.')
@@ -294,51 +254,6 @@ function! js#FormatJsxSort()
     call setline(lnum, indent . variable . jsx_tag . ' ' . props . end_tag . trailing)
   else
     normal viiss
-  endif
-endfunction
-
-function! js#FormatJsxJoin()
-  normal! $va<J
-  if getline('.') =~# '\v \>$'
-    normal! x
-  endif
-endfunction
-
-function! js#FormatTagBreak()
-  let lnum = line('.')
-  let line = getline('.')
-  if line =~# s:js_jsx_tag_regex
-    let [_, indent, variable, open_tag, _, content, close_tag, trailing; rest] = matchlist(line, s:js_jsx_tag_regex)
-    if empty(variable)
-      call setline(lnum, indent . open_tag)
-      call append(lnum, [indent . s:indent . content, indent . close_tag . trailing])
-    else
-      call setline(lnum, indent . variable . '(')
-      let lines = []
-      call add(lines, indent . s:indent . open_tag)
-      call add(lines, indent . repeat(s:indent, 2) . content)
-      call add(lines, indent . s:indent . close_tag)
-      call add(lines, indent . ')' . trailing)
-      call append(lnum, lines)
-    endif
-  endif
-endfunction
-
-function! js#FormatTagJoin()
-  let lnum = line('.')
-  let line = getline(lnum)
-  let prev = getline(lnum - 1)
-  let next = getline(lnum + 1)
-  if line =~# s:js_jsx_tag_regex && prev =~# '\v.+ = \($' && next =~# '\v^\s*\)'
-    let line = getline(lnum - 1)[:-2] . xolox#misc#str#trim(getline(lnum)) . xolox#misc#str#trim(getline(lnum + 1))[1:]
-    normal! djk
-    call setline(lnum - 1, line)
-  else
-    call search('\v^\s+\<[^?>]*\>$', 'b')
-    let joinspaces = &joinspaces
-    let &joinspaces = 0
-    normal vatJxf/%f>lx
-    let &joinspaces = joinspaces
   endif
 endfunction
 

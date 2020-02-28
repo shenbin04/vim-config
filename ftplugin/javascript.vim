@@ -63,14 +63,8 @@ vnoremap <buffer> iit :call js#FindTestCase('')<CR>
 onoremap <buffer> ait :call js#FindTestCase('j')<CR>
 vnoremap <buffer> ait :call js#FindTestCase('j')<CR>
 
-nnoremap <buffer> <silent> <Leader>fob :call js#FormatObjectBreak()<CR>
-nnoremap <buffer> <silent> <Leader>foj :call js#FormatObjectJoin()<CR>
 nnoremap <buffer> <silent> <Leader>fos :call js#FormatObjectSort()<CR>
-nnoremap <buffer> <silent> <Leader>fjb :call js#FormatJsxBreak()<CR>
-nnoremap <buffer> <silent> <Leader>fjj :call js#FormatJsxJoin()<CR>
 nnoremap <buffer> <silent> <Leader>fjs :call js#FormatJsxSort()<CR>
-nnoremap <buffer> <silent> <Leader>ftb :call js#FormatTagBreak()<CR>
-nnoremap <buffer> <silent> <Leader>ftj :call js#FormatTagJoin()<CR>
 
 vnoremap <buffer> <silent> <Leader>fes :EsformatterVisual<CR>
 
