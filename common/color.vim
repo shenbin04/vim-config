@@ -13,9 +13,9 @@ hi DiffText ctermfg=22 ctermbg=10
 
 hi Search ctermbg=11 ctermfg=0
 hi LineNr ctermbg=234 ctermfg=59
-hi CursorLineNr ctermbg=234 ctermfg=11
+hi CursorLineNr ctermfg=11 ctermbg=234
 hi Folded ctermfg=59 ctermbg=233
-hi Pmenu ctermfg=81 ctermbg=233
+hi Pmenu ctermfg=81 ctermbg=234
 hi PmenuSel ctermfg=118 ctermbg=233
 
 hi scssSelectorName ctermfg=81
