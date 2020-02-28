@@ -346,8 +346,8 @@ nnoremap <Leader>md :LivedownToggle<CR>
 " Neoterm
 let g:neoterm_default_mod = 'vertical botright'
 let g:neoterm_autoscroll = 1
-command! -nargs=1 NeotermSendChar :call neoterm#exec({ 'cmd': [<q-args>]})
-nnoremap <Leader>t. :NeotermSendChar 
+command! -nargs=1 NeotermSendKey :call neoterm#exec({ 'cmd': [<q-args>]})
+nnoremap <Leader>t. :NeotermSendKey 
 nnoremap <Leader>tt :Topen \| T 
 nnoremap <silent> <Leader>` :Ttoggle<CR>
 nnoremap <silent> <Leader>rb :Tkill<CR>
