@@ -44,6 +44,7 @@ Plug 'shenbin04/vim-flow-plus'
 Plug 'shime/vim-livedown', { 'do': 'npm i' }
 Plug 'sjl/gundo.vim'
 Plug 'solarnz/thrift.vim'
+Plug 'svermeulen/vim-yoink'
 Plug 'terryma/vim-expand-region'
 Plug 'tmhedberg/SimpylFold'
 Plug 'ton/vim-bufsurf'
@@ -61,7 +62,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-python/python-syntax'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/L9'
-Plug 'svermeulen/vim-yoink'
 Plug 'vim-scripts/nginx.vim'
 Plug 'vimjas/vim-python-pep8-indent'
 Plug 'w0rp/ale'
@@ -70,7 +70,7 @@ Plug 'xolox/vim-notes'
 Plug 'yssl/QFEnter'
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'ternjs/tern_for_vim', { 'do': 'npm i' }
+Plug 'shenbin04/tern_for_vim', { 'do': 'npm i' }
 Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'davidhalter/jedi-vim', { 'do': 'git submodule update --init --recursive' }
 Plug 'carlitux/deoplete-ternjs'
