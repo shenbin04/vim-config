@@ -61,7 +61,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-python/python-syntax'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/L9'
-Plug 'vim-scripts/YankRing.vim', { 'on': 'YRCheckClipboard' }
+Plug 'svermeulen/vim-yoink'
 Plug 'vim-scripts/nginx.vim'
 Plug 'vimjas/vim-python-pep8-indent'
 Plug 'w0rp/ale'
@@ -138,11 +138,7 @@ set hlsearch
 set incsearch
 
 " Viminfo
-if has('nvim')
-  set shada='2000,/500,h,\"500,:2000,n~/.vim/main.shada
-else
-  set viminfo='2000,/500,h,\"500,:2000,n~/.vim/viminfo
-endif
+set shada=!,'2000,/500,h,\"500,:2000,n~/.vim/main.shada
 
 " Undo
 set undofile

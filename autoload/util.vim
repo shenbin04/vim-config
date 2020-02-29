@@ -1,15 +1,3 @@
-function! AfterVimOpen(...)
-  YRCheckClipboard
-endfunction
-
-function! util#AfterVimOpen()
-  if has('timers')
-    call timer_start(0, 'AfterVimOpen')
-  else
-    call s:AfterVimOpen()
-  endif
-endfunction
-
 function! util#TryOpenFile(file)
   if filereadable(a:file)
     if util#ExpandRelative('%:p') != a:file

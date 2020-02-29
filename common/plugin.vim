@@ -42,15 +42,26 @@ hi GitGutterChange ctermfg=3 ctermbg=234 cterm=none
 hi GitGutterDelete ctermfg=1 ctermbg=234 cterm=none
 hi GitGutterChangeDelete ctermfg=3 ctermbg=234 cterm=none
 
-" YankRing
-nnoremap <C-y> :YRShow<CR>
-let g:yankring_max_history = 200
-let g:yankring_history_dir = '$HOME/.vim'
-let g:yankring_window_height = 20
-
-function! YRRunAfterMaps()
-  nnoremap <silent> Y :<C-u>YRYankCount 'y$'<CR>
+" Yoink
+let g:yoinkMaxItems = 200
+let g:yoinkIncludeDeleteOperations = 1
+let g:yoinkSavePersistently = 1
+nmap <C-p> <Plug>(YoinkPostPasteSwapBack)
+nmap <C-n> <Plug>(YoinkPostPasteSwapForward)
+nmap p <Plug>(YoinkPaste_p)
+nmap P <Plug>(YoinkPaste_P)
+nnoremap <silent> Y :normal y$<CR>
+function! PutYank(line)
+  let yank_history = yoink#getYankHistory()
+  for item in yank_history
+    if item.text ==# a:line
+      call yoink#manualYank(a:line, item.type)
+      normal! p
+      return
+    endif
+  endfor
 endfunction
+nnoremap <silent> <C-y> :call fzf#run(fzf#wrap({'source': map(copy(yoink#getYankHistory()), {k, v -> v.text}), 'sink': function('PutYank')}))<CR>
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
