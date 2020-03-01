@@ -75,7 +75,7 @@ Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'davidhalter/jedi-vim', { 'do': 'git submodule update --init --recursive' }
 Plug 'carlitux/deoplete-ternjs'
 Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/vim-lsp', { 'do': 'npm i -g flow-bin typescript-language-server' }
 Plug 'lighttiger2505/deoplete-vim-lsp'
 Plug 'Shougo/neco-vim'
 Plug 'ujihisa/neco-look'
