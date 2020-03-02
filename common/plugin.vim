@@ -61,7 +61,11 @@ function! PutYank(line)
     endif
   endfor
 endfunction
-nnoremap <silent> <C-y> :call fzf#run(fzf#wrap({'source': map(copy(yoink#getYankHistory()), {k, v -> v.text}), 'sink': function('PutYank')}))<CR>
+nnoremap <silent> <C-y> :call fzf#run(fzf#wrap({
+      \ 'source': map(copy(yoink#getYankHistory()), {k, v -> v.text}),
+      \ 'sink': function('PutYank'),
+      \ 'options': ['--prompt', 'Yank> '],
+      \ }))<CR>
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
