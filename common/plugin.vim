@@ -61,8 +61,8 @@ function! PutYank(line)
     endif
   endfor
 endfunction
-nnoremap <silent> <C-y> :call fzf#run(fzf#wrap({
-      \ 'source': map(copy(yoink#getYankHistory()), {k, v -> v.text}),
+nnoremap <silent> <Leader>zy :call fzf#run(fzf#wrap({
+      \ 'source': map(filter(copy(yoink#getYankHistory()), {k, v -> !empty(trim(v))}), {k, v -> v.text}),
       \ 'sink': function('PutYank'),
       \ 'options': ['--prompt', 'Yank> '],
       \ }))<CR>
