@@ -70,6 +70,7 @@ nnoremap <silent> <Leader>zy :call fzf#run(fzf#wrap({
 " Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#current_first = 1
+let g:airline#extensions#tabline#disable_refresh = 0
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_theme='powerlineish'
 let g:airline_section_x=''
