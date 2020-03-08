@@ -366,8 +366,8 @@ endfunction
 
 function! js#GoToDefinition()
   let current_pos = getpos('.')
-  silent! TernDef
+  silent! LspDefinition
   if getpos('.') == current_pos
-    silent! LspDefinition
+    silent! TernDef
   endif
 endfunction
