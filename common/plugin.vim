@@ -27,9 +27,9 @@ nnoremap <silent> <Leader>gcc :Gcommit -v<CR>
 nnoremap <silent> <Leader>gca :Gcommit -v --amend<CR>
 
 autocmd User fugitive
-  \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
-  \   nnoremap <buffer> .. :edit %:h<CR> |
-  \ endif
+      \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
+      \   nnoremap <buffer> .. :edit %:h<CR> |
+      \ endif
 
 " Gitgutter
 let g:gitgutter_max_signs = 1000
@@ -97,7 +97,7 @@ let g:NERDTreeHighlightCursorline = 1
 let g:NERDTreeMapJumpNextSibling = ''
 let g:NERDTreeMapJumpPrevSibling = ''
 let g:NERDTreeIgnore = [ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$', '\.o$', '__pycache__',
-                       \ '\.so$', '\.egg$', '^\.git$', '\.cmi', '\.cmo', 'tags' ]
+      \ '\.so$', '\.egg$', '^\.git$', '\.cmi', '\.cmo', 'tags' ]
 
 " Closetag
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.php,*.js,*.jsx'
@@ -116,16 +116,16 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '>>'
 let g:ale_linters = {
-\   'javascript': ['eslint', 'flow-language-server'],
-\   'python': ['pylint', 'flake8'],
-\   'css': ['stylelint'],
-\}
+      \   'javascript': ['eslint', 'flow-language-server'],
+      \   'python': ['pylint', 'flake8'],
+      \   'css': ['stylelint'],
+      \}
 let g:ale_fixers = {
-\   'javascript': ['prettier'],
-\   'python': ['ALEBlack'],
-\   'css': ['prettier'],
-\   'sql': ['pgformatter'],
-\}
+      \   'javascript': ['prettier'],
+      \   'python': ['ALEBlack'],
+      \   'css': ['prettier'],
+      \   'sql': ['pgformatter'],
+      \}
 let g:ale_python_pylint_change_directory = 0
 let g:ale_python_pylint_use_global = 1
 let g:ale_python_flake8_options = '--ignore=E101,E501,W291,W292,W293,W503'
