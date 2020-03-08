@@ -121,26 +121,13 @@ let g:ale_linters = {
 \   'css': ['stylelint'],
 \}
 let g:ale_fixers = {
-\   'javascript': [
-\     'prettier',
-\     'ALEPrettierAfter',
-\   ],
-\   'python': [
-\     'ALEBlack',
-\     'ALEPrettierAfter',
-\   ],
-\   'css': [
-\     'prettier',
-\     'ALEPrettierAfter',
-\   ],
+\   'javascript': ['prettier'],
+\   'python': ['ALEBlack'],
+\   'css': ['prettier'],
 \}
 let g:ale_python_pylint_change_directory = 0
 let g:ale_python_pylint_use_global = 1
 let g:ale_python_flake8_options = '--ignore=E101,E501,W291,W292,W293,W503'
-
-function! ALEPrettierAfter(buffer, lines)
-  echo '[ALE] Done'
-endfunction
 
 function! ALEBlack(buffer, lines)
   Black
