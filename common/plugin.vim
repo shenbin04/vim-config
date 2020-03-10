@@ -196,8 +196,11 @@ let g:deoplete#sources#ternjs#types = 1
 " deoplete-vim-lsp
 call deoplete#custom#source('lsp', {'rank': 999, 'min_pattern_length': 0})
 
+nnoremap <silent> <Leader>ff :LspDefinition<CR>
+nnoremap <silent> <Leader>fp :LspHover<CR>
+
 if executable('flow')
-  au User lsp_setup call lsp#register_server({
+  autocmd User lsp_setup call lsp#register_server({
         \ 'name': 'flow',
         \ 'cmd': {server_info->['flow', 'lsp', '--from', 'vim-lsp']},
         \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), '.flowconfig'))},
@@ -210,7 +213,7 @@ else
 endif
 
 if executable('typescript-language-server')
-  au User lsp_setup call lsp#register_server({
+  autocmd User lsp_setup call lsp#register_server({
         \ 'name': 'typescript support using typescript-language-server',
         \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
         \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
