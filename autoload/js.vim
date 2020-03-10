@@ -290,7 +290,7 @@ function! js#ShowError() abort
   call win_gotoid(neoterm_win_id)
   normal! Gzb
 
-  call search('\v' . xolox#misc#escape#substitute(g:shell_prompt), 'b')
+  call search('\v' . g:shell_prompt, 'b')
   if search('\v● ', 'W')
     " jest error
     call s:FindError({
