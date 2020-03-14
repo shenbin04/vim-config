@@ -194,6 +194,9 @@ call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
 let g:deoplete#sources#ternjs#types = 1
 
 " deoplete-vim-lsp
+let g:lsp_diagnostics_enabled = 0
+let g:lsp_highlight_references_enabled = 1
+highlight lspReference ctermbg=11 ctermfg=0
 call deoplete#custom#source('lsp', {'rank': 999, 'min_pattern_length': 0})
 
 nnoremap <silent> <Leader>ff :LspDefinition<CR>
