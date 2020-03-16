@@ -338,9 +338,6 @@ let g:qfenter_keymap.vopen = ['<C-v>']
 let g:qfenter_keymap.hopen = ['<C-CR>', '<C-s>', '<C-x>']
 let g:qfenter_keymap.topen = ['<C-t>']
 
-" EsFormatter
-let g:esformatter_config=$HOME.'/.vim/.esformatter.json'
-
 " Flow
 let g:flow#flowpath = util#ExpandToGit(getcwd()) . '/node_modules/.bin/flow'
 
