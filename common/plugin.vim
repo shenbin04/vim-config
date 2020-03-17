@@ -228,23 +228,23 @@ else
   echohl NONE
 endif
 
+if executable('pyls')
+  autocmd User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ })
+else
+  echohl ErrorMsg
+  echom '`pyls` not found.'
+  echohl NONE
+endif
+
 " Tern
 let g:tern#command = [$HOME . '/.vim/bundle/tern_for_vim/node_modules/.bin/tern']
 let g:tern#arguments = ['--persistent']
 let g:tern_show_signature_in_pum = 1
 let g:tern_request_timeout = 10
-
-" Jedi
-let g:jedi#completions_enabled = 0
-let g:jedi#goto_command = '<Leader>ff'
-let g:jedi#usages_command = '<Leader>fu'
-let g:jedi#rename_command = '<Leader>fr'
-let g:jedi#documentation_command = ''
-let g:jedi#goto_assignments_command = ''
-let g:jedi#goto_definitions_command = '<Leader>fd'
-let g:jedi#goto_stubs_command = ''
-
-hi link jediUsage Search
 
 " Notes
 let g:notes_directories = ['$HOME/.vim/notes']

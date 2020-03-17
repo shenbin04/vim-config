@@ -71,8 +71,6 @@ Plug 'yssl/QFEnter'
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'shenbin04/tern_for_vim', { 'do': 'npm i' }
-Plug 'deoplete-plugins/deoplete-jedi'
-Plug 'davidhalter/jedi-vim', { 'do': 'git submodule update --init --recursive' }
 Plug 'carlitux/deoplete-ternjs'
 Plug 'prabirshrestha/async.vim'
 Plug 'shenbin04/vim-lsp'
