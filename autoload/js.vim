@@ -1,7 +1,6 @@
 let s:js_function_regex = '\v^  \w+(\(.*\)(: \w+)? \{|(: \w+)? \= \(.*\)(: \w+)? \=\> (\{|.+;))$'
 let s:js_class_regex = '\v^(export )?class \w+ extends .*$'
 let s:js_object_regex = '\v\{\zs.+\ze\}.*'
-let s:js_jsx_tag_regex = '\v^(\s*)(.*)(\<(\S+)[^>]*\>)(.*)(\<\/\4\>)(;?)$'
 let s:js_jsx_open_tag_regex = '\v^(\s*)(.*)(\<\S+) (.{-1,})( ?/{,1}\>)(.*)'
 
 let s:indent = repeat(' ', &shiftwidth)
