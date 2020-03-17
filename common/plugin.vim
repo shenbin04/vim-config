@@ -259,7 +259,7 @@ hi notesName ctermfg=81 cterm=underline
 
 " Vim Test
 let g:test#strategy = 'neoterm'
-let g:test#preserve_screen = 0
+let g:test#preserve_screen = 1
 nnoremap <silent> <Leader>rl :call util#Topen()<CR>:TestNearest<CR>
 nnoremap <silent> <Leader>rr :call util#Topen()<CR>:TestFile<CR>
 
