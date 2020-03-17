@@ -11,6 +11,8 @@ let g:jsx_ext_required = 0
 
 " Python
 let g:python_highlight_all = 1
+let g:python_host_prog = $HOME . '/.virtualenvs/vim/bin/python'
+let g:python3_host_prog = $HOME . '/.virtualenvs/vim3/bin/python'
 
 " Json
 let g:vim_json_syntax_conceal = 0
