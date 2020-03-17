@@ -1,12 +1,15 @@
 " Plug
 call plug#begin('~/.vim/bundle')
 
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/neco-vim'
 Plug 'SirVer/ultisnips'
 Plug 'airblade/vim-gitgutter'
 Plug 'alvan/vim-closetag'
 Plug 'b4winckler/vim-objc'
 Plug 'bps/vim-textobj-python'
 Plug 'cakebaker/scss-syntax.vim'
+Plug 'carlitux/deoplete-ternjs'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'easymotion/vim-easymotion'
 Plug 'elzr/vim-json'
@@ -29,6 +32,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'kassio/neoterm'
 Plug 'keith/swift.vim'
 Plug 'leafgarland/typescript-vim'
+Plug 'lighttiger2505/deoplete-vim-lsp'
 Plug 'machakann/vim-highlightedyank'
 Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-grepper'
@@ -38,10 +42,13 @@ Plug 'mxw/vim-jsx'
 Plug 'nviennot/molokai'
 Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
+Plug 'prabirshrestha/async.vim'
 Plug 'psf/black'
 Plug 'scrooloose/nerdtree'
 Plug 'shenbin04/fzf.vim'
+Plug 'shenbin04/tern_for_vim', { 'do': 'npm i' }
 Plug 'shenbin04/vim-flow-plus'
+Plug 'shenbin04/vim-lsp'
 Plug 'shime/vim-livedown', { 'do': 'npm i' }
 Plug 'sjl/gundo.vim'
 Plug 'solarnz/thrift.vim'
@@ -57,6 +64,7 @@ Plug 'tpope/vim-rails'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'ujihisa/neco-look'
 Plug 'urbainvaes/vim-remembrall'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -69,15 +77,6 @@ Plug 'w0rp/ale'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 Plug 'yssl/QFEnter'
-
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'shenbin04/tern_for_vim', { 'do': 'npm i' }
-Plug 'carlitux/deoplete-ternjs'
-Plug 'prabirshrestha/async.vim'
-Plug 'shenbin04/vim-lsp'
-Plug 'lighttiger2505/deoplete-vim-lsp'
-Plug 'Shougo/neco-vim'
-Plug 'ujihisa/neco-look'
 
 call plug#end()
 
