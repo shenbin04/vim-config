@@ -28,9 +28,10 @@ function! s:FindJest(...)
   let cmd = ''
 
   if root != '.'
-    let g:test#javascript#jest#should_pop = 1
-    let cmd = 'pushd ' . root . ' > /dev/null && '
-    execute 'cd '. root
+    echohl ErrorMsg
+    echom 'Please run in project root.'
+    echohl NONE
+    return
   endif
 
   let cmd .= 'NODE_ENV=testing NODE_PATH=. ' . get(options, 'prefix', '') . 'node_modules/.bin/jest'
@@ -44,14 +45,7 @@ function! s:FindJest(...)
     let cmd .= ' --no-cache'
   endif
   let g:test#javascript#jest#executable = cmd
-endfunction
-
-function! s:MaybePop()
-  if exists('g:test#javascript#jest#should_pop') && g:test#javascript#jest#should_pop
-    let g:test#javascript#jest#should_pop = 0
-    execute 'T popd > /dev/null'
-    execute 'cd -'
-  endif
+  return 1
 endfunction
 
 function! s:GetCoverage()
@@ -79,10 +73,10 @@ endfunction
 
 function! s:RunTest(...)
   let options = a:0 > 1 ? a:2 : {}
-  call util#Topen()
-  call s:FindJest(options)
-  execute a:1()
-  call s:MaybePop()
+  if s:FindJest(options)
+    call util#Topen()
+    execute a:1()
+  endif
 endfunction
 
 function! js#RunTestsInProject(param)
