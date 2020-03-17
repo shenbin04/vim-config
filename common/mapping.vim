@@ -30,10 +30,6 @@ nnoremap ]t :tabnext<CR>
 
 " Window
 nnoremap <silent> M :call util#Zoom()<CR>
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
 nnoremap <Leader>j <C-w>J
 nnoremap <Leader>k <C-w>K
 nnoremap <Leader>h <C-w>H
