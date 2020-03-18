@@ -126,6 +126,7 @@ let g:ale_fixers = {
       \   'javascript': ['prettier'],
       \   'python': ['ALEBlack'],
       \   'css': ['prettier'],
+      \   'json': ['prettier'],
       \   'sql': ['pgformatter'],
       \}
 let g:ale_python_pylint_change_directory = 0
