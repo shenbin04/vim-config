@@ -1,7 +1,7 @@
 " Plug
 call plug#begin('~/.vim/bundle')
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'Shougo/neco-vim'
 Plug 'SirVer/ultisnips'
 Plug 'airblade/vim-gitgutter'
@@ -14,7 +14,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'easymotion/vim-easymotion'
 Plug 'elzr/vim-json'
 Plug 'fakeezz/marvim'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 Plug 'gerw/vim-HiLinkTrace'
 Plug 'godlygeek/tabular'
 Plug 'hail2u/vim-css3-syntax'
@@ -45,11 +45,11 @@ Plug 'prabirshrestha/async.vim'
 Plug 'psf/black'
 Plug 'scrooloose/nerdtree'
 Plug 'shenbin04/fzf.vim'
-Plug 'shenbin04/tern_for_vim', { 'do': 'npm i' }
+Plug 'shenbin04/tern_for_vim', {'do': 'npm i'}
 Plug 'shenbin04/vim-flow-plus'
 Plug 'shenbin04/vim-lsp'
 Plug 'shenbin04/vim-test'
-Plug 'shime/vim-livedown', { 'do': 'npm i' }
+Plug 'shime/vim-livedown', {'do': 'npm i'}
 Plug 'sjl/gundo.vim'
 Plug 'solarnz/thrift.vim'
 Plug 'svermeulen/vim-yoink'
