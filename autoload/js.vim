@@ -20,7 +20,7 @@ function! s:FindRoot()
   endfor
 endfunction
 
-function! s:FindJest(...)
+function! s:PrepareJest(...)
   let options = a:0 > 0 ? a:1 : {}
   let root = s:FindRoot()
 
@@ -28,31 +28,19 @@ function! s:FindJest(...)
 
   if root != '.'
     echohl ErrorMsg
-    echom 'Please run in project root.'
+    echom 'Please run tests in project root.'
     echohl NONE
     return
   endif
 
-  let cmd .= 'NODE_ENV=testing NODE_PATH=. ' . get(options, 'prefix', '') . 'node_modules/.bin/jest'
-  if get(options, 'project', 1)
-    let cmd .= ' --projects ' . fnamemodify(findfile('jest.config.js', '.;'), ':.:h')
-  endif
-  if !exists('g:test#javascript#jest#cache')
-    let g:test#javascript#jest#cache = 1
-  endif
-  if !g:test#javascript#jest#cache
-    let cmd .= ' --no-cache'
-  endif
-  let g:test#javascript#jest#executable = cmd
+  let g:test#javascript#jest#prefix = ['NODE_ENV=testing', 'NODE_PATH=.'] + get(options, 'prefix', [])
+  let g:test#javascript#jest#project = get(options, 'project', 1)
+
   return 1
 endfunction
 
 function! s:GetCoverage()
   let test_file = js#GetJSFileFromTestFile()
-  let root = fnamemodify(finddir('node_modules', '.;'), ':.:h')
-  if root !=# '.'
-    let test_file = test_file[matchend(test_file, root) + 1:]
-  endif
   return ' --collectCoverageFrom ' . test_file . ' --coverage '
 endfunction
 
@@ -72,7 +60,7 @@ endfunction
 
 function! s:RunTest(...)
   let options = a:0 > 1 ? a:2 : {}
-  if s:FindJest(options)
+  if s:PrepareJest(options)
     call util#Topen()
     execute a:1()
   endif
@@ -101,7 +89,7 @@ endfunction
 function! js#RunTestDebug()
   normal! Odebugger;
   w
-  call s:RunTest({-> 'TestNearest'}, {'prefix': 'node --inspect-brk '})
+  call s:RunTest({-> 'TestNearest'}, {'prefix': ['node', '--inspect-brk']})
 endfunction
 
 function! js#RunTestsAll(param)
