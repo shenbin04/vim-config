@@ -397,3 +397,11 @@ let g:startify_lists = [
       \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
       \ { 'type': 'commands',  'header': ['   Commands']       },
       \ ]
+
+" Projectionist
+noremap <silent> gs :A<CR>
+let g:projectionist_heuristics = {
+      \ '*.vim': {
+      \   'autoload/*.vim': {'alternate': 'ftplugin/{}.vim'},
+      \   'ftplugin/*.vim': {'alternate': 'autoload/{}.vim'},
+      \ }}
