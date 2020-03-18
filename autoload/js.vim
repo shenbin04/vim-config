@@ -67,7 +67,7 @@ function! s:RunTest(...)
 endfunction
 
 function! js#RunTestsInProject(param)
-  call s:RunTest({-> 'T ' . g:test#javascript#jest#executable . ' ' . a:param})
+  call s:RunTest({-> 'call test#run("", ["' . a:param . '"])'})
 endfunction
 
 function! js#RunTestFile()
@@ -93,11 +93,7 @@ function! js#RunTestDebug()
 endfunction
 
 function! js#RunTestsAll(param)
-  call s:RunTest({-> 'T ' . g:test#javascript#jest#executable . ' ' . a:param}, {'project': 0})
-endfunction
-
-function! js#RunTestOnly()
-  call s:RunTest({-> 'T ' . g:test#javascript#jest#executable . ' -o'})
+  call s:RunTest({-> 'call test#run("", ["' . a:param . '"])'}, {'project': 0})
 endfunction
 
 function! js#RunFlow()
