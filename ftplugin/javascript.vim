@@ -25,11 +25,12 @@ runtime common/run_flow.vim
 
 nnoremap <buffer> <silent> <Leader>ct :call js#NewTestFile()<CR>
 
-nnoremap <buffer> <silent> <Leader>rr :call js#RunTestFile()<CR>
-nnoremap <buffer> <silent> <Leader>rw :call js#RunTestWatch()<CR>
+nnoremap <buffer> <silent> <Leader>rr :call js#RunTestFile('')<CR>
+nnoremap <buffer> <silent> <Leader>ru :call js#RunTestFile('-u')<CR>
+nnoremap <buffer> <silent> <Leader>rw :call js#RunTestFile('--watch')<CR>
+
 nnoremap <buffer> <silent> <Leader>rl :call js#RunTestLine()<CR>
 nnoremap <buffer> <silent> <Leader>rd :call js#RunTestDebug()<CR>
-nnoremap <buffer> <silent> <Leader>ru :call js#RunTestUpdate()<CR>
 
 nnoremap <buffer> <silent> <Leader>rtt :call js#RunTestsInProject('')<CR>
 nnoremap <buffer> <silent> <Leader>rto :call js#RunTestsInProject('-o')<CR>

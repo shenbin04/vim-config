@@ -70,16 +70,8 @@ function! js#RunTestsInProject(param)
   call s:RunTest({-> 'call test#run("", ["' . a:param . '"])'})
 endfunction
 
-function! js#RunTestFile()
-  call s:RunTest({-> 'TestFile' . s:GetCoverage()})
-endfunction
-
-function! js#RunTestUpdate()
-  call s:RunTest({-> 'TestFile' . s:GetCoverage() . ' -u'})
-endfunction
-
-function! js#RunTestWatch()
-  call s:RunTest({-> 'TestFile' . s:GetCoverage() . ' --watch'})
+function! js#RunTestFile(param)
+  call s:RunTest({-> 'call test#run("file", ["' . a:param . '"])'})
 endfunction
 
 function! js#RunTestLine()
