@@ -35,13 +35,12 @@ function! s:PrepareJest(...)
 
   let g:test#javascript#jest#prefix = ['NODE_ENV=testing', 'NODE_PATH=.'] + get(options, 'prefix', [])
   let g:test#javascript#jest#project = get(options, 'project', 1)
+  let g:test#javascript#jest#options = []
+  if get(options, 'file_coverage', 0)
+    let g:test#javascript#jest#options = ['--collectCoverageFrom', js#GetJSFileFromTestFile()]
+  endif
 
   return 1
-endfunction
-
-function! s:GetCoverage()
-  let test_file = js#GetJSFileFromTestFile()
-  return ' --collectCoverageFrom ' . test_file . ' --coverage '
 endfunction
 
 function! js#OpenJSFile()
@@ -71,7 +70,7 @@ function! js#RunTestsInProject(param)
 endfunction
 
 function! js#RunTestFile(param)
-  call s:RunTest({-> 'call test#run("file", ["' . a:param . '"])'})
+  call s:RunTest({-> 'call test#run("file", ["' . a:param . '"])'}, {'file_coverage': 1})
 endfunction
 
 function! js#RunTestLine()
