@@ -1,1 +1,1 @@
-autocmd BufRead,BufNewFile .flowconfig set filetype=dosini
+autocmd BufNewFile,BufRead *.flowconfig set filetype=flowconfig
