@@ -81,7 +81,8 @@ set laststatus=2
 
 " Comentary
 nmap <Leader>c <Plug>Commentary
-vmap <Leader>c <Plug>Commentary
+xmap <Leader>c <Plug>Commentary
+omap <Leader>c <Plug>Commentary
 
 " NERDTree
 nnoremap <C-g> :NERDTreeToggle<CR>
