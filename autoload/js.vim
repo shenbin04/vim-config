@@ -3,14 +3,6 @@ let s:js_class_regex = '\v^(export )?class \w+ extends .*$'
 let s:js_object_regex = '\v\{\zs.+\ze\}.*'
 let s:js_jsx_open_tag_regex = '\v^(\s*)(.*)(\<\S+) (.{-1,})( ?/{,1}\>)(.*)'
 
-let s:indent = repeat(' ', &shiftwidth)
-
-function! s:GetPrefix()
-  let dir = split(util#ExpandRelative('%:p:h'), '/')
-  let base = join(dir[0:dir[-1] == '__snapshots__' ? -2 : -1], '/')
-  return base . '/' . util#GetBaseFileName()
-endfunction
-
 function! s:FindRoot()
   let roots = finddir('node_modules', '.;', -1)
   for root in roots
@@ -43,18 +35,8 @@ function! s:PrepareJest(...)
   return 1
 endfunction
 
-function! js#OpenJSFile()
-  let prefix = s:GetPrefix()
-  for extension in ['.js', '.jsx']
-    let file = prefix . extension
-    if util#TryOpenFile(file)
-      return
-    endif
-  endfor
-endfunction
-
 function! js#GetJSFileFromTestFile()
-  return s:GetPrefix() . '.' . expand('%:e')
+  return util#ExpandRelative('%:p:h') . '/' . util#GetBaseFileName() . '.' . expand('%:e')
 endfunction
 
 function! s:RunTest(...)
@@ -97,35 +79,6 @@ function! js#RunGlow()
   call util#Topen()
   let root = fnamemodify(findfile('.flowconfig', '.;'), ':.:h')
   execute ':T pushd ' . root . '> /dev/null && glow -w && popd > /dev/null'
-endfunction
-
-function! js#OpenTestFile()
-  let prefix = s:GetPrefix()
-  for extension in ['.js', '.jsx']
-    let file = prefix . '.test' . extension
-    if util#TryOpenFile(file)
-      return
-    endif
-  endfor
-endfunction
-
-function! js#OpenSnapshotFile()
-  for extension in ['.js', '.jsx']
-    let file = util#ExpandRelative('%:p:h') . '/__snapshots__/' . util#GetBaseFileName() . '.test' . extension . '.snap'
-    if util#TryOpenFile(file)
-      return
-    endif
-  endfor
-endfunction
-
-function! js#OpenCssFile()
-  let prefix = s:GetPrefix()
-  for extension in ['.css', '.scss', '.sass']
-    let file = prefix . extension
-    if util#TryOpenFile(file)
-      return
-    endif
-  endfor
 endfunction
 
 function! js#RequireToImport()
