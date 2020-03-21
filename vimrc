@@ -48,6 +48,7 @@ Plug 'shenbin04/fzf.vim'
 Plug 'shenbin04/tern_for_vim', {'do': 'npm i'}
 Plug 'shenbin04/vim-flow-plus'
 Plug 'shenbin04/vim-lsp'
+Plug 'shenbin04/vim-related'
 Plug 'shenbin04/vim-snap'
 Plug 'shenbin04/vim-test'
 Plug 'shime/vim-livedown', {'do': 'npm i'}
