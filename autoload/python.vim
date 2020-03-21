@@ -1,14 +1,3 @@
-function! python#OpenPythonFile()
-  let dir = util#ExpandRelative('%:p:h')
-  let file = dir . '/' . join(split(expand('%:t'), '_')[0:-2], '_') . '.py'
-  call util#TryOpenFile(file)
-endfunction
-
-function! python#OpenTestFile()
-  let file = util#ExpandRelative('%:p:r') . '_test.py'
-  call util#TryOpenFile(file)
-endfunction
-
 function! python#OpenBuildFile()
   let file = findfile('BUILD', '.;')
   call util#TryOpenFile(file)
