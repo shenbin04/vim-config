@@ -401,9 +401,4 @@ let g:startify_lists = [
       \ ]
 
 " Projectionist
-noremap <silent> gs :A<CR>
-let g:projectionist_heuristics = {
-      \ '*.vim': {
-      \   'autoload/*.vim': {'alternate': 'ftplugin/{}.vim'},
-      \   'ftplugin/*.vim': {'alternate': 'autoload/{}.vim'},
-      \ }}
+nnoremap <silent> gs :A<CR>
