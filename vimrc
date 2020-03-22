@@ -1,6 +1,7 @@
 " Plug
 call plug#begin('~/.vim/bundle')
 
+Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'Shougo/neco-vim'
 Plug 'SirVer/ultisnips'
@@ -37,7 +38,6 @@ Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-grepper'
 Plug 'mhinz/vim-startify'
 Plug 'michaeljsmith/vim-indent-object'
-Plug 'mxw/vim-jsx'
 Plug 'nviennot/molokai'
 Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'

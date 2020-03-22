@@ -7,7 +7,8 @@ let g:xml_use_xhtml = 1
 " Javascript
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_flow = 1
-let g:jsx_ext_required = 0
+let g:vim_jsx_pretty_colorful_config = 1
+let g:vim_jsx_pretty_highlight_close_tag = 1
 
 " Python
 let g:python_highlight_all = 1
