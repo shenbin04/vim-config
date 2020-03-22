@@ -354,8 +354,9 @@ let g:marvim_find_key = '<Leader>mf'
 let g:marvim_store_key = '<Leader>ms'
 noremap <Leader>me :execute 'e ' . g:marvim_store<CR>
 
-" Live Markdown
-nnoremap <Leader>md :LivedownToggle<CR>
+" Markdown
+let g:mkdp_auto_close = 0
+nmap <Leader>md <Plug>MarkdownPreviewToggle
 
 " Neoterm
 let g:neoterm_default_mod = 'vertical botright'
