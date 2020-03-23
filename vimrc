@@ -1,6 +1,7 @@
 " Plug
 call plug#begin('~/.vim/bundle')
 
+Plug 'HerringtonDarkholme/yats.vim'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'Shougo/neco-vim'
@@ -32,7 +33,6 @@ Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-user'
 Plug 'kassio/neoterm'
 Plug 'keith/swift.vim'
-Plug 'leafgarland/typescript-vim'
 Plug 'lighttiger2505/deoplete-vim-lsp'
 Plug 'machakann/vim-highlightedyank'
 Plug 'majutsushi/tagbar'
