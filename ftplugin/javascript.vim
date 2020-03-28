@@ -1,25 +1,6 @@
 setlocal textwidth=120
 setlocal colorcolumn=+1
 
-hi link jsClassProperty jsClassFuncName
-hi link jsObjectKey Identifier
-hi link jsImport jsClassKeyword
-hi link jsFrom jsClassKeyword
-hi link jsExport jsClassKeyword
-hi link jsExtendsKeyword jsClassKeyword
-hi link jsObjectKeyComputed jsGlobalObjects
-hi link jsFlowObject Identifier
-hi link jsFlowGroup Identifier
-hi link jsFlowTypeStatement jsGlobalObjects
-hi link jsFlowTypeValue jsGlobalObjects
-hi link jsFlowTypeof jsClassKeyword
-hi link jsFlowImportType jsGlobalObjects
-hi jsThis ctermfg=81
-hi jsFuncCall ctermfg=81
-hi jsFuncName ctermfg=118
-hi jsClassDefinition ctermfg=81
-hi jsTemplateBraces ctermfg=81
-
 runtime common/run_flow.vim
 
 nnoremap <buffer> <silent> <Leader>ct :call js#NewTestFile()<CR>

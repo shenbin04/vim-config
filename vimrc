@@ -39,6 +39,7 @@ Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-grepper'
 Plug 'mhinz/vim-startify'
 Plug 'michaeljsmith/vim-indent-object'
+Plug 'morhetz/gruvbox'
 Plug 'nviennot/molokai'
 Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
@@ -146,9 +147,6 @@ set undofile
 set undodir=~/.vim/undo
 set undolevels=1000
 
-" Color
-runtime common/color.vim
-
 " Mapping
 runtime common/mapping.vim
 
@@ -157,6 +155,9 @@ runtime common/autocmd.vim
 
 " Plugin
 runtime common/plugin.vim
+
+" Color
+colorscheme gruvbox
 
 " Local
 runtime vimrc.local
