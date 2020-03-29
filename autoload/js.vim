@@ -287,9 +287,17 @@ function! js#SetPath()
 endfunction
 
 function! js#GoToDefinition()
-  let current_pos = getpos('.')
-  silent! LspDefinition
-  if getpos('.') == current_pos
+  let initial_pos = getpos('.')
+
+  let current_pos = initial_pos
+  silent! TernDef
+  while getpos('.') != current_pos
+    let current_pos = getpos('.')
     silent! TernDef
+  endwhile
+
+  if current_pos == initial_pos || getline('.')[col('.') - 1] =~ '\W'
+    call setpos('.', initial_pos)
+    silent! LspDefinition
   endif
 endfunction
