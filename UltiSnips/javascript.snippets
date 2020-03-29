@@ -119,16 +119,16 @@ endsnippet
 
 snippet ntf "New react component test with factory" b
 // @flow
-import {factoryShallow} from 'javascript/oscar-test-utils/factory';
+import {factoryShallow} from '${1:javascript/oscar-test-utils/factory}';
 
-import {${1:`!v util#GetBaseFileName()`}} from './`!v util#GetBaseFileName()`';
+import {${2:`!v util#GetBaseFileName()`}} from './`!v util#GetBaseFileName()`';
 
 const defaultProps = {
 };
 
-describe('$1', () => {
+describe('$2', () => {
   it('renders', () => {
-    const {component} = factoryShallow($1, defaultProps);
+    const {component} = factoryShallow($2, defaultProps);
     expect(component).toMatchSnapshot();
   });
 });
