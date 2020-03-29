@@ -39,6 +39,7 @@ Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-grepper'
 Plug 'mhinz/vim-startify'
 Plug 'michaeljsmith/vim-indent-object'
+Plug 'morhetz/gruvbox'
 Plug 'nviennot/molokai'
 Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
@@ -46,7 +47,6 @@ Plug 'prabirshrestha/async.vim'
 Plug 'psf/black'
 Plug 'scrooloose/nerdtree'
 Plug 'shenbin04/fzf.vim'
-Plug 'shenbin04/gruvbox'
 Plug 'shenbin04/molokai'
 Plug 'shenbin04/tern_for_vim', {'do': 'npm i'}
 Plug 'shenbin04/vim-flow-plus'
@@ -157,8 +157,8 @@ runtime common/autocmd.vim
 " Plugin
 runtime common/plugin.vim
 
-" Color
-colorscheme gruvbox
-
 " Local
 runtime vimrc.local
+
+" Color
+runtime common/color.vim
