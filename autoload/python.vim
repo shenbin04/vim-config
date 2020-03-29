@@ -47,7 +47,7 @@ function! python#RunTestFile()
   let python_file = dir . '/' . join(split(expand('%:t'), '_')[0:-2], '_') . '.py'
   let coverage_file = 'COVERAGE_FILE=.coverage.python'
   let command = coverage_file . ' coverage run --branch --include ' . python_file
-        \ . ' -m pytest --pdb ' . test_file
+        \ . ' -m pytest ' . test_file
         \ . ' && ' . coverage_file . ' coverage report -m'
 
   call util#Topen()
@@ -55,8 +55,6 @@ function! python#RunTestFile()
 endfunction
 
 function! python#DebugTestFile()
-  normal! Oimport ipdb; ipdb.set_trace()
-  w
   call util#Topen()
   TestNearest -s
 endfunction
