@@ -39,11 +39,6 @@ let g:gitgutter_max_signs = 1000
 nmap <Leader>gaa <Plug>GitGutterStageHunk
 nmap <Leader>gp <Plug>GitGutterPreviewHunk
 nmap <Leader>gu <Plug>GitGutterUndoHunk
-hi GitGutterAdd ctermfg=28 ctermbg=234 cterm=none
-hi GitGutterAddLine ctermfg=28 ctermbg=234 cterm=none
-hi GitGutterChange ctermfg=3 ctermbg=234 cterm=none
-hi GitGutterDelete ctermfg=1 ctermbg=234 cterm=none
-hi GitGutterChangeDelete ctermfg=3 ctermbg=234 cterm=none
 
 " Yoink
 let g:yoinkMaxItems = 200
@@ -88,11 +83,6 @@ omap <Leader>c <Plug>Commentary
 " NERDTree
 nnoremap <C-g> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>zz
-hi NERDTreeDir ctermfg=81 cterm=none
-hi NERDTreeDirSlash ctermfg=81 cterm=none
-hi NERDTreeCWD ctermfg=118 cterm=none
-hi NERDTreeOpenable ctermfg=59 cterm=none
-hi NERDTreeClosable ctermfg=7 cterm=none
 let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeShowFiles = 1
 let g:NERDTreeShowBookmarks = 1
@@ -139,11 +129,6 @@ let g:ale_sql_pgformatter_options = '%s'
 function! ALEBlack(buffer, lines)
   Black
 endfunction
-
-hi ALEErrorSign ctermfg=015 ctermbg=001 cterm=none
-hi ALEWarningSign ctermfg=015 ctermbg=166 cterm=none
-hi link ALEError clear
-hi link ALEWarning clear
 
 nmap <Leader>fa <Plug>(ale_fix)
 nnoremap <Leader>p :ALEPreviousWrap<CR>
@@ -257,7 +242,6 @@ let g:tern_request_timeout = 10
 let g:notes_directories = ['$HOME/.vim/notes']
 nnoremap <Leader>er :RecentNote<CR>
 nnoremap <Leader>en :MostRecentNote<CR>
-hi notesName ctermfg=81 cterm=underline
 
 " Vim Test
 let g:test#strategy = 'neoterm'
