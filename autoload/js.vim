@@ -61,8 +61,6 @@ function! js#RunTestLine()
 endfunction
 
 function! js#RunTestDebug()
-  normal! Odebugger;
-  w
   call s:RunTest({-> 'TestNearest'}, {'prefix': ['node', '--inspect-brk']})
 endfunction
 
