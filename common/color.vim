@@ -15,6 +15,7 @@ if empty(colorscheme)
   hi! link NERDTreeDirSlash GruvboxBlue
   hi! link NERDTreeOpenable GruvboxGray
   hi! link NERDTreeClosable GruvboxOrange
+  hi! link pythonDottedName GruvboxOrange
 elseif colorscheme == 'molokai'
   hi! GitGutterAdd ctermfg=28 ctermbg=234
   hi! GitGutterAddLine ctermfg=28 ctermbg=234
