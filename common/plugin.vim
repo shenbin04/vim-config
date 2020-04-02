@@ -183,6 +183,11 @@ call deoplete#custom#source('look', 'min_pattern_length', 5)
 call deoplete#custom#option('ignore_sources', {'css': ['look']})
 
 " deoplete-ternjs
+let g:deoplete#sources#ternjs#case_insensitive = 1
+let g:deoplete#sources#ternjs#depths = 1
+let g:deoplete#sources#ternjs#docs = 1
+let g:deoplete#sources#ternjs#filter = 0
+let g:deoplete#sources#ternjs#timeout = 10
 let g:deoplete#sources#ternjs#types = 1
 
 " deoplete-vim-lsp
