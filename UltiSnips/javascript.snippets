@@ -152,12 +152,14 @@ snippet iri "Import react-intl"
 import {${1:FormattedMessage}} from 'react-intl';
 endsnippet
 
-snippet afm "Add FormattedMessage"
+snippet afm "Add FormattedMessage" i
+
 <FormattedMessage
-  defaultMessage="${1}"
+  defaultMessage="${1:${VISUAL}}"
   description="${2}"
   id="${3}"
 />
+
 endsnippet
 
 snippet it "it (jest)"
