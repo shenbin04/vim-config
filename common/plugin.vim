@@ -181,7 +181,7 @@ inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
 
 call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
 call deoplete#custom#source('look', 'min_pattern_length', 5)
-call deoplete#custom#option('ignore_sources', {'css': ['look']})
+call deoplete#custom#option('ignore_sources', {'css': ['look'], 'javascript': ['file']})
 
 " deoplete-ternjs
 let g:deoplete#sources#ternjs#case_insensitive = 1
