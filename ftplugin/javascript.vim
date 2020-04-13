@@ -63,4 +63,3 @@ nnoremap <buffer> <silent> <Leader>fl :LspDefinition<CR>
 let b:AutoPairs = AutoPairsDefine({'|' : '|'})
 
 call js#SendFileToTern()
-call js#SetPath()

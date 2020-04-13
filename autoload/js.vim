@@ -277,12 +277,26 @@ function! js#SendFileToTern()
   endif
 endfunction
 
-function! js#SetPath()
-  let config = fnamemodify(findfile('BUILD', '.;'), ':.:h')
-  if len(config)
-    execute 'setlocal path+=' . config
-  endif
-endfunction
+" function! s:handler(job_id, data, event_type)
+"   try
+"     let resolve = json_decode(join(a:data, "\n"))
+"     let b:webpack_resolve = resolve
+"     for module in resolve.modules
+"       execute 'setlocal path+=' . module
+"     endfor
+"   catch
+"   endtry
+" endfunction
+
+" function! js#SetPath()
+"   let config = findfile('webpack.config.js', '.;')
+"   if len(config)
+"     let jobid = async#job#start(['bash', '-c', 'NODE_PATH=. node ~/.vim/autoload/webpack.js ' . fnamemodify(config, ':p')], {
+"           \ 'on_stdout': function('s:handler'),
+"           \ 'on_stderr': function('s:handler'),
+"           \ })
+"   endif
+" endfunction
 
 function! js#GoToDefinition()
   let initial_pos = getpos('.')
