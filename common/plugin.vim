@@ -292,6 +292,7 @@ nnoremap <Leader>aa :<C-R>=util#get_search_cmd()<CR>
 noremap <Leader>, :cclose<CR>:call util#CloseFugitive()<CR>:History<CR>
 noremap <Leader>. :Mixed<CR>
 noremap <Leader>za :Files<CR>
+noremap <Leader>ze :Snippets<CR>
 noremap <Leader>zgb :BCommits<CR>
 noremap <Leader>zgc :Commits<CR>
 noremap <Leader>zm :Maps<CR>
