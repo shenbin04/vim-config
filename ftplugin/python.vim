@@ -10,6 +10,7 @@ nnoremap <buffer> <silent> <Leader>rpp :call python#MakePants()<CR>
 
 nnoremap <buffer> <silent> <Leader>rd :call python#DebugTestFile()<CR>
 nnoremap <buffer> <silent> <Leader>rr :call python#RunTestFile()<CR>
+nnoremap <buffer> <silent> <Leader>ru :call python#RunTestFile('--updateSnapshot')<CR>
 
 nnoremap <buffer> <silent> = :set operatorfunc=util#yapfOperator<CR>g@
 nnoremap <buffer> <silent> == V:YAPF<CR>
