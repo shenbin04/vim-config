@@ -97,6 +97,11 @@ function! python#ShowError() abort
       call search('Actual call:')
       normal! f(
       silent normal! "yyib
+    elseif search('Lists differ:', 'cW')
+      normal! f[
+      silent normal! "xy%
+      normal! %2W
+      silent normal! "yy%
     else
       silent normal! "xy%
       normal! %2W
