@@ -289,15 +289,15 @@ command! -bang -nargs=+ -complete=dir Ag call util#ag(<q-args>, <bang>0)
 
 nnoremap <Leader>aa :<C-R>=util#get_search_cmd()<CR> 
 
-noremap <Leader>, :cclose<CR>:call util#CloseFugitive()<CR>:History<CR>
+noremap <Leader>, :cclose<CR>:call util#CloseFugitive()<CR>:History!<CR>
 noremap <Leader>. :Mixed<CR>
-noremap <Leader>za :Files<CR>
-noremap <Leader>ze :Snippets<CR>
-noremap <Leader>zgb :BCommits<CR>
-noremap <Leader>zgc :Commits<CR>
-noremap <Leader>zm :Maps<CR>
+noremap <Leader>za :Files!<CR>
+noremap <Leader>ze :Snippets!<CR>
+noremap <Leader>zgb :BCommits!<CR>
+noremap <Leader>zgc :Commits!<CR>
+noremap <Leader>zm :Maps!<CR>
 noremap <Leader>zz :GFiles?<CR>
-noremap <Leader>zc :History:<CR>
+noremap <Leader>zc :History:!<CR>
 noremap <silent> <Leader>zb :call fzf#run({'source': 'git --no-pager branch --format "%(refname:short)"', 'sink': '!git checkout'})<CR>
 
 " Unimpaired
