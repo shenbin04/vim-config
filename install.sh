@@ -20,4 +20,8 @@ pip install yapf
 
 npm install -g neovim@4.6.0
 
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  brew install bat pgformatter
+fi
+
 echo 'Done'
