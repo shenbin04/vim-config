@@ -63,7 +63,7 @@ endfunction
 function! s:ProcessError(input)
   let result = substitute(a:input, '\n', '', 'g')
   let result = substitute(result, '<.*>', '"\0"', 'g')
-  let result = substitute(result, 'u\(''\S*''\)', '\1', 'g')
+  let result = substitute(result, '\vu(''.{-}'')', '\1', 'g')
   return result
 endfunction
 
@@ -87,7 +87,7 @@ function! python#ShowError() abort
   call win_gotoid(util#get_neoterm_window())
   normal! Gzb
 
-  call search('\v' . xolox#misc#escape#substitute(g:shell_prompt), 'b')
+  call search('\v' . g:shell_prompt, 'b')
   if search('\v^E\s+AssertionError: \zs')
     let @x = ''
     let @y = ''
