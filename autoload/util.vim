@@ -211,12 +211,12 @@ function! util#get_neoterm_window() abort
   endfor
 endfunction
 
-function! util#toggle_flag(flag, default) abort
+function! util#toggle_flag(flag, default, value) abort
   if !exists(a:flag)
-    execute 'let ' . a:flag . ' = ' . a:default
+    execute 'let ' . a:flag . ' = ' . string(a:default)
   endif
-  execute 'let ' . a:flag . ' = !' . a:flag
-  execute 'echo "[toggle_flag] ' . a:flag . ' = " . ' . a:flag
+  execute 'let ' . a:flag . ' = ' a:flag . ' == ' . string(a:default) . '? ' . string(a:value) . ' : ' . string(a:default)
+  execute 'echo "[toggle_flag] ' . a:flag . ' = " . string(' . a:flag . ')'
 endfunction
 
 function! util#get_search_cmd() abort

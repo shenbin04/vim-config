@@ -360,6 +360,7 @@ nnoremap <Leader>tt :Topen \| T
 nnoremap <silent> <Leader>` :Ttoggle<CR>
 nnoremap <silent> <Leader>rb :Tkill<CR>
 nnoremap <silent> <Leader>rc :Tclose!<CR>
+nnoremap <silent> <Leader>rm :call util#toggle_flag('g:neoterm_default_mod', 'vertical botright', 'botright')<CR>
 
 " GV
 nnoremap <silent> <Leader>gla :GV<CR>
