@@ -211,6 +211,23 @@ function! util#get_neoterm_window() abort
   endfor
 endfunction
 
+function! util#get_neoterm_window_nr() abort
+  for nr in range(1, winnr('$'))
+    if getwinvar(nr, '&filetype') ==# 'neoterm'
+      return nr
+    endif
+  endfor
+endfunction
+
+function! util#NeotermResize() abort
+  let neoterm_window_nr = util#get_neoterm_window_nr()
+  if !neoterm_window_nr
+    return
+  endif
+
+  silent! execute join(map(['<', '>', '-', '+'], {_, val -> neoterm_window_nr . 'wincmd ' . val}), ' | ')
+endfunction
+
 function! util#toggle_flag(flag, default, value) abort
   if !exists(a:flag)
     execute 'let ' . a:flag . ' = ' . string(a:default)

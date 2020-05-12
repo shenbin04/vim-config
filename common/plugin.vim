@@ -357,6 +357,7 @@ let g:neoterm_fixedsize = 1
 command! -nargs=1 NeotermSendKey :call neoterm#exec({ 'cmd': [<q-args>]})
 nnoremap <Leader>t. :NeotermSendKey 
 nnoremap <Leader>tt :Topen \| T 
+nnoremap <silent> <Leader>tr :call util#NeotermResize()<CR>
 nnoremap <silent> <Leader>` :Ttoggle<CR>
 nnoremap <silent> <Leader>rb :Tkill<CR>
 nnoremap <silent> <Leader>rc :Tclose!<CR>
