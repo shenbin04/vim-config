@@ -19,6 +19,7 @@ pip install python-language-server
 pip install yapf
 
 npm install -g neovim@4.6.0
+npm install -g jsctags
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   brew install bat pgformatter
