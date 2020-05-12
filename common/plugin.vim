@@ -281,14 +281,29 @@ let g:fzf_colors = {
       \ 'spinner': ['fg', 'Label'],
       \ 'header':  ['fg', 'Comment'],
       \ }
+let g:fzf_preview_window = 'right'
 
-command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-command! -bang -nargs=? -complete=dir GitFiles call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(), <bang>0)
-command! -bang -nargs=? -complete=dir GFiles call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(), <bang>0)
-command! -bang -nargs=? -complete=dir Mixed call fzf#vim#mixed(<q-args>, fzf#vim#with_preview(), <bang>0)
-command! -bang -nargs=+ -complete=dir Ag call util#ag(<q-args>, <bang>0)
+command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, fzf#vim#with_preview(g:fzf_preview_window), <bang>0)
+command! -bang -nargs=? -complete=dir GitFiles call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(g:fzf_preview_window), <bang>0)
+command! -bang -nargs=? -complete=dir GFiles call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(g:fzf_preview_window), <bang>0)
+command! -bang -nargs=? -complete=dir Mixed call fzf#vim#mixed(<q-args>, fzf#vim#with_preview(g:fzf_preview_window), <bang>0)
+command! -bang -nargs=? -complete=dir History call s:history(<q-args>, <bang>0)
+command! -bang -nargs=* -complete=dir Ag call util#ag(<q-args>, <bang>0)
+
+function! s:history(arg, bang)
+  let bang = a:bang || a:arg[len(a:arg)-1] == '!'
+  if a:arg[0] == ':'
+    call fzf#vim#command_history(bang)
+  elseif a:arg[0] == '/'
+    call fzf#vim#search_history(bang)
+  else
+    call fzf#vim#history(fzf#vim#with_preview(g:fzf_preview_window), bang)
+  endif
+endfunction
 
 nnoremap <Leader>aa :<C-R>=util#get_search_cmd()<CR> 
+
+nnoremap <silent> <Leader>zp :call util#toggle_flag('g:fzf_preview_window', 'right', 'up')<CR>
 
 noremap <Leader>, :cclose<CR>:call util#CloseFugitive()<CR>:History!<CR>
 noremap <Leader>. :Mixed<CR>
