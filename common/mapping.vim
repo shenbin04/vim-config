@@ -58,6 +58,7 @@ nnoremap go :call util#OpenOwnersFile()<CR>
 nnoremap <Leader>s :%s/
 nnoremap <Leader>S :%S/
 vnoremap <Leader>s :S/
+nnoremap <Leader>gg :%g/
 nnoremap & :&&<CR>
 xnoremap & :&&<CR>
 nnoremap <silent> <Leader>x :noh<CR>:call util#ClearHighlight()<CR>
