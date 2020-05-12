@@ -196,6 +196,7 @@ let g:lsp_diagnostics_enabled = 0
 let g:lsp_highlight_references_enabled = 1
 highlight lspReference ctermbg=11 ctermfg=0
 call deoplete#custom#source('lsp', {'rank': 999, 'min_pattern_length': 0})
+call deoplete#custom#source('tern', {'rank': 100})
 
 nnoremap <silent> <Leader>ff :LspDefinition<CR>
 nnoremap <silent> <Leader>fp :LspHover<CR>
