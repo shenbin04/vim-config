@@ -277,7 +277,7 @@ function! util#ag(args, bang)
     unlet args[i]
   endif
 
-  call fzf#vim#ag_raw(join(args), fzf#vim#with_preview(options), a:bang)
+  call fzf#vim#ag_raw(join(args), fzf#vim#with_preview(options, g:fzf_preview_window), a:bang)
 endfunction
 
 function! util#Topen()
