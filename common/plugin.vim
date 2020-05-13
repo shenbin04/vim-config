@@ -303,7 +303,27 @@ endfunction
 
 nnoremap <Leader>aa :<C-R>=util#get_search_cmd()<CR> 
 
-nnoremap <silent> <Leader>zp :call util#toggle_flag('g:fzf_preview_window', 'right', 'up')<CR>
+let g:toggle_flags = [
+      \ {'name': 'g:test#javascript#jest#cache', 'default': 1, 'value': 0},
+      \ {'name': 'g:search#use_fzf', 'default': 1, 'value': 0},
+      \ {'name': 'g:fzf_preview_window', 'default': 'right', 'value': 'up'},
+      \ {'name': 'g:neoterm_default_mod', 'default': 'vertical botright', 'value': 'botright'},
+      \]
+
+function! ToggleFlag(line)
+  for flag in g:toggle_flags
+    if flag.name ==# a:line
+      call util#toggle_flag(flag.name, flag.default, flag.value)
+      return
+    endif
+  endfor
+endfunction
+
+nnoremap <silent> <Leader>zt :call fzf#run(fzf#wrap({
+      \ 'source': map(copy(g:toggle_flags), {_, val -> val.name}),
+      \ 'sink': function('ToggleFlag'),
+      \ 'options': ['--prompt', 'Toggle Flag> '],
+      \ }))<CR>
 
 noremap <Leader>, :cclose<CR>:call util#CloseFugitive()<CR>:History!<CR>
 noremap <Leader>. :Mixed<CR>
@@ -376,7 +396,6 @@ nnoremap <silent> <Leader>tr :call util#NeotermResize()<CR>
 nnoremap <silent> <Leader>` :Ttoggle<CR>
 nnoremap <silent> <Leader>rb :Tkill<CR>
 nnoremap <silent> <Leader>rc :Tclose!<CR>
-nnoremap <silent> <Leader>rm :call util#toggle_flag('g:neoterm_default_mod', 'vertical botright', 'botright')<CR>
 
 " GV
 nnoremap <silent> <Leader>gla :GV<CR>
