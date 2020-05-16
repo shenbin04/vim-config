@@ -80,21 +80,6 @@ function! js#RunGlow()
   execute ':T pushd ' . root . '> /dev/null && glow -w && popd > /dev/null'
 endfunction
 
-function! js#RequireToImport()
-  call util#Topen()
-  execute ':T npm run update-require-to-import ' . util#ExpandRelative('%')
-endfunction
-
-function! js#OrganizeImports()
-  call util#Topen()
-  execute ':T npm run organize-imports ' . util#ExpandRelative('%')
-endfunction
-
-function! js#TypeConnect()
-  call util#Topen()
-  execute ':T npm run type-connect ' . util#ExpandRelative('%')
-endfunction
-
 function! js#FindFunction(command)
   execute 'normal! j?' . escape(s:js_function_regex, '?') . "\<CR>$V%" . a:command
 endfunction
@@ -258,11 +243,6 @@ function! s:FindError(options)
     execute 'edit ' . path
     execute line
   endif
-endfunction
-
-function! js#GenProtobuf()
-  call util#Topen()
-  execute ':T ./pants gen-protobuf-javascript protobuf/src::'
 endfunction
 
 function! SendFileToTern(...)

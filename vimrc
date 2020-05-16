@@ -148,6 +148,7 @@ set shada=!,'2000,/500,h,\"500,:2000,n~/.vim/main.shada
 set undofile
 set undodir=~/.vim/undo
 set undolevels=1000
+set runtimepath+=.vim.project
 
 " Mapping
 runtime common/mapping.vim
@@ -159,7 +160,7 @@ runtime common/autocmd.vim
 runtime common/plugin.vim
 
 " Local
-runtime vimrc.local
+runtime! vimrc.local
 
 " Color
 runtime common/color.vim

@@ -310,12 +310,6 @@ function! util#EditProject()
   execute 'Files ' . util#FindProject()
 endfunction
 
-function! util#GenAll()
-  call python#GenThrift()
-  call python#GenProtobuf()
-  call js#GenProtobuf()
-endfunction
-
 function! util#RenameFile()
   let current_file = expand('%:p')
   let name = input('Rename ' . expand('%:t') . ' to: ', current_file)

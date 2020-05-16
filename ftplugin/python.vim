@@ -1,16 +1,8 @@
 setlocal textwidth=120
 setlocal colorcolumn=+1
 
-nnoremap <buffer> <silent> gb :call python#OpenBuildFile()<CR>
-
-nnoremap <buffer> <silent> <Leader>rpb :call python#BuildDeps()<CR>
-nnoremap <buffer> <silent> <Leader>rpa :call python#BuildDepsAll()<CR>
-nnoremap <buffer> <silent> <Leader>rpt :call python#TargetGen()<CR>
-nnoremap <buffer> <silent> <Leader>rpp :call python#MakePants()<CR>
-
 nnoremap <buffer> <silent> <Leader>rd :call python#DebugTestFile()<CR>
 nnoremap <buffer> <silent> <Leader>rr :call python#RunTestFile()<CR>
-nnoremap <buffer> <silent> <Leader>ru :call python#RunTestFile('--updateSnapshot')<CR>
 
 nnoremap <buffer> <silent> = :set operatorfunc=util#yapfOperator<CR>g@
 nnoremap <buffer> <silent> == V:YAPF<CR>

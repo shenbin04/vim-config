@@ -22,10 +22,6 @@ nnoremap <buffer> <silent> <Leader>rtao :call js#RunTestsAll('-o')<CR>
 nnoremap <buffer> <silent> <Leader>rtau :call js#RunTestsAll('-u')<CR>
 nnoremap <buffer> <silent> <Leader>rtaw :call js#RunTestsAll('--watch')<CR>
 
-nnoremap <buffer> <silent> <Leader>rni :call js#RequireToImport()<CR>
-nnoremap <buffer> <silent> <Leader>rno :call js#OrganizeImports()<CR>
-nnoremap <buffer> <silent> <Leader>rntc :call js#TypeConnect()<CR>
-
 onoremap <buffer> if :call js#FindFunction('')<CR>
 vnoremap <buffer> if :call js#FindFunction('')<CR>
 onoremap <buffer> af :call js#FindFunction('j')<CR>
