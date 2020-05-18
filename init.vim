@@ -24,6 +24,7 @@ endfunction
 
 autocmd TermOpen * call s:MaybeInsertModeForTerminal()
 autocmd BufWinEnter,WinEnter term://* call s:MaybeInsertModeForTerminal()
+autocmd BufWinEnter,WinEnter term://* call util#NeotermResize()
 autocmd FileType fzf tnoremap <buffer> <C-k> <Up>|
       \ tnoremap <buffer> <C-j> <Down>|
       \ tnoremap <buffer> <C-g> <C-\><C-n>:silent! call PrepareFZFSwitch()<CR>:call fzf#vim#gitfiles('.', fzf#vim#with_preview({'options': ['--query', @s]}), 1)<CR>|
