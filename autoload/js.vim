@@ -240,8 +240,10 @@ function! s:FindError(options)
 
     call win_gotoid(options.origin_win_id)
     let [path, line; rest] = split(fnamemodify(join(split(@x), ''), ':.'), ':')
-    execute 'edit ' . path
-    execute line
+    if filereadable(path)
+      execute 'edit ' . path
+      execute line
+    endif
   endif
 endfunction
 
