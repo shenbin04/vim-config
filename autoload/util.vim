@@ -225,7 +225,7 @@ function! util#NeotermResize() abort
     return
   endif
 
-  silent! execute join(map(['<', '>', '-', '+'], {_, val -> neoterm_window_nr . 'wincmd ' . val}), ' | ')
+  silent! execute join(map(['>', '<', '-', '+'], {_, val -> neoterm_window_nr . 'wincmd ' . val}), ' | ')
 endfunction
 
 function! util#toggle_flag(flag, default, value) abort
