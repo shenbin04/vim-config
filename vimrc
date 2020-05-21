@@ -49,6 +49,7 @@ Plug 'shenbin04/deoplete-ternjs'
 Plug 'shenbin04/fzf.vim'
 Plug 'shenbin04/molokai'
 Plug 'shenbin04/tern_for_vim', {'do': 'npm i'}
+Plug 'shenbin04/vim-config-projects'
 Plug 'shenbin04/vim-flow-plus'
 Plug 'shenbin04/vim-lsp'
 Plug 'shenbin04/vim-related'
@@ -148,7 +149,6 @@ set shada=!,'2000,/500,h,\"500,:2000,n~/.vim/main.shada
 set undofile
 set undodir=~/.vim/undo
 set undolevels=1000
-set runtimepath+=.vim.project
 
 " Mapping
 runtime common/mapping.vim
@@ -160,7 +160,8 @@ runtime common/autocmd.vim
 runtime common/plugin.vim
 
 " Local
-runtime! vimrc.local
+runtime! .vimrc.local
+runtime! .vimrc.project
 
 " Color
 runtime common/color.vim
