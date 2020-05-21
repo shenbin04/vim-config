@@ -304,15 +304,20 @@ endfunction
 nnoremap <Leader>aa :<C-R>=util#get_search_cmd()<CR> 
 
 let g:toggle_flags = [
-      \ {'name': 'g:test#javascript#jest#cache', 'default': 1, 'value': 0},
       \ {'name': 'g:search#use_fzf', 'default': 1, 'value': 0},
-      \ {'name': 'g:fzf_preview_window', 'default': 'right', 'value': 'up'},
+      \ {'name': 'g:test#javascript#jest#cache', 'default': 1, 'value': 0},
       \ {'name': 'g:neoterm_default_mod', 'default': 'vertical botright', 'value': 'botright'},
+      \ {'name': 'g:fzf_preview_window', 'default': 'right', 'value': 'up'},
       \]
+
+for index in range(1, len(g:toggle_flags))
+  let flag = g:toggle_flags[index - 1]
+  execute 'noremap <Leader>z' . index . ' :call util#toggle_flag(' . string(flag.name) . ', ' . string(flag.default) . ', ' . string(flag.value) . ')<CR>'
+endfor
 
 function! ToggleFlag(line)
   for flag in g:toggle_flags
-    if flag.name ==# a:line
+    if flag.name ==# split(a:line, ' = ')[0]
       call util#toggle_flag(flag.name, flag.default, flag.value)
       return
     endif
@@ -320,7 +325,7 @@ function! ToggleFlag(line)
 endfunction
 
 nnoremap <silent> <Leader>zt :call fzf#run(fzf#wrap({
-      \ 'source': map(copy(g:toggle_flags), {_, val -> val.name}),
+      \ 'source': map(copy(g:toggle_flags), {_, val -> val.name . ' = ' . string(get(g:, val.name[2:]))}),
       \ 'sink': function('ToggleFlag'),
       \ 'options': ['--prompt', 'Toggle Flag> '],
       \ }))<CR>
