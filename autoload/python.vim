@@ -66,7 +66,16 @@ function! python#ShowError() abort
     endif
     call search('\v^E\s+AssertionError: \zs', 'b')
 
+    call search('\v^\S+:\d+:', 'b')
+    normal! "zy2t:
+
     call win_gotoid(origin_win_id)
+
+    let [path, line; rest] = split(@z, ':')
+    if filereadable(path)
+      execute 'edit ' . path
+      execute line
+    endif
 
     let x = s:ProcessError(@x)
     let y = s:ProcessError(@y)
@@ -82,8 +91,6 @@ function! python#ShowError() abort
     call s:FormatError(y)
     diffthis
     setlocal buftype=nofile bufhidden=delete filetype=python foldcolumn=0 noswapfile nomodifiable
-
-    normal ]c
   endif
 
   call win_gotoid(origin_win_id)
