@@ -318,3 +318,12 @@ function! util#RenameFile()
     call delete(current_file)
   endif
 endfunction
+
+function! util#ListAllBuffers()
+  for buf in range(1, bufnr('$'))
+    if !bufexists(buf)
+      continue
+    endif
+    echo '[' . buf . '] ' . bufname(buf)
+  endfor
+endfunction
