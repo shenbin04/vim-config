@@ -24,7 +24,6 @@ Plug 'honza/vim-snippets'
 Plug 'iamcco/markdown-preview.nvim', {'do': {-> mkdp#util#install()}}
 Plug 'jiangmiao/auto-pairs'
 Plug 'jparise/vim-graphql'
-Plug 'junegunn/fzf'
 Plug 'junegunn/gv.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-slash'
@@ -46,6 +45,7 @@ Plug 'prabirshrestha/async.vim'
 Plug 'psf/black'
 Plug 'scrooloose/nerdtree'
 Plug 'shenbin04/deoplete-ternjs'
+Plug 'shenbin04/fzf', {'do': {-> fzf#install()}}
 Plug 'shenbin04/fzf.vim'
 Plug 'shenbin04/molokai'
 Plug 'shenbin04/tern_for_vim', {'do': 'npm i'}
