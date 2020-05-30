@@ -16,6 +16,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'elzr/vim-json'
 Plug 'fakeezz/marvim'
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
+Plug 'fszymanski/deoplete-emoji'
 Plug 'gerw/vim-HiLinkTrace'
 Plug 'godlygeek/tabular'
 Plug 'hail2u/vim-css3-syntax'
