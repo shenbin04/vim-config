@@ -228,12 +228,22 @@ function! util#NeotermResize() abort
   silent! execute join(map(['>', '<', '-', '+'], {_, val -> neoterm_window_nr . 'wincmd ' . val}), ' | ')
 endfunction
 
-function! util#toggle_flag(flag, default, value) abort
-  if !exists(a:flag)
-    execute 'let ' . a:flag . ' = ' . string(a:default)
+function! util#toggle_flag(flag) abort
+  let name = a:flag.name
+  let default = a:flag.default
+  let value = a:flag.value
+
+  if !exists(name)
+    execute 'let ' . name . ' = ' . string(default)
   endif
-  execute 'let ' . a:flag . ' = ' a:flag . ' == ' . string(a:default) . '? ' . string(a:value) . ' : ' . string(a:default)
-  execute 'echo "[toggle_flag] ' . a:flag . ' = " . string(' . a:flag . ')'
+  execute 'let ' . name . ' = ' name . ' == ' . string(default) . '? ' . string(value) . ' : ' . string(default)
+
+  let Callback = get(a:flag, 'callback')
+  if !empty(Callback) && type(Callback) == v:t_func
+    call Callback()
+  endif
+
+  execute 'echo "[toggle_flag] ' . name . ' = " . string(' . name . ')'
 endfunction
 
 function! util#get_search_cmd() abort

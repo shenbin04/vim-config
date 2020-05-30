@@ -179,9 +179,18 @@ noremap \& :Tabularize /\(&\\|\\\\\)<CR>
 let g:deoplete#enable_at_startup = 1
 inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
 
-call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
-call deoplete#custom#source('look', 'min_pattern_length', 5)
+call deoplete#custom#source('_', {'matchers': ['matcher_full_fuzzy']})
+call deoplete#custom#source('look', {'min_pattern_length': 5})
+call deoplete#custom#source('emoji', {'filetypes': []})
+
 call deoplete#custom#option('ignore_sources', {'css': ['look'], 'javascript': ['file']})
+
+" deoplete-emoji
+let g:deoplete#sources#emoji#converter = ''
+
+function! ToggleDeopleteEmojiConverter()
+  call deoplete#custom#source('emoji', 'converters', [g:deoplete#sources#emoji#converter])
+endfunction
 
 " deoplete-ternjs
 let g:deoplete#sources#ternjs#case_insensitive = 1
@@ -308,17 +317,17 @@ let g:toggle_flags = [
       \ {'name': 'g:test#javascript#jest#cache', 'default': 1, 'value': 0},
       \ {'name': 'g:neoterm_default_mod', 'default': 'vertical botright', 'value': 'botright'},
       \ {'name': 'g:fzf_preview_window', 'default': 'right', 'value': 'up'},
+      \ {'name': 'g:deoplete#sources#emoji#converter', 'default': '', 'value': 'converter_emoji', 'callback': function('ToggleDeopleteEmojiConverter')},
       \]
 
 for index in range(1, len(g:toggle_flags))
-  let flag = g:toggle_flags[index - 1]
-  execute 'noremap <Leader>z' . index . ' :call util#toggle_flag(' . string(flag.name) . ', ' . string(flag.default) . ', ' . string(flag.value) . ')<CR>'
+  execute 'noremap <Leader>z' . index . ' :call util#toggle_flag(g:toggle_flags[' . string(index - 1) . '])<CR>'
 endfor
 
 function! ToggleFlag(line)
   for flag in g:toggle_flags
     if flag.name ==# split(a:line, ' = ')[0]
-      call util#toggle_flag(flag.name, flag.default, flag.value)
+      call util#toggle_flag(flag)
       return
     endif
   endfor
