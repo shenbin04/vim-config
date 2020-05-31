@@ -130,22 +130,6 @@ describe('$1', () => {
 });
 endsnippet
 
-snippet ntf "New react component test with factory" b
-// @flow
-import {factoryShallow} from '${1:javascript/oscar-test-utils/factory}';
-
-import {${2:`!v util#GetBaseFileName()`}} from './`!v util#GetBaseFileName()`';
-
-const defaultProps = {$3};
-
-describe('$2', () => {
-  it('renders', () => {
-    const {component} = factoryShallow($2, defaultProps);
-    expect(component).toMatchSnapshot();
-  });
-});
-endsnippet
-
 snippet fs "Factory shallow render"
 const {component} = factoryShallow(${1:`!v util#GetBaseFileName()`}, defaultProps, {$2});
 expect(component$3).toMatchSnapshot();
