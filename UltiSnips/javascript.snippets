@@ -195,3 +195,33 @@ endsnippet
 snippet db "debugger"
 debugger;
 endsnippet
+
+snippet us "useState" b
+const [$1, ${1/.+/set\u$0/}] = useState<$3>($4);
+endsnippet
+
+snippet ue "useEffect" b
+useEffect(() => {
+  $0
+}, [$1]);
+endsnippet
+
+snippet uc "useContext" b
+const ${1:context} = useContext<${2:T}>($3);
+endsnippet
+
+snippet ucb "useCallback" b
+const ${1:callback} = useCallback(() => {
+  $3
+}, [${2}]);
+endsnippet
+
+snippet um "useMemo" b
+const ${1:memo} = useMemo<${2:T}>(() => ${4:{
+  $5
+}}, [$3]);
+endsnippet
+
+snippet ur "useRef" b
+const ${1:ref} = useRef<${2:T}>(${3:null});
+endsnippet
