@@ -100,7 +100,6 @@ let g:closetag_emptyTags_caseSensitive = 1
 let g:closetag_close_shortcut = '<Leader>c'
 
 " Ale
-let g:ale_open_list = 1
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 let g:ale_list_window_size = 1
