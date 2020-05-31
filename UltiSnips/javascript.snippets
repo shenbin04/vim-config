@@ -8,7 +8,7 @@ $1: {
 },
 endsnippet
 
-snippet af "Add function: `fun() {}`"
+snippet aof "Add object function: `fun() {}`"
 $1($2) {
   $0
 }
@@ -16,6 +16,38 @@ endsnippet
 
 snippet as "Add component in string interpolation" i
 ${$1}$0
+endsnippet
+
+snippet ec "Add export const: `export const module = {};`" b
+export const $0
+endsnippet
+
+snippet "^af" "Add function: `export function () {}`" r
+${1:export }function $2($3) {
+  $0
+};
+endsnippet
+
+snippet "^(\s+)af" "Add function: `export function () {}`" r
+`!p snip.rv = ' ' * len(match.group(1))`function $1($2) {
+`!p snip.rv = ' ' * len(match.group(1))`  $0
+`!p snip.rv = ' ' * len(match.group(1))`};
+endsnippet
+
+snippet aaf "Add arrow function: `() => {}`" w
+${1:()} => {$0}
+endsnippet
+
+snippet afe "Add arrow function expression: `a = () => {}`"
+$1 = ${2:()} => {$0};
+endsnippet
+
+snippet od "Add object destructure: `const {a} = data;`" b
+const {$1} = ${0:props};
+endsnippet
+
+snippet ad "Add array destructure: `const [a] = data;`" b
+const [$1] = ${0};
 endsnippet
 
 snippet im "Import"
@@ -28,39 +60,18 @@ endsnippet
 
 snippet ir "Import react"
 import React from 'react';
-
 endsnippet
 
 snippet irt "Import react type"
 import type {$1} from 'react';
 endsnippet
 
-snippet irxc "Import react-redux connect"
+snippet irrc "Import react-redux connect"
 import {connect} from 'react-redux';
 endsnippet
 
-snippet aaf "Add arrow function: `() => {}`" w
-${1:()} => {$0}
-endsnippet
-
-snippet afe "Add arrow function express: `a = () => {}`"
-$1 = ${2:()} => {
-  $0
-};
-endsnippet
-
-snippet ec "Add export const: `export const module = {};`" b
-export const $0
-endsnippet
-
-snippet ef "Add export function: `export function () {};`" b
-export function $1() {
-  $0
-};
-endsnippet
-
-snippet co "Add destructure: `const {a} = obj;`" b
-const {$1} = ${0:this.props};
+snippet iri "Import react-intl"
+import {${1:FormattedMessage}} from 'react-intl';
 endsnippet
 
 snippet fo "Add flow object: `type a = {};`" b
@@ -73,16 +84,16 @@ type OwnProps = {|
 |};
 type Props = {|
   ...OwnProps,
-  $0
+  $2
 |};
+$0
 endsnippet
 
 snippet nc "New react class component" b
 // @flow
 import React from 'react';
 
-type Props = {|
-|};
+type Props = {|$3|};
 
 ${1:export }class ${2:`!v util#GetBaseFileName()`} extends React.Component<Props> {
   return (
@@ -109,8 +120,7 @@ import React from 'react';
 
 import {${1:`!v util#GetBaseFileName()`}} from './`!v util#GetBaseFileName()`';
 
-const defaultProps = {
-};
+const defaultProps = {$2};
 
 describe('$1', () => {
   it('renders', () => {
@@ -126,8 +136,7 @@ import {factoryShallow} from '${1:javascript/oscar-test-utils/factory}';
 
 import {${2:`!v util#GetBaseFileName()`}} from './`!v util#GetBaseFileName()`';
 
-const defaultProps = {
-};
+const defaultProps = {$3};
 
 describe('$2', () => {
   it('renders', () => {
@@ -138,31 +147,29 @@ describe('$2', () => {
 endsnippet
 
 snippet fs "Factory shallow render"
-const {component} = factoryShallow(${1:`!v util#GetBaseFileName()`}, defaultProps, {
-  $2: $3,
-});
-expect(component$4).toMatchSnapshot();
+const {component} = factoryShallow(${1:`!v util#GetBaseFileName()`}, defaultProps, {$2});
+expect(component$3).toMatchSnapshot();
 endsnippet
 
 snippet fm "Factory mount render"
-const {component} = factoryMount(${1:`!v util#GetBaseFileName()`}, defaultProps, {
-  $2: $3,
-});
+const {component} = factoryMount(${1:`!v util#GetBaseFileName()`}, defaultProps, {$2});
 expect(component).toMatchSnapshot();
 endsnippet
 
-snippet iri "Import react-intl"
-import {${1:FormattedMessage}} from 'react-intl';
+snippet cld "console.log(*.debug()) (jest)"
+console.log($0.debug());
+endsnippet
+
+snippet exps "Expect to match snapshot"
+expect(${0:component}).toMatchSnapshot();
 endsnippet
 
 snippet afm "Add FormattedMessage" i
-
 <FormattedMessage
   defaultMessage="${1:${VISUAL}}"
   description="${2}"
   id="${3}"
 />
-
 endsnippet
 
 snippet it "it (jest)"
@@ -199,14 +206,6 @@ snippet afta "afterAll (jest)"
 afterAll(() => {
   $0
 });
-endsnippet
-
-snippet cld "console.log(*.debug()) (jest)"
-console.log($0.debug());
-endsnippet
-
-snippet exps "Expect to match snapshot"
-expect(${0:component}).toMatchSnapshot();
 endsnippet
 
 snippet db "debugger"
