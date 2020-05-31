@@ -54,6 +54,6 @@ nnoremap <buffer> <silent> <Leader>fp :LspHover<CR>
 nnoremap <buffer> <silent> <Leader>fr :TernRename<CR>
 nnoremap <buffer> <silent> <Leader>fl :LspDefinition<CR>
 
-let b:AutoPairs = AutoPairsDefine({'|' : '|'})
+let b:AutoPairs = AutoPairsDefine({'|' : '|', '<': '>'})
 
 call js#SendFileToTern()
