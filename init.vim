@@ -9,10 +9,15 @@ tnoremap <C-j> <C-\><C-n><C-w>j:call util#MaybeInsertMode()<CR>
 tnoremap <C-k> <C-\><C-n><C-w>k:call util#MaybeInsertMode()<CR>
 tnoremap <C-l> <C-\><C-n><C-w>l:call util#MaybeInsertMode()<CR>
 
-function! s:MaybeInsertModeForTerminal()
-  let file = expand('%')
-  if file =~ 'git '
+function! s:OnTermOpen()
+  let bufname = bufname()
+
+  if bufname =~ 'git '
     startinsert
+  endif
+
+  if bufname =~ 'bin/fzf'
+    call util#CloseFugitive()
   endif
 endfunction
 
@@ -22,8 +27,7 @@ function! PrepareFZFSwitch()
   sleep 1m
 endfunction
 
-autocmd TermOpen * call s:MaybeInsertModeForTerminal()
-autocmd BufWinEnter,WinEnter term://* call s:MaybeInsertModeForTerminal()
+autocmd TermOpen * call s:OnTermOpen()
 autocmd BufWinEnter,WinEnter term://* call util#NeotermResize()
 autocmd FileType fzf tnoremap <buffer> <C-k> <Up>|
       \ tnoremap <buffer> <C-j> <Down>|

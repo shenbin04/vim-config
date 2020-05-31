@@ -339,7 +339,7 @@ nnoremap <silent> <Leader>zt :call fzf#run(fzf#wrap({
       \ 'options': ['--prompt', 'Toggle Flag> '],
       \ }))<CR>
 
-noremap <Leader>, :cclose<CR>:call util#CloseFugitive()<CR>:History!<CR>
+noremap <Leader>, :History!<CR>
 noremap <Leader>. :Mixed<CR>
 noremap <Leader>za :Files!<CR>
 noremap <Leader>ze :Snippets!<CR>
