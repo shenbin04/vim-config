@@ -386,9 +386,6 @@ let g:qfenter_keymap.vopen = ['<C-v>']
 let g:qfenter_keymap.hopen = ['<C-CR>', '<C-s>', '<C-x>']
 let g:qfenter_keymap.topen = ['<C-t>']
 
-" Flow
-let g:flow#flowpath = util#ExpandToGit(getcwd()) . '/node_modules/.bin/flow'
-
 " Marvim
 let g:marvim_store = $HOME.'/.vim/macro'
 let g:marvim_find_key = '<Leader>mf'
