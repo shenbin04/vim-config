@@ -17,8 +17,7 @@ nnoremap <silent> <Leader>2 :BufSurfForward<CR>
 nnoremap <silent> <Leader>3 :b#<CR>
 nnoremap <silent> <Leader>ec :Files %:h<CR>
 nnoremap <silent> <Leader>ep :call util#EditProject()<CR>
-nnoremap <silent> <Leader>ew :Files .<CR>
-nnoremap <silent> <Leader>ev :Files $HOME/.vim<CR>
+nnoremap <silent> <Leader>ev :Files! $HOME/.vim<CR>
 
 nnoremap <Leader>ef :call util#RenameFile()<CR>
 

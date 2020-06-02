@@ -317,7 +317,7 @@ function! util#FindProject()
 endfunction
 
 function! util#EditProject()
-  execute 'Files ' . util#FindProject()
+  execute 'Files! ' . util#FindProject()
 endfunction
 
 function! util#RenameFile()
