@@ -447,3 +447,7 @@ nnoremap <silent> gs :A<CR>
 nmap <Leader>1 <Plug>(buffer-history-back)
 nmap <Leader>2 <Plug>(buffer-history-forward)
 nmap <Leader>0 <Plug>(buffer-history-list)
+
+" EasyAlign
+nmap ga <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)
