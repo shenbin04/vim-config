@@ -19,15 +19,15 @@ let g:python3_host_prog = $HOME . '/.virtualenvs/vim3/bin/python'
 let g:vim_json_syntax_conceal = 0
 
 " Fugitive
-nnoremap <silent> <Leader>gs :10Gstatus<CR>
+nnoremap <silent> <Leader>gs :10split\|0Git<CR>
 nnoremap <silent> <Leader>gd :call util#GitDiff('')<CR>
 nnoremap <silent> <Leader>gm :call util#GitDiff('master')<CR>
-nnoremap <silent> <Leader>gb :Gblame<CR>
+nnoremap <silent> <Leader>gb :Git_blame<CR>
 nnoremap <silent> <Leader>grm :Gread! show master:%<CR>
 nnoremap <silent> <Leader>grh :Gread! show HEAD:%<CR>
-nnoremap <silent> <Leader>gap :Git add -p %<CR>
-nnoremap <silent> <Leader>gcc :Gcommit -v<CR>
-nnoremap <silent> <Leader>gca :Gcommit -v --amend<CR>
+nnoremap <silent> <Leader>gap :tab Git add -p %<CR>
+nnoremap <silent> <Leader>gcc :tab Git commit -v<CR>
+nnoremap <silent> <Leader>gca :tab Git commit -v --amend<CR>
 
 autocmd User fugitive
       \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |

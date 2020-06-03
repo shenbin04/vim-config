@@ -158,7 +158,7 @@ function! util#GitDiff(target)
   if expand('%') ==# ''
     return
   endif
-  execute 'Gdiff ' . a:target
+  execute 'Gdiffsplit ' . a:target
   call s:diff_window_syntax('diff')
 endfunction
 
