@@ -14,10 +14,6 @@ $1($2) {
 }
 endsnippet
 
-snippet as "Add component in string interpolation" i
-${$1}$0
-endsnippet
-
 snippet ec "Add export const: `export const module = {};`" b
 export const $0
 endsnippet
@@ -75,7 +71,7 @@ import {${1:FormattedMessage}} from 'react-intl';
 endsnippet
 
 snippet fo "Add flow object: `type a = {};`" b
-type $1 = {$0};
+type $1 = {|$0|};
 endsnippet
 
 snippet fp "Add flow for Props" b
