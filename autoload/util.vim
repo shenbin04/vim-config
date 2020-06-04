@@ -168,9 +168,17 @@ function! util#GitDiffEnd()
   endif
 endfunction
 
+function! util#OpenFugitive()
+  let fugitive_win_nr = util#get_win_nr_by_ft('fugitive')
+  if !fugitive_win_nr
+    10split
+  endif
+endfunction
+
 function! util#CloseFugitive()
-  if buflisted(bufname('.git/index'))
-    bd .git/index
+  let fugitive_win_nr = util#get_win_nr_by_ft('fugitive')
+  if fugitive_win_nr
+    execute 'bd ' . winbufnr(fugitive_win_nr)
   endif
 endfunction
 

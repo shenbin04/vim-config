@@ -19,12 +19,13 @@ let g:python3_host_prog = $HOME . '/.virtualenvs/vim3/bin/python'
 let g:vim_json_syntax_conceal = 0
 
 " Fugitive
-nnoremap <silent> <Leader>gs :10split\|0Git<CR>
+nnoremap <silent> <Leader>gs :call util#OpenFugitive()\|0Git<CR>
 nnoremap <silent> <Leader>gd :call util#GitDiff('')<CR>
 nnoremap <silent> <Leader>gm :call util#GitDiff('master')<CR>
 nnoremap <silent> <Leader>gb :Git_blame<CR>
 nnoremap <silent> <Leader>grm :Gread! show master:%<CR>
 nnoremap <silent> <Leader>grh :Gread! show HEAD:%<CR>
+nnoremap <silent> <Leader>gaa :tab Git add -p<CR>
 nnoremap <silent> <Leader>gap :tab Git add -p %<CR>
 nnoremap <silent> <Leader>gcc :tab Git commit -v<CR>
 nnoremap <silent> <Leader>gca :tab Git commit -v --amend<CR>
@@ -36,7 +37,7 @@ autocmd User fugitive
 
 " Gitgutter
 let g:gitgutter_max_signs = 1000
-nmap <Leader>gaa <Plug>GitGutterStageHunk
+nmap <Leader>gah <Plug>GitGutterStageHunk
 nmap <Leader>gp <Plug>GitGutterPreviewHunk
 nmap <Leader>gu <Plug>GitGutterUndoHunk
 
