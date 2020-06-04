@@ -203,29 +203,28 @@ function! s:get_diff_window_count() abort
   return len(s:get_diff_buffers())
 endfunction
 
-function! util#get_neoterm_window() abort
+function! util#get_win_nr_by_ft(filetype) abort
   for nr in range(1, winnr('$'))
-    if getwinvar(nr, '&filetype') ==# 'neoterm'
-      return win_getid(nr)
-    endif
-  endfor
-endfunction
-
-function! util#get_neoterm_window_nr() abort
-  for nr in range(1, winnr('$'))
-    if getwinvar(nr, '&filetype') ==# 'neoterm'
+    if getwinvar(nr, '&filetype') ==# a:filetype
       return nr
     endif
   endfor
 endfunction
 
+function! util#get_neoterm_window() abort
+  let neoterm_win_nr = util#get_win_nr_by_ft('neoterm')
+  if neoterm_win_nr
+    return win_getid(neoterm_win_nr)
+  endif
+endfunction
+
 function! util#NeotermResize() abort
-  let neoterm_window_nr = util#get_neoterm_window_nr()
-  if !neoterm_window_nr
+  let neoterm_win_nr = util#get_win_nr_by_ft('neoterm')
+  if !neoterm_win_nr
     return
   endif
 
-  silent! execute join(map(['>', '<', '-', '+'], {_, val -> neoterm_window_nr . 'wincmd ' . val}), ' | ')
+  silent! execute join(map(['>', '<', '-', '+'], {_, val -> neoterm_win_nr . 'wincmd ' . val}), ' | ')
 endfunction
 
 function! util#toggle_flag(flag) abort
