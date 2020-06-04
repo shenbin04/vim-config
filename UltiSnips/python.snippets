@@ -1,0 +1,7 @@
+snippet nt "New python test" b
+import unittest
+import mock
+
+class ${1:`!p snip.rv=os.path.splitext(os.path.basename(fn))[0].title().replace('_', '')`}(${2:unittest.TestCase}):
+    $0
+endsnippet

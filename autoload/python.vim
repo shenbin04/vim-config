@@ -109,3 +109,13 @@ function! python#ShowErrorPrev()
   normal [c
   call win_gotoid(origin_win_id)
 endfunction
+
+function! python#NewTestFile()
+  let file_name = util#GetBaseFileName()
+  let test_file = expand('%:p:h') . '/' . file_name . '_test.' . expand('%:e')
+
+  if !util#TryOpenFile(test_file)
+    exec 'edit ' . test_file
+    normal int,e
+  endif
+endfunction
