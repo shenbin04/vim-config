@@ -246,18 +246,23 @@ function! s:FindError(options)
   normal! zt
   let lnum = line('.')
 
-  if search(options.pattern, 'c')
+  while search(options.pattern)
     execute options.cmd
-    execute lnum
-    normal! zt
+    let position = fnamemodify(join(split(@x), ''), ':.')
+    if position !~ '^node_modules'
+      execute lnum
+      normal! zt
 
-    call win_gotoid(options.origin_win_id)
-    let [path, line; rest] = split(fnamemodify(join(split(@x), ''), ':.'), ':')
-    if filereadable(path)
-      execute 'edit ' . path
-      execute line
+      call win_gotoid(options.origin_win_id)
+      let [path, line; rest] = split(fnamemodify(join(split(@x), ''), ':.'), ':')
+      if filereadable(path)
+        execute 'edit ' . path
+        execute line
+      endif
+
+      break
     endif
-  endif
+  endwhile
 endfunction
 
 function! SendFileToTern(...)
