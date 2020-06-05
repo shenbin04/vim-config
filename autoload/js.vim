@@ -178,6 +178,19 @@ function! js#NewTestFile()
   endif
 endfunction
 
+function! js#NewScssFile()
+  normal ons,e
+  w
+
+  let file_name = util#GetBaseFileName()
+  let scss_file = expand('%:p:h') . '/' . file_name . '.scss'
+
+  if !util#TryOpenFile(scss_file)
+    exec 'edit ' . scss_file
+    w
+  endif
+endfunction
+
 function! js#ShowError() abort
   if !exists('g:shell_prompt')
     echohl ErrorMsg
