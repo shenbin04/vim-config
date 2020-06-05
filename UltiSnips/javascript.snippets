@@ -126,16 +126,6 @@ describe('$1', () => {
 });
 endsnippet
 
-snippet fs "Factory shallow render"
-const {component} = factoryShallow(${1:`!v util#GetBaseFileName()`}, defaultProps, {$2});
-expect(component$3).toMatchSnapshot();
-endsnippet
-
-snippet fm "Factory mount render"
-const {component} = factoryMount(${1:`!v util#GetBaseFileName()`}, defaultProps, {$2});
-expect(component).toMatchSnapshot();
-endsnippet
-
 snippet cld "console.log(*.debug()) (jest)"
 console.log($0.debug());
 endsnippet
