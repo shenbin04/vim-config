@@ -104,7 +104,7 @@ cabbrev gsta :call util#Topen()<CR>:T git stash -u<CR>
 cabbrev gstaa :call util#Topen()<CR>:T git stash apply<CR>
 cabbrev gstap :call util#Topen()<CR>:T git stash pop<CR>
 cabbrev grset :call util#Topen()<CR>:T git reset<CR>
-cabbrev gd :Git diff<CR>
+cabbrev gd tab Git diff
 
 " Help
 nnoremap gh :h <C-r><C-w><CR>
