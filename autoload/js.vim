@@ -168,13 +168,13 @@ function! js#ShowFlowCoverage()
   endif
 endfunction
 
-function! js#NewTestFile()
+function! js#NewTestFile(snippet)
   let file_name = util#GetBaseFileName()
   let test_file = expand('%:p:h') . '/' . file_name . '.test.' . expand('%:e')
 
   if !util#TryOpenFile(test_file)
-    exec 'edit ' . test_file
-    normal intf,e
+    execute 'edit ' . test_file
+    execute 'normal i' . a:snippet . ',e'
   endif
 endfunction
 
@@ -186,7 +186,7 @@ function! js#NewScssFile()
   let scss_file = expand('%:p:h') . '/' . file_name . '.scss'
 
   if !util#TryOpenFile(scss_file)
-    exec 'edit ' . scss_file
+    execute 'edit ' . scss_file
     w
   endif
 endfunction

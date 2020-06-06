@@ -126,6 +126,23 @@ describe('$1', () => {
 });
 endsnippet
 
+snippet ntt "new react component test with testing library" b
+// @flow
+import {render} from '@testing-library/react';
+import React from 'react';
+
+import {${1:`!v util#GetBaseFileName()`}} from './`!v util#GetBaseFileName()`';
+
+const defaultProps = {$2};
+
+describe('$1', () => {
+  it('${3:renders}', () => {
+    const {${4:findByText}} = render(<$1 {...defaultProps} />);
+    $5
+  });
+});
+endsnippet
+
 snippet cld "console.log(*.debug()) (jest)"
 console.log($0.debug());
 endsnippet
