@@ -453,3 +453,6 @@ nmap <Leader>0 <Plug>(buffer-history-list)
 " EasyAlign
 nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
+
+" TableMode
+let g:table_mode_disable_tableize_mappings = 1
