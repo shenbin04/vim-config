@@ -315,6 +315,7 @@ nnoremap <Leader>aa :<C-R>=util#get_search_cmd()<CR>
 
 let g:toggle_flags = [
       \ {'name': 'g:search#use_fzf', 'default': 1, 'value': 0},
+      \ {'name': 'g:test#javascript#jest#project_coverage', 'default': 0, 'value': 1},
       \ {'name': 'g:test#javascript#jest#cache', 'default': 1, 'value': 0},
       \ {'name': 'g:neoterm_default_mod', 'default': 'vertical botright', 'value': 'botright'},
       \ {'name': 'g:fzf_preview_window', 'default': 'right', 'value': 'up'},
@@ -323,7 +324,7 @@ let g:toggle_flags = [
 
 for index in range(len(g:toggle_flags))
   let flag = g:toggle_flags[index]
-  if !get(g:, flag.name[2:])
+  if !exists(flag.name)
     execute 'let ' . flag.name . ' = ' . string(flag.default)
   endif
   execute 'noremap <Leader>z' . (index + 1) . ' :call util#toggle_flag(g:toggle_flags[' . string(index) . '])<CR>'
