@@ -3,6 +3,7 @@ setlocal colorcolumn=+1
 
 runtime common/run_flow.vim
 
+nnoremap <buffer> <silent> <Leader>cnte :call js#NewTestFile('nt')<CR>
 nnoremap <buffer> <silent> <Leader>cntt :call js#NewTestFile('ntt')<CR>
 nnoremap <buffer> <silent> <Leader>cns :call js#NewScssFile()<CR>
 
