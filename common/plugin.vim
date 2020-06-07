@@ -321,8 +321,12 @@ let g:toggle_flags = [
       \ {'name': 'g:deoplete#sources#emoji#converter', 'default': '', 'value': 'converter_emoji', 'callback': function('ToggleDeopleteEmojiConverter')},
       \]
 
-for index in range(1, len(g:toggle_flags))
-  execute 'noremap <Leader>z' . index . ' :call util#toggle_flag(g:toggle_flags[' . string(index - 1) . '])<CR>'
+for index in range(len(g:toggle_flags))
+  let flag = g:toggle_flags[index]
+  if !get(g:, flag.name[2:])
+    execute 'let ' . flag.name . ' = ' . string(flag.default)
+  endif
+  execute 'noremap <Leader>z' . (index + 1) . ' :call util#toggle_flag(g:toggle_flags[' . string(index) . '])<CR>'
 endfor
 
 function! ToggleFlag(line)
