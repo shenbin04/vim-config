@@ -26,12 +26,7 @@ function! s:PrepareJest(...)
   let g:test#javascript#jest#prefix = ['NODE_ENV=testing', 'NODE_PATH=.'] + get(options, 'prefix', [])
   let g:test#javascript#jest#project = get(options, 'project', 1)
   let g:test#javascript#jest#options = []
-
-  let file_coverage = get(options, 'file_coverage', 0)
-  if file_coverage
-    let g:test#javascript#jest#coverage = 1
-    let g:test#javascript#jest#options = ['--collectCoverageFrom', js#GetJSFileFromTestFile()]
-  endif
+  let g:test#javascript#jest#coverage = 0
 
   let project_coverage = get(g:, 'test#javascript#jest#project_coverage', 0)
   if project_coverage
@@ -40,6 +35,12 @@ function! s:PrepareJest(...)
     if project != '.'
       let g:test#javascript#jest#options = ['--collectCoverageFrom', string(project . '/**/*.{js,jsx}')]
     endif
+  endif
+
+  let file_coverage = get(options, 'file_coverage', 0)
+  if file_coverage
+    let g:test#javascript#jest#coverage = 1
+    let g:test#javascript#jest#options = ['--collectCoverageFrom', js#GetJSFileFromTestFile()]
   endif
 
   return 1
