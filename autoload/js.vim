@@ -19,9 +19,7 @@ function! s:PrepareJest(...)
   let cmd = ''
 
   if root != '.'
-    echohl ErrorMsg
-    echom 'Please run tests in project root.'
-    echohl NONE
+    call util#EchoError('Please run tests in project root.')
     return
   endif
 
@@ -204,9 +202,7 @@ endfunction
 
 function! js#ShowError() abort
   if !exists('g:shell_prompt')
-    echohl ErrorMsg
-    echo 'Please set g:shell_prompt first'
-    echohl None
+    call util#EchoError('Please set g:shell_prompt first.')
     return
   endif
 
@@ -244,9 +240,7 @@ function! js#ShowError() abort
           \ })
   else
     normal! Gzb
-    echohl ErrorMsg
-    echo 'No error found'
-    echohl None
+    call util#EchoError('No error found.')
   endif
 
   call win_gotoid(origin_win_id)

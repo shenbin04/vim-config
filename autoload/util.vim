@@ -344,3 +344,9 @@ function! util#ListAllBuffers()
     echo '[' . buf . '] ' . bufname(buf)
   endfor
 endfunction
+
+function! util#EchoError(message)
+  echohl ErrorMsg
+  echom a:message
+  echohl None
+endfunction

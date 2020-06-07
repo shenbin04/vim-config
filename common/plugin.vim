@@ -219,9 +219,7 @@ if executable('flow')
         \ 'whitelist': ['javascript', 'javascript.jsx'],
         \ })
 else
-  echohl ErrorMsg
-  echom '`flow` not found.'
-  echohl NONE
+  call util#EchoError('`flow` not found.')
 endif
 
 if executable('typescript-language-server')
@@ -232,9 +230,7 @@ if executable('typescript-language-server')
         \ 'whitelist': ['typescript', 'typescript.tsx', 'typescriptreact'],
         \ })
 else
-  echohl ErrorMsg
-  echom '`typescript-language-server` not found.'
-  echohl NONE
+  call util#EchoError('`typescript-language-server` not found.')
 endif
 
 if executable('pyls')
@@ -244,9 +240,7 @@ if executable('pyls')
         \ 'whitelist': ['python'],
         \ })
 else
-  echohl ErrorMsg
-  echom '`pyls` not found.'
-  echohl NONE
+  call util#EchoError('`pyls` not found.')
 endif
 
 " Tern

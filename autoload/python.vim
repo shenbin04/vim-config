@@ -33,9 +33,7 @@ endfunction
 
 function! python#ShowError() abort
   if !exists('g:shell_prompt')
-    echohl ErrorMsg
-    echo 'Please set g:shell_prompt first'
-    echohl None
+    call util#EchoError('Please set g:shell_prompt first.')
     return
   endif
 
