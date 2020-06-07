@@ -184,7 +184,7 @@ call deoplete#custom#source('look', {'min_pattern_length': 5})
 call deoplete#custom#source('emoji', {'filetypes': []})
 
 call deoplete#custom#option('ignore_sources', {'css': ['look'], 'javascript': ['file']})
-call deoplete#custom#option('keyword_patterns', {'javascript': '[a-zA-Z_@]\w*'})
+call deoplete#custom#option('keyword_patterns', {'javascript': '[a-zA-Z_@]\k*'})
 
 " deoplete-emoji
 let g:deoplete#sources#emoji#converter = ''
