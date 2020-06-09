@@ -358,8 +358,8 @@ nnoremap <Leader>asw "wyiw:<C-R>=util#get_search_cmd()<CR> <C-R>=g:ag_no_test<CR
 nnoremap <Leader>asnw "wyiw:<C-R>=util#get_search_cmd()<CR> <C-R>=g:ag_no_test<CR> '<C-R>w' 
 nnoremap <Leader>aW "wyiW:<C-R>=util#get_search_cmd()<CR> '\b<C-R>w\b' 
 nnoremap <Leader>anW "wyiW:<C-R>=util#get_search_cmd()<CR> '<C-R>w' 
-nnoremap <Leader>ag "wyiw:<C-R>=util#get_search_cmd()<CR> '(message\|rpc\|enum) \b<C-R>w\b' protobuf/<CR>
-nnoremap <Leader>at :let g:grepper.jump = 1<CR>:let g:grepper.switch = 0<CR>"wyiw:GrepperAg '(^\s+\b<C-R>w\b\|^(struct\|enum) \b<C-R>w\b\|\b<C-R>w\(\|^\s+\d+: .*\b<C-R>w\b(\s+// .+)?$)' thrift/<CR>:let g:grepper.jump = 0<CR>:let g:grepper.switch = 1<CR>zz
+nnoremap <silent> <Leader>ag :call GrepperFindProtobuf('protobuf')<CR>
+nnoremap <silent> <Leader>at :call GrepperFindThrift('thrift')<CR><CR>
 vnoremap <Leader>aa "wy:<C-R>=util#get_search_cmd()<CR> '\b<C-R>w\b' 
 nnoremap <Leader>av :<C-R>=util#get_search_cmd()<CR> ~/.vim/<S-Left><Left> 
 
@@ -371,6 +371,41 @@ vnoremap <Leader>ap "wy:call util#GrepByWord(1, util#FindProject() . g:ag_no_tes
 vnoremap <Leader>asp "wy:call util#GrepByWord(1, util#FindProject())<CR>
 vnoremap <Leader>awp "wy:call util#GrepByWord(0, util#FindProject() . g:ag_no_test)<CR>
 vnoremap <Leader>aswp "wy:call util#GrepByWord(0, util#FindProject())<CR>
+
+function! GrepperFindReference(cmd)
+  let g:grepper.jump = 1
+  let g:grepper.switch = 0
+  let g:grepper.open = 0
+  silent execute a:cmd
+  let g:grepper.jump = 0
+  let g:grepper.switch = 1
+  let g:grepper.open = 1
+  normal! zz
+endfunction
+
+function! GrepperFindThrift(dir)
+  let word = expand('<cword>')
+  let cmd = "normal! :GrepperAg "
+        \ . shellescape('('
+        \   . '^\s+\b' . word . '\b'
+        \   . '|^(struct|enum) \b' . word . '\b'
+        \   . '|\b' . word . '\b\('
+        \   . '|^\s+\d+: .*\b' . word . '\b( +// .+)?$'
+        \   . ')')
+        \ . ' ' . a:dir . "\<CR>"
+  call GrepperFindReference(cmd)
+endfunction
+
+function! GrepperFindProtobuf(dir)
+  let word = expand('<cword>')
+  let cmd = "normal! :GrepperAg "
+        \ . shellescape('('
+        \   . '(message|rpc|enum) \b' . word . '\b'
+        \   . '|\b' . word . '\b = '
+        \   . ')')
+        \ . ' ' . a:dir . "\<CR>"
+  call GrepperFindReference(cmd)
+endfunction
 
 " HLT
 nmap <Leader>_ <Plug>HiLinkTrace
