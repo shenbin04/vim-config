@@ -92,4 +92,4 @@ ln -fs ~/.vim/init.vim ~/.config/nvim/init.vim
 ln -fs ~/.vim/.tern-project ~/.tern-project
 nvim -S ~/.vim/snapshot.vim +qa
 
-printf '\033[0;32mDone\033[0m\n'
+printf '\033[0;32mDone\033[0m 🎉\n'
