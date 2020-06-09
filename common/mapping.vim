@@ -100,11 +100,13 @@ noremap <silent> <Leader>oh :call util#OpenHtml()<CR>
 " Command-line
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
-cabbrev gsta :call util#Topen()<CR>:T git stash -u<CR>
-cabbrev gstaa :call util#Topen()<CR>:T git stash apply<CR>
-cabbrev gstap :call util#Topen()<CR>:T git stash pop<CR>
-cabbrev grset :call util#Topen()<CR>:T git reset<CR>
+cabbrev gsta tab Git stash -u
+cabbrev gstaa tab Git stash apply
+cabbrev gstap tab Git stash pop
+cabbrev grst tab Git reset
 cabbrev gd tab Git diff
+cabbrev gca tab Git commit -av
+cabbrev gcaa tab Git commit -av --amend
 
 " Help
 nnoremap gh :h <C-r><C-w><CR>
