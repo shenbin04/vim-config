@@ -109,7 +109,18 @@ ${1:export }function ${2:`!v util#GetBaseFileName()`}() {
 }
 endsnippet
 
-snippet nt "New react component test with enzyme" b
+snippet ntj "New javascript test" b
+// @flow
+import {${1:`!v util#GetBaseFileName()`}} from './`!v util#GetBaseFileName()`';
+
+describe('$1', () => {
+  it('$2', () => {
+    expect($3).$4;
+  });
+});
+endsnippet
+
+snippet nte "New react component test with enzyme" b
 // @flow
 import {shallow} from 'enzyme';
 import React from 'react';
