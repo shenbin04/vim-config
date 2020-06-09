@@ -281,7 +281,6 @@ let g:fzf_colors = {
       \ 'spinner': ['fg', 'Label'],
       \ 'header':  ['fg', 'Comment'],
       \ }
-let g:fzf_preview_window = 'right'
 
 command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, fzf#vim#with_preview(g:fzf_preview_window), <bang>0)
 command! -bang -nargs=? -complete=dir GitFiles call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(g:fzf_preview_window), <bang>0)
@@ -305,17 +304,17 @@ nnoremap <Leader>aa :<C-R>=util#get_search_cmd()<CR>
 
 let g:toggle_flags = [
       \ {'name': 'g:search#use_fzf', 'default': 1, 'value': 0},
-      \ {'name': 'g:test#javascript#jest#project_coverage', 'default': 0, 'value': 1},
       \ {'name': 'g:test#javascript#jest#cache', 'default': 1, 'value': 0},
-      \ {'name': 'g:neoterm_default_mod', 'default': 'vertical botright', 'value': 'botright'},
-      \ {'name': 'g:fzf_preview_window', 'default': 'right', 'value': 'up'},
+      \ {'name': 'g:fzf_preview_window', 'default': 'right', 'value': 'up', 'use_default': winwidth(0) > winheight(0) * 4 },
+      \ {'name': 'g:neoterm_default_mod', 'default': 'vertical botright', 'value': 'botright', 'use_default': winwidth(0) > winheight(0) * 4 },
+      \ {'name': 'g:test#javascript#jest#project_coverage', 'default': 0, 'value': 1},
       \ {'name': 'g:deoplete#sources#emoji#converter', 'default': '', 'value': 'converter_emoji', 'callback': function('ToggleDeopleteEmojiConverter')},
       \]
 
 for index in range(len(g:toggle_flags))
   let flag = g:toggle_flags[index]
   if !exists(flag.name)
-    execute 'let ' . flag.name . ' = ' . string(flag.default)
+    execute 'let ' . flag.name . ' = ' . string(get(flag, 'use_default', 1) ? flag.default : flag.value)
   endif
   execute 'noremap <Leader>z' . (index + 1) . ' :call util#toggle_flag(g:toggle_flags[' . string(index) . '])<CR>'
 endfor
@@ -393,7 +392,6 @@ let g:mkdp_auto_close = 0
 nmap <Leader>md <Plug>MarkdownPreviewToggle
 
 " Neoterm
-let g:neoterm_default_mod = 'vertical botright'
 let g:neoterm_autoscroll = 1
 let g:neoterm_fixedsize = 1
 command! -nargs=1 NeotermSendKey :call neoterm#exec({ 'cmd': [<q-args>]})
