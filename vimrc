@@ -4,6 +4,7 @@ call plug#begin('~/.vim/bundle')
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/neco-vim'
 Plug 'SirVer/ultisnips'
 Plug 'airblade/vim-gitgutter'

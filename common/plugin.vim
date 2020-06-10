@@ -484,3 +484,7 @@ xmap ga <Plug>(EasyAlign)
 
 " TableMode
 let g:table_mode_disable_tableize_mappings = 1
+
+" EchoDoc
+let g:echodoc#enable_at_startup = 1
+let g:echodoc#type = 'floating'
