@@ -185,8 +185,6 @@ call deoplete#custom#option('ignore_sources', {'css': ['look']})
 call deoplete#custom#option('keyword_patterns', {'javascript': '[a-zA-Z_@]\k*'})
 
 " deoplete-emoji
-let g:deoplete#sources#emoji#converter = ''
-
 function! ToggleDeopleteEmojiConverter()
   call deoplete#custom#source('emoji', 'converters', [g:deoplete#sources#emoji#converter])
 endfunction
