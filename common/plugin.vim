@@ -181,7 +181,7 @@ call deoplete#custom#source('emoji', {'filetypes': []})
 
 call deoplete#custom#var('buffer', {'require_same_filetype': 0})
 
-call deoplete#custom#option('ignore_sources', {'css': ['look'], 'javascript': ['file']})
+call deoplete#custom#option('ignore_sources', {'css': ['look']})
 call deoplete#custom#option('keyword_patterns', {'javascript': '[a-zA-Z_@]\k*'})
 
 " deoplete-emoji
