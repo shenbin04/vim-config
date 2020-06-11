@@ -179,6 +179,8 @@ call deoplete#custom#source('_', {'matchers': ['matcher_full_fuzzy']})
 call deoplete#custom#source('look', {'min_pattern_length': 5})
 call deoplete#custom#source('emoji', {'filetypes': []})
 
+call deoplete#custom#var('buffer', {'require_same_filetype': 0})
+
 call deoplete#custom#option('ignore_sources', {'css': ['look'], 'javascript': ['file']})
 call deoplete#custom#option('keyword_patterns', {'javascript': '[a-zA-Z_@]\k*'})
 
@@ -196,13 +198,13 @@ let g:deoplete#sources#ternjs#docs = 1
 let g:deoplete#sources#ternjs#filter = 0
 let g:deoplete#sources#ternjs#timeout = 10
 let g:deoplete#sources#ternjs#types = 1
+call deoplete#custom#source('tern', {'rank': 50})
 
 " deoplete-vim-lsp
 let g:lsp_diagnostics_enabled = 0
 let g:lsp_highlight_references_enabled = 1
 highlight lspReference ctermbg=11 ctermfg=0
 call deoplete#custom#source('lsp', {'rank': 999, 'min_pattern_length': 0})
-call deoplete#custom#source('tern', {'rank': 100})
 
 nnoremap <silent> <Leader>ff :LspDefinition<CR>
 nnoremap <silent> <Leader>fp :LspHover<CR>
