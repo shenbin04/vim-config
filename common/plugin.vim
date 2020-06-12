@@ -103,7 +103,7 @@ let g:closetag_close_shortcut = '<Leader>c'
 " Ale
 let g:ale_set_loclist = 1
 let g:ale_list_window_size = 1
-let g:ale_lint_on_filetype_changed = 0
+let g:ale_lint_on_enter = 0
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '>>'
 let g:ale_linters = {
