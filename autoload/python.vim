@@ -39,7 +39,7 @@ function! python#ShowError() abort
 
   let origin_win_id = win_getid()
 
-  call win_gotoid(util#get_neoterm_window())
+  call win_gotoid(util#GetNeotermWindow())
   normal! Gzb
 
   call search('\v' . g:shell_prompt, 'b')

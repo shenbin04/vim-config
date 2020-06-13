@@ -221,7 +221,7 @@ function! js#ShowError() abort
     return
   endif
 
-  let neoterm_win_id = util#get_neoterm_window()
+  let neoterm_win_id = util#GetNeotermWindow()
   if !neoterm_win_id
     return
   endif

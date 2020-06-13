@@ -301,7 +301,7 @@ function! s:history(arg, bang)
   endif
 endfunction
 
-nnoremap <Leader>aa :<C-R>=util#get_search_cmd()<CR> 
+nnoremap <Leader>aa :<C-R>=util#GetSearchCmd()<CR> 
 
 let g:toggle_flags = [
       \ {'name': 'g:search#use_fzf', 'default': 1, 'value': 0},
@@ -317,13 +317,13 @@ for index in range(len(g:toggle_flags))
   if !exists(flag.name)
     execute 'let ' . flag.name . ' = ' . string(get(flag, 'use_default', 1) ? flag.default : flag.value)
   endif
-  execute 'noremap <Leader>z' . (index + 1) . ' :call util#toggle_flag(g:toggle_flags[' . string(index) . '])<CR>'
+  execute 'noremap <Leader>z' . (index + 1) . ' :call util#ToggleFlag(g:toggle_flags[' . string(index) . '])<CR>'
 endfor
 
 function! ToggleFlag(line)
   for flag in g:toggle_flags
     if flag.name ==# split(a:line, ' = ')[0]
-      call util#toggle_flag(flag)
+      call util#ToggleFlag(flag)
       return
     endif
   endfor
@@ -353,16 +353,16 @@ let g:oremap = {"[t": "", "]t": ""}
 
 " Ag
 let g:ag_no_test = ' -G "(?<!test)\.(jsx?|py|m|swift|h|html|ts|vim|java)$"'
-nnoremap <Leader>aw "wyiw:<C-R>=util#get_search_cmd()<CR> '\b<C-R>w\b' 
-nnoremap <Leader>anw "wyiw:<C-R>=util#get_search_cmd()<CR> '<C-R>w' 
-nnoremap <Leader>asw "wyiw:<C-R>=util#get_search_cmd()<CR> <C-R>=g:ag_no_test<CR> '\b<C-R>w\b' 
-nnoremap <Leader>asnw "wyiw:<C-R>=util#get_search_cmd()<CR> <C-R>=g:ag_no_test<CR> '<C-R>w' 
-nnoremap <Leader>aW "wyiW:<C-R>=util#get_search_cmd()<CR> '\b<C-R>w\b' 
-nnoremap <Leader>anW "wyiW:<C-R>=util#get_search_cmd()<CR> '<C-R>w' 
+nnoremap <Leader>aw "wyiw:<C-R>=util#GetSearchCmd()<CR> '\b<C-R>w\b' 
+nnoremap <Leader>anw "wyiw:<C-R>=util#GetSearchCmd()<CR> '<C-R>w' 
+nnoremap <Leader>asw "wyiw:<C-R>=util#GetSearchCmd()<CR> <C-R>=g:ag_no_test<CR> '\b<C-R>w\b' 
+nnoremap <Leader>asnw "wyiw:<C-R>=util#GetSearchCmd()<CR> <C-R>=g:ag_no_test<CR> '<C-R>w' 
+nnoremap <Leader>aW "wyiW:<C-R>=util#GetSearchCmd()<CR> '\b<C-R>w\b' 
+nnoremap <Leader>anW "wyiW:<C-R>=util#GetSearchCmd()<CR> '<C-R>w' 
 nnoremap <silent> <Leader>ag :call GrepperFindProtobuf('protobuf')<CR>
 nnoremap <silent> <Leader>at :call GrepperFindThrift('thrift')<CR><CR>
-vnoremap <Leader>aa "wy:<C-R>=util#get_search_cmd()<CR> '\b<C-R>w\b' 
-nnoremap <Leader>av :<C-R>=util#get_search_cmd()<CR> ~/.vim/<S-Left><Left> 
+vnoremap <Leader>aa "wy:<C-R>=util#GetSearchCmd()<CR> '\b<C-R>w\b' 
+nnoremap <Leader>av :<C-R>=util#GetSearchCmd()<CR> ~/.vim/<S-Left><Left> 
 
 nnoremap <Leader>ap "wyiw:call util#GrepByWord(1, util#FindProject() . g:ag_no_test)<CR>
 nnoremap <Leader>asp "wyiw:call util#GrepByWord(1, util#FindProject())<CR>

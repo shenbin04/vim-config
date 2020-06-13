@@ -159,37 +159,37 @@ function! util#GitDiff(target)
     return
   endif
   execute 'Gdiffsplit ' . a:target
-  call s:diff_window_syntax('diff')
+  call s:SetDiffBufferSyntax('diff')
 endfunction
 
 function! util#GitDiffEnd()
-  if s:get_diff_window_count() == 2
-    call s:diff_window_syntax('on')
+  if len(s:GetDiffBuffers()) == 2
+    call s:SetDiffBufferSyntax('on')
   endif
 endfunction
 
 function! util#OpenFugitive()
-  let fugitive_win_nr = util#get_win_nr_by_ft('fugitive')
+  let fugitive_win_nr = util#GetWinNrByFt('fugitive')
   if !fugitive_win_nr
     10split
   endif
 endfunction
 
 function! util#CloseFugitive()
-  let fugitive_win_nr = util#get_win_nr_by_ft('fugitive')
+  let fugitive_win_nr = util#GetWinNrByFt('fugitive')
   if fugitive_win_nr
     execute 'bd ' . winbufnr(fugitive_win_nr)
   endif
 endfunction
 
 function! util#CloseDiff()
-  let diff_buffers = s:get_diff_buffers()
+  let diff_buffers = s:GetDiffBuffers()
   for bufnr in diff_buffers
     execute 'bd' . bufnr
   endfor
 endfunction
 
-function! s:diff_window_syntax(syntax) abort
+function! s:SetDiffBufferSyntax(syntax) abort
   for nr in range(1, winnr('$'))
     if getwinvar(nr, '&diff')
       call setbufvar(winbufnr(nr), '&syntax', a:syntax)
@@ -197,7 +197,7 @@ function! s:diff_window_syntax(syntax) abort
   endfor
 endfunction
 
-function! s:get_diff_buffers() abort
+function! s:GetDiffBuffers() abort
   let diff_buffers = []
   for nr in range(1, winnr('$'))
     if getwinvar(nr, '&diff')
@@ -207,11 +207,7 @@ function! s:get_diff_buffers() abort
   return diff_buffers
 endfunction
 
-function! s:get_diff_window_count() abort
-  return len(s:get_diff_buffers())
-endfunction
-
-function! util#get_win_nr_by_ft(filetype) abort
+function! util#GetWinNrByFt(filetype) abort
   for nr in range(1, winnr('$'))
     if getwinvar(nr, '&filetype') ==# a:filetype
       return nr
@@ -219,15 +215,15 @@ function! util#get_win_nr_by_ft(filetype) abort
   endfor
 endfunction
 
-function! util#get_neoterm_window() abort
-  let neoterm_win_nr = util#get_win_nr_by_ft('neoterm')
+function! util#GetNeotermWindow() abort
+  let neoterm_win_nr = util#GetWinNrByFt('neoterm')
   if neoterm_win_nr
     return win_getid(neoterm_win_nr)
   endif
 endfunction
 
 function! util#NeotermResize() abort
-  let neoterm_win_nr = util#get_win_nr_by_ft('neoterm')
+  let neoterm_win_nr = util#GetWinNrByFt('neoterm')
   if !neoterm_win_nr
     return
   endif
@@ -235,7 +231,7 @@ function! util#NeotermResize() abort
   silent! execute join(map(['>', '<', '-', '+'], {_, val -> neoterm_win_nr . 'wincmd ' . val}), ' | ')
 endfunction
 
-function! util#toggle_flag(flag) abort
+function! util#ToggleFlag(flag) abort
   let name = a:flag.name
   let default = a:flag.default
   let value = a:flag.value
@@ -250,10 +246,10 @@ function! util#toggle_flag(flag) abort
     call Callback()
   endif
 
-  execute 'echo "[toggle_flag] ' . name . ' = " . string(' . name . ')'
+  execute 'echo "[ToggleFlag] ' . name . ' = " . string(' . name . ')'
 endfunction
 
-function! util#get_search_cmd() abort
+function! util#GetSearchCmd() abort
   if !exists('g:search#use_fzf')
     return 'Ag!'
   endif
@@ -262,7 +258,7 @@ endfunction
 
 function! util#GrepByWord(by_word, path)
   let boundary = a:by_word ? "\\b" : ""
-  let cmd = util#get_search_cmd() . " \"" . boundary . @w . boundary . "\" " . a:path
+  let cmd = util#GetSearchCmd() . " \"" . boundary . @w . boundary . "\" " . a:path
   execute "normal! :" . cmd . "\<CR>"
   call histadd('cmd', cmd)
 endfunction
