@@ -1,6 +1,11 @@
-let s:js_function_regex = '\v^  \w+(\(.*\)(: \w+)? \{|(: \w+)? \= \(.*\)(: \w+)? \=\> (\{|.+;))$'
-let s:js_class_regex = '\v^(export )?(class|function) \zs\w+.*$'
 let s:js_object_regex = '\v\{\zs.+\ze\}.*'
+let s:js_function_regex = '\v('
+      \ . '^(export )?\s*function \zs\w+'
+      \ . '|^(export )?\s*const \zs\w+ \= \('
+      \ . '|^(export )?\s*class \zs\w+ extends'
+      \ . '|^  \zs\w+ \= \('
+      \ . '|^  \zs\w+\(.*\{'
+      \ . ')'
 let s:js_jsx_open_tag_regex = '\v^(\s*)(.*)(\<\S+) (.{-1,})( ?/{,1}\>)(.*)'
 
 function! s:FindRoot()
@@ -90,27 +95,44 @@ function! js#RunGlow()
   execute ':T pushd ' . root . '> /dev/null && glow -w && popd > /dev/null'
 endfunction
 
-function! js#FindFunction(command)
-  execute 'normal! j?' . escape(s:js_function_regex, '?') . "\<CR>$V%" . a:command
+function! js#FindFunction(cmd)
+  normal j
+  call search(s:js_function_regex, 'b')
+
+  let line = getline('.') 
+
+  normal $V%
+  if line !~ '\v(function|\=\>)'
+    normal $%
+  endif
+
+  if len(a:cmd)
+    execute 'normal! ' . a:cmd
+  endif
+endfunction
+
+function! js#FindProperty()
+  normal j
+  call search('\v\{', 'b')
+  normal V%
+endfunction
+
+function! js#FindTestCase(cmd)
+  normal j
+  call search('\v\s*it\(', 'b')
+  normal V%
+
+  if len(a:cmd)
+    execute 'normal! ' . a:cmd
+  endif
 endfunction
 
 function! js#FindFunctionNext()
-  let line_current = line('.')
-  let line_function = search(s:js_function_regex)
-  let line_class = search(s:js_class_regex)
-  if line_current >= line_class && line_current < line_function
-    call cursor(line_function, 1)
-  endif
+  call search(s:js_function_regex)
 endfunction
 
 function! js#FindFunctionPrevious()
-  let line_current = line('.')
-  let line_function = search(s:js_function_regex, 'b')
-  let line_class = search(s:js_class_regex, 'b')
-
-  if line_current <= line_class || line_current > line_function
-    call cursor(line_function, 0)
-  endif
+  call search(s:js_function_regex, 'b')
 endfunction
 
 function! js#ClassFunctionToClassProperty()
@@ -138,14 +160,6 @@ function! js#ToArrowFunction()
   else
     echo 'Not a function.'
   endif
-endfunction
-
-function! js#FindProperty()
-  execute "normal! /}\<CR>?\\v\\w+: \\{\<CR>$V%"
-endfunction
-
-function! js#FindTestCase(command)
-  execute "normal! j?\\v^\\s+it\\('.+'\<CR>$V%" . a:command
 endfunction
 
 function! js#FormatObjectSort()
