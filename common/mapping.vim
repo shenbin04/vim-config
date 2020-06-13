@@ -110,6 +110,7 @@ cabbrev gcaa tab Git commit -av --amend
 
 " Help
 nnoremap gh :h <C-r><C-w><CR>
+vnoremap gh :<C-u>h <C-r>=util#GetVisualSelection()<CR><CR>
 
 " Misc
 nnoremap <Space> za
