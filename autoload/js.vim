@@ -96,8 +96,8 @@ function! js#RunGlow()
 endfunction
 
 function! js#FindFunction(cmd)
-  normal j
-  call search(s:js_function_regex, 'b')
+  normal! $
+  call search(s:js_function_regex, 'bc')
 
   let line = getline('.') 
 
@@ -112,14 +112,14 @@ function! js#FindFunction(cmd)
 endfunction
 
 function! js#FindProperty()
-  normal j
-  call search('\v\{', 'b')
+  normal! $
+  call search('\v\{', 'bc')
   normal V%
 endfunction
 
 function! js#FindTestCase(cmd)
-  normal j
-  call search('\v\s*it\(', 'b')
+  normal! $
+  call search('\v\s*it\(', 'bc')
   normal V%
 
   if len(a:cmd)
