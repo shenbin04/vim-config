@@ -1,4 +1,3 @@
-let s:js_object_regex = '\v\{\zs.+\ze\}.*'
 let s:js_function_regex = '\v('
       \ . '^(export )?\s*function \zs\w+'
       \ . '|^(export )?\s*const \zs\w+ \= \('
@@ -162,16 +161,150 @@ function! js#ToArrowFunction()
   endif
 endfunction
 
-function! js#FormatObjectSort()
-  let lnum = line('.')
-  let line = getline('.')
-  let [str, start, end] = matchstrpos(line, s:js_object_regex)
-  if !empty(str)
-    let imports = join(sort(map(split(str, ','), {k, v -> xolox#misc#str#trim(v)})), ', ')
-    call setline(lnum, line[:start - 1] . imports . line[end:])
-  else
-    normal vi{ss
+function! s:hash(str) abort
+  let hash = 1
+  for c in split(a:str, '\zs')
+    let hash = (hash * 31 + char2nr(c)) % 2147483647
+  endfor
+  return hash
+endfunction
+
+function! s:SortObjectLine(line) abort
+  let line = a:line
+  if line !~ '\v\{.*(:|,).*\}'
+    return line
   endif
+
+  let result = s:SortObjectLineHelper(line)
+
+  let placeholder = result.placeholder
+  for lookup in result.lookup
+    let placeholder = substitute(placeholder, '\V' . lookup.hash, '{' . lookup.content . '}', '')
+  endfor
+  return placeholder . ','
+endfunction
+
+function! s:SortObjectLineHelper(line) abort
+  let placeholder = a:line
+  let lookup = []
+
+  for object in s:GetObjectsFromLine(a:line)
+    let hash = s:hash(object)
+    let result = s:SortObjectLineHelper(object)
+    let placeholder = substitute(placeholder, '\V{' . object . '}', hash, '')
+    call insert(lookup, {'hash': hash, 'content': result.placeholder})
+    call extend(lookup, result.lookup)
+  endfor
+
+  let placeholder_sorted = join(sort(split(placeholder, '\v, ?')), ', ')
+  return {'placeholder': placeholder_sorted, 'lookup': lookup}
+endfunction
+
+function! s:GetObjectsFromLine(line) abort
+  let level = 0
+  let results = []
+
+  let result = ''
+
+  for c in split(a:line, '\zs')
+    if c == '{'
+      let level += 1
+      let result .= c
+    elseif c == '}'
+      let level -= 1
+
+      if level == 0
+        call add(results, result[1:-1])
+        let result = ''
+      else
+        let result .= c
+      endif
+    else
+      if level > 0
+        let result .= c
+      endif
+    endif
+  endfor
+
+  return results
+endfunction
+
+function! s:SortObjectLines(lines, start) abort
+  let lines = a:lines
+  let index = a:start
+
+  let lines_to_sort = []
+  let lines_sorted = {}
+
+  while index < len(lines)
+    let line = lines[index]
+
+    if line =~ '\v(\=\>.*)@<!\{\|?$'
+      let [sorted, index_current] = s:SortObjectLines(lines, index + 1)
+      call insert(sorted, line)
+      call add(sorted, lines[index_current])
+      let lines_sorted[line] = sorted
+
+      call add(lines_to_sort, line)
+
+      let index = index_current
+    elseif line =~ '\v^\s*\|?\}'
+      call sort(lines_to_sort)
+      break
+    elseif line =~ '\v\{.*\}'
+      let line_sorted = s:SortObjectLine(line)
+      call add(lines_to_sort, line_sorted)
+    else
+      call add(lines_to_sort, line)
+
+      let lines_no_sort = [line]
+      let line_next = index + 1 < len(lines) ? lines[index + 1] : ''
+      while len(line_next) && line_next !~ '\v(\}|\w+:|\w+,)'
+        call add(lines_no_sort, line_next)
+        let index += 1
+        let line_next = index + 1 < len(lines) ? lines[index + 1] : ''
+      endwhile
+
+      if len(lines_no_sort) > 1
+        let lines_sorted[line] = lines_no_sort
+      endif
+    endif
+
+    let index += 1
+  endw
+
+  let sorted = []
+  for line in lines_to_sort
+    let sorted_for_line = get(lines_sorted, line, '')
+    if len(sorted_for_line)
+      call extend(sorted, sorted_for_line)
+    else
+      call add(sorted, line)
+    endif
+  endfor
+
+  return [sorted, index]
+endfunction
+
+function! js#FormatObjectSort()
+  let initial_pos = getpos('.')
+  let lnum_original = line('.')
+
+  normal! $
+  call search('\v\{', 'bc')
+
+  let lnum_start = line('.')
+
+  normal! %
+  let lnum_end = line('.')
+
+  let lines = getline(lnum_start, lnum_end)
+
+  let result = s:SortObjectLines(lines, 0)
+
+  call setline(lnum_start, result[0])
+
+  call setpos('.', initial_pos)
 endfunction
 
 function! js#FormatJsxSort()
