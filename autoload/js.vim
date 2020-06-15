@@ -308,15 +308,58 @@ function! js#FormatObjectSort()
 endfunction
 
 function! js#FormatJsxSort()
-  let lnum = line('.')
+  let initial_pos = getpos('.')
+
   let line = getline('.')
+
   if line =~# s:js_jsx_open_tag_regex
     let [_, indent, variable, jsx_tag, prop, end_tag, trailing; rest] = matchlist(line, s:js_jsx_open_tag_regex)
     let props = join(sort(split(prop, '[}"]\zs ')), ' ')
-    call setline(lnum, indent . variable . jsx_tag . ' ' . props . end_tag . trailing)
+    call setline('.', indent . variable . jsx_tag . ' ' . props . end_tag . trailing)
   else
-    normal viiss
+    normal! $
+    let lnum = search('\v^\s*\<\w+', 'bc') + 1
+    let lnum_start = lnum
+    let line = getline(lnum)
+
+    let lines_to_sort = []
+    let lines_sorted = {}
+
+    while lnum <= line('$') && line !~ '\v\s*(\/)?\>$'
+      call add(lines_to_sort, line)
+
+      let line_next = getline(lnum + 1)
+      let lines_no_sort = [line]
+      while lnum <= line('$') && line_next !~ '\v\s*\w+\=' && line_next !~ '\v\s*(\/)?\>$'
+        call add(lines_no_sort, line_next)
+        let lnum += 1
+        let line_next = getline(lnum + 1)
+      endwhile
+
+      if len(lines_no_sort) > 1
+        let lines_sorted[lines_no_sort[0]] = lines_no_sort
+      endif
+
+      let lnum += 1
+      let line = getline(lnum)
+    endwhile
+
+    call sort(lines_to_sort)
+
+    let sorted = []
+    for line in lines_to_sort
+      let sorted_for_line = get(lines_sorted, line, '')
+      if len(sorted_for_line)
+        call extend(sorted, sorted_for_line)
+      else
+        call add(sorted, line)
+      endif
+    endfor
+
+    call setline(lnum_start, sorted)
   endif
+
+  call setpos('.', initial_pos)
 endfunction
 
 function! js#ShowFlowCoverage()
