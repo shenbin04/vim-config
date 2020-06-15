@@ -37,10 +37,10 @@ nnoremap <buffer> <silent> ]] :call js#FindFunctionNext()<CR>
 onoremap <buffer> ik :call js#FindProperty()<CR>
 vnoremap <buffer> ik :call js#FindProperty()<CR>
 
-onoremap <buffer> iit :call js#FindTestCase('')<CR>
-vnoremap <buffer> iit :call js#FindTestCase('')<CR>
-onoremap <buffer> ait :call js#FindTestCase('j')<CR>
-vnoremap <buffer> ait :call js#FindTestCase('j')<CR>
+onoremap <buffer> ij :call js#FindTestCase('')<CR>
+vnoremap <buffer> ij :call js#FindTestCase('')<CR>
+onoremap <buffer> aj :call js#FindTestCase('j')<CR>
+vnoremap <buffer> aj :call js#FindTestCase('j')<CR>
 
 nnoremap <buffer> <silent> <Leader>fos :call js#FormatObjectSort()<CR>
 nnoremap <buffer> <silent> <Leader>fjs :call js#FormatJsxSort()<CR>
