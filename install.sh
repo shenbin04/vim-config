@@ -59,6 +59,7 @@ if command_exists pip && command_exists python && command_exists python3; then
   pip install pynvim
   pip install python-language-server
   pip install yapf
+  pip install black
 fi
 
 if command_exists npm && command_exists node; then

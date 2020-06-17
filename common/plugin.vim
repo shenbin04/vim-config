@@ -458,6 +458,7 @@ nnoremap <silent> <expr> <Leader>a Remembrall(',a')
 let g:black_linelength = 88
 let g:black_fast = 1
 let g:black_skip_string_normalization = 1
+let g:black_virtualenv = $HOME . '/.virtualenvs/vim3'
 
 " Startify
 let g:startify_change_to_dir = 0
