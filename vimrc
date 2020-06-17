@@ -147,7 +147,7 @@ set hlsearch
 set incsearch
 
 " Viminfo
-set shada=!,'2000,/500,h,\"500,:2000,n~/.vim/main.shada
+set shada=!,'2000,/500,h,\"500,:2000,n$HOME/.vim/main.shada
 
 " Undo
 set undofile
