@@ -336,7 +336,7 @@ nnoremap <silent> <Leader>zt :call fzf#run(fzf#wrap({
       \ }))<CR>
 
 noremap <Leader>, :History!<CR>
-noremap <Leader>. :Mixed<CR>
+noremap <Leader>. :Mixed!<CR>
 noremap <Leader>za :Files!<CR>
 noremap <Leader>ze :Snippets!<CR>
 noremap <Leader>zgb :BCommits!<CR>
