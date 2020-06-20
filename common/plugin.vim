@@ -207,6 +207,7 @@ call deoplete#custom#source('lsp', {'rank': 999, 'min_pattern_length': 0})
 nnoremap <silent> <Leader>ff :LspDefinition<CR>
 nnoremap <silent> <Leader>fp :LspHover<CR>
 nnoremap <silent> <Leader>fr :LspRename<CR>
+nnoremap <silent> <Leader>fu :LspReferences<CR>
 
 if executable('flow')
   autocmd User lsp_setup call lsp#register_server({
