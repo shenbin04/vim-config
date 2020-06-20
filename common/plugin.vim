@@ -419,10 +419,10 @@ let g:qfenter_keymap.hopen = ['<C-CR>', '<C-s>', '<C-x>']
 let g:qfenter_keymap.topen = ['<C-t>']
 
 " Marvim
-let g:marvim_store = $HOME.'/.vim/macro'
+let g:marvim_dir = $HOME.'/.marvim/'
 let g:marvim_find_key = '<Leader>mf'
 let g:marvim_store_key = '<Leader>ms'
-noremap <Leader>me :execute 'e ' . g:marvim_store<CR>
+noremap <Leader>me :execute 'e ' . g:marvim_dir<CR>
 
 " Markdown
 let g:mkdp_auto_close = 0
