@@ -121,6 +121,7 @@ set showmatch
 set noautoread
 set path+=$HOME/.vim
 set completeopt-=preview
+set guicursor=
 
 " Formatting
 set autoindent
