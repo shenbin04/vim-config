@@ -181,7 +181,8 @@ function! s:SortObjectLine(line) abort
   for lookup in result.lookup
     let placeholder = substitute(placeholder, '\V' . lookup.hash, '{' . lookup.content . '}', '')
   endfor
-  return placeholder . ','
+
+  return placeholder
 endfunction
 
 function! s:SortObjectLineHelper(line) abort
@@ -196,7 +197,7 @@ function! s:SortObjectLineHelper(line) abort
     call extend(lookup, result.lookup)
   endfor
 
-  let placeholder_sorted = join(sort(split(placeholder, '\v, ?')), ', ')
+  let placeholder_sorted = join(sort(split(placeholder, '\v, ?\ze\w+')), ', ')
   return {'placeholder': placeholder_sorted, 'lookup': lookup}
 endfunction
 
