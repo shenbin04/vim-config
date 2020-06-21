@@ -43,7 +43,7 @@ Plug 'mhinz/vim-grepper'
 Plug 'mhinz/vim-startify'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'morhetz/gruvbox'
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins', 'for': 'python'}
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'pangloss/vim-javascript', {'for': 'javascript'}
 Plug 'plasticboy/vim-markdown'
 Plug 'prabirshrestha/async.vim'
