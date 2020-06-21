@@ -78,12 +78,7 @@ fi
 
 if [[ "$OSTYPE" == "darwin"* ]] && command_exists brew; then
   printf '\033[0;32mInstalling third parity environments...\033[0m\n'
-  if ! command_exists bat; then
-    brew install bat
-  fi
-  if ! command_exists pg_format; then
-    brew install pgformatter
-  fi
+  brew install bat ctags pgformatter
 fi
 
 printf '\033[0;32mConfiguring neovim...\033[0m\n'
@@ -93,4 +88,4 @@ ln -fs ~/.vim/init.vim ~/.config/nvim/init.vim
 ln -fs ~/.vim/.tern-project ~/.tern-project
 nvim -S ~/.vim/snapshot.vim +qa
 
-printf '\033[0;32mDone\033[0m 🎉\n'
+printf '\n\033[0;32mDone\033[0m 🎉\n'
