@@ -47,7 +47,6 @@ Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'pangloss/vim-javascript', {'for': 'javascript'}
 Plug 'plasticboy/vim-markdown'
 Plug 'prabirshrestha/async.vim'
-Plug 'psf/black', {'for': 'python'}
 Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind']}
 Plug 'shenbin04/deoplete-ternjs', {'for': 'javascript'}
 Plug 'shenbin04/fzf', {'do': {-> fzf#install()}}

@@ -113,7 +113,7 @@ let g:ale_linters = {
       \}
 let g:ale_fixers = {
       \   'javascript': ['prettier'],
-      \   'python': ['ALEBlack'],
+      \   'python': ['black'],
       \   'css': ['prettier'],
       \   'json': ['prettier'],
       \   'sql': ['pgformatter'],
@@ -122,10 +122,7 @@ let g:ale_python_pylint_change_directory = 0
 let g:ale_python_pylint_use_global = 1
 let g:ale_python_flake8_options = '--ignore=E101,E501,W291,W292,W293,W503'
 let g:ale_sql_pgformatter_options = '%s'
-
-function! ALEBlack(buffer, lines)
-  Black
-endfunction
+let g:ale_python_black_options = '-S --fast'
 
 nmap <Leader>fa <Plug>(ale_fix)
 nnoremap <Leader>p :ALEPreviousWrap<CR>
@@ -454,12 +451,6 @@ let g:peekaboo_window = 'vertical botright 50new'
 nnoremap <silent> <expr> <Leader>r Remembrall(',r')
 nnoremap <silent> <expr> <Leader>f Remembrall(',f')
 nnoremap <silent> <expr> <Leader>a Remembrall(',a')
-
-" Black
-let g:black_linelength = 88
-let g:black_fast = 1
-let g:black_skip_string_normalization = 1
-let g:black_virtualenv = $HOME . '/.virtualenvs/vim3'
 
 " Startify
 let g:startify_change_to_dir = 0

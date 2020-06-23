@@ -24,13 +24,6 @@ function! s:ProcessError(input)
   return result
 endfunction
 
-function! s:FormatError(input)
-  let black_linelength = g:black_linelength
-  let g:black_linelength = 80
-  silent! Black
-  let g:black_linelength = black_linelength
-endfunction
-
 function! python#ShowError() abort
   if !exists('g:shell_prompt')
     call util#EchoError('Please set g:shell_prompt first.')
@@ -80,13 +73,13 @@ function! python#ShowError() abort
 
     botright 8new
     call setline(1, x)
-    call s:FormatError(x)
+    ALEFix
     diffthis
     setlocal buftype=nofile bufhidden=delete filetype=python foldcolumn=0 noswapfile nomodifiable
 
     vertical rightbelow new
     call setline(1, y)
-    call s:FormatError(y)
+    ALEFix
     diffthis
     setlocal buftype=nofile bufhidden=delete filetype=python foldcolumn=0 noswapfile nomodifiable
   endif
