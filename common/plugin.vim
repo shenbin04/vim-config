@@ -26,6 +26,7 @@ nnoremap <silent> <Leader>gb :Gblame<CR>
 nnoremap <silent> <Leader>grm :Gread! show master:%<CR>
 nnoremap <silent> <Leader>grh :Gread! show HEAD:%<CR>
 nnoremap <silent> <Leader>gaa :tab Git add -p<CR>
+nnoremap <silent> <Leader>gaf :tab Git add %<CR>
 nnoremap <silent> <Leader>gap :tab Git add -p %<CR>
 nnoremap <silent> <Leader>gcc :tab Git commit -v<CR>
 nnoremap <silent> <Leader>gca :tab Git commit -v --amend<CR>
