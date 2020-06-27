@@ -352,25 +352,20 @@ let g:oremap = {"[t": "", "]t": ""}
 
 " Ag
 let g:ag_no_test = ' -G "(?<!test)\.\w+(?<!.snap)$"'
-nnoremap <Leader>aw "wyiw:<C-R>=util#GetSearchCmd()<CR> '\b<C-R>w\b' 
-nnoremap <Leader>anw "wyiw:<C-R>=util#GetSearchCmd()<CR> '<C-R>w' 
-nnoremap <Leader>asw "wyiw:<C-R>=util#GetSearchCmd()<CR> <C-R>=g:ag_no_test<CR> '\b<C-R>w\b' 
-nnoremap <Leader>asnw "wyiw:<C-R>=util#GetSearchCmd()<CR> <C-R>=g:ag_no_test<CR> '<C-R>w' 
-nnoremap <Leader>aW "wyiW:<C-R>=util#GetSearchCmd()<CR> '\b<C-R>w\b' 
-nnoremap <Leader>anW "wyiW:<C-R>=util#GetSearchCmd()<CR> '<C-R>w' 
 nnoremap <silent> <Leader>ag :call GrepperFindProtobuf('protobuf')<CR>
 nnoremap <silent> <Leader>at :call GrepperFindThrift('thrift')<CR><CR>
-vnoremap <Leader>aa "wy:<C-R>=util#GetSearchCmd()<CR> '\b<C-R>w\b' 
-nnoremap <Leader>av :<C-R>=util#GetSearchCmd()<CR> ~/.vim/<S-Left><Left> 
 
-nnoremap <Leader>ap "wyiw:call util#GrepByWord(1, util#FindProject() . g:ag_no_test)<CR>
-nnoremap <Leader>asp "wyiw:call util#GrepByWord(1, util#FindProject())<CR>
-nnoremap <Leader>awp "wyiw:call util#GrepByWord(0, util#FindProject() . g:ag_no_test)<CR>
-nnoremap <Leader>aswp "wyiw:call util#GrepByWord(0, util#FindProject())<CR>
-vnoremap <Leader>ap "wy:call util#GrepByWord(1, util#FindProject() . g:ag_no_test)<CR>
-vnoremap <Leader>asp "wy:call util#GrepByWord(1, util#FindProject())<CR>
-vnoremap <Leader>awp "wy:call util#GrepByWord(0, util#FindProject() . g:ag_no_test)<CR>
-vnoremap <Leader>aswp "wy:call util#GrepByWord(0, util#FindProject())<CR>
+nnoremap <Leader>aw :<C-R>=util#GetSearchCmd()<CR> '\b<C-R>=expand('<cword>')<CR>\b' 
+nnoremap <Leader>asw :<C-R>=util#GetSearchCmd()<CR> '\b<C-R>=expand('<cword>')<CR>\b' <C-R>=g:ag_no_test<CR> 
+nnoremap <Leader>av :<C-R>=util#GetSearchCmd()<CR> ~/.vim/<S-Left><Left> 
+nnoremap <Leader>ac :<C-R>=util#GetSearchCmd()<CR> <C-R>=expand('<cword>')<CR> 
+
+nnoremap <Leader>ap :call util#GrepByWord(1, util#FindProject() . g:ag_no_test)<CR>
+nnoremap <Leader>asp :call util#GrepByWord(1, util#FindProject())<CR>
+
+vnoremap <Leader>aa "zy:<C-R>=util#GetSearchCmd()<CR> '\b<C-R>=escape(@z, '!#%')<CR>\b' 
+vnoremap <Leader>ap "zy:<C-R>=util#GetSearchCmd()<CR> '\b<C-R>=escape(@z, '!#%')<CR>\b' <C-R>=util#FindProject() . g:ag_no_test<CR><CR>
+vnoremap <Leader>asp "zy:<C-R>=util#GetSearchCmd()<CR> '\b<C-R>=escape(@z, '!#%')<CR>\b' <C-R>=util#FindProject()<CR><CR>
 
 function! GrepperFindReference(cmd)
   let g:grepper.jump = 1

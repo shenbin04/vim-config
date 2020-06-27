@@ -252,7 +252,7 @@ endfunction
 
 function! util#GrepByWord(by_word, path)
   let boundary = a:by_word ? "\\b" : ""
-  let cmd = util#GetSearchCmd() . " \"" . boundary . @w . boundary . "\" " . a:path
+  let cmd = util#GetSearchCmd() . " \"" . boundary . expand('<cword>') . boundary . "\" " . a:path
   execute "normal! :" . cmd . "\<CR>"
   call histadd('cmd', cmd)
 endfunction
