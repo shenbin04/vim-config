@@ -355,3 +355,7 @@ function! util#GetVisualSelection() abort
   let lines[0] = lines[0][col1 - 1:]
   return join(lines, "\n")
 endfunction
+
+function! util#IsWideWin()
+  return winwidth(0) > winheight(0) * 4
+endfunction

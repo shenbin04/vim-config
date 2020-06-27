@@ -22,5 +22,7 @@ augroup autocmd
   autocmd BufWinLeave * call util#SaveView()
   autocmd BufWinEnter * call util#LoadView()
 
+  autocmd VimResized * let g:fzf_preview_window = util#IsWideWin() ? 'right' : 'up'
+
   autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | silent! pclose | endif
 augroup END
