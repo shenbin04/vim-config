@@ -80,12 +80,6 @@ function! util#SetReg(regs, message)
   echo 'Copied: ' . a:message
 endfunction
 
-function! util#MaybeInsertMode()
-  if &buftype == 'terminal'
-    startinsert
-  endif
-endfunction
-
 function! util#OpenHtml() range
   let g:html_use_css = 0
   let g:html_number_lines = 0
