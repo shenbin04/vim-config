@@ -258,7 +258,7 @@ function! util#GrepByWord(by_word, path)
 endfunction
 
 function! util#ag(args, bang)
-  let quote_query_match = matchlist(a:args, '\v([''"].*[''"]) ?(.*)')
+  let quote_query_match = matchlist(a:args, '\v(.*[''"].*[''"]) ?(.*)')
 
   if !empty(quote_query_match)
     let args = split(quote_query_match[2])
