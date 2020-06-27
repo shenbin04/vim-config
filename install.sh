@@ -82,9 +82,8 @@ if [[ "$OSTYPE" == "darwin"* ]] && command_exists brew; then
 fi
 
 printf '\033[0;32mConfiguring neovim...\033[0m\n'
-ln -fs ~/.vim/vimrc ~/.vimrc
-mkdir -p ~/.config/nvim
-ln -fs ~/.vim/init.vim ~/.config/nvim/init.vim
+mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
+ln -fs ~/.vim $XDG_CONFIG_HOME/nvim
 ln -fs ~/.vim/.tern-project ~/.tern-project
 nvim -S ~/.vim/snapshot.vim +qa
 

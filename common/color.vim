@@ -36,6 +36,8 @@ endif
 
 hi! Comment cterm=italic
 
+hi! link TermCursorNC Cursor
+
 hi! ALEErrorSign ctermfg=015 ctermbg=001 cterm=none
 hi! ALEWarningSign ctermfg=015 ctermbg=166 cterm=none
 hi! link ALEError clear
