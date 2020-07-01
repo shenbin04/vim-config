@@ -31,11 +31,11 @@ snippet "^(\s+)af" "Add function: `export function () {}`" r
 endsnippet
 
 snippet aaf "Add arrow function: `() => {}`" w
-${1:()} => {$0}
+${1:()} => {$2}
 endsnippet
 
 snippet afe "Add arrow function expression: `a = () => {}`"
-$1 = ${2:()} => {$0};
+$1 = ${2:()} => {$3}
 endsnippet
 
 snippet od "Add object destructure: `const {a} = data;`" b
