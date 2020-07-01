@@ -175,7 +175,7 @@ function! s:SortObjectLine(line) abort
     return line
   endif
 
-  let result = s:SortObjectLineHelper(line)
+  let result = s:SortObjectLineHelper(line, 0)
 
   let placeholder = result.placeholder
   for lookup in result.lookup
@@ -185,19 +185,23 @@ function! s:SortObjectLine(line) abort
   return placeholder
 endfunction
 
-function! s:SortObjectLineHelper(line) abort
+function! s:SortObjectLineHelper(line, level) abort
   let placeholder = a:line
   let lookup = []
 
   for object in s:GetObjectsFromLine(a:line)
     let hash = s:hash(object)
-    let result = s:SortObjectLineHelper(object)
+    let result = s:SortObjectLineHelper(object, a:level + 1)
     let placeholder = substitute(placeholder, '\V{' . object . '}', hash, '')
     call insert(lookup, {'hash': hash, 'content': result.placeholder})
     call extend(lookup, result.lookup)
   endfor
 
-  let placeholder_sorted = join(sort(split(placeholder, '\v, ?\ze\w+')), ', ')
+  if a:level > 0
+    let placeholder_sorted = join(sort(split(placeholder, '\v, ?\ze\w+')), ', ')
+  else
+    let placeholder_sorted = placeholder
+  endif
   return {'placeholder': placeholder_sorted, 'lookup': lookup}
 endfunction
 
@@ -215,7 +219,7 @@ function! s:GetObjectsFromLine(line) abort
       let level -= 1
 
       if level == 0
-        call add(results, result[1:-1])
+        call add(results, result[1:])
         let result = ''
       else
         let result .= c
