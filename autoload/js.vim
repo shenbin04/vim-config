@@ -495,3 +495,7 @@ function! js#GoToDefinition()
     silent! LspDefinition
   endif
 endfunction
+
+function! js#MovetoReact()
+  call search('\v\zs}? from.*''react''', 'b')
+endfunction

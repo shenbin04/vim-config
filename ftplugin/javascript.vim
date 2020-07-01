@@ -45,6 +45,8 @@ vnoremap <buffer> aj :call js#FindTestCase('j')<CR>
 nnoremap <buffer> <silent> <Leader>fos :call js#FormatObjectSort()<CR>
 nnoremap <buffer> <silent> <Leader>fjs :call js#FormatJsxSort()<CR>
 
+nnoremap <buffer> <silent> <Leader>mr :call js#MovetoReact()<CR>
+
 nnoremap <buffer> <silent> <Leader>ftap :call js#ClassFunctionToClassProperty()<CR>
 nnoremap <buffer> <silent> <Leader>ftaf :call js#ToArrowFunction()<CR>
 
