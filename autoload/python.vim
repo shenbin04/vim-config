@@ -72,16 +72,15 @@ function! python#ShowError() abort
     let y = s:ProcessError(@y)
 
     botright 8new
-    call setline(1, x)
-    ALEFix
+    silent execute 'read !black -c ' . string(x)
     diffthis
     setlocal buftype=nofile bufhidden=delete filetype=python foldcolumn=0 noswapfile nomodifiable
 
     vertical rightbelow new
-    call setline(1, y)
-    ALEFix
+    silent execute 'read !black -c ' . string(y)
     diffthis
     setlocal buftype=nofile bufhidden=delete filetype=python foldcolumn=0 noswapfile nomodifiable
+    normal gg]c
   endif
 
   call win_gotoid(origin_win_id)
