@@ -55,9 +55,9 @@ function! python#ShowError() abort
       normal! %2W
       silent normal! "yy%
     endif
-    call search('\v^E\s+AssertionError: \zs', 'b')
 
-    call search('\v^\S+:\d+:', 'b')
+    call search('\v' . g:shell_prompt, 'b')
+    call search('\v^\S+:\d+:')
     normal! "zy2t:
 
     call win_gotoid(origin_win_id)
@@ -74,12 +74,12 @@ function! python#ShowError() abort
     botright 8new
     silent execute 'read !black -c ' . string(x)
     diffthis
-    setlocal buftype=nofile bufhidden=delete filetype=python foldcolumn=0 noswapfile nomodifiable
+    setlocal buftype=nofile bufhidden=delete filetype=text foldcolumn=0 noswapfile nomodifiable
 
     vertical rightbelow new
     silent execute 'read !black -c ' . string(y)
     diffthis
-    setlocal buftype=nofile bufhidden=delete filetype=python foldcolumn=0 noswapfile nomodifiable
+    setlocal buftype=nofile bufhidden=delete filetype=text foldcolumn=0 noswapfile nomodifiable
     normal gg]c
   endif
 
