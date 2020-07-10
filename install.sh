@@ -83,6 +83,7 @@ fi
 
 printf '\033[0;32mConfiguring neovim...\033[0m\n'
 mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
+rm -rf $XDG_CONFIG_HOME/nvim
 ln -fs ~/.vim $XDG_CONFIG_HOME/nvim
 ln -fs ~/.vim/.tern-project ~/.tern-project
 nvim -S ~/.vim/snapshot.vim +qa
