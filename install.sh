@@ -73,7 +73,7 @@ if command_exists npm && command_exists node; then
     npm install -g neovim
   fi
 
-  npm install -g jsctags prettier
+  npm install -g jsctags prettier typescript typescript-language-server
 fi
 
 if [[ "$OSTYPE" == "darwin"* ]] && command_exists brew; then
