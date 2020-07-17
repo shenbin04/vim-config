@@ -308,6 +308,7 @@ let g:toggle_flags = [
       \ {'name': 'g:fzf_preview_window', 'default': 'right', 'value': 'up', 'use_default': winwidth(0) > winheight(0) * 4 },
       \ {'name': 'g:neoterm_default_mod', 'default': 'vertical botright', 'value': 'botright', 'use_default': util#IsWideWin() },
       \ {'name': 'g:test#javascript#jest#project_coverage', 'default': 0, 'value': 1},
+      \ {'name': 'g:test#python#pants', 'default': 0, 'value': 1},
       \ {'name': 'g:deoplete#sources#emoji#converter', 'default': '', 'value': 'converter_emoji', 'callback': function('ToggleDeopleteEmojiConverter')},
       \]
 

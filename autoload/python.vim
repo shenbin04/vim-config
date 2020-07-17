@@ -1,12 +1,17 @@
 function! python#RunTestFile(...)
   let test_file = util#ExpandRelative('%:p')
   let dir = util#ExpandRelative('%:p:h')
-  let python_file = dir . '/' . join(split(expand('%:t'), '_')[0:-2], '_') . '.py'
-  let coverage_file = 'COVERAGE_FILE=.coverage.python'
-  let args = a:0 > 0 ? ' ' . join(a:000, ' ') : ''
-  let command = coverage_file . ' coverage run --branch --include ' . python_file
-        \ . ' -m pytest ' . test_file . args
-        \ . ' && ' . coverage_file . ' coverage report -m'
+
+  if get(g:, 'test#python#pants')
+    let command = './pants test ' . dir . ':' . expand('%:t:r')
+  else
+    let python_file = dir . '/' . join(split(expand('%:t'), '_')[0:-2], '_') . '.py'
+    let coverage_file = 'COVERAGE_FILE=.coverage.python'
+    let args = a:0 > 0 ? ' ' . join(a:000, ' ') : ''
+    let command = coverage_file . ' coverage run --branch --include ' . python_file
+          \ . ' -m pytest ' . test_file . args
+          \ . ' && ' . coverage_file . ' coverage report -m'
+  endif
 
   call util#Topen()
   execute ':T ' . command
