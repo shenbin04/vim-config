@@ -271,14 +271,14 @@ function! util#ag(args, bang)
 
   let i = 0
   if len(args) >= 2
-    while i < len(args) - 1 && args[i + 1][0] != '-'
+    while i < len(args) - 1 && args[i] != '-g' && args[i] != '-G' && args[i + 1][0] != '-'
+      let dir = args[i + 1]
       let i = i + 1
-      let dir = args[i]
     endwhile
   endif
 
   let options = {}
-  if !empty(dir)
+  if len(dir)
     let options.dir = dir
     let options.options = '--prompt Ag[' . dir . ']'
     unlet args[i]
