@@ -85,7 +85,7 @@ endfunction
 function! js#RunFlow()
   call util#Topen()
   let root = fnamemodify(findfile('.flowconfig', '.;'), ':.:h')
-  execute ':T flow ' . root . ' --show-all-errors'
+  execute ':T flow ' . root . ' --show-all-errors --max-warnings 0'
 endfunction
 
 function! js#RunGlow()
@@ -419,10 +419,10 @@ function! js#ShowError() abort
           \ 'origin_win_id': origin_win_id,
           \ 'cmd': 'normal! "xyib'
           \ })
-  elseif search('\v^Error ┈+', 'W')
+  elseif search('\v^(Error|Warning) ┈+', 'W')
     " flow error
     call s:FindError({
-          \ 'pattern': '\v^Error ┈+ ?\n?\zs\_S+:\_d+:\_d+',
+          \ 'pattern': '\v^(Error|Warning) ┈+ ?\n?\zs\_S+:\_d+:\_d+',
           \ 'origin_win_id': origin_win_id,
           \ 'cmd': 'normal! "xy}'
           \ })
