@@ -1,7 +1,7 @@
 let s:js_function_regex = '\v('
       \ . '^(export )?\s*function \zs\w+'
       \ . '|^(export )?\s*const \zs\w+ \= \('
-      \ . '|^(export )?\s*class \zs\w+ extends'
+      \ . '|^(export )?(default )?\s*class \zs\w+ extends'
       \ . '|^  \zs\w+ \= \('
       \ . '|^  \zs\w+\(.*\{'
       \ . ')'
