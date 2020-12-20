@@ -461,9 +461,6 @@ let g:startify_lists = [
       \ { 'type': 'commands',  'header': ['   Commands']       },
       \ ]
 
-" Projectionist
-nnoremap <silent> gs :A<CR>
-
 " Buffer History
 nmap <Leader>1 <Plug>(buffer-history-back)
 nmap <Leader>2 <Plug>(buffer-history-forward)
