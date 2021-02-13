@@ -46,6 +46,7 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'morhetz/gruvbox'
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'pangloss/vim-javascript', {'for': 'javascript'}
+Plug 'pedrohdz/vim-yaml-folds'
 Plug 'plasticboy/vim-markdown'
 Plug 'prabirshrestha/async.vim'
 Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind']}
