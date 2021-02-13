@@ -7,6 +7,7 @@ Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/neco-vim'
 Plug 'SirVer/ultisnips'
+Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'alvan/vim-closetag'
 Plug 'b4winckler/vim-objc', {'for': 'objc'}
