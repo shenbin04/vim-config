@@ -1,1 +1,1 @@
-autocmd BufRead,BufNewFile *.aurora set filetype=python
+autocmd BufRead,BufNewFile *.aurora set filetype=aurora
