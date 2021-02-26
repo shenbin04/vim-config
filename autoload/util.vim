@@ -163,6 +163,11 @@ function! util#GitDiffEnd()
 endfunction
 
 function! util#OpenFugitive()
+  let dir = FugitiveExtractGitDir(expand('%:p'))
+  if empty(dir)
+    return
+  endif
+
   let fugitive_win_nr = util#GetWinNrByFt('fugitive')
   if !fugitive_win_nr
     10split
