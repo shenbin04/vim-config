@@ -14,3 +14,5 @@ nnoremap <buffer> <silent> <Leader>fy :YAPF<CR>
 nnoremap <buffer> <silent> <Leader>fe :call python#ShowError()<CR>
 nnoremap <buffer> <silent> ]e :call python#ShowErrorNext()<CR>
 nnoremap <buffer> <silent> [e :call python#ShowErrorPrev()<CR>
+
+nnoremap <buffer> <silent> <Leader>fi :Isort<CR>

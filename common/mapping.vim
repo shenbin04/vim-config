@@ -120,3 +120,5 @@ nnoremap <F2> :setlocal spell!<CR>
 nnoremap <Leader>cu :set cursorline! cursorcolumn!<CR>
 inoremap <C-d> <Esc>ddi
 inoremap <C-u> <Esc>lgUiwgi
+
+command! -range=% Isort :<line1>,<line2>! isort -

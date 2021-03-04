@@ -114,7 +114,7 @@ let g:ale_linters = {
       \}
 let g:ale_fixers = {
       \   'javascript': ['prettier'],
-      \   'python': ['black'],
+      \   'python': ['isort', 'black'],
       \   'css': ['prettier'],
       \   'json': ['prettier'],
       \   'sql': ['pgformatter'],
