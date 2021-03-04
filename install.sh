@@ -57,9 +57,10 @@ if command_exists pip && command_exists python && command_exists python3; then
   mkvirtualenv --python=python3 vim3
   pip install msgpack==0.6.1
   pip install pynvim
-  pip install python-language-server
-  pip install yapf
-  pip install black
+
+  deactivate
+
+  pip3 install black python-language-server yapf isort
 fi
 
 if command_exists npm && command_exists node; then
