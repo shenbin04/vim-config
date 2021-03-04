@@ -93,7 +93,7 @@ let g:NERDTreeHighlightCursorline = 1
 let g:NERDTreeMapJumpNextSibling = ''
 let g:NERDTreeMapJumpPrevSibling = ''
 let g:NERDTreeIgnore = [ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$', '\.o$', '__pycache__',
-      \ '\.so$', '\.egg$', '^\.git$', '\.cmi', '\.cmo', 'tags' ]
+      \ '\.so$', '\.egg$', '^\.git$', '\.cmi', '\.cmo', '^tags$' ]
 
 " Closetag
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.php,*.js,*.jsx'
