@@ -58,7 +58,7 @@ function! python#ShowError() abort
     else
       silent normal! "xy%
       normal! %2W
-      silent normal! "yy%
+      silent normal! v}"yy
     endif
 
     call search('\v' . g:shell_prompt, 'b')
@@ -77,12 +77,12 @@ function! python#ShowError() abort
     let y = s:ProcessError(@y)
 
     botright 8new
-    silent execute 'read !black -c ' . string(x)
+    silent execute 'read !black -c ' . shellescape(x)
     diffthis
     setlocal buftype=nofile bufhidden=delete filetype=text foldcolumn=0 noswapfile nomodifiable
 
     vertical rightbelow new
-    silent execute 'read !black -c ' . string(y)
+    silent execute 'read !black -c ' . shellescape(y)
     diffthis
     setlocal buftype=nofile bufhidden=delete filetype=text foldcolumn=0 noswapfile nomodifiable
     normal gg]c
