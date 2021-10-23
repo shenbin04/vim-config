@@ -43,6 +43,7 @@ Plug 'mhinz/vim-grepper'
 Plug 'mhinz/vim-startify'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'morhetz/gruvbox'
+Plug 'neoclide/jsonc.vim'
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'pangloss/vim-javascript', {'for': 'javascript'}
 Plug 'pedrohdz/vim-yaml-folds'
