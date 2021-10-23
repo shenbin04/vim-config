@@ -113,10 +113,13 @@ let g:ale_linters = {
       \   'css': ['stylelint'],
       \}
 let g:ale_fixers = {
-      \   'javascript': ['prettier'],
       \   'python': ['isort', 'black'],
+      \   'javascript': ['prettier'],
+      \   'typescript': ['prettier'],
       \   'css': ['prettier'],
       \   'json': ['prettier'],
+      \   'jsonc': ['prettier'],
+      \   'html': ['prettier'],
       \   'sql': ['pgformatter'],
       \}
 let g:ale_python_pylint_change_directory = 0
