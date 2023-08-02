@@ -85,7 +85,7 @@ endfunction
 function! js#RunFlow()
   call util#Topen()
   let root = fnamemodify(findfile('.flowconfig', '.;'), ':.:h')
-  execute ':T flow ' . root . ' --show-all-errors --max-warnings 0'
+  execute ':T flow ' . root . ' --show-all-errors --show-all-branches --max-warnings 0'
 endfunction
 
 function! js#RunGlow()

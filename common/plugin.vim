@@ -126,7 +126,6 @@ let g:ale_python_pylint_change_directory = 0
 let g:ale_python_pylint_use_global = 1
 let g:ale_python_flake8_options = '--ignore=E101,E501,W291,W292,W293,W503'
 let g:ale_sql_pgformatter_options = '%s'
-let g:ale_python_black_options = '-S --fast'
 let g:ale_yaml_yamllint_options = '-d "{extends: relaxed}"'
 
 nmap <Leader>fa <Plug>(ale_fix)

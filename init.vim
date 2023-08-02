@@ -32,6 +32,7 @@ Plug 'junegunn/gv.vim', {'on': 'GV'}
 Plug 'junegunn/vim-easy-align', {'on': ['<Plug>(EasyAlign)', 'EasyAlign']}
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-slash'
+Plug 'jxnblk/vim-mdx-js'
 Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-user'
 Plug 'kassio/neoterm'
