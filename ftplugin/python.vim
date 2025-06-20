@@ -1,5 +1,6 @@
 setlocal textwidth=120
 setlocal colorcolumn=+1
+setlocal formatprg=black\ --quiet\ -
 
 nnoremap <buffer> <silent> <Leader>ct :call python#NewTestFile()<CR>
 
