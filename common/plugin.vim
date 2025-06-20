@@ -116,6 +116,7 @@ let g:ale_fixers = {
       \   'python': ['isort', 'black'],
       \   'javascript': ['prettier'],
       \   'typescript': ['prettier'],
+      \   'typescriptreact': ['prettier'],
       \   'css': ['prettier'],
       \   'json': ['prettier'],
       \   'jsonc': ['prettier'],
