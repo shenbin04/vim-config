@@ -373,20 +373,9 @@ vnoremap <Leader>aa "zy:<C-R>=util#GetSearchCmd()<CR> '\b<C-R>=escape(@z, '!#%')
 vnoremap <Leader>ap "zy:<C-R>=util#GetSearchCmd()<CR> '\b<C-R>=escape(@z, '!#%')<CR>\b' <C-R>=util#FindProject() . g:ag_no_test<CR><CR>
 vnoremap <Leader>asp "zy:<C-R>=util#GetSearchCmd()<CR> '\b<C-R>=escape(@z, '!#%')<CR>\b' <C-R>=util#FindProject()<CR><CR>
 
-function! GrepperFindReference(cmd)
-  let g:grepper.jump = 1
-  let g:grepper.switch = 0
-  let g:grepper.open = 0
-  silent execute a:cmd
-  let g:grepper.jump = 0
-  let g:grepper.switch = 1
-  let g:grepper.open = 1
-  normal! zz
-endfunction
-
 function! GrepperFindThrift(dir)
   let word = expand('<cword>')
-  let cmd = "normal! :GrepperAg "
+  let cmd = "normal! :Ag "
         \ . shellescape('('
         \   . '^\s+\b' . word . '\b'
         \   . '|^(struct|enum) \b' . word . '\b'
@@ -394,18 +383,18 @@ function! GrepperFindThrift(dir)
         \   . '|^\s+\d+: .*\b' . word . '\b( +// .+)?$'
         \   . ')')
         \ . ' ' . a:dir . "\<CR>"
-  call GrepperFindReference(cmd)
+  silent execute cmd
 endfunction
 
 function! GrepperFindProtobuf(dir)
   let word = expand('<cword>')
-  let cmd = "normal! :GrepperAg "
+  let cmd = "normal! :Ag "
         \ . shellescape('('
         \   . '(message|rpc|enum) \b' . word . '\b'
         \   . '|\b' . word . '\b = '
         \   . ')')
         \ . ' ' . a:dir . "\<CR>"
-  call GrepperFindReference(cmd)
+  silent execute cmd
 endfunction
 
 " HLT
