@@ -96,8 +96,8 @@ let g:NERDTreeIgnore = [ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$', '\.o$', '
       \ '\.so$', '\.egg$', '^\.git$', '\.cmi', '\.cmo', '^tags$' ]
 
 " Closetag
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.php,*.js,*.jsx'
-let g:closetag_xhtml_filenames = '*.html,*.xhtml,*.phtml,*.php,*.js,*.jsx'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.php,*.js,*.jsx,*.ts,*.tsx'
+let g:closetag_xhtml_filenames = '*.html,*.xhtml,*.phtml,*.php,*.js,*.jsx,*.ts,*.tsx'
 let g:closetag_emptyTags_caseSensitive = 1
 let g:closetag_close_shortcut = '<Leader>c'
 
