@@ -109,7 +109,6 @@ set scrolloff=3
 set visualbell
 set shortmess+=A
 set foldlevelstart=99
-set pastetoggle=<F1>
 set ttimeoutlen=0
 set updatetime=100
 set encoding=utf-8
