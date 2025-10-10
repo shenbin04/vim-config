@@ -144,6 +144,7 @@ nmap T <Plug>(easymotion-tl)
 " Gundo
 nnoremap <Leader>u :GundoToggle<CR>
 let g:gundo_close_on_revert = 1
+let g:gundo_prefer_python3 = 1
 
 " Tagbar
 let g:tagbar_left = 1
