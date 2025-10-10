@@ -209,10 +209,13 @@ let g:lsp_highlight_references_enabled = 1
 highlight lspReference ctermbg=11 ctermfg=0
 call deoplete#custom#source('lsp', {'rank': 999, 'min_pattern_length': 0})
 
+let g:lsp_document_code_action_signs_hint = {'text': ''}
+
 nnoremap <silent> <Leader>ff :LspDefinition<CR>
 nnoremap <silent> <Leader>fp :LspHover<CR>
 nnoremap <silent> <Leader>fr :LspRename<CR>
 nnoremap <silent> <Leader>fu :LspReferences<CR>
+nnoremap <silent> <Leader>fc :LspCodeAction<CR>
 
 if executable('flow')
   autocmd User lsp_setup call lsp#register_server({
