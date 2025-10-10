@@ -235,14 +235,14 @@ else
   call util#EchoError('`typescript-language-server` not found.')
 endif
 
-if executable('pyls')
-  autocmd User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
+if executable('pyright-langserver')
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyright',
+        \ 'cmd': {server_info->['pyright-langserver', '--stdio']},
         \ 'whitelist': ['python'],
+        \ 'workspace_config': {server_info->{}},
+        \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), ['pyproject.toml', 'setup.py', 'requirements.txt', '.git']))}
         \ })
-else
-  call util#EchoError('`pyls` not found.')
 endif
 
 " Tern
