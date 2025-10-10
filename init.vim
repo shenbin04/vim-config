@@ -21,6 +21,7 @@ Plug 'elzr/vim-json', {'for': 'json'}
 Plug 'fakeezz/marvim'
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries', 'for': 'go'}
 Plug 'gerw/vim-HiLinkTrace'
+Plug 'github/copilot.vim'
 Plug 'godlygeek/tabular'
 Plug 'hail2u/vim-css3-syntax', {'for': 'css'}
 Plug 'hashivim/vim-terraform', {'for': 'terraform'}
@@ -50,6 +51,7 @@ Plug 'pangloss/vim-javascript', {'for': 'javascript'}
 Plug 'pedrohdz/vim-yaml-folds'
 Plug 'plasticboy/vim-markdown'
 Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
 Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind']}
 Plug 'shenbin04/deoplete-ternjs', {'for': 'javascript'}
 Plug 'shenbin04/fzf', {'do': {-> fzf#install()}}
@@ -58,7 +60,6 @@ Plug 'shenbin04/molokai'
 Plug 'shenbin04/tern_for_vim', {'do': 'npm i', 'for': 'javascript'}
 Plug 'shenbin04/vim-config-projects'
 Plug 'shenbin04/vim-flow-plus'
-Plug 'prabirshrestha/vim-lsp'
 Plug 'shenbin04/vim-related'
 Plug 'shenbin04/vim-snap'
 Plug 'shenbin04/vim-surround'
