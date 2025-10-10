@@ -58,7 +58,7 @@ Plug 'shenbin04/molokai'
 Plug 'shenbin04/tern_for_vim', {'do': 'npm i', 'for': 'javascript'}
 Plug 'shenbin04/vim-config-projects'
 Plug 'shenbin04/vim-flow-plus'
-Plug 'shenbin04/vim-lsp'
+Plug 'prabirshrestha/vim-lsp'
 Plug 'shenbin04/vim-related'
 Plug 'shenbin04/vim-snap'
 Plug 'shenbin04/vim-surround'
