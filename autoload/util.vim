@@ -362,5 +362,5 @@ function! util#GetVisualSelection() abort
 endfunction
 
 function! util#IsWideWin()
-  return winwidth(0) > winheight(0) * 4
+  return winwidth(0) > winheight(0) * 1
 endfunction
