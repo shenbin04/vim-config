@@ -497,7 +497,7 @@ function! js#GoToDefinition()
 
   if current_pos == initial_pos || (bufnr('%') == initial_buf && getline('.')[col('.') - 1] =~ '\W')
     call setpos('.', initial_pos)
-    silent! LspDefinition
+    LspDefinition
   endif
 endfunction
 
