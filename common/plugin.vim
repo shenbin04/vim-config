@@ -226,8 +226,6 @@ if executable('flow')
         \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), '.flowconfig'))},
         \ 'whitelist': ['javascript', 'javascript.jsx'],
         \ })
-else
-  call util#EchoError('`flow` not found.')
 endif
 
 if executable('typescript-language-server')
@@ -237,8 +235,6 @@ if executable('typescript-language-server')
         \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
         \ 'whitelist': ['typescript', 'typescript.tsx', 'typescriptreact'],
         \ })
-else
-  call util#EchoError('`typescript-language-server` not found.')
 endif
 
 if executable('pyright-langserver')
