@@ -63,7 +63,6 @@ Plug 'shenbin04/vim-flow-plus'
 Plug 'shenbin04/vim-related'
 Plug 'shenbin04/vim-snap'
 Plug 'shenbin04/vim-surround'
-Plug 'shenbin04/vim-test'
 Plug 'shenbin04/vim-webpack', {'for': 'javascript'}
 Plug 'sjl/gundo.vim'
 Plug 'solarnz/thrift.vim', {'for': 'thrift'}
@@ -85,6 +84,7 @@ Plug 'vim-python/python-syntax', {'for': 'python'}
 Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
 Plug 'vim-scripts/L9'
 Plug 'vim-scripts/nginx.vim', {'for': 'nginx'}
+Plug 'vim-test/vim-test'
 Plug 'vimjas/vim-python-pep8-indent'
 Plug 'w0rp/ale'
 Plug 'xolox/vim-misc'
