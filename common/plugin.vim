@@ -21,7 +21,7 @@ let g:vim_json_syntax_conceal = 0
 " Fugitive
 nnoremap <silent> <Leader>gs :call util#OpenFugitive()\|0Git<CR>
 nnoremap <silent> <Leader>gd :call util#GitDiff('')<CR>
-nnoremap <silent> <Leader>gm :call util#GitDiff('master')<CR>
+nnoremap <silent> <Leader>gm :call util#GitDiff('main')<CR>
 nnoremap <silent> <Leader>gb :Git blame<CR>
 nnoremap <silent> <Leader>grm :Gread! show master:%<CR>
 nnoremap <silent> <Leader>grh :Gread! show HEAD:%<CR>
