@@ -16,12 +16,9 @@ mason_lspconfig.setup({
 vim.lsp.config('vtsls', {
   on_attach = base.on_attach,
   capabilities = base.capabilities,
-  settings = {
-    typescript = {
-      format = { semicolons = "insert" },
-    },
-    javascript = {
-      format = { semicolons = "insert" },
-    },
-  },
+})
+
+vim.lsp.config('pyright', {
+  on_attach = base.on_attach,
+  capabilities = base.capabilities,
 })
