@@ -478,29 +478,6 @@ function! js#SendFileToTern()
   endif
 endfunction
 
-function! js#GoToDefinition()
-  let initial_pos = getpos('.')
-  let initial_buf = bufnr('%')
-
-  let current_pos = initial_pos
-  silent! TernDef
-  while getpos('.') != current_pos
-    let current_pos = getpos('.')
-    silent! TernDef
-  endwhile
-  let current_pos = getpos('.')
-
-  if current_pos == initial_pos || (bufnr('%') == initial_buf && getline('.')[col('.') - 1] =~ '\W')
-    call setpos('.', initial_pos)
-    silent! ALEGoToDefinition
-  endif
-
-  if current_pos == initial_pos || (bufnr('%') == initial_buf && getline('.')[col('.') - 1] =~ '\W')
-    call setpos('.', initial_pos)
-    LspDefinition
-  endif
-endfunction
-
 function! js#MovetoReact()
   call search('\v\zs}? from.*''react''', 'b')
 endfunction

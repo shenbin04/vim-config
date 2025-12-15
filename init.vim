@@ -3,7 +3,6 @@ call plug#begin('~/.vim/bundle')
 
 Plug 'HerringtonDarkholme/yats.vim', {'for': 'javascript'}
 Plug 'MaxMEllon/vim-jsx-pretty', {'for': 'javascript'}
-Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/neco-vim'
 Plug 'SirVer/ultisnips'
@@ -26,6 +25,11 @@ Plug 'godlygeek/tabular'
 Plug 'hail2u/vim-css3-syntax', {'for': 'css'}
 Plug 'hashivim/vim-terraform', {'for': 'terraform'}
 Plug 'honza/vim-snippets'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/nvim-cmp'
 Plug 'iamcco/markdown-preview.nvim', {'do': {-> mkdp#util#install()}}
 Plug 'jiangmiao/auto-pairs'
 Plug 'jparise/vim-graphql', {'for': 'graphql'}
@@ -38,7 +42,6 @@ Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-user'
 Plug 'kassio/neoterm'
 Plug 'keith/swift.vim', {'for': 'swift'}
-Plug 'lighttiger2505/deoplete-vim-lsp'
 Plug 'machakann/vim-highlightedyank'
 Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-grepper'
@@ -46,18 +49,16 @@ Plug 'mhinz/vim-startify'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/jsonc.vim'
+Plug 'neovim/nvim-lspconfig'
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'pangloss/vim-javascript', {'for': 'javascript'}
 Plug 'pedrohdz/vim-yaml-folds'
 Plug 'plasticboy/vim-markdown'
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
+Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind']}
-Plug 'shenbin04/deoplete-ternjs', {'for': 'javascript'}
 Plug 'shenbin04/fzf', {'do': {-> fzf#install()}}
 Plug 'shenbin04/fzf.vim'
 Plug 'shenbin04/molokai'
-Plug 'shenbin04/tern_for_vim', {'do': 'npm i', 'for': 'javascript'}
 Plug 'shenbin04/vim-config-projects'
 Plug 'shenbin04/vim-flow-plus'
 Plug 'shenbin04/vim-related'
@@ -87,6 +88,8 @@ Plug 'vim-scripts/nginx.vim', {'for': 'nginx'}
 Plug 'vim-test/vim-test'
 Plug 'vimjas/vim-python-pep8-indent'
 Plug 'w0rp/ale'
+Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'williamboman/mason.nvim'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 Plug 'yssl/QFEnter'
@@ -175,3 +178,9 @@ runtime! .vimrc.project
 
 " Color
 runtime common/color.vim
+
+lua <<EOF
+require("config.lsp")
+require("config.mason")
+require("config.cmp")
+EOF

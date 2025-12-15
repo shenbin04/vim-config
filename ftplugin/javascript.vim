@@ -54,11 +54,6 @@ nnoremap <buffer> <silent> <Leader>fe :call js#ShowError()<CR>
 
 nnoremap <buffer> <F3> :FlowCoverageToggle<CR>:call js#ShowFlowCoverage()<CR>
 
-nnoremap <buffer> <silent> <Leader>ff :call js#GoToDefinition()<CR>
-nnoremap <buffer> <silent> <Leader>fp :LspHover<CR>
-nnoremap <buffer> <silent> <Leader>fr :TernRename<CR>
-nnoremap <buffer> <silent> <Leader>fl :LspDefinition<CR>
-
 let b:AutoPairs = AutoPairsDefine({'|' : '|'})
 
 call js#SendFileToTern()

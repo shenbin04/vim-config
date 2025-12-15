@@ -177,82 +177,6 @@ noremap \{ :Tabularize /{<CR>
 noremap \\| :Tabularize /\|<CR>
 noremap \& :Tabularize /\(&\\|\\\\\)<CR>
 
-" Deoplete
-let g:deoplete#enable_at_startup = 1
-inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
-
-call deoplete#custom#source('_', {'matchers': ['matcher_full_fuzzy']})
-call deoplete#custom#source('look', {'min_pattern_length': 5})
-call deoplete#custom#source('emoji', {'filetypes': []})
-
-call deoplete#custom#var('buffer', {'require_same_filetype': 0})
-
-call deoplete#custom#option('auto_complete_delay', 100)
-call deoplete#custom#option('ignore_sources', {'css': ['look']})
-call deoplete#custom#option('keyword_patterns', {'javascript': '[a-zA-Z_@.-]\k*'})
-
-" deoplete-emoji
-function! ToggleDeopleteEmojiConverter()
-  call deoplete#custom#source('emoji', 'converters', [g:deoplete#sources#emoji#converter])
-endfunction
-
-" deoplete-ternjs
-let g:deoplete#sources#ternjs#case_insensitive = 1
-let g:deoplete#sources#ternjs#depths = 1
-let g:deoplete#sources#ternjs#docs = 1
-let g:deoplete#sources#ternjs#filter = 0
-let g:deoplete#sources#ternjs#timeout = 10
-let g:deoplete#sources#ternjs#types = 1
-call deoplete#custom#source('tern', {'rank': 50})
-
-" deoplete-vim-lsp
-let g:lsp_diagnostics_enabled = 0
-let g:lsp_highlight_references_enabled = 1
-highlight lspReference ctermbg=11 ctermfg=0
-call deoplete#custom#source('lsp', {'rank': 999, 'min_pattern_length': 1})
-
-let g:lsp_document_code_action_signs_hint = {'text': ''}
-
-nnoremap <silent> <Leader>ff :LspDefinition<CR>
-nnoremap <silent> <Leader>fp :LspHover<CR>
-nnoremap <silent> <Leader>fr :LspRename<CR>
-nnoremap <silent> <Leader>fu :LspReferences<CR>
-nnoremap <silent> <Leader>fc :LspCodeAction<CR>
-
-if executable('flow')
-  autocmd User lsp_setup call lsp#register_server({
-        \ 'name': 'flow',
-        \ 'cmd': {server_info->['flow', 'lsp', '--from', 'vim-lsp']},
-        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), '.flowconfig'))},
-        \ 'whitelist': ['javascript', 'javascript.jsx'],
-        \ })
-endif
-
-if executable('typescript-language-server')
-  autocmd User lsp_setup call lsp#register_server({
-        \ 'name': 'typescript support using typescript-language-server',
-        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
-        \ 'whitelist': ['typescript', 'typescript.tsx', 'typescriptreact'],
-        \ })
-endif
-
-if executable('pyright-langserver')
-  au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyright',
-        \ 'cmd': {server_info->['pyright-langserver', '--stdio']},
-        \ 'whitelist': ['python'],
-        \ 'workspace_config': {server_info->{}},
-        \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), ['pyproject.toml', 'setup.py', 'requirements.txt', '.git']))}
-        \ })
-endif
-
-" Tern
-let g:tern#command = [$HOME . '/.vim/bundle/tern_for_vim/node_modules/.bin/tern']
-let g:tern#arguments = ['--persistent']
-let g:tern_show_signature_in_pum = 1
-let g:tern_request_timeout = 10
-
 " Notes
 let g:notes_directories = ['$HOME/.vim/notes']
 nnoremap <Leader>er :RecentNote<CR>
@@ -317,7 +241,6 @@ let g:toggle_flags = [
       \ {'name': 'g:neoterm_default_mod', 'default': 'vertical botright', 'value': 'botright', 'use_default': util#IsWideWin() },
       \ {'name': 'g:test#javascript#jest#project_coverage', 'default': 0, 'value': 1},
       \ {'name': 'g:test#python#pants', 'default': 0, 'value': 1},
-      \ {'name': 'g:deoplete#sources#emoji#converter', 'default': '', 'value': 'converter_emoji', 'callback': function('ToggleDeopleteEmojiConverter')},
       \]
 
 for index in range(len(g:toggle_flags))
