@@ -262,6 +262,12 @@ function! util#GrepByWord(by_word, path)
   call histadd('cmd', cmd)
 endfunction
 
+function! util#GrepByElement(path)
+  let cmd = util#GetSearchCmd() . " \"\\<" . expand('<cword>') . "\" " . a:path
+  execute "normal! :" . cmd . "\<CR>"
+  call histadd('cmd', cmd)
+endfunction
+
 function! util#ag(args, bang)
   let quote_query_match = matchlist(a:args, '\v([''"].{-}[''"])(.*)')
 

@@ -294,6 +294,7 @@ nnoremap <Leader>ac :<C-R>=util#GetSearchCmd()<CR> <C-R>=expand('<cword>')<CR>
 
 nnoremap <Leader>ap :call util#GrepByWord(1, util#FindProject() . g:ag_no_test)<CR>
 nnoremap <Leader>asp :call util#GrepByWord(1, util#FindProject())<CR>
+nnoremap <Leader>au :call util#GrepByElement(util#FindProject() . g:ag_no_test)<CR>
 
 vnoremap <Leader>aa "zy:<C-R>=util#GetSearchCmd()<CR> '\b<C-R>=escape(@z, '!#%')<CR>\b' 
 vnoremap <Leader>ap "zy:<C-R>=util#GetSearchCmd()<CR> '\b<C-R>=escape(@z, '!#%')<CR>\b' <C-R>=util#FindProject() . g:ag_no_test<CR><CR>
