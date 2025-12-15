@@ -77,6 +77,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails', {'for': 'ruby'}
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
+Plug 'uga-rosa/cmp-dictionary'
 Plug 'ujihisa/neco-look'
 Plug 'urbainvaes/vim-remembrall'
 Plug 'vim-airline/vim-airline'

@@ -26,7 +26,13 @@ cmp.setup({
   }),
   sources = {
     { name = "nvim_lsp" },
-    { name = "buffer" },
     { name = "path" },
+    { name = "buffer" },
+    { name = "dictionary", keyword_length = 2 },
   },
+})
+
+require("cmp_dictionary").setup({
+  paths = { "/usr/share/dict/words" },
+  exact_length = 2,
 })
