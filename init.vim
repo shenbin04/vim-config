@@ -64,7 +64,6 @@ Plug 'shenbin04/vim-flow-plus'
 Plug 'shenbin04/vim-related'
 Plug 'shenbin04/vim-snap'
 Plug 'shenbin04/vim-surround'
-Plug 'shenbin04/vim-webpack', {'for': 'javascript'}
 Plug 'sjl/gundo.vim'
 Plug 'solarnz/thrift.vim', {'for': 'thrift'}
 Plug 'svermeulen/vim-yoink'

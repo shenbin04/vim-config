@@ -92,7 +92,6 @@ silent! let g:plugs['vim-textobj-python'].commit = '06de233e805b6bcfd0fde7591c64
 silent! let g:plugs['vim-textobj-user'].commit = '41a675ddbeefd6a93664a4dc52f302fe3086a933'
 silent! let g:plugs['vim-tmux-navigator'].commit = '8fdf78292bb3aed1c9de880be7e03efdbf23d306'
 silent! let g:plugs['vim-unimpaired'].commit = 'db65482581a28e4ccf355be297f1864a4e66985c'
-silent! let g:plugs['vim-webpack'].commit = '87834594df547abffdc602b07326cfee4a71b9ed'
 silent! let g:plugs['vim-yaml-folds'].commit = '890ccd8e5370808d569e96dbb06cbeca2cf5993a'
 silent! let g:plugs['vim-yoink'].commit = '89ed6934679fdbc3c20f552b50b1f869f624cd22'
 silent! let g:plugs['yats.vim'].commit = '9507e827a1bfa9d136ca8f6539814a9597c13b29'
