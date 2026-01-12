@@ -21,7 +21,7 @@ local on_attach = function(client, bufnr)
 
   -- Actions
   vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-  vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+  vim.keymap.set("n", "<leader>cc", vim.lsp.buf.code_action, opts)
 
   -- Diagnostics
   vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
