@@ -1,7 +1,6 @@
 " Plug
 call plug#begin('~/.vim/bundle')
 
-Plug 'HerringtonDarkholme/yats.vim', {'for': 'javascript'}
 Plug 'MaxMEllon/vim-jsx-pretty', {'for': 'javascript'}
 Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/neco-vim'
