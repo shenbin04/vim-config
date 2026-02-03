@@ -38,9 +38,9 @@ autocmd User fugitive
 
 " Gitgutter
 let g:gitgutter_max_signs = 1000
-nmap <Leader>gah <Plug>GitGutterStageHunk
-nmap <Leader>gp <Plug>GitGutterPreviewHunk
-nmap <Leader>gu <Plug>GitGutterUndoHunk
+let g:gitgutter_map_keys = 0
+nmap [c <Plug>(GitGutterPrevHunk)
+nmap ]c <Plug>(GitGutterNextHunk)
 
 " Yoink
 let g:yoinkMaxItems = 200
