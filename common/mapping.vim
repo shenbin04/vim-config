@@ -93,6 +93,7 @@ vnoremap <silent> i^ :normal! t^vT^<CR>
 " Open Source Code
 noremap <silent> <Leader>od :call util#OpenDiffusion()<CR>
 noremap <silent> <Leader>os :call util#OpenStash()<CR>
+noremap <silent> <Leader>og :GBrowse<CR>
 
 " Open Html
 noremap <silent> <Leader>oh :call util#OpenHtml()<CR>
