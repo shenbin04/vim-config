@@ -8,6 +8,7 @@ Plug 'SirVer/ultisnips'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'alvan/vim-closetag'
+Plug 'amadeus/vim-mjml'
 Plug 'b4winckler/vim-objc', {'for': 'objc'}
 Plug 'bps/vim-textobj-python', {'for': 'python'}
 Plug 'cakebaker/scss-syntax.vim', {'for': 'css'}
