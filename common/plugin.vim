@@ -111,11 +111,11 @@ let g:ale_linters = {
       \   'javascript': ['eslint', 'flow-language-server'],
       \   'typescript': ['eslint'],
       \   'typescriptreact': ['eslint'],
-      \   'python': ['pylint', 'flake8'],
+      \   'python': ['ruff', 'pylint', 'flake8'],
       \   'css': ['stylelint'],
       \}
 let g:ale_fixers = {
-      \   'python': ['isort', 'black'],
+      \   'python': ['isort', 'ruff_format', 'black'],
       \   'javascript': ['prettier'],
       \   'typescript': ['prettier'],
       \   'typescriptreact': ['prettier'],
