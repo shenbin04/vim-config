@@ -16,11 +16,6 @@ if empty(colorscheme)
   hi! link NERDTreeOpenable GruvboxGray
   hi! link NERDTreeClosable GruvboxOrange
   hi! link pythonDottedName GruvboxOrange
-  hi! link semshiAttribute GruvboxBlue
-  hi! link semshiBuiltin GruvboxRed
-  hi! link semshiParameter GruvboxYellow
-  hi! link semshiSelf GruvboxOrange
-  hi! link semshiUnresolved semshiErrorSign
 elseif colorscheme == 'molokai'
   hi! GitGutterAdd ctermfg=28 ctermbg=234
   hi! GitGutterAddLine ctermfg=28 ctermbg=234
