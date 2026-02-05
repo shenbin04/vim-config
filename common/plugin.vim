@@ -125,9 +125,9 @@ let g:ale_fixers = {
       \   'html': ['prettier'],
       \   'sql': ['pgformatter'],
       \}
+let g:ale_python_auto_uv = 1
+let g:ale_python_auto_virtualenv = 1
 let g:ale_python_pylint_change_directory = 0
-let g:ale_python_pylint_use_global = 1
-let g:ale_python_black_options = '--line-length 120'
 let g:ale_python_flake8_options = '--ignore=E101,E501,W291,W292,W293,W503'
 let g:ale_sql_pgformatter_options = '%s'
 let g:ale_yaml_yamllint_options = '-d "{extends: relaxed}"'
