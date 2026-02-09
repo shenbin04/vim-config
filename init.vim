@@ -50,6 +50,7 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/jsonc.vim'
 Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'pangloss/vim-javascript', {'for': 'javascript'}
 Plug 'pedrohdz/vim-yaml-folds'
 Plug 'plasticboy/vim-markdown'
