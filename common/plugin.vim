@@ -185,8 +185,9 @@ nnoremap <Leader>en :MostRecentNote<CR>
 " Vim Test
 let g:test#strategy = 'neoterm'
 let g:test#preserve_screen = 1
-nnoremap <silent> <Leader>rl :call util#Topen()<CR>:TestNearest<CR>
 nnoremap <silent> <Leader>rr :call util#Topen()<CR>:TestFile<CR>
+nnoremap <silent> <Leader>rl :call util#Topen()<CR>:TestNearest<CR>
+nnoremap <silent> <Leader>rd :call util#Topen()<CR>:TestNearest -s<CR>
 
 " Highlightedyank
 if !exists('##TextYankPost')

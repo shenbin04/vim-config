@@ -4,7 +4,6 @@ setlocal formatprg=black\ --quiet\ -
 
 nnoremap <buffer> <silent> <Leader>ct :call python#NewTestFile()<CR>
 
-nnoremap <buffer> <silent> <Leader>rd :call python#DebugTestFile()<CR>
 nnoremap <buffer> <silent> <Leader>rr :call python#RunTestFile()<CR>
 
 nnoremap <buffer> <silent> = :set operatorfunc=util#yapfOperator<CR>g@
