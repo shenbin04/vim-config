@@ -115,7 +115,7 @@ let g:ale_linters = {
       \   'css': ['stylelint'],
       \}
 let g:ale_fixers = {
-      \   'python': ['isort', 'ruff_format', 'black'],
+      \   'python': ['isort', 'ruff', 'black'],
       \   'javascript': ['prettier'],
       \   'typescript': ['prettier'],
       \   'typescriptreact': ['prettier'],
@@ -127,6 +127,8 @@ let g:ale_fixers = {
       \}
 let g:ale_python_auto_uv = 1
 let g:ale_python_auto_virtualenv = 1
+let g:ale_python_ruff_auto_uv = 1
+let g:ale_python_pylint_auto_uv = 1
 let g:ale_python_pylint_change_directory = 0
 let g:ale_python_flake8_options = '--ignore=E101,E501,W291,W292,W293,W503'
 let g:ale_sql_pgformatter_options = '%s'
