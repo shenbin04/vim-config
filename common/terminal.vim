@@ -1,8 +1,3 @@
-tnoremap <C-h> <C-\><C-n><C-w>h<CR>
-tnoremap <C-j> <C-\><C-n><C-w>j<CR>
-tnoremap <C-k> <C-\><C-n><C-w>k<CR>
-tnoremap <C-l> <C-\><C-n><C-w>l<CR>
-
 autocmd TermOpen * call s:OnTermOpen()
 autocmd FileType fzf call s:ConfigFZFMapping()
 autocmd FileType neoterm call s:ConfigNeoTerm()
@@ -37,6 +32,11 @@ function! s:ConfigFZFMapping()
 endfunction
 
 function! s:ConfigNeoTerm()
- setlocal nocursorline nocursorcolumn
- tnoremap <buffer> <Leader><ESC> <C-\><C-n>
+  setlocal nocursorline nocursorcolumn
+  tnoremap <buffer> <Leader><ESC> <C-\><C-n>
+  tnoremap <buffer> <C-h> <C-\><C-n>:TmuxNavigateLeft<CR>
+  tnoremap <buffer> <C-j> <C-\><C-n>:TmuxNavigateDown<CR>
+  tnoremap <buffer> <C-k> <C-\><C-n>:TmuxNavigateUp<CR>
+  tnoremap <buffer> <C-l> <C-\><C-n>:TmuxNavigateRight<CR>
+  tnoremap <buffer> <C-\> <C-\><C-n>:TmuxNavigatePrevious<CR>
 endfunction
